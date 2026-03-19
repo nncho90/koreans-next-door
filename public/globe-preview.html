@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Globe Style Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; font-family: system-ui, sans-serif; color: white; padding: 40px 24px 60px; }
+
+    h1 { text-align: center; font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase; color: #ffd966; margin-bottom: 6px; }
+    .sub { text-align: center; color: #555; font-size: 12px; margin-bottom: 48px; }
+
+    .row { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+
+    .card { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+    /* The globe = a circle with the texture + a radial-gradient shading overlay to make it look spherical */
+    .globe {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .globe img {
+      position: absolute;
+      top: 0; left: -20%;
+      width: 140%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Sphere shading */
+    .globe::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.12) 0%, transparent 55%),
+                  radial-gradient(circle at 70% 70%, rgba(0,0,0,0.5) 0%, transparent 60%);
+    }
+
+    /* Option C has a light background behind the globe */
+    .card.opt-c {
+      background: #fafaf8;
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .card.opt-c .label { color: #1a1a1a; }
+    .card.opt-c .desc { color: #666; }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: -6px;
+    }
+
+    .label { font-size: 16px; font-weight: 700; }
+    .desc { font-size: 12px; color: #777; text-align: center; max-width: 220px; line-height: 1.6; }
+
+    /* Pins overlay (purely decorative) */
+    .pin {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffd966;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      box-shadow: 0 0 0 2px rgba(255,217,102,0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>Globe Style Options</h1>
+  <p class="sub">All three use the same pins &amp; layout — just the texture and background changes</p>
+
+  <div class="row">
+
+    <!-- Option A: Night (current) -->
+    <div class="card opt-a">
+      <div class="badge" style="background:#ffd96620; color:#ffd966">Current</div>
+      <div class="globe">
+        <img src="https://unpkg.com/three-globe/example/img/earth-night.jpg" alt="Night Earth" />
+        <div class="pin" style="top:38%; left:27%"></div>
+        <div class="pin" style="top:31%; left:50%"></div>
+        <div class="pin" style="top:44%; left:68%"></div>
+        <div class="pin" style="top:55%; left:80%"></div>
+        <div class="pin" style="top:60%; left:42%"></div>
+      </div>
+      <div class="label">A — Night Lights</div>
+      <div class="desc">City lights on a dark planet. Dramatic. Feels more tech/premium — less community-friendly.</div>
+    </div>
+
+    <!-- Option B: Day, dark bg -->
+    <div class="card opt-b">
+      <div class="badge" style="background:#74b9ff20; color:#74b9ff">Brighter</div>
+      <div class="globe">
+        <img src="https://unpkg.com/three-globe/example/img/earth-day.jpg" alt="Day Earth" />
+        <div class="pin" style="top:38%; left:27%"></div>
+        <div class="pin" style="top:31%; left:50%"></div>
+        <div class="pin" style="top:44%; left:68%"></div>
+        <div class="pin" style="top:55%; left:80%"></div>
+        <div class="pin" style="top:60%; left:42%"></div>
+      </div>
+      <div class="label">B — Blue Marble</div>
+      <div class="desc">Classic NASA daytime view. Blue oceans, green land. Still on dark background — familiar and cheerful.</div>
+    </div>
+
+    <!-- Option C: Day, light bg -->
+    <div class="card opt-c">
+      <div class="badge" style="background:#ff767520; color:#ff7675">Friendliest</div>
+      <div class="globe" style="box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+        <img src="https://unpkg.com/three-globe/example/img/earth-day.jpg" alt="Day Earth" />
+        <div class="pin" style="top:38%; left:27%"></div>
+        <div class="pin" style="top:31%; left:50%"></div>
+        <div class="pin" style="top:44%; left:68%"></div>
+        <div class="pin" style="top:55%; left:80%"></div>
+        <div class="pin" style="top:60%; left:42%"></div>
+      </div>
+      <div class="label">C — Pastel Friendly</div>
+      <div class="desc">Same daytime globe, but the whole section goes light/warm. Feels like a travel poster. Warmest, most approachable.</div>
+    </div>
+
+    <!-- Option D: Topographic / Colorful -->
+    <div class="card opt-d">
+      <div class="badge" style="background:#55efc420; color:#00b894">Most Colorful</div>
+      <div class="globe">
+        <img src="https://unpkg.com/three-globe/example/img/earth-topology.jpg" alt="Topology Earth" />
+        <div class="pin" style="top:38%; left:27%"></div>
+        <div class="pin" style="top:31%; left:50%"></div>
+        <div class="pin" style="top:44%; left:68%"></div>
+        <div class="pin" style="top:55%; left:80%"></div>
+        <div class="pin" style="top:60%; left:42%"></div>
+      </div>
+      <div class="label">D — Topographic</div>
+      <div class="desc">Colorful terrain map — green lowlands, brown highlands, blue oceans. More illustrated-looking, less photographic.</div>
+    </div>
+
+  </div>
+</body>
+</html>
