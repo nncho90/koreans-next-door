@@ -129,26 +129,7 @@ interface MemberPin {
   instagram?: string;
 }
 
-const members: MemberPin[] = [
-  { lat: 41.88, lng: -87.63, name: "Jake", city: "Chicago", country: "USA", note: "Loves Korean BBQ more than anyone should", instagram: "jakeinseoul" },
-  { lat: 43.65, lng: -79.38, name: "Emily", city: "Toronto", country: "Canada", note: "Found her people on the first KND night", instagram: "em_seoul" },
-  { lat: -41.29, lng: 174.78, name: "Liam", city: "Wellington", country: "New Zealand", note: "Traded sheep for subway rides" },
-  { lat: 51.51, lng: -0.13, name: "Sophie", city: "London", country: "UK", note: "English teacher who stayed for the food", instagram: "sophieinkorea" },
-  { lat: -33.87, lng: 151.21, name: "Max", city: "Sydney", country: "Australia", note: "Sydney surfer turned Seoul local" },
-  { lat: 52.52, lng: 13.41, name: "Lukas", city: "Berlin", country: "Germany", note: "Came for work, staying for the culture" },
-  { lat: 48.86, lng: 2.35, name: "Camille", city: "Paris", country: "France", note: "Swapped croissants for 붕어빵" },
-  { lat: -23.55, lng: -46.63, name: "Rafael", city: "São Paulo", country: "Brazil", note: "Brings São Paulo energy everywhere he goes" },
-  { lat: 14.6, lng: 120.98, name: "Maria", city: "Manila", country: "Philippines", note: "Making KND feel like home every time", instagram: "maria.mnl" },
-  { lat: 19.08, lng: 72.88, name: "Priya", city: "Mumbai", country: "India", note: "Found her Seoul tribe through KND" },
-  { lat: 35.68, lng: 139.69, name: "Yuki", city: "Tokyo", country: "Japan", note: "Just across the water, whole world different" },
-  { lat: 1.35, lng: 103.82, name: "Wei Lin", city: "Singapore", country: "Singapore", note: "Swapped tropical heat for Korean winters" },
-  { lat: 6.52, lng: 3.38, name: "Ade", city: "Lagos", country: "Nigeria", note: "Lagos energy meets Seoul hustle" },
-  { lat: 19.43, lng: -99.13, name: "Carlos", city: "Mexico City", country: "Mexico", note: "Mexican spice, Korean fire — perfect match" },
-  { lat: 37.57, lng: 126.98, name: "Minjun", city: "Seoul", country: "South Korea", note: "Local neighbor making everyone feel at home" },
-  { lat: -33.93, lng: 18.42, name: "Thandi", city: "Cape Town", country: "South Africa", note: "Ubuntu spirit all the way in Seoul" },
-  { lat: 59.33, lng: 18.07, name: "Erik", city: "Stockholm", country: "Sweden", note: "Stockholm calm meets Seoul energy" },
-  { lat: 25.2, lng: 55.27, name: "Omar", city: "Dubai", country: "UAE", note: "Cosmopolitan in every city he lands in" },
-];
+const members: MemberPin[] = [];
 
 // Combobox for city selection
 function CityCombobox({
@@ -412,12 +393,12 @@ export default function Globe() {
 
   const getPointRadius = useCallback((point: object) => {
     const { name } = point as MemberPin;
-    return name === activeMember.name ? 0.45 : 0.25;
+    return name === activeMember.name ? 0.5 : 0.3;
   }, [activeMember]);
 
   const getPointColor = useCallback((point: object) => {
     const { name } = point as MemberPin;
-    return name === activeMember.name ? "#ffd966" : "rgba(255,217,102,0.35)";
+    return name === activeMember.name ? "#ffd966" : "rgba(255,217,102,0.4)";
   }, [activeMember]);
 
   if (!mounted) return null;
@@ -472,9 +453,16 @@ export default function Globe() {
                 pointsData={allMembers}
                 pointLat="lat"
                 pointLng="lng"
-                pointAltitude={0.12}
+                pointAltitude={0}
                 pointRadius={getPointRadius}
                 pointColor={getPointColor}
+                ringsData={activeMember ? [activeMember] : []}
+                ringLat="lat"
+                ringLng="lng"
+                ringColor={() => (t: number) => `rgba(255,217,102,${1 - t})`}
+                ringMaxRadius={4}
+                ringPropagationSpeed={1.5}
+                ringRepeatPeriod={1200}
                 enablePointerInteraction={false}
                 onGlobeReady={handleGlobeReady}
               />
@@ -483,39 +471,46 @@ export default function Globe() {
             {/* Auto-cycling profile card */}
             <div className="flex flex-col gap-6">
               <div className="relative min-h-[180px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndex}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
-                  >
-                    <div className="mb-1 flex items-center gap-2">
-                      <span className="inline-block h-2 w-2 rounded-full bg-[#ffd966]" />
-                      <span className="text-xs uppercase tracking-widest text-zinc-400">
-                        {activeMember.city}, {activeMember.country}
-                      </span>
-                    </div>
-                    <p className="text-2xl font-bold text-zinc-950">{activeMember.name}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-zinc-500">{activeMember.note}</p>
-                    {activeMember.instagram && (
-                      <a
-                        href={`https://instagram.com/${activeMember.instagram}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-zinc-700"
-                      >
-                        <InstagramLogo size={14} />
-                        {activeMember.instagram}
-                      </a>
-                    )}
-                  </motion.div>
-                </AnimatePresence>
+                {allMembers.length === 0 ? (
+                  <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-6 text-center">
+                    <p className="text-sm text-zinc-400">Be the first to add your pin!</p>
+                  </div>
+                ) : (
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeIndex}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -12 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+                    >
+                      <div className="mb-1 flex items-center gap-2">
+                        <span className="inline-block h-2 w-2 rounded-full bg-[#ffd966]" />
+                        <span className="text-xs uppercase tracking-widest text-zinc-400">
+                          {activeMember.city}, {activeMember.country}
+                        </span>
+                      </div>
+                      <p className="text-2xl font-bold text-zinc-950">{activeMember.name}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-zinc-500">{activeMember.note}</p>
+                      {activeMember.instagram && (
+                        <a
+                          href={`https://instagram.com/${activeMember.instagram}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-zinc-700"
+                        >
+                          <InstagramLogo size={14} />
+                          {activeMember.instagram}
+                        </a>
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
+                )}
               </div>
 
               {/* Dot indicators */}
+              {allMembers.length > 0 && (
               <div className="flex flex-wrap gap-1.5">
                 {allMembers.map((_, i) => (
                   <button
@@ -534,6 +529,7 @@ export default function Globe() {
                   />
                 ))}
               </div>
+              )}
 
               <button
                 onClick={() => setShowModal(true)}

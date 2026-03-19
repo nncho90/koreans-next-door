@@ -10,7 +10,7 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Do I need to speak Korean to join?",
-    a: "Nope. A lot of us are still learning too. Events are in English, and our language exchange nights are open to total beginners. No pressure at all.",
+    a: "Nope. A lot of us are still learning too. Events are bilingual — English and Korean — and our language exchange nights are open to total beginners. No pressure at all.",
   },
   {
     q: "Are there any fees or membership requirements?",
