@@ -22,7 +22,7 @@ export default function Contact() {
         </h2>
         <p className="mb-10 text-lg leading-relaxed text-[#1a1a1a]/70">
           Come as a guest, stay as a neighbor.<br className="hidden md:block" /> Follow us on Instagram or join
-          our KakaoTalk group to find out about upcoming events.
+          our KakaoTalk group to find out what's up.
         </p>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">

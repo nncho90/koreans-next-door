@@ -7,7 +7,6 @@ import { X, InstagramLogo, MapPin, CaretUpDown } from "@phosphor-icons/react";
 
 const GlobeGL = dynamic(() => import("react-globe.gl"), { ssr: false });
 
-const FORMSPREE_ID = "xojkrdbg";
 
 // Cities with coordinates for pin placement
 const CITIES: { name: string; country: string; lat: number; lng: number }[] = [
@@ -221,7 +220,7 @@ function CityCombobox({
   );
 }
 
-function AddPinModal({ onClose }: { onClose: () => void }) {
+function AddPinModal({ onClose, onPinAdded }: { onClose: () => void; onPinAdded: (pin: MemberPin) => void }) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [form, setForm] = useState({ name: "", city: "", country: "", lat: 0, lng: 0, note: "", instagram: "" });
 
@@ -230,20 +229,26 @@ function AddPinModal({ onClose }: { onClose: () => void }) {
     if (!form.city) return;
     setStatus("loading");
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch("/api/pins", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name,
           city: form.city,
           country: form.country,
-          coordinates: `${form.lat}, ${form.lng}`,
+          lat: form.lat,
+          lng: form.lng,
           note: form.note,
-          instagram: form.instagram || "—",
+          instagram: form.instagram || undefined,
         }),
       });
-      if (res.ok) setStatus("success");
-      else setStatus("error");
+      if (res.ok) {
+        const newPin = await res.json();
+        onPinAdded(newPin);
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -268,7 +273,7 @@ function AddPinModal({ onClose }: { onClose: () => void }) {
         <div className="mb-6 flex items-start justify-between">
           <div>
             <h3 className="text-xl font-bold text-white">Add your pin</h3>
-            <p className="mt-1 text-sm text-white/40">We&apos;ll add you to the globe manually after review.</p>
+            <p className="mt-1 text-sm text-white/40">You&apos;ll appear on the globe right away.</p>
           </div>
           <button onClick={onClose} className="text-white/40 transition-colors hover:text-white">
             <X size={20} />
@@ -279,7 +284,7 @@ function AddPinModal({ onClose }: { onClose: () => void }) {
           <div className="py-8 text-center">
             <p className="mb-2 text-2xl">🗺️</p>
             <p className="font-semibold text-white">You&apos;re on the map!</p>
-            <p className="mt-1 text-sm text-white/40">We&apos;ll add your pin soon. Welcome, neighbor.</p>
+            <p className="mt-1 text-sm text-white/40">You&apos;re on the globe. Welcome, neighbor.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -351,6 +356,7 @@ export default function Globe() {
   const [mounted, setMounted] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [dynamicPins, setDynamicPins] = useState<MemberPin[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const globeRef = useRef<any>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -363,20 +369,31 @@ export default function Globe() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    fetch("/api/pins")
+      .then(r => r.json())
+      .then((pins: MemberPin[]) => setDynamicPins(pins))
+      .catch(() => {});
+  }, []);
+
+  const allMembers = [...members, ...dynamicPins];
+
   // Auto-cycle through members
   useEffect(() => {
     intervalRef.current = setInterval(() => {
-      setActiveIndex(i => (i + 1) % members.length);
+      setActiveIndex(i => (i + 1) % allMembers.length);
     }, 3000);
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allMembers.length]);
 
   // Spin globe to active member's location
   useEffect(() => {
     if (!globeRef.current) return;
-    const m = members[activeIndex];
+    const m = allMembers[activeIndex];
+    if (!m) return;
     globeRef.current.pointOfView({ lat: m.lat, lng: m.lng, altitude: 2.2 }, 1200);
-  }, [activeIndex]);
+  }, [activeIndex, allMembers]);
 
   const handleGlobeReady = useCallback(() => {
     if (!globeRef.current) return;
@@ -391,7 +408,7 @@ export default function Globe() {
     globeRef.current.pointOfView({ lat: m.lat, lng: m.lng, altitude: 2.2 }, 0);
   }, []);
 
-  const activeMember = members[activeIndex];
+  const activeMember = allMembers[activeIndex] ?? members[0];
 
   const getPointRadius = useCallback((point: object) => {
     const { name } = point as MemberPin;
@@ -422,7 +439,7 @@ export default function Globe() {
 
         {isMobile ? (
           <div className="flex flex-col gap-3">
-            {members.map(m => (
+            {allMembers.map(m => (
               <div key={m.name} className="flex items-start gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-3">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-[#c9a800]" weight="fill" />
                 <div>
@@ -452,7 +469,7 @@ export default function Globe() {
                 globeImageUrl="https://unpkg.com/three-globe/example/img/earth-day.jpg"
                 atmosphereColor="#a8d8ea"
                 atmosphereAltitude={0.15}
-                pointsData={members}
+                pointsData={allMembers}
                 pointLat="lat"
                 pointLng="lng"
                 pointAltitude={0.12}
@@ -500,14 +517,14 @@ export default function Globe() {
 
               {/* Dot indicators */}
               <div className="flex flex-wrap gap-1.5">
-                {members.map((_, i) => (
+                {allMembers.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => {
                       setActiveIndex(i);
                       if (intervalRef.current) clearInterval(intervalRef.current);
                       intervalRef.current = setInterval(
-                        () => setActiveIndex(n => (n + 1) % members.length),
+                        () => setActiveIndex(n => (n + 1) % allMembers.length),
                         3000
                       );
                     }}
@@ -530,7 +547,15 @@ export default function Globe() {
       </div>
 
       <AnimatePresence>
-        {showModal && <AddPinModal onClose={() => setShowModal(false)} />}
+        {showModal && (
+          <AddPinModal
+            onClose={() => setShowModal(false)}
+            onPinAdded={(pin) => {
+              setDynamicPins(prev => [...prev, pin]);
+              setActiveIndex(allMembers.length); // highlight the new pin
+            }}
+          />
+        )}
       </AnimatePresence>
     </section>
   );
