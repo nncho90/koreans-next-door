@@ -108,7 +108,7 @@ export default function MissionStory() {
           </div>
           <div className="rounded-2xl bg-[#ffd966] p-8 text-center">
             <h2 className="mb-8 text-3xl font-bold text-[#1a1a1a]">
-              Hey, we&apos;re your neighbors.
+              Hi, we&apos;re your neighbors.
             </h2>
             <div className="flex flex-col gap-8 text-left">
               {pillars.map((p) => (
@@ -171,9 +171,6 @@ export default function MissionStory() {
           <h2 className="text-4xl font-bold text-[#1a1a1a] md:text-6xl lg:text-7xl">
             Knock knock.
           </h2>
-          <p className="mt-4 text-xl text-[#1a1a1a]/70 md:text-2xl">
-            Hi, we&apos;re your neighbors.
-          </p>
         </motion.div>
 
         {/* Phase 4: "Hey, we're your neighbors." + pillars */}
@@ -182,7 +179,7 @@ export default function MissionStory() {
           style={{ opacity: phase4Opacity }}
         >
           <h2 className="text-4xl font-bold text-[#1a1a1a] md:text-5xl lg:text-6xl">
-            Hey, we&apos;re your neighbors.
+            Hi, we&apos;re your neighbors.
           </h2>
           <div className="grid max-w-5xl gap-8 md:grid-cols-3">
             {pillars.map((p, i) => (
