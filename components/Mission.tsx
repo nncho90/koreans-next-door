@@ -2,7 +2,7 @@ const pillars = [
   {
     icon: "🏘️",
     title: "Just neighbors",
-    body: "Not a formal organization or a tour agency. Just a group of locals who believe hospitality turns an unfamiliar city into a familiar home.",
+    body: "Not a formal organization or a tour agency. Just a group of friends who believe hospitality turns an unfamiliar city into a familiar home.",
   },
   {
     icon: "🌍",

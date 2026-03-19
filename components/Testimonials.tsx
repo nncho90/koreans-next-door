@@ -36,9 +36,9 @@ const quotes: { quote: ReactNode; name: string; detail: string; photo: string }[
         <strong className="text-zinc-950">I met great people through KND</strong>.
       </>
     ),
-    name: "Sammie",
+    name: "Sammi",
     detail: "Toronto, Canada",
-    photo: "/photos/testimonial-sammie.png",
+    photo: "/photos/testimonial-sammi.png",
   },
 ];
 

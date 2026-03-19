@@ -7,7 +7,7 @@ const pillars = [
   {
     icon: "\u{1F3D8}\uFE0F",
     title: "Just neighbors",
-    body: "Not a formal organization or a tour agency. Just a group of locals who believe hospitality turns an unfamiliar city into a familiar home.",
+    body: "Not a formal organization or a tour agency. Just a group of friends who believe hospitality turns an unfamiliar city into a familiar home.",
   },
   {
     icon: "\u{1F30D}",
@@ -169,8 +169,11 @@ export default function MissionStory() {
           style={{ opacity: phase3TextOpacity }}
         >
           <h2 className="text-4xl font-bold text-[#1a1a1a] md:text-6xl lg:text-7xl">
-            Then someone knocks.
+            Knock knock.
           </h2>
+          <p className="mt-4 text-xl text-[#1a1a1a]/70 md:text-2xl">
+            Hi, we&apos;re your neighbors.
+          </p>
         </motion.div>
 
         {/* Phase 4: "Hey, we're your neighbors." + pillars */}
