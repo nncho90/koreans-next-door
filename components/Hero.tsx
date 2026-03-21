@@ -12,6 +12,13 @@ const slides = [
   { src: "/hero-2.jpeg", alt: "Community celebration" },
 ];
 
+// Each slide gets a different Ken Burns direction for variety
+const kenBurns = [
+  { initial: { scale: 1.08, x: "-2%", y: "-2%" }, animate: { scale: 1.16, x: "2%", y: "1%" } },
+  { initial: { scale: 1.12, x: "2%", y: "1%" }, animate: { scale: 1.04, x: "-1%", y: "-1%" } },
+  { initial: { scale: 1.05, x: "0%", y: "2%" }, animate: { scale: 1.12, x: "1%", y: "-2%" } },
+];
+
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const { t } = useLocale();
@@ -19,35 +26,44 @@ export default function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4500);
+    }, 5500);
     return () => clearInterval(interval);
   }, []);
 
+  const kb = kenBurns[current];
+
   return (
     <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* Background slides */}
-      <AnimatePresence mode="wait">
+      {/* Background slides with Ken Burns */}
+      <AnimatePresence mode="sync">
         <motion.div
           key={current}
+          className="absolute inset-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.9, ease: "easeInOut" }}
-          className="absolute inset-0"
+          transition={{ opacity: { duration: 1.2, ease: "easeInOut" } }}
         >
-          <Image
-            src={slides[current].src}
-            alt={slides[current].alt}
-            fill
-            priority={current === 0}
-            className="object-cover object-center"
-          />
+          <motion.div
+            className="absolute inset-0"
+            initial={kb.initial}
+            animate={kb.animate}
+            transition={{ duration: 6, ease: "linear" }}
+          >
+            <Image
+              src={slides[current].src}
+              alt={slides[current].alt}
+              fill
+              priority={current === 0}
+              className="object-cover object-center"
+            />
+          </motion.div>
         </motion.div>
       </AnimatePresence>
 
-      {/* Yellow overlay — semi-transparent so community photos show through */}
+      {/* Yellow overlay */}
       <div className="absolute inset-0 bg-[#ffd966]/70" />
-      {/* Bottom vignette for slide dot legibility */}
+      {/* Bottom vignette */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
 
       {/* Centered content */}
@@ -77,12 +93,7 @@ export default function Hero() {
               <motion.div
                 key={i}
                 animate={{ y: [0, 6, 0] }}
-                transition={{
-                  duration: 1.4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.18,
-                }}
+                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.18 }}
               >
                 <CaretDown size={22} weight="bold" className="text-white/80" />
               </motion.div>
@@ -91,7 +102,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Slide dots — centered */}
+      {/* Slide dots */}
       <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex gap-2">
         {slides.map((_, i) => (
           <button
