@@ -7,7 +7,6 @@ import { useLocale } from "@/lib/i18n";
 const rotations = [-1.5, 2, -0.5, 1.8, -2, 1, -1.2, 2.1];
 
 const photos = [
-  { src: "/photos/knd-01.jpeg", alt: "KND event" },
   { src: "/photos/knd-02.jpeg", alt: "KND event" },
   { src: "/photos/knd-03.jpeg", alt: "KND event" },
   { src: "/photos/knd-04.jpeg", alt: "KND event" },
