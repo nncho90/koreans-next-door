@@ -14,12 +14,24 @@ interface Neighborhood extends MapNeighborhood {
   description: { en: string; ko: string };
 }
 
+const COLORS: Neighborhood["color"][] = [
+  { fill: "#fca5a5", border: "#ef4444", text: "#b91c1c" }, // red
+  { fill: "#c4b5fd", border: "#8b5cf6", text: "#6d28d9" }, // violet
+  { fill: "#93c5fd", border: "#3b82f6", text: "#1d4ed8" }, // blue
+  { fill: "#6ee7b7", border: "#10b981", text: "#047857" }, // emerald
+  { fill: "#5eead4", border: "#14b8a6", text: "#0f766e" }, // teal
+  { fill: "#fda4af", border: "#f43f5e", text: "#be123c" }, // rose
+  { fill: "#fcd34d", border: "#f59e0b", text: "#b45309" }, // amber
+  { fill: "#86efac", border: "#22c55e", text: "#15803d" }, // green
+];
+
 const neighborhoods: Neighborhood[] = [
   {
     name: "Itaewon / Yongsan",
     korean: "이태원·용산",
     emoji: "🌍",
     guName: "용산구",
+    color: COLORS[0],
     lat: 37.5340, lng: 126.9947,
     vibe: { en: "The foreigner capital of Seoul", ko: "서울의 외국인 수도" },
     rentRange: "₩900K–1.6M/mo",
@@ -36,6 +48,7 @@ const neighborhoods: Neighborhood[] = [
     korean: "홍대",
     emoji: "🎨",
     guName: "마포구",
+    color: COLORS[1],
     lat: 37.5564, lng: 126.9240,
     vibe: { en: "Young, artsy, always buzzing", ko: "젊고 활기찬 예술의 거리" },
     rentRange: "₩700K–1.2M/mo",
@@ -52,6 +65,7 @@ const neighborhoods: Neighborhood[] = [
     korean: "강남",
     emoji: "💼",
     guName: "강남구",
+    color: COLORS[2],
     lat: 37.4979, lng: 127.0276,
     vibe: { en: "Corporate, polished, expensive", ko: "세련되고 비싼 비즈니스 지구" },
     rentRange: "₩1.2M–2.5M+/mo",
@@ -68,6 +82,7 @@ const neighborhoods: Neighborhood[] = [
     korean: "신촌·이화",
     emoji: "📚",
     guName: "서대문구",
+    color: COLORS[3],
     lat: 37.5596, lng: 126.9368,
     vibe: { en: "University area, budget-friendly, youthful", ko: "대학가, 저렴하고 젊은 분위기" },
     rentRange: "₩500K–900K/mo",
@@ -84,6 +99,7 @@ const neighborhoods: Neighborhood[] = [
     korean: "마포·망원",
     emoji: "☕",
     guName: "마포구",
+    color: COLORS[4],
     lat: 37.5548, lng: 126.9073,
     vibe: { en: "Trendy cafes, local feel, Han River nearby", ko: "트렌디한 카페와 한강이 가까운 동네" },
     rentRange: "₩700K–1.1M/mo",
@@ -100,6 +116,7 @@ const neighborhoods: Neighborhood[] = [
     korean: "잠실·송파",
     emoji: "🎡",
     guName: "송파구",
+    color: COLORS[5],
     lat: 37.5133, lng: 127.1028,
     vibe: { en: "Families, parks, Lotte World", ko: "가족, 공원, 롯데월드" },
     rentRange: "₩800K–1.4M/mo",
@@ -116,6 +133,7 @@ const neighborhoods: Neighborhood[] = [
     korean: "관악·신림",
     emoji: "🍜",
     guName: "관악구",
+    color: COLORS[6],
     lat: 37.4776, lng: 126.9516,
     vibe: { en: "Budget-friendly, student-heavy, diverse food", ko: "저렴하고 학생이 많은 다양한 음식의 동네" },
     rentRange: "₩350K–700K/mo",
@@ -132,6 +150,7 @@ const neighborhoods: Neighborhood[] = [
     korean: "서초·양재",
     emoji: "🌳",
     guName: "서초구",
+    color: COLORS[7],
     lat: 37.4735, lng: 127.0385,
     vibe: { en: "Quiet, residential, well-connected", ko: "조용하고 쾌적한 주거 지역" },
     rentRange: "₩900K–1.6M/mo",
@@ -147,13 +166,14 @@ const neighborhoods: Neighborhood[] = [
 
 const SeoulMap = dynamic(() => import("./SeoulMap"), { ssr: false });
 
-function FriendlyDots({ level }: { level: FriendlyLevel }) {
+function FriendlyDots({ level, color }: { level: FriendlyLevel; color: string }) {
   return (
     <div className="flex items-center gap-1">
       {[1, 2, 3].map((i) => (
         <span
           key={i}
-          className={`h-2 w-2 rounded-full ${i <= level ? "bg-[#ffd966]" : "bg-zinc-200"}`}
+          className="h-2 w-2 rounded-full"
+          style={{ background: i <= level ? color : "#e4e4e7" }}
         />
       ))}
     </div>
@@ -163,11 +183,14 @@ function FriendlyDots({ level }: { level: FriendlyLevel }) {
 export default function NeighborhoodGuide() {
   const { locale } = useLocale();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const handleCardClick = (i: number) => {
     setActiveIndex(i === activeIndex ? null : i);
-    window.scrollTo({ top: document.getElementById("neighborhoods")!.offsetTop - 80, behavior: "smooth" });
+    document.getElementById("neighborhoods")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  const displayN = hoveredIndex !== null ? neighborhoods[hoveredIndex] : null;
 
   return (
     <section id="neighborhoods" className="bg-white px-6 py-10 md:px-12 md:py-16">
@@ -184,14 +207,67 @@ export default function NeighborhoodGuide() {
             : "Honest assessments from people who've actually lived there."}
         </p>
 
-        {/* Interactive map */}
-        <div className="mb-10 h-[420px] w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm md:h-[500px]">
+        {/* Map + hover card */}
+        <div className="relative mb-10 h-[420px] w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm md:h-[500px]">
           <SeoulMap
             neighborhoods={neighborhoods}
             activeIndex={activeIndex}
-            onSelect={setActiveIndex}
-            locale={locale}
+            hoveredIndex={hoveredIndex}
+            onSelect={handleCardClick}
+            onHover={setHoveredIndex}
           />
+
+          {/* Hover card overlay */}
+          {displayN && (
+            <div
+              className="pointer-events-none absolute bottom-4 left-4 z-[1000] w-72 rounded-2xl border bg-white/95 p-4 shadow-xl backdrop-blur-sm transition-all duration-150"
+              style={{ borderColor: displayN.color.border }}
+            >
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-2xl">{displayN.emoji}</span>
+                <div>
+                  <p className="font-bold leading-tight text-zinc-950">{displayN.korean}</p>
+                  <p className="text-xs text-zinc-400">{displayN.name}</p>
+                </div>
+                <div
+                  className="ml-auto rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                  style={{ background: displayN.color.fill, color: displayN.color.text }}
+                >
+                  {displayN.rentRange}
+                </div>
+              </div>
+              <p className="mb-2 text-sm font-semibold" style={{ color: displayN.color.text }}>
+                {locale === "ko" ? displayN.vibe.ko : displayN.vibe.en}
+              </p>
+              <p className="mb-3 text-sm leading-relaxed text-zinc-500 line-clamp-3">
+                {locale === "ko" ? displayN.description.ko : displayN.description.en}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {(locale === "ko" ? displayN.bestFor.ko : displayN.bestFor.en).map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full px-2 py-0.5 text-xs font-medium"
+                    style={{ background: displayN.color.fill, color: displayN.color.text }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-2 flex items-center gap-2">
+                <FriendlyDots level={displayN.foreignerFriendly} color={displayN.color.border} />
+                <span className="text-xs text-zinc-400">
+                  {locale === "ko" ? "외국인 친화도" : "Foreigner-friendly"}
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Default hint when nothing is hovered */}
+          {!displayN && (
+            <div className="pointer-events-none absolute bottom-4 left-1/2 z-[1000] -translate-x-1/2 rounded-full border border-zinc-200 bg-white/90 px-4 py-2 text-xs font-medium text-zinc-400 shadow backdrop-blur-sm">
+              {locale === "ko" ? "동네 위에 마우스를 올려보세요" : "Hover over a neighborhood"}
+            </div>
+          )}
         </div>
 
         {/* Neighborhood cards */}
@@ -200,11 +276,11 @@ export default function NeighborhoodGuide() {
             <button
               key={n.name}
               onClick={() => handleCardClick(i)}
-              className={`rounded-2xl border p-6 text-left shadow-sm transition-all duration-200 ${
-                activeIndex === i
-                  ? "border-[#ffd966] bg-[#fffdf0] shadow-md"
-                  : "border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-md"
-              }`}
+              className="rounded-2xl border p-6 text-left shadow-sm transition-all duration-200 hover:shadow-md"
+              style={{
+                borderColor: activeIndex === i ? n.color.border : "#e4e4e7",
+                background: activeIndex === i ? n.color.fill + "33" : "white",
+              }}
             >
               <div className="mb-3 flex items-start justify-between gap-3">
                 <div className="flex items-center gap-2">
@@ -215,14 +291,14 @@ export default function NeighborhoodGuide() {
                   </div>
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-1.5">
-                  <FriendlyDots level={n.foreignerFriendly} />
+                  <FriendlyDots level={n.foreignerFriendly} color={n.color.border} />
                   <p className="text-xs text-zinc-400">
                     {locale === "ko" ? "외국인 친화도" : "Foreigner-friendly"}
                   </p>
                 </div>
               </div>
 
-              <p className="mb-2 text-sm font-semibold text-[#c9a800]">
+              <p className="mb-2 text-sm font-semibold" style={{ color: n.color.text }}>
                 {locale === "ko" ? n.vibe.ko : n.vibe.en}
               </p>
 
@@ -237,7 +313,8 @@ export default function NeighborhoodGuide() {
                 {(locale === "ko" ? n.bestFor.ko : n.bestFor.en).map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-[#ffd966]/30 px-2.5 py-1 text-xs font-medium text-zinc-700"
+                    className="rounded-full px-2.5 py-1 text-xs font-medium"
+                    style={{ background: n.color.fill, color: n.color.text }}
                   >
                     {tag}
                   </span>
