@@ -182,13 +182,7 @@ function FriendlyDots({ level, color }: { level: FriendlyLevel; color: string })
 
 export default function NeighborhoodGuide() {
   const { locale } = useLocale();
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const handleCardClick = (i: number) => {
-    setActiveIndex(i === activeIndex ? null : i);
-    document.getElementById("neighborhoods")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
   const displayN = hoveredIndex !== null ? neighborhoods[hoveredIndex] : null;
 
@@ -208,12 +202,12 @@ export default function NeighborhoodGuide() {
         </p>
 
         {/* Map + hover card */}
-        <div className="relative mb-10 h-[420px] w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm md:h-[500px]">
+        <div className="relative h-[420px] w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm md:h-[560px]">
           <SeoulMap
             neighborhoods={neighborhoods}
-            activeIndex={activeIndex}
+            activeIndex={hoveredIndex}
             hoveredIndex={hoveredIndex}
-            onSelect={handleCardClick}
+            onSelect={setHoveredIndex}
             onHover={setHoveredIndex}
           />
 
@@ -268,66 +262,6 @@ export default function NeighborhoodGuide() {
               {locale === "ko" ? "동네 위에 마우스를 올려보세요" : "Hover over a neighborhood"}
             </div>
           )}
-        </div>
-
-        {/* Neighborhood cards */}
-        <div className="grid gap-5 md:grid-cols-2">
-          {neighborhoods.map((n, i) => (
-            <button
-              key={n.name}
-              onClick={() => handleCardClick(i)}
-              className="rounded-2xl border p-6 text-left shadow-sm transition-all duration-200 hover:shadow-md"
-              style={{
-                borderColor: activeIndex === i ? n.color.border : "#e4e4e7",
-                background: activeIndex === i ? n.color.fill + "33" : "white",
-              }}
-            >
-              <div className="mb-3 flex items-start justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">{n.emoji}</span>
-                  <div>
-                    <h3 className="font-bold text-zinc-950">{n.korean}</h3>
-                    <p className="text-sm text-zinc-400">{n.name}</p>
-                  </div>
-                </div>
-                <div className="flex shrink-0 flex-col items-end gap-1.5">
-                  <FriendlyDots level={n.foreignerFriendly} color={n.color.border} />
-                  <p className="text-xs text-zinc-400">
-                    {locale === "ko" ? "외국인 친화도" : "Foreigner-friendly"}
-                  </p>
-                </div>
-              </div>
-
-              <p className="mb-2 text-sm font-semibold" style={{ color: n.color.text }}>
-                {locale === "ko" ? n.vibe.ko : n.vibe.en}
-              </p>
-
-              <p className="mb-4 text-sm leading-relaxed text-zinc-500">
-                {locale === "ko" ? n.description.ko : n.description.en}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-600">
-                  {n.rentRange}
-                </span>
-                {(locale === "ko" ? n.bestFor.ko : n.bestFor.en).map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full px-2.5 py-1 text-xs font-medium"
-                    style={{ background: n.color.fill, color: n.color.text }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {n.landmarks.map((lm) => (
-                  <span key={lm} className="text-xs text-zinc-400">· {lm}</span>
-                ))}
-              </div>
-            </button>
-          ))}
         </div>
       </div>
     </section>
