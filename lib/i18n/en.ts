@@ -208,7 +208,7 @@ export const en: Dictionary = {
       { q: "How do I find out about upcoming events?" },
       {
         q: "Who organizes KND?",
-        a: "A small group of friends from Sigwang Church. We\u2019ve all lived abroad at some point and know how weird and lonely it can feel at first. We just wanted to be the kind of neighbors we wished we had.",
+        a: "A small group of friends from Sigwang Church in Seoul. A lot of us have lived abroad \u2014 and as people of faith, we\u2019ve always understood ourselves as sojourners in this world, never quite fully at home anywhere. There\u2019s a particular solidarity that comes from that. We just want to be the neighbors who help make the unfamiliar feel a little more like home.",
       },
       { q: "Can I bring a friend?", a: "Please do. The more the merrier." },
     ],
