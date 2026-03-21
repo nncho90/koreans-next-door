@@ -11,47 +11,47 @@ const enTips = [
   {
     concept: "나이 (Age)",
     title: "Why they ask your age immediately",
-    body: "Koreans adjust speech (formal vs. informal) based on relative age. Asking your age right away isn't rude — it's practical. They need to know how to address you. If you're older, expect more formal speech directed at you. If younger, they may speak casually."
+    body: "Koreans adjust speech (formal vs. informal) based on relative age. Asking your age right away isn't rude. It's practical. They need to know how to address you. If you're older, expect more formal speech directed at you. If younger, they may speak casually."
   },
   {
     concept: "음주 문화 (Drinking)",
     title: "The art of pouring",
-    body: "Never pour your own drink — pour for others and let them pour for you. Accept with both hands when someone older pours for you. Turn slightly away from elders when drinking."
+    body: "Never pour your own drink. Pour for others and let them pour for you. Accept with both hands when someone older pours for you. Turn slightly away from elders when drinking."
   },
   {
     concept: "식당 예절 (Restaurants)",
     title: "Calling 저기요 and the banchan rule",
-    body: "Call your server by saying '저기요!' (excuse me) — waving works too. Tipping is never practiced. Banchan (side dishes) are free and refillable — just ask. Sharing main dishes from the same plate is completely normal and expected."
+    body: "Call your server by saying '저기요!' (excuse me). Waving works too. Tipping is never practiced. Banchan (side dishes) are free and refillable. Just ask. Sharing main dishes from the same plate is completely normal and expected."
   },
   {
     concept: "지하철 예절 (Subway)",
     title: "The unspoken code underground",
-    body: "Priority seats (pink/blue) are genuinely reserved — don't sit there even when empty. Phone calls are frowned upon; text instead. Eating is generally taboo. Pushing to exit crowded trains is expected, not rude."
+    body: "Priority seats (pink/blue) are genuinely reserved. Don't sit there even when empty. Phone calls are frowned upon; text instead. Eating is generally taboo. Pushing to exit crowded trains is expected, not rude."
   },
   {
     concept: "신발 (Shoes)",
     title: "Always take them off",
-    body: "Remove shoes before entering any Korean home, no exceptions. Many traditional restaurants require it too — look for the step at the entrance or a shoe rack. Bring clean socks, always."
+    body: "Remove shoes before entering any Korean home, no exceptions. Many traditional restaurants require it too. Look for the step at the entrance or a shoe rack. Bring clean socks, always."
   },
   {
     concept: "인사 (Bowing)",
     title: "It's all in the angle",
-    body: "A 15-degree nod is fine for casual greetings. 45 degrees for someone much older or senior. Full 90-degree bows are for very formal situations. Don't bow and shake hands simultaneously — bow first, then shake if they extend."
+    body: "A 15-degree nod is fine for casual greetings. 45 degrees for someone much older or senior. Full 90-degree bows are for very formal situations. Don't bow and shake hands simultaneously. Bow first, then shake if they extend."
   },
   {
     concept: "\"밥 한번 먹자\"",
     title: "When it's not an invitation",
-    body: "\"다음에 밥 한번 먹자\" (let's eat sometime) is often a polite parting phrase, not a real invitation. If they mean it, they'll suggest a specific time. Don't follow up with \"when?\" — wait for them to initiate. This is different from actual plans."
+    body: "\"다음에 밥 한번 먹자\" (let's eat sometime) is often a polite parting phrase, not a real invitation. If they mean it, they'll suggest a specific time. Don't follow up with \"when?\". Wait for them to initiate. This is different from actual plans."
   },
   {
     concept: "빨리빨리 Culture",
     title: "The culture of speed",
-    body: "Korea moves fast. Food arrives fast. Buses leave fast. Construction happens overnight. '빨리빨리' (hurry hurry) is a national operating mode. If a Korean seems to rush you, they're not being rude — they genuinely believe faster is better, and they're probably right."
+    body: "Korea moves fast. Food arrives fast. Buses leave fast. Construction happens overnight. '빨리빨리' (hurry hurry) is a national operating mode. If a Korean seems to rush you, they're not being rude. They genuinely believe faster is better, and they're probably right."
   },
   {
     concept: "공유 음식 (Sharing)",
     title: "Food is a team sport",
-    body: "Korean meals are communal. Dishes are shared from the same plate; everyone takes from communal bowls with their own utensils. Finishing everything on a shared dish is polite — it signals you enjoyed it. Don't be shy about reaching in."
+    body: "Korean meals are communal. Dishes are shared from the same plate; everyone takes from communal bowls with their own utensils. Finishing everything on a shared dish is polite. It signals you enjoyed it. Don't be shy about reaching in."
   },
 ];
 
@@ -64,7 +64,7 @@ const koTips = [
   {
     concept: "나이",
     title: "처음 만나면 나이를 물어보는 이유",
-    body: "한국에서는 나이에 따라 말투(존댓말/반말)가 달라져요. 처음 만나는 자리에서 나이를 묻는 건 실례가 아니에요 — 어떻게 말을 걸어야 할지 파악하기 위한 거예요."
+    body: "한국에서는 나이에 따라 말투(존댓말/반말)가 달라져요. 처음 만나는 자리에서 나이를 묻는 건 실례가 아니에요. 어떻게 말을 걸어야 할지 파악하기 위한 거예요."
   },
   {
     concept: "음주 문화",
@@ -74,17 +74,17 @@ const koTips = [
   {
     concept: "식당 예절",
     title: "'저기요'와 반찬 리필",
-    body: "'저기요!'라고 부르거나 손을 흔들면 직원을 부를 수 있어요. 팁 문화는 없어요. 반찬은 무료이고 리필도 돼요 — 부탁하면 됩니다. 공용 반찬에서 함께 나눠 먹는 건 자연스러운 문화예요."
+    body: "'저기요!'라고 부르거나 손을 흔들면 직원을 부를 수 있어요. 팁 문화는 없어요. 반찬은 무료이고 리필도 돼요. 부탁하면 됩니다. 공용 반찬에서 함께 나눠 먹는 건 자연스러운 문화예요."
   },
   {
     concept: "지하철 예절",
     title: "지하철의 불문율",
-    body: "노약자석(분홍색/파란색)은 비어있어도 앉지 마세요. 전화 통화는 삼가고 문자로 하세요. 음식 먹는 것도 자제해요. 혼잡한 지하철에서 밀치며 내리는 건 무례한 게 아니에요 — 당연한 문화예요."
+    body: "노약자석(분홍색/파란색)은 비어있어도 앉지 마세요. 전화 통화는 삼가고 문자로 하세요. 음식 먹는 것도 자제해요. 혼잡한 지하철에서 밀치며 내리는 건 무례한 게 아니에요. 당연한 문화예요."
   },
   {
     concept: "신발",
     title: "반드시 벗어야 해요",
-    body: "한국 가정에 들어갈 때는 신발을 반드시 벗어요. 예외는 없어요. 전통 음식점에서도 벗어야 하는 경우가 있어요 — 현관의 단차나 신발장이 보이면 그 신호예요. 깨끗한 양말을 신고 다니세요."
+    body: "한국 가정에 들어갈 때는 신발을 반드시 벗어요. 예외는 없어요. 전통 음식점에서도 벗어야 하는 경우가 있어요. 현관의 단차나 신발장이 보이면 그 신호예요. 깨끗한 양말을 신고 다니세요."
   },
   {
     concept: "인사",
@@ -99,7 +99,7 @@ const koTips = [
   {
     concept: "빨리빨리 문화",
     title: "속도의 문화",
-    body: "한국은 빠르게 움직여요. 음식도 빠르게 나오고, 버스도 빨리 떠나요. '빨리빨리'는 한국의 국민 정서예요. 한국인이 서두르는 것처럼 보인다면, 무례한 게 아니에요 — 빠름이 미덕인 문화를 살고 있는 거예요."
+    body: "한국은 빠르게 움직여요. 음식도 빠르게 나오고, 버스도 빨리 떠나요. '빨리빨리'는 한국의 국민 정서예요. 한국인이 서두르는 것처럼 보인다면, 무례한 게 아니에요. 빠름이 미덕인 문화를 살고 있는 거예요."
   },
   {
     concept: "공유 음식",

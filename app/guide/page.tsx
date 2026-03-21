@@ -10,7 +10,7 @@ const groups = [
     href: "/guide/settle",
     labelEn: "Settle in",
     labelKo: "정착하기",
-    descEn: "The practical first steps — registration, banking, health insurance, and apps.",
+    descEn: "The practical first steps: registration, banking, health insurance, and apps.",
     descKo: "외국인등록증, 은행 계좌, 건강보험, 필수 앱 등 정착에 필요한 실질적인 안내예요.",
     items: {
       en: ["First Week Checklist", "Bureaucracy Wizard", "Seoul Survival Kit"],
@@ -29,7 +29,7 @@ const groups = [
     labelEn: "Explore",
     labelKo: "탐색하기",
     descEn: "Understand the food, the neighborhoods, and what each season feels like.",
-    descKo: "음식, 동네, 계절별 생활 — 서울을 제대로 즐기기 위한 안내예요.",
+    descKo: "음식, 동네, 계절별 생활. 서울을 제대로 즐기기 위한 안내예요.",
     items: {
       en: ["Korean Food Decoder", "Neighborhood Guide", "Seasonal Calendar"],
       ko: ["한국 음식 가이드", "동네 안내", "월별 생활 가이드"],

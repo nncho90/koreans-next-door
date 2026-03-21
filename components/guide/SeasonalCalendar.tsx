@@ -26,7 +26,7 @@ const months: MonthData[] = [
       ko: "울 소재 내복 위에 패딩 코트를 입으세요. 대중교통은 따뜻하니 벗기 쉬운 레이어링을 추천해요.",
     },
     holiday: {
-      en: "설날 (Lunar New Year) — often in Jan or Feb. Most businesses close for 3+ days.",
+      en: "설날 (Lunar New Year), often in Jan or Feb. Most businesses close for 3+ days.",
       ko: "설날이 1월이나 2월에 오면 많은 가게가 3일 이상 문을 닫아요.",
     },
   },
@@ -39,12 +39,12 @@ const months: MonthData[] = [
       ko: "영하 5도~8도. 아직 춥지만 조금씩 풀려요.",
     },
     tip: {
-      en: "Lunar New Year (설날) often falls in February. Plan ahead — shops and restaurants close for several days.",
-      ko: "설날이 2월에 자주 와요. 미리 장을 봐두세요 — 가게들이 며칠간 문을 닫아요.",
+      en: "Lunar New Year (설날) often falls in February. Plan ahead, as shops and restaurants close for several days.",
+      ko: "설날이 2월에 자주 와요. 미리 장을 봐두세요. 가게들이 며칠간 문을 닫아요.",
     },
     holiday: {
-      en: "설날 — 2-4 day national holiday.",
-      ko: "설날 연휴 — 2~4일간 문을 닫는 가게가 많아요.",
+      en: "설날: 2-4 day national holiday.",
+      ko: "설날 연휴. 2~4일간 문을 닫는 가게가 많아요.",
     },
   },
   {
@@ -73,7 +73,7 @@ const months: MonthData[] = [
       ko: "10도~20도. 벚꽃이 피는 봄의 절정이에요.",
     },
     tip: {
-      en: "Cherry blossom season — usually 1-2 weeks in early April. Go to Yeouido or Gyeongbokgung. It goes fast.",
+      en: "Cherry blossom season, usually 1-2 weeks in early April. Go to Yeouido or Gyeongbokgung. It goes fast.",
       ko: "벚꽃 시즌이에요! 여의도나 경복궁에 꼭 가보세요. 1~2주 안에 지니 서두르세요.",
     },
     holiday: {
@@ -124,12 +124,12 @@ const months: MonthData[] = [
       ko: "25도~35도. 장마 절정. 덥고 습해요.",
     },
     tip: {
-      en: "Carry an umbrella at all times. Air conditioning indoors is very strong — bring a light layer.",
+      en: "Carry an umbrella at all times. Air conditioning indoors is very strong, so bring a light layer.",
       ko: "항상 우산을 들고 다니세요. 실내 냉방이 강하니 얇은 겉옷을 챙기세요.",
     },
     warning: {
-      en: "Peak humidity — keep clothes aired out to prevent mold.",
-      ko: "습도 최고조 — 옷에 곰팡이가 슬 수 있어요.",
+      en: "Peak humidity. Keep clothes aired out to prevent mold.",
+      ko: "습도 최고조. 옷에 곰팡이가 슬 수 있어요.",
     },
   },
   {
@@ -145,8 +145,8 @@ const months: MonthData[] = [
       ko: "편의점 아이스 아메리카노로 버티세요. 광복절(8월 15일)은 공휴일이에요.",
     },
     holiday: {
-      en: "광복절 August 15th — Liberation Day.",
-      ko: "광복절 8월 15일 — 전국 공휴일.",
+      en: "광복절 August 15th, Liberation Day.",
+      ko: "광복절 8월 15일. 전국 공휴일.",
     },
   },
   {
@@ -158,12 +158,12 @@ const months: MonthData[] = [
       ko: "20도~28도. 선선하고 쾌적해요.",
     },
     tip: {
-      en: "추석 (Chuseok, Korean Thanksgiving) usually in September. Major 3-day holiday — many businesses close and Koreans travel home. Seoul gets quieter.",
+      en: "추석 (Chuseok, Korean Thanksgiving) usually in September. Major 3-day holiday. Many businesses close and Koreans travel home. Seoul gets quieter.",
       ko: "추석이 보통 9월에 와요. 3일 연휴 동안 많은 가게가 문을 닫고 사람들이 고향에 가요.",
     },
     holiday: {
-      en: "추석 (Chuseok) — 3 day national holiday. Most businesses close.",
-      ko: "추석 연휴 3일 — 음식과 생필품을 미리 준비하세요.",
+      en: "추석 (Chuseok): 3 day national holiday. Most businesses close.",
+      ko: "추석 연휴 3일. 음식과 생필품을 미리 준비하세요.",
     },
   },
   {
@@ -176,7 +176,7 @@ const months: MonthData[] = [
     },
     tip: {
       en: "Best time to buy a winter coat before prices increase in November. Fall foliage is stunning on any mountain near Seoul.",
-      ko: "겨울 코트를 지금 사세요 — 11월이 되면 가격이 올라요. 서울 근교 산의 단풍이 절경이에요.",
+      ko: "겨울 코트를 지금 사세요. 11월이 되면 가격이 올라요. 서울 근교 산의 단풍이 절경이에요.",
     },
   },
   {
@@ -233,7 +233,7 @@ export default function SeasonalCalendar() {
         <p className="mb-10 max-w-xl text-lg leading-relaxed text-gray-500">
           {locale === "ko"
             ? "관광 정보가 아닌, 실제 서울 생활에 필요한 월별 안내예요."
-            : "Not tourist tips — practical monthly guidance for actually living in Seoul."}
+            : "Not tourist tips. Practical monthly guidance for actually living in Seoul."}
         </p>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

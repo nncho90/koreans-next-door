@@ -24,8 +24,8 @@ function ExploreContent() {
             </h1>
             <p className="mt-4 max-w-xl text-lg text-zinc-500">
               {isKo
-                ? "음식, 동네, 계절 — 서울 생활이 즐거워지는 것들."
-                : "Food, neighborhoods, seasons — the things that make life here genuinely fun."}
+                ? "음식, 동네, 계절. 서울 생활이 즐거워지는 것들."
+                : "Food, neighborhoods, seasons. The things that make life here genuinely fun."}
             </p>
           </div>
         </section>

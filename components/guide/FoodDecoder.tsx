@@ -38,7 +38,7 @@ const dishes: Dish[] = [
 
   // NOODLES
   { korean: "라면", english: "Ramyeon", category: "noodles", spice: 2,
-    enDescription: "Korean instant noodle soup — much spicier and bolder than Japanese ramen. A true national staple.",
+    enDescription: "Korean instant noodle soup, much spicier and bolder than Japanese ramen. A true national staple.",
     koDescription: "한국식 인스턴트 라면이에요. 일본 라멘보다 훨씬 얼큰해요.",
     tags: ["spicy", "popular"] },
   { korean: "냉면", english: "Cold Noodles", category: "noodles", spice: 0,
@@ -56,7 +56,7 @@ const dishes: Dish[] = [
 
   // SOUP/STEW
   { korean: "김치찌개", english: "Kimchi Jjigae", category: "soup", spice: 2,
-    enDescription: "Kimchi and pork (or tuna) stew in a rich red broth. Korea's ultimate comfort food — every restaurant has it.",
+    enDescription: "Kimchi and pork (or tuna) stew in a rich red broth. Korea's ultimate comfort food. Every restaurant has it.",
     koDescription: "김치와 돼지고기(또는 참치)를 넣고 끓인 얼큰한 찌개예요. 한국인의 소울 푸드예요.",
     tags: ["spicy", "popular", "pork"] },
   { korean: "된장찌개", english: "Doenjang Jjigae", category: "soup", spice: 0,
@@ -104,7 +104,7 @@ const dishes: Dish[] = [
     koDescription: "밥과 채소, 달걀 등을 김으로 만 도시락 음식이에요. 일본 스시와는 달라요.",
     tags: ["popular", "vegetarian-option"] },
   { korean: "순대", english: "Sundae", category: "streetfood", spice: 0,
-    enDescription: "Korean steamed sausage — pork casing stuffed with glass noodles, rice, and vegetables. Sounds stranger than it tastes. An absolute street food staple.",
+    enDescription: "Korean steamed sausage. Pork casing stuffed with glass noodles, rice, and vegetables. Sounds stranger than it tastes. An absolute street food staple.",
     koDescription: "돼지 창자에 당면과 채소를 넣어 만든 한국식 순대예요.",
     tags: ["pork"] },
   { korean: "붕어빵", english: "Bungeoppang", category: "streetfood", spice: 0,
@@ -130,15 +130,15 @@ const dishes: Dish[] = [
     koDescription: "도토리 전분으로 만든 고소하고 담백한 묵이에요. 간장에 찍어 먹어요.",
     tags: ["vegetarian"] },
   { korean: "치킨", english: "Korean Fried Chicken", category: "snacks", spice: 1,
-    enDescription: "Double-fried for extreme crunch, available in dozens of flavors — soy garlic, spicy, honey butter. A late-night institution.",
+    enDescription: "Double-fried for extreme crunch, available in dozens of flavors: soy garlic, spicy, honey butter. A late-night institution.",
     koDescription: "두 번 튀겨 바삭한 한국식 치킨이에요. 간장마늘, 양념, 허니버터 등 다양한 맛이 있어요.",
     tags: ["popular"] },
   { korean: "전", english: "Korean Pancake (Jeon)", category: "snacks", spice: 0,
-    enDescription: "General term for pan-fried battered dishes — savory or sweet. Includes pajeon, kimchijeon, and more.",
+    enDescription: "General term for pan-fried battered dishes, savory or sweet. Includes pajeon, kimchijeon, and more.",
     koDescription: "부침개의 총칭이에요. 파전, 김치전 등 다양한 종류가 있어요.",
     tags: ["popular"] },
   { korean: "떡", english: "Tteok (Rice Cake)", category: "snacks", spice: 0,
-    enDescription: "Chewy rice cakes in endless varieties — sweet, savory, stuffed, plain. A staple at Korean celebrations and as everyday snacks.",
+    enDescription: "Chewy rice cakes in endless varieties: sweet, savory, stuffed, plain. A staple at Korean celebrations and as everyday snacks.",
     koDescription: "찹쌀이나 멥쌀로 만든 쫄깃한 떡이에요. 명절이나 간식으로 다양하게 즐겨요.",
     tags: ["vegetarian", "popular"] },
 ];

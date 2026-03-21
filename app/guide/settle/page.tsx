@@ -24,8 +24,8 @@ function SettleContent() {
             </h1>
             <p className="mt-4 max-w-xl text-lg text-zinc-400">
               {isKo
-                ? "외국인등록증, 은행, 건강보험, 필수 앱 — 처음에 해야 할 것들."
-                : "ARC, bank account, health insurance, essential apps — the stuff you actually need to handle first."}
+                ? "외국인등록증, 은행, 건강보험, 필수 앱. 처음에 해야 할 것들."
+                : "ARC, bank account, health insurance, essential apps. The stuff you actually need to handle first."}
             </p>
           </div>
         </section>

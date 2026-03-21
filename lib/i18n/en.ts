@@ -42,7 +42,7 @@ export const en: Dictionary = {
       {
         icon: "\u{1F30D}",
         title: "Open to everyone",
-        body: "Our core members are from Sigwang Church, but our events are not religious. All faiths, backgrounds, and walks of life are warmly welcomed.",
+        body: "Doesn\u2019t matter where you\u2019re from, what you believe, or how long you\u2019ve been here. Show up, and you\u2019re one of us.",
       },
       {
         icon: "\u{1F49B}",

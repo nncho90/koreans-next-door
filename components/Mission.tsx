@@ -28,7 +28,7 @@ export default function Mission() {
           <span className="text-[#ffd966]">But it can also be lonely.</span>
         </h2>
         <p className="mb-10 max-w-2xl text-lg leading-relaxed text-gray-500">
-          We know what it&apos;s like to not feel at home in a foreign land —
+          We know what it&apos;s like to not feel at home in a foreign land,
           to feel like you don&apos;t quite belong.<br className="hidden md:block" /> We also haven&apos;t
           forgotten how it feels to be welcomed.<br className="hidden md:block" /> Our mission is simple: walk
           alongside you so we can all feel at home.

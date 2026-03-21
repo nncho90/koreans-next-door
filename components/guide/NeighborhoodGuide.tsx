@@ -39,7 +39,7 @@ const neighborhoods: Neighborhood[] = [
     landmarks: ["Hamilton Hotel", "Gyeongnidan-gil", "Haebangchon (HBC)"],
     foreignerFriendly: 3,
     description: {
-      en: "The most internationally diverse neighborhood in Seoul. English menus everywhere, halal food, international grocery stores, and a massive expat community. It's noisy, chaotic, and genuinely fun. Ideal starting point for new arrivals — easy to make international friends here.",
+      en: "The most internationally diverse neighborhood in Seoul. English menus everywhere, halal food, international grocery stores, and a massive expat community. It's noisy, chaotic, and genuinely fun. Ideal starting point for new arrivals. Easy to make international friends here.",
       ko: "서울에서 외국인이 가장 많은 동네예요. 영문 메뉴, 할랄 음식, 외국 식료품점이 즐비하고 외국인 커뮤니티가 활발해요. 새로 온 분들에게 최적의 출발지예요.",
     },
   },
@@ -73,7 +73,7 @@ const neighborhoods: Neighborhood[] = [
     landmarks: ["COEX Mall", "Apgujeong Rodeo", "Cheongdam-dong"],
     foreignerFriendly: 2,
     description: {
-      en: "Seoul's affluent business district. Clean, modern, and expensive. Less \"foreigner community\" feel — more corporate expats on company packages. Good international schools and hospitals nearby.",
+      en: "Seoul's affluent business district. Clean, modern, and expensive. Less \"foreigner community\" feel. More corporate expats on company packages. Good international schools and hospitals nearby.",
       ko: "서울의 고급 비즈니스 지구예요. 깔끔하고 현대적이지만 비싸요. 회사 발령으로 온 주재원이 많아요. 국제학교와 병원이 가까워요.",
     },
   },
@@ -90,7 +90,7 @@ const neighborhoods: Neighborhood[] = [
     landmarks: ["Yonsei University", "Ewha Womans University", "Sinchon Station"],
     foreignerFriendly: 2,
     description: {
-      en: "Two major universities side by side means cheap food, affordable rooms, and lots of Korean students. Great for language exchange. Less nightlife than Hongdae — more laid-back. Popular with Korean language students.",
+      en: "Two major universities side by side means cheap food, affordable rooms, and lots of Korean students. Great for language exchange. Less nightlife than Hongdae, more laid-back. Popular with Korean language students.",
       ko: "연세대와 이화여대가 인접해 있어요. 저렴한 음식과 활기찬 대학 문화가 매력이에요. 한국어 어학원 학생들에게 인기가 많아요.",
     },
   },
@@ -141,7 +141,7 @@ const neighborhoods: Neighborhood[] = [
     landmarks: ["Seoul National University", "Gwanak Mountain", "Sillim Station"],
     foreignerFriendly: 1,
     description: {
-      en: "The most affordable area on this list. Home to Seoul National University — young, student-heavy, cheap Korean food everywhere. Less English spoken here, which is either a challenge or a great language immersion opportunity.",
+      en: "The most affordable area on this list. Home to Seoul National University. Young, student-heavy, cheap Korean food everywhere. Less English spoken here, which is either a challenge or a great language immersion opportunity.",
       ko: "서울대학교가 있는 가장 저렴한 지역이에요. 한국어 생활 환경에 빠르게 적응할 수 있는 곳이에요.",
     },
   },
