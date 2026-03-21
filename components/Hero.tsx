@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { CaretDown } from "@phosphor-icons/react";
+import { useLocale } from "@/lib/i18n";
 
 const slides = [
   { src: "/hero-1.jpeg", alt: "Language exchange event" },
@@ -12,6 +14,7 @@ const slides = [
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
+  const { t } = useLocale();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -42,8 +45,10 @@ export default function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Yellow overlay */}
-      <div className="absolute inset-0 bg-[#ffd966]/80" />
+      {/* Yellow overlay — semi-transparent so community photos show through */}
+      <div className="absolute inset-0 bg-[#ffd966]/70" />
+      {/* Bottom vignette for slide dot legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
 
       {/* Centered content */}
       <div className="relative z-10 mx-auto w-full max-w-3xl px-6 text-center">
@@ -64,18 +69,25 @@ export default function Hero() {
           />
 
           <p className="mb-9 max-w-md text-lg font-medium text-white/90 md:text-xl drop-shadow-sm">
-            Walking alongside you so we can all feel at home in a foreign land.
+            {t.hero.tagline}
           </p>
 
-          <motion.a
-            href="#mission"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            className="inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-8 py-3 text-sm font-semibold text-white"
-          >
-            Learn more
-          </motion.a>
+          <a href="#mission" className="flex flex-col items-center gap-0.5 mt-2">
+            {[0, 1].map((i) => (
+              <motion.div
+                key={i}
+                animate={{ y: [0, 6, 0] }}
+                transition={{
+                  duration: 1.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.18,
+                }}
+              >
+                <CaretDown size={22} weight="bold" className="text-white/80" />
+              </motion.div>
+            ))}
+          </a>
         </motion.div>
       </div>
 

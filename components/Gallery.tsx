@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLocale } from "@/lib/i18n";
 
 const rotations = [-1.5, 2, -0.5, 1.8, -2, 1, -1.2, 2.1];
 
@@ -17,17 +18,18 @@ const photos = [
 ];
 
 export default function Gallery() {
+  const { t } = useLocale();
   return (
     <section id="gallery" className="bg-white px-6 py-10 md:px-12 md:py-16">
       <div className="mx-auto max-w-5xl">
         <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
-          Moments together
+          {t.gallery.label}
         </p>
         <h2 className="mb-4 text-4xl font-bold tracking-tight text-[#1a1a1a] md:text-5xl">
-          A glimpse into our neighborhood
+          {t.gallery.heading}
         </h2>
         <p className="mb-10 max-w-xl text-lg leading-relaxed text-gray-500">
-          Real people, real moments, real connections.
+          {t.gallery.subheading}
         </p>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">

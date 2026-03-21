@@ -2,20 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
+import { useLocale } from "@/lib/i18n";
 
-interface Metric {
-  target: number;
-  label: string;
-  prefix?: string;
-  suffix?: string;
-  countDown?: boolean;
-}
-
-const metrics: Metric[] = [
-  { target: 47, label: "countries represented" },
-  { target: 200, label: "neighbors welcomed", suffix: "+" },
-  { target: 12, label: "events hosted" },
-  { target: 1, label: "big family" },
+const metricDefs = [
+  { target: 47 },
+  { target: 200, suffix: "+" },
+  { target: 12 },
+  { target: 1 },
 ];
 
 function AnimatedNumber({
@@ -77,25 +70,24 @@ function AnimatedNumber({
 export default function ImpactCounter() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLocale();
 
   return (
     <section ref={ref} className="bg-[#ffd966] py-12 md:py-16">
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-4">
-          {metrics.map((m, i) => (
-            <div key={m.label} className="text-center">
+          {metricDefs.map((m, i) => (
+            <div key={i} className="text-center">
               <p className="text-5xl md:text-7xl font-black tracking-tighter text-[#1a1a1a]">
                 <AnimatedNumber
                   target={m.target}
-                  prefix={m.prefix}
                   suffix={m.suffix}
-                  countDown={m.countDown}
                   delay={i * 200}
                   inView={inView}
                 />
               </p>
               <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-[#1a1a1a]/60">
-                {m.label}
+                {t.impact.metrics[i].label}
               </p>
             </div>
           ))}

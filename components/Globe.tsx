@@ -3,11 +3,10 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, InstagramLogo, MapPin, CaretUpDown } from "@phosphor-icons/react";
+import { X, InstagramLogo, MapPin, CaretUpDown, CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { useLocale } from "@/lib/i18n";
 
 const GlobeGL = dynamic(() => import("react-globe.gl"), { ssr: false });
-
-
 
 interface MemberPin {
   lat: number;
@@ -35,12 +34,15 @@ interface NominatimResult {
   };
 }
 
-// Combobox for city selection — powered by OpenStreetMap Nominatim
 function CityCombobox({
   value,
+  placeholder,
+  noCitiesFound,
   onChange,
 }: {
   value: string;
+  placeholder: string;
+  noCitiesFound: string;
   onChange: (city: string, country: string, lat: number, lng: number) => void;
 }) {
   const [query, setQuery] = useState(value);
@@ -103,7 +105,7 @@ function CityCombobox({
           value={query}
           onChange={e => { setQuery(e.target.value); setOpen(true); }}
           onFocus={() => setOpen(true)}
-          placeholder="Search any city in the world..."
+          placeholder={placeholder}
           className="flex-1 bg-transparent px-4 py-3 text-sm text-white placeholder-white/20 outline-none"
         />
         {loading
@@ -128,7 +130,7 @@ function CityCombobox({
       )}
       {open && query.length >= 2 && !loading && results.length === 0 && (
         <div className="absolute z-50 mt-1 w-full rounded-lg border border-white/10 bg-[#111] px-4 py-3 text-sm text-white/40 shadow-xl">
-          No cities found — try another name
+          {noCitiesFound}
         </div>
       )}
     </div>
@@ -136,6 +138,7 @@ function CityCombobox({
 }
 
 function AddPinModal({ onClose, onPinAdded }: { onClose: () => void; onPinAdded: (pin: MemberPin) => void }) {
+  const { t } = useLocale();
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [form, setForm] = useState({ name: "", city: "", country: "", lat: 0, lng: 0, note: "", instagram: "" });
 
@@ -187,8 +190,8 @@ function AddPinModal({ onClose, onPinAdded }: { onClose: () => void; onPinAdded:
       >
         <div className="mb-6 flex items-start justify-between">
           <div>
-            <h3 className="text-xl font-bold text-white">Add your pin</h3>
-            <p className="mt-1 text-sm text-white/40">You&apos;ll appear on the globe right away.</p>
+            <h3 className="text-xl font-bold text-white">{t.globe.modalTitle}</h3>
+            <p className="mt-1 text-sm text-white/40">{t.globe.modalSubtitle}</p>
           </div>
           <button onClick={onClose} className="text-white/40 transition-colors hover:text-white">
             <X size={20} />
@@ -198,44 +201,47 @@ function AddPinModal({ onClose, onPinAdded }: { onClose: () => void; onPinAdded:
         {status === "success" ? (
           <div className="py-8 text-center">
             <p className="mb-2 text-2xl">🗺️</p>
-            <p className="font-semibold text-white">You&apos;re on the map!</p>
-            <p className="mt-1 text-sm text-white/40">You&apos;re on the globe. Welcome, neighbor.</p>
+            <p className="font-semibold text-white">{t.globe.successTitle}</p>
+            <p className="mt-1 text-sm text-white/40">{t.globe.successSubtitle}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold uppercase tracking-widest text-white/40">Name</label>
+              <label className="text-xs font-semibold uppercase tracking-widest text-white/40">{t.globe.formName}</label>
               <input
                 required
                 value={form.name}
                 onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                placeholder="Your first name"
+                placeholder={t.globe.formNamePlaceholder}
                 className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/20 outline-none transition-colors focus:border-[#ffd966]/60"
               />
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold uppercase tracking-widest text-white/40">City</label>
+              <label className="text-xs font-semibold uppercase tracking-widest text-white/40">{t.globe.formCity}</label>
               <CityCombobox
                 value={form.city}
+                placeholder={t.globe.formCityPlaceholder}
+                noCitiesFound={t.globe.noCitiesFound}
                 onChange={(city, country, lat, lng) => setForm(f => ({ ...f, city, country, lat, lng }))}
               />
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-xs font-semibold uppercase tracking-widest text-white/40">One-liner about you</label>
+              <label className="text-xs font-semibold uppercase tracking-widest text-white/40">{t.globe.formNote}</label>
               <input
                 required
                 value={form.note}
                 onChange={e => setForm(f => ({ ...f, note: e.target.value }))}
-                placeholder="e.g. Came for work, staying for the food"
+                placeholder={t.globe.formNotePlaceholder}
                 className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-white/20 outline-none transition-colors focus:border-[#ffd966]/60"
               />
             </div>
 
             <div className="flex flex-col gap-1.5">
               <label className="text-xs font-semibold uppercase tracking-widest text-white/40">
-                Instagram <span className="normal-case font-normal text-white/25">(optional)</span>
+                {t.globe.formInstagram}{" "}
+                <span className="normal-case font-normal text-white/25">{t.globe.formInstagramOptional}</span>
               </label>
               <div className="flex items-center rounded-lg border border-white/10 bg-white/5 transition-colors focus-within:border-[#ffd966]/60">
                 <span className="pl-4 text-sm text-white/30">@</span>
@@ -249,7 +255,7 @@ function AddPinModal({ onClose, onPinAdded }: { onClose: () => void; onPinAdded:
             </div>
 
             {status === "error" && (
-              <p className="text-sm text-red-400">Something went wrong. Try again!</p>
+              <p className="text-sm text-red-400">{t.globe.formError}</p>
             )}
 
             <button
@@ -257,7 +263,7 @@ function AddPinModal({ onClose, onPinAdded }: { onClose: () => void; onPinAdded:
               disabled={status === "loading" || !form.city}
               className="mt-2 rounded-full bg-[#ffd966] px-6 py-3 text-sm font-semibold text-[#1a1a1a] transition-opacity hover:opacity-80 disabled:opacity-40"
             >
-              {status === "loading" ? "Sending..." : "Add my pin"}
+              {status === "loading" ? t.globe.formSubmitting : t.globe.formSubmit}
             </button>
           </form>
         )}
@@ -267,6 +273,7 @@ function AddPinModal({ onClose, onPinAdded }: { onClose: () => void; onPinAdded:
 }
 
 export default function Globe() {
+  const { t } = useLocale();
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -293,7 +300,6 @@ export default function Globe() {
 
   const allMembers = [...members, ...dynamicPins];
 
-  // Auto-cycle through members
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setActiveIndex(i => (i + 1) % allMembers.length);
@@ -302,7 +308,15 @@ export default function Globe() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allMembers.length]);
 
-  // Spin globe to active member's location
+  const navigate = useCallback((dir: 1 | -1) => {
+    setActiveIndex(i => (i + dir + allMembers.length) % allMembers.length);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(
+      () => setActiveIndex(n => (n + 1) % allMembers.length),
+      3000
+    );
+  }, [allMembers.length]);
+
   useEffect(() => {
     if (!globeRef.current) return;
     const m = allMembers[activeIndex];
@@ -318,7 +332,6 @@ export default function Globe() {
       controls.autoRotateSpeed = 0.5;
       controls.enableZoom = false;
     }
-    // Point to first member on load
     const m = members[0];
     globeRef.current.pointOfView({ lat: m.lat, lng: m.lng, altitude: 2.2 }, 0);
   }, []);
@@ -342,13 +355,13 @@ export default function Globe() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
-            Our community
+            {t.globe.label}
           </p>
           <h2 className="text-4xl font-bold text-zinc-950 md:text-5xl">
-            From all over the world
+            {t.globe.heading}
           </h2>
           <p className="mt-3 max-w-xl text-zinc-500">
-            Our neighbors come from every corner of the globe.
+            {t.globe.subheading}
           </p>
         </div>
 
@@ -369,7 +382,7 @@ export default function Globe() {
               onClick={() => setShowModal(true)}
               className="mt-2 w-full rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-100"
             >
-              + Add your pin
+              {t.globe.addPin}
             </button>
           </div>
         ) : (
@@ -404,10 +417,19 @@ export default function Globe() {
 
             {/* Auto-cycling profile card */}
             <div className="flex flex-col gap-6">
-              <div className="relative min-h-[180px]">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => navigate(-1)}
+                  disabled={allMembers.length <= 1}
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-400 transition-colors hover:border-zinc-400 hover:text-zinc-700 disabled:opacity-30"
+                  aria-label="Previous"
+                >
+                  <CaretLeft size={14} />
+                </button>
+              <div className="relative min-h-[180px] flex-1">
                 {allMembers.length === 0 ? (
                   <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-6 text-center">
-                    <p className="text-sm text-zinc-400">Be the first to add your pin!</p>
+                    <p className="text-sm text-zinc-400">{t.globe.beFirst}</p>
                   </div>
                 ) : (
                   <AnimatePresence mode="wait">
@@ -442,8 +464,16 @@ export default function Globe() {
                   </AnimatePresence>
                 )}
               </div>
+                <button
+                  onClick={() => navigate(1)}
+                  disabled={allMembers.length <= 1}
+                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-zinc-400 transition-colors hover:border-zinc-400 hover:text-zinc-700 disabled:opacity-30"
+                  aria-label="Next"
+                >
+                  <CaretRight size={14} />
+                </button>
+              </div>
 
-              {/* Dot indicators */}
               {allMembers.length > 0 && (
               <div className="flex flex-wrap gap-1.5">
                 {allMembers.map((_, i) => (
@@ -465,12 +495,19 @@ export default function Globe() {
               </div>
               )}
 
-              <button
+              {allMembers.length > 0 && (
+                <p className="text-center text-xs text-zinc-400">
+                  {t.globe.neighborCount.replace("{count}", String(allMembers.length))}
+                </p>
+              )}
+              <motion.button
                 onClick={() => setShowModal(true)}
-                className="w-full rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-700 transition-colors hover:bg-zinc-100"
+                animate={{ scale: [1, 1.025, 1] }}
+                transition={{ duration: 0.8, delay: 1.2, ease: "easeInOut" }}
+                className="w-full rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700"
               >
-                + Add your pin
-              </button>
+                {t.globe.addPin}
+              </motion.button>
             </div>
           </div>
         )}
@@ -482,7 +519,7 @@ export default function Globe() {
             onClose={() => setShowModal(false)}
             onPinAdded={(pin) => {
               setDynamicPins(prev => [...prev, pin]);
-              setActiveIndex(allMembers.length); // highlight the new pin
+              setActiveIndex(allMembers.length);
             }}
           />
         )}
