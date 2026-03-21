@@ -1,18 +1,16 @@
 "use client";
 
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useLocale } from "@/lib/i18n";
+import type { MapNeighborhood } from "./SeoulMap";
 
 type FriendlyLevel = 1 | 2 | 3;
 
-interface Neighborhood {
-  name: string;
-  korean: string;
-  emoji: string;
-  vibe: { en: string; ko: string };
+interface Neighborhood extends MapNeighborhood {
   rentRange: string;
   bestFor: { en: string[]; ko: string[] };
   landmarks: string[];
-  foreignerFriendly: FriendlyLevel;
   description: { en: string; ko: string };
 }
 
@@ -21,15 +19,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Itaewon / Yongsan",
     korean: "이태원·용산",
     emoji: "🌍",
-    vibe: {
-      en: "The foreigner capital of Seoul",
-      ko: "서울의 외국인 수도",
-    },
+    lat: 37.5340, lng: 126.9947,
+    vibe: { en: "The foreigner capital of Seoul", ko: "서울의 외국인 수도" },
     rentRange: "₩900K–1.6M/mo",
-    bestFor: {
-      en: ["Expats", "Nightlife", "International food"],
-      ko: ["외국인", "나이트라이프", "국제 음식"],
-    },
+    bestFor: { en: ["Expats", "Nightlife", "International food"], ko: ["외국인", "나이트라이프", "국제 음식"] },
     landmarks: ["Hamilton Hotel", "Gyeongnidan-gil", "Haebangchon (HBC)"],
     foreignerFriendly: 3,
     description: {
@@ -41,15 +34,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Hongdae",
     korean: "홍대",
     emoji: "🎨",
-    vibe: {
-      en: "Young, artsy, always buzzing",
-      ko: "젊고 활기찬 예술의 거리",
-    },
+    lat: 37.5564, lng: 126.9240,
+    vibe: { en: "Young, artsy, always buzzing", ko: "젊고 활기찬 예술의 거리" },
     rentRange: "₩700K–1.2M/mo",
-    bestFor: {
-      en: ["Students", "Creatives", "Nightlife"],
-      ko: ["학생", "크리에이터", "나이트라이프"],
-    },
+    bestFor: { en: ["Students", "Creatives", "Nightlife"], ko: ["학생", "크리에이터", "나이트라이프"] },
     landmarks: ["Hongik University", "Yeonnam-dong", "Sangsu-dong"],
     foreignerFriendly: 3,
     description: {
@@ -61,15 +49,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Gangnam",
     korean: "강남",
     emoji: "💼",
-    vibe: {
-      en: "Corporate, polished, expensive",
-      ko: "세련되고 비싼 비즈니스 지구",
-    },
+    lat: 37.4979, lng: 127.0276,
+    vibe: { en: "Corporate, polished, expensive", ko: "세련되고 비싼 비즈니스 지구" },
     rentRange: "₩1.2M–2.5M+/mo",
-    bestFor: {
-      en: ["Professionals", "Families", "Business expats"],
-      ko: ["직장인", "가족", "주재원"],
-    },
+    bestFor: { en: ["Professionals", "Families", "Business expats"], ko: ["직장인", "가족", "주재원"] },
     landmarks: ["COEX Mall", "Apgujeong Rodeo", "Cheongdam-dong"],
     foreignerFriendly: 2,
     description: {
@@ -81,15 +64,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Sinchon / Ewha",
     korean: "신촌·이화",
     emoji: "📚",
-    vibe: {
-      en: "University area, budget-friendly, youthful",
-      ko: "대학가, 저렴하고 젊은 분위기",
-    },
+    lat: 37.5596, lng: 126.9368,
+    vibe: { en: "University area, budget-friendly, youthful", ko: "대학가, 저렴하고 젊은 분위기" },
     rentRange: "₩500K–900K/mo",
-    bestFor: {
-      en: ["Students", "Budget travelers", "Language learners"],
-      ko: ["학생", "저예산", "한국어 학습자"],
-    },
+    bestFor: { en: ["Students", "Budget travelers", "Language learners"], ko: ["학생", "저예산", "한국어 학습자"] },
     landmarks: ["Yonsei University", "Ewha Womans University", "Sinchon Station"],
     foreignerFriendly: 2,
     description: {
@@ -101,15 +79,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Mapo / Mangwon",
     korean: "마포·망원",
     emoji: "☕",
-    vibe: {
-      en: "Trendy cafes, local feel, Han River nearby",
-      ko: "트렌디한 카페와 한강이 가까운 동네",
-    },
+    lat: 37.5548, lng: 126.9073,
+    vibe: { en: "Trendy cafes, local feel, Han River nearby", ko: "트렌디한 카페와 한강이 가까운 동네" },
     rentRange: "₩700K–1.1M/mo",
-    bestFor: {
-      en: ["Young professionals", "Creatives", "Local experience"],
-      ko: ["젊은 직장인", "크리에이터", "현지 생활"],
-    },
+    bestFor: { en: ["Young professionals", "Creatives", "Local experience"], ko: ["젊은 직장인", "크리에이터", "현지 생활"] },
     landmarks: ["Mangwon Market", "Hangang Park", "Hapjeong Station"],
     foreignerFriendly: 2,
     description: {
@@ -121,15 +94,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Jamsil / Songpa",
     korean: "잠실·송파",
     emoji: "🎡",
-    vibe: {
-      en: "Families, parks, Lotte World",
-      ko: "가족, 공원, 롯데월드",
-    },
+    lat: 37.5133, lng: 127.1028,
+    vibe: { en: "Families, parks, Lotte World", ko: "가족, 공원, 롯데월드" },
     rentRange: "₩800K–1.4M/mo",
-    bestFor: {
-      en: ["Families", "Sports fans", "East Seoul"],
-      ko: ["가족", "스포츠 팬", "동서울"],
-    },
+    bestFor: { en: ["Families", "Sports fans", "East Seoul"], ko: ["가족", "스포츠 팬", "동서울"] },
     landmarks: ["Lotte World", "Olympic Park", "Lotte Tower"],
     foreignerFriendly: 2,
     description: {
@@ -141,15 +109,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Gwanak / Sillim",
     korean: "관악·신림",
     emoji: "🍜",
-    vibe: {
-      en: "Budget-friendly, student-heavy, diverse food",
-      ko: "저렴하고 학생이 많은 다양한 음식의 동네",
-    },
+    lat: 37.4776, lng: 126.9516,
+    vibe: { en: "Budget-friendly, student-heavy, diverse food", ko: "저렴하고 학생이 많은 다양한 음식의 동네" },
     rentRange: "₩350K–700K/mo",
-    bestFor: {
-      en: ["Budget living", "Students", "SNU campus"],
-      ko: ["저예산", "학생", "서울대 근처"],
-    },
+    bestFor: { en: ["Budget living", "Students", "SNU campus"], ko: ["저예산", "학생", "서울대 근처"] },
     landmarks: ["Seoul National University", "Gwanak Mountain", "Sillim Station"],
     foreignerFriendly: 1,
     description: {
@@ -161,15 +124,10 @@ const neighborhoods: Neighborhood[] = [
     name: "Seocho / Yangjae",
     korean: "서초·양재",
     emoji: "🌳",
-    vibe: {
-      en: "Quiet, residential, well-connected",
-      ko: "조용하고 쾌적한 주거 지역",
-    },
+    lat: 37.4735, lng: 127.0385,
+    vibe: { en: "Quiet, residential, well-connected", ko: "조용하고 쾌적한 주거 지역" },
     rentRange: "₩900K–1.6M/mo",
-    bestFor: {
-      en: ["Families", "Professionals", "Peace and quiet"],
-      ko: ["가족", "직장인", "조용한 환경"],
-    },
+    bestFor: { en: ["Families", "Professionals", "Peace and quiet"], ko: ["가족", "직장인", "조용한 환경"] },
     landmarks: ["Yangjae Citizen's Forest", "AT Center", "Express Bus Terminal"],
     foreignerFriendly: 2,
     description: {
@@ -179,15 +137,15 @@ const neighborhoods: Neighborhood[] = [
   },
 ];
 
+const SeoulMap = dynamic(() => import("./SeoulMap"), { ssr: false });
+
 function FriendlyDots({ level }: { level: FriendlyLevel }) {
   return (
     <div className="flex items-center gap-1">
       {[1, 2, 3].map((i) => (
         <span
           key={i}
-          className={`h-2 w-2 rounded-full ${
-            i <= level ? "bg-[#ffd966]" : "bg-zinc-200"
-          }`}
+          className={`h-2 w-2 rounded-full ${i <= level ? "bg-[#ffd966]" : "bg-zinc-200"}`}
         />
       ))}
     </div>
@@ -196,6 +154,12 @@ function FriendlyDots({ level }: { level: FriendlyLevel }) {
 
 export default function NeighborhoodGuide() {
   const { locale } = useLocale();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const handleCardClick = (i: number) => {
+    setActiveIndex(i === activeIndex ? null : i);
+    window.scrollTo({ top: document.getElementById("neighborhoods")!.offsetTop - 80, behavior: "smooth" });
+  };
 
   return (
     <section id="neighborhoods" className="bg-white px-6 py-10 md:px-12 md:py-16">
@@ -204,30 +168,42 @@ export default function NeighborhoodGuide() {
           {locale === "ko" ? "동네 안내" : "Neighborhoods"}
         </p>
         <h2 className="mb-2 text-4xl font-bold tracking-tight text-zinc-950 md:text-5xl">
-          {locale === "ko"
-            ? "어느 동네가 맞을까요?"
-            : "Which neighborhood is right for you?"}
+          {locale === "ko" ? "어느 동네가 맞을까요?" : "Which neighborhood is right for you?"}
         </h2>
-        <p className="mb-10 max-w-xl text-lg leading-relaxed text-gray-500">
+        <p className="mb-8 max-w-xl text-lg leading-relaxed text-gray-500">
           {locale === "ko"
             ? "직접 살아본 이웃들의 솔직한 이야기."
             : "Honest assessments from people who've actually lived there."}
         </p>
 
+        {/* Interactive map */}
+        <div className="mb-10 h-[420px] w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm md:h-[500px]">
+          <SeoulMap
+            neighborhoods={neighborhoods}
+            activeIndex={activeIndex}
+            onSelect={setActiveIndex}
+            locale={locale}
+          />
+        </div>
+
+        {/* Neighborhood cards */}
         <div className="grid gap-5 md:grid-cols-2">
-          {neighborhoods.map((n) => (
-            <div
+          {neighborhoods.map((n, i) => (
+            <button
               key={n.name}
-              className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+              onClick={() => handleCardClick(i)}
+              className={`rounded-2xl border p-6 text-left shadow-sm transition-all duration-200 ${
+                activeIndex === i
+                  ? "border-[#ffd966] bg-[#fffdf0] shadow-md"
+                  : "border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-md"
+              }`}
             >
               <div className="mb-3 flex items-start justify-between gap-3">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-2xl">{n.emoji}</span>
-                    <div>
-                      <h3 className="font-bold text-zinc-950">{n.korean}</h3>
-                      <p className="text-sm text-zinc-400">{n.name}</p>
-                    </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">{n.emoji}</span>
+                  <div>
+                    <h3 className="font-bold text-zinc-950">{n.korean}</h3>
+                    <p className="text-sm text-zinc-400">{n.name}</p>
                   </div>
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-1.5">
@@ -262,12 +238,10 @@ export default function NeighborhoodGuide() {
 
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {n.landmarks.map((lm) => (
-                  <span key={lm} className="text-xs text-zinc-400">
-                    · {lm}
-                  </span>
+                  <span key={lm} className="text-xs text-zinc-400">· {lm}</span>
                 ))}
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
