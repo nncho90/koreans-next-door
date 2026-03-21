@@ -183,6 +183,7 @@ function FriendlyDots({ level, color }: { level: FriendlyLevel; color: string })
 export default function NeighborhoodGuide() {
   const { locale } = useLocale();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
 
   const displayN = hoveredIndex !== null ? neighborhoods[hoveredIndex] : null;
 
@@ -205,9 +206,9 @@ export default function NeighborhoodGuide() {
         <div className="relative h-[420px] w-full overflow-hidden rounded-2xl border border-zinc-200 shadow-sm md:h-[560px]">
           <SeoulMap
             neighborhoods={neighborhoods}
-            activeIndex={hoveredIndex}
+            activeIndex={clickedIndex}
             hoveredIndex={hoveredIndex}
-            onSelect={setHoveredIndex}
+            onSelect={(i) => setClickedIndex(i === clickedIndex ? null : i)}
             onHover={setHoveredIndex}
           />
 
