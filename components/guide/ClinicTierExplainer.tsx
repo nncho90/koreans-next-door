@@ -8,7 +8,7 @@ export default function ClinicTierExplainer() {
   const isKo = locale === "ko";
 
   return (
-    <section className="bg-zinc-900 px-6 py-16 md:px-10">
+    <section id="tiers" className="bg-zinc-900 px-6 py-16 md:px-10">
       <div className="mx-auto max-w-5xl">
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
           {isKo ? "진료기관 종류" : "The 4-Tier System"}

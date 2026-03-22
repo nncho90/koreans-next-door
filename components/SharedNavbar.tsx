@@ -38,6 +38,16 @@ const guideGroups = [
       { en: "Ask a Neighbor", ko: "이웃에게 물어보기", href: "/guide/pinch#ask" },
     ],
   },
+  {
+    en: "Find a Doctor",
+    ko: "의료 안내",
+    href: "/guide/health",
+    items: [
+      { en: "Clinic Type Guide", ko: "진료기관 종류 안내", href: "/guide/health#tiers" },
+      { en: "Specialty Finder", ko: "진료과 찾기", href: "/guide/health#specialties" },
+      { en: "English-Friendly Clinics", ko: "영어 가능 병원", href: "/guide/health#map" },
+    ],
+  },
 ];
 
 export default function SharedNavbar() {

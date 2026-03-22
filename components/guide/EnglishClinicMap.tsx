@@ -13,7 +13,7 @@ export default function EnglishClinicMap() {
   const [selected, setSelected] = useState<ClinicPin | null>(null);
 
   return (
-    <section className="bg-zinc-900 px-6 py-16 md:px-10">
+    <section id="map" className="bg-zinc-900 px-6 py-16 md:px-10">
       <div className="mx-auto max-w-5xl">
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
           {isKo ? "영어 가능 병원" : "English-Friendly Clinics"}
