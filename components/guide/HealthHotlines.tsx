@@ -21,10 +21,10 @@ const TIPS = [
     },
   },
   {
-    en: "Search "영어 가능" on Naver Maps",
+    en: 'Search "영어 가능" on Naver Maps',
     ko: "네이버 지도에서 '영어 가능' 검색",
     detail: {
-      en: "Type "영어 가능 병원" in Naver Maps to find English-speaking clinics near you. Or call ahead: "영어로 진료 가능한가요?"",
+      en: 'Type "영어 가능 병원" in Naver Maps to find English-speaking clinics near you. Or call ahead: "영어로 진료 가능한가요?"',
       ko: "네이버 지도에서 '영어 가능 병원'을 검색하거나, 전화로 '영어로 진료 가능한가요?'라고 물어보세요.",
     },
   },
