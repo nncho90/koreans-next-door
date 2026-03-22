@@ -35,13 +35,13 @@ export default function HealthHotlines() {
   const isKo = locale === "ko";
 
   return (
-    <section className="bg-zinc-950 px-6 py-16 md:px-10">
+    <section className="bg-[#fafaf8] px-6 py-16 md:px-10">
       <div className="mx-auto max-w-5xl">
         {/* Hotlines */}
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
           {isKo ? "긴급 연락처" : "Hotlines"}
         </p>
-        <h2 className="mb-8 text-3xl font-bold text-white md:text-4xl">
+        <h2 className="mb-8 text-3xl font-bold text-zinc-950 md:text-4xl">
           {isKo ? "급할 때 전화하세요" : "Who to call"}
         </h2>
 
@@ -50,33 +50,33 @@ export default function HealthHotlines() {
             <a
               key={h.number}
               href={`tel:${h.number.replace(/-/g, "")}`}
-              className="flex items-start gap-4 rounded-2xl border border-zinc-700 bg-zinc-800 p-5 transition-colors hover:border-zinc-600"
+              className="flex items-start gap-4 rounded-2xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 hover:shadow-sm"
             >
               <div className={`mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${h.color} text-sm font-bold text-white`}>
                 {h.number}
               </div>
               <div>
-                <p className="font-semibold text-white">{h.label}</p>
-                <p className="text-sm text-zinc-400">{h.detail}</p>
+                <p className="font-semibold text-zinc-900">{h.label}</p>
+                <p className="text-sm text-zinc-500">{h.detail}</p>
               </div>
             </a>
           ))}
         </div>
 
         {/* Practical Tips */}
-        <h2 className="mb-6 mt-14 text-2xl font-bold text-white">
+        <h2 className="mb-6 mt-14 text-2xl font-bold text-zinc-950">
           {isKo ? "알아두면 좋은 것들" : "Practical tips"}
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
           {TIPS.map((tip) => (
             <div
               key={tip.en}
-              className="rounded-2xl border border-zinc-700 bg-zinc-800 p-5"
+              className="rounded-2xl border border-zinc-200 bg-white p-5"
             >
-              <p className="mb-2 font-semibold text-white">
+              <p className="mb-2 font-semibold text-zinc-900">
                 {isKo ? tip.ko : tip.en}
               </p>
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-zinc-500">
                 {isKo ? tip.detail.ko : tip.detail.en}
               </p>
             </div>

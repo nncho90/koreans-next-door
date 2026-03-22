@@ -78,7 +78,7 @@ export default function SharedNavbar() {
 
   const isGuide = pathname === "/guide" || pathname.startsWith("/guide/");
   // Pages with a light-colored hero — need dark nav text even before scrolling
-  const lightHero = pathname === "/guide" || pathname === "/guide/explore" || pathname === "/guide/pinch";
+  const lightHero = pathname === "/guide" || pathname === "/guide/explore" || pathname === "/guide/pinch" || pathname === "/guide/health";
   const dark = scrolled || lightHero;
 
   const guideTextClass = isGuide
