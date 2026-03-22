@@ -60,6 +60,24 @@ const groups = [
     dotColor: "bg-zinc-300",
     arrowColor: "text-zinc-300",
   },
+  {
+    href: "/guide/health",
+    labelEn: "Find a Doctor",
+    labelKo: "의료 안내",
+    descEn: "Understand Korea's clinic system and find English-speaking doctors near you.",
+    descKo: "한국 의료 시스템을 이해하고 영어 가능 병원을 찾아보세요.",
+    items: {
+      en: ["Clinic Type Guide", "Specialty Finder", "English-Friendly Clinics"],
+      ko: ["진료기관 종류 안내", "진료과 찾기", "영어 가능 병원"],
+    },
+    bg: "bg-zinc-950",
+    labelColor: "text-[#ffd966]",
+    headingColor: "text-white",
+    descColor: "text-zinc-400",
+    itemColor: "text-zinc-500",
+    dotColor: "bg-[#ffd966]",
+    arrowColor: "text-[#ffd966]",
+  },
 ];
 
 function GuideIndex() {
@@ -89,7 +107,7 @@ function GuideIndex() {
 
         {/* 3 group cards */}
         <section className="bg-white px-6 pb-20 md:px-10">
-          <div className="mx-auto max-w-5xl grid gap-4 md:grid-cols-3">
+          <div className="mx-auto max-w-5xl grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {groups.map((g) => (
               <Link
                 key={g.href}
