@@ -50,15 +50,15 @@ export default function HealthHotlines() {
             <a
               key={h.number}
               href={`tel:${h.number.replace(/-/g, "")}`}
-              className="flex items-start gap-4 rounded-2xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 hover:shadow-sm"
+              className="group flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:border-zinc-300 hover:shadow-sm"
             >
-              <div className={`mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${h.color} text-sm font-bold text-white`}>
+              <div className={`mb-3 self-start rounded-lg px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-white ${h.color}`}>
+                {h.label}
+              </div>
+              <div className="text-3xl font-bold tracking-tight text-zinc-950">
                 {h.number}
               </div>
-              <div>
-                <p className="font-semibold text-zinc-900">{h.label}</p>
-                <p className="text-sm text-zinc-500">{h.detail}</p>
-              </div>
+              <p className="mt-2 text-sm text-zinc-500">{h.detail}</p>
             </a>
           ))}
         </div>
