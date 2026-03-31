@@ -1,0 +1,38 @@
+# Koreans Next Door (KND)
+
+> The definitive practical resource for foreigners and expats living in South Korea. Comprehensive guides on visas, housing, banking, healthcare, daily life, working in Korea, and mental health — plus interactive tools including a Korean phrasebook and form decoder. Based in Seoul. Bilingual English/Korean.
+
+## Guides — Getting Started
+
+- [Settle in Seoul](https://koreansnextdoor.com/guide/settle): First week in Korea — ARC registration, bank account, NHIS health insurance enrollment, phone setup, and essential apps for foreigners.
+- [Visa & Immigration](https://koreansnextdoor.com/guide/visa): All Korean visa types for foreigners (E-2, D-2, F-6, F-2 and more), visa wizard, ARC card guide, immigration office tips, and common pitfalls to avoid.
+
+## Guides — Living Here
+
+- [Housing](https://koreansnextdoor.com/guide/housing): Renting in Seoul — jeonse vs wolse explained, neighborhood picker, lease contract walkthrough, deposit protection, and real estate red flags.
+- [Money & Banking](https://koreansnextdoor.com/guide/money): Opening a Korean bank account, comparing international money transfer services (Wise, Sentbe), cost of living calculator, taxes, and pension refunds for foreigners.
+- [Daily Life](https://koreansnextdoor.com/guide/daily): Korea's recycling system (종량제), phone plans, essential apps, food delivery apps (Baemin, Coupang Eats), and driver's license conversion.
+- [Working in Korea](https://koreansnextdoor.com/guide/work): Employment contracts, Korean labor rights and severance pay, 4대보험, workplace culture (hoesik, hierarchy), and job resources for foreigners.
+
+## Guides — Wellbeing
+
+- [Healthcare](https://koreansnextdoor.com/guide/health): Korea's clinic system (의원/병원/종합병원), finding English-speaking doctors in Seoul, NHIS enrollment, and emergency contacts.
+- [Mental Health](https://koreansnextdoor.com/guide/mental-health): Culture shock stages, English-speaking therapists in Seoul, crisis hotlines (1577-0199, 1345), and expat community support groups.
+- [In a Pinch](https://koreansnextdoor.com/guide/pinch): Emergency numbers (119, 112, 1345), Korean cultural etiquette for foreigners, what to do when things go wrong.
+
+## Guides — Discover Seoul
+
+- [Explore Seoul](https://koreansnextdoor.com/guide/explore): Seoul neighborhoods, food guide, seasonal events calendar, and local recommendations from Seoul residents.
+
+## Interactive Tools
+
+- [Korean Phrasebook](https://koreansnextdoor.com/tools/phrasebook): 200+ Korean phrases organized by real situations — hospital, bank, landlord, immigration, restaurant, pharmacy, police, taxi, and more. Includes full-screen "show mode" to hand your phone to a Korean speaker.
+- [Korean Form Decoder](https://koreansnextdoor.com/tools/forms): Common Korean bureaucratic forms decoded field-by-field in plain English — hospital registration (진료신청서), ARC application, bank account forms, address change (전입신고서), and phone plan applications.
+
+## About
+
+- [Home](https://koreansnextdoor.com): Koreans Next Door is a community hospitality group started by locals from Seoul helping internationals feel at home in Korea.
+
+## Optional
+
+- [Sitemap](https://koreansnextdoor.com/sitemap.xml): Full list of all pages on the site.

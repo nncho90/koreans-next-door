@@ -8,8 +8,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Explore Seoul — Koreans Next Door",
     description: "Local restaurant picks, a Seoul vegan map, neighborhood guide, and seasonal tips — all in one place.",
-    url: "https://koreans-next-door.vercel.app/guide/explore",
+    url: "https://koreansnextdoor.com/guide/explore",
   },
+  alternates: { canonical: "https://koreansnextdoor.com/guide/explore" },
 };
 
 export default function Page() {
@@ -22,10 +23,26 @@ export default function Page() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://koreans-next-door.vercel.app" },
-              { "@type": "ListItem", "position": 2, "name": "Seoul Guide", "item": "https://koreans-next-door.vercel.app/guide" },
-              { "@type": "ListItem", "position": 3, "name": "Explore Seoul", "item": "https://koreans-next-door.vercel.app/guide/explore" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://koreansnextdoor.com" },
+              { "@type": "ListItem", "position": 2, "name": "Seoul Guide", "item": "https://koreansnextdoor.com/guide" },
+              { "@type": "ListItem", "position": 3, "name": "Explore Seoul", "item": "https://koreansnextdoor.com/guide/explore" }
             ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Explore Seoul: Neighborhood and Food Guide for Foreigners (2026)",
+            "datePublished": "2026-01-01",
+            "dateModified": "2026-03-31",
+            "author": { "@type": "Organization", "name": "Koreans Next Door", "url": "https://koreansnextdoor.com" },
+            "publisher": { "@type": "Organization", "name": "Koreans Next Door", "logo": { "@type": "ImageObject", "url": "https://koreansnextdoor.com/logo.png" } },
+            "inLanguage": "en",
+            "about": { "@type": "Thing", "name": "Seoul Neighborhoods and Food Culture" }
           })
         }}
       />

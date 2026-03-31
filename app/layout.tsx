@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Noto_Sans_KR } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -16,8 +16,14 @@ const notoSansKR = Noto_Sans_KR({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#ffd966",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://koreans-next-door.vercel.app"),
+  metadataBase: new URL("https://koreansnextdoor.com"),
   title: {
     template: "%s — Koreans Next Door",
     default: "Koreans Next Door — Seoul Expat Community",
@@ -39,7 +45,7 @@ export const metadata: Metadata = {
     description:
       "Come as a guest, stay as a neighbor. A hospitality community in Seoul.",
     siteName: "Koreans Next Door",
-    url: "https://koreans-next-door.vercel.app",
+    url: "https://koreansnextdoor.com",
     type: "website",
     locale: "en_US",
     images: [
@@ -58,13 +64,14 @@ export const metadata: Metadata = {
       "Come as a guest, stay as a neighbor. A hospitality community in Seoul for internationals.",
   },
   alternates: {
-    canonical: "https://koreans-next-door.vercel.app",
+    canonical: "https://koreansnextdoor.com",
   },
   other: {
     "geo.region": "KR-11",
     "geo.placename": "Seoul, South Korea",
     "geo.position": "37.5665;126.978",
     ICBM: "37.5665, 126.978",
+    "naver-site-verification": "715306cb539dc54c55892017f484a5c687afac75",
   },
 };
 
@@ -84,8 +91,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Koreans Next Door",
-              "url": "https://koreans-next-door.vercel.app",
-              "logo": "https://koreans-next-door.vercel.app/logo.png",
+              "url": "https://koreansnextdoor.com",
+              "logo": "https://koreansnextdoor.com/logo.png",
               "description": "A community of locals walking alongside internationals in Seoul. Come as a guest, stay as a neighbor.",
               "areaServed": { "@type": "City", "name": "Seoul", "addressCountry": "KR" },
               "sameAs": ["https://www.instagram.com/koreansnextdoor"]
@@ -100,9 +107,17 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Koreans Next Door",
-              "url": "https://koreans-next-door.vercel.app",
+              "url": "https://koreansnextdoor.com",
               "description": "Seoul guide and community for internationals",
-              "inLanguage": "en"
+              "inLanguage": "en",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://koreansnextdoor.com/?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
             })
           }}
         />

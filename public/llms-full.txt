@@ -1,0 +1,47 @@
+# Koreans Next Door — Full Content Index
+
+> Complete resource for foreigners living in South Korea. All content is free, bilingual (English/Korean), and maintained by a community of Seoul locals.
+
+## Settle in Seoul (https://koreansnextdoor.com/guide/settle)
+
+Everything you need in your first weeks in Korea. ARC (Alien Registration Card) registration is required within 90 days of arrival at your local Immigration Office. Cost: 30,000 KRW. Bank accounts: Hana Bank and Shinhan Bank are most foreigner-friendly; requires ARC + passport + Korean phone number. National Health Insurance (NHIS): automatically enrolled after 6 months; premiums ~140,000 KRW/month. T-money transit card: available at convenience stores (2,500 KRW). Essential apps: KakaoTalk, Naver Maps, Baemin, Seoul Metro, Papago, KakaoBank.
+
+## Visa & Immigration (https://koreansnextdoor.com/guide/visa)
+
+Korea's main visa types for foreigners: E-2 (English teacher), D-2 (student), F-6 (marriage), F-2 (long-term residency), D-10 (job seeker), F-4 (overseas Korean). ARC processing takes 2-3 weeks at the Immigration Office. The Seoul Immigration Office is in Mokdong (목동). Hi Korea portal (hikorea.go.kr) handles online applications. Common mistakes: missing documents, wrong photo size, incomplete forms.
+
+## Housing (https://koreansnextdoor.com/guide/housing)
+
+Two main rental types: Jeonse (전세) — large lump-sum deposit (100-500M KRW in Seoul), no monthly rent, deposit returned after 2 years. Wolse (월세) — smaller deposit (5-30M KRW) plus monthly rent (500,000-2,000,000 KRW). Always check 등기부등본 (property registry) before signing. Register move-in (전입신고) within 14 days to protect deposit. Neighborhoods: Itaewon and Yongsan for expat community; Hongdae/Sinchon near universities; Gangnam/Seocho for corporate; Mapo for young professionals.
+
+## Money & Banking (https://koreansnextdoor.com/guide/money)
+
+Best banks for foreigners: Hana Bank (KEB), Shinhan Bank — English apps available. Account opening: ARC + passport + Korean phone number required. International transfers: Wise (0.4-0.8% fee) cheapest; Sentbe competitive for Korean won; KEB Hana's GLN service also good. Cost of living in Seoul (2026): studio rent 700,000-1,500,000 KRW; food 400,000-600,000 KRW; transport 100,000-150,000 KRW; total: ~1,800,000-2,800,000 KRW/month. Income tax: 6-45% progressive. Pension refund available when leaving Korea (must apply within 3 years).
+
+## Daily Life (https://koreansnextdoor.com/guide/daily)
+
+Trash: Separate into 종량제 봉투 (general waste, 100-600 KRW per bag) and recyclables (free). Recycling collected 2-3x weekly; schedule varies by district. Phone plans: SKT, KT, LG U+ plans from 33,000 KRW/month. MVNO plans from 9,900 KRW. Delivery apps: Baemin (widest selection), Coupang Eats (cheaper fees), Yogiyo. Driver's license conversion: visit 운전면허시험장 with foreign license + ARC + translation; fee ~13,000 KRW. Transit: T-money card, subway 1,400-1,800 KRW per ride.
+
+## Working in Korea (https://koreansnextdoor.com/guide/work)
+
+Legal hours: 40/week standard, 52/week maximum (including 12h overtime). Overtime pay: 150% of regular wage. Severance: 1 month per year of service after 1+ years employment — mandatory. 4대보험: health insurance, pension, employment insurance, accident insurance — employer must enroll full-time workers. Key contract checks: salary gross/net, housing/flights, notice period, overtime terms. Workplace culture: 회식 (group dining) is common but can be declined politely.
+
+## Healthcare (https://koreansnextdoor.com/guide/health)
+
+Three clinic types: 의원 (clinic) for common issues; 병원 (hospital) for complex; 종합병원 (general hospital) for serious. NHIS covers 60-80% of costs; out-of-pocket at clinic ~5,000-15,000 KRW. English-speaking hospitals: Severance (세브란스), Asan Medical Center, Samsung Medical Center — all have international patient centers. Emergency: 119 (ambulance), 1339 (medical helpline), 1345 (Seoul Global Center, multilingual). Pharmacies (약국) open 9am-9pm; many don't require prescriptions for common medications.
+
+## Mental Health (https://koreansnextdoor.com/guide/mental-health)
+
+Culture shock stages: Honeymoon → Frustration → Adjustment → Adaptation (typical timeline: 6-18 months). English-speaking therapists in Seoul available at international clinics and online platforms. Crisis hotlines: 1577-0199 (mental health, 24/7 Korean), 1393 (suicide prevention), 1345 (Seoul Global Center, multilingual). Expat communities: Internations Seoul, Facebook expat groups, r/korea, r/Living_in_Korea, Koreans Next Door events.
+
+## In a Pinch (https://koreansnextdoor.com/guide/pinch)
+
+Emergency numbers: 119 (ambulance/fire), 112 (police), 1345 (foreigner helpline, 24/7 multilingual). Korea is very safe — consistently ranks among world's safest countries. Key etiquette: remove shoes indoors, pour drinks for others first, use two hands when giving items, never stick chopsticks in rice. Lost ARC: report to police → visit Immigration Office with passport + police report + photo + 30,000 KRW.
+
+## Korean Phrasebook Tool (https://koreansnextdoor.com/tools/phrasebook)
+
+200+ Korean phrases for foreigners in real situations: hospital visits, bank visits, landlord communication, immigration offices, restaurants, pharmacies, police reports, shopping, taxis, and delivery. Each phrase includes Korean text, romanization (pronunciation guide), English translation, and usage context. Full-screen "SHOW THIS" mode for showing phrases to Korean speakers directly.
+
+## Korean Form Decoder Tool (https://koreansnextdoor.com/tools/forms)
+
+Common Korean bureaucratic forms decoded field-by-field: hospital registration form (진료신청서), ARC application form (외국인등록신청서), bank account application, address change form (전입신고서), phone plan application. Each field has Korean label, English translation, what to write, and tips for foreigners.

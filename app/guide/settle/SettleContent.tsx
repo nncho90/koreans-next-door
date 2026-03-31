@@ -6,6 +6,8 @@ import SharedFooter from "@/components/SharedFooter";
 import FirstWeekChecklist from "@/components/guide/FirstWeekChecklist";
 import BureaucracyWizard from "@/components/guide/BureaucracyWizard";
 import SurvivalKit from "@/components/SurvivalKit";
+import GuideFAQ from "@/components/guide/GuideFAQ";
+import { GUIDE_FAQS } from "@/lib/faqData";
 
 function SettleContent() {
   const { locale } = useLocale();
@@ -27,11 +29,15 @@ function SettleContent() {
                 ? "외국인등록증, 은행, 건강보험, 필수 앱. 처음에 해야 할 것들."
                 : "ARC, bank account, health insurance, essential apps. The stuff you actually need to handle first."}
             </p>
+            <p className="mt-4 text-xs text-zinc-500">
+              {isKo ? "마지막 업데이트: 2026년 3월" : "Last updated: March 2026"}
+            </p>
           </div>
         </section>
         <FirstWeekChecklist />
         <BureaucracyWizard />
         <SurvivalKit />
+        <GuideFAQ faqs={GUIDE_FAQS["settle"]} isKo={isKo} />
       </main>
       <SharedFooter />
     </>

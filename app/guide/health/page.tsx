@@ -8,8 +8,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Find a Doctor in Seoul — Koreans Next Door",
     description: "Korea's clinic system, English-speaking hospitals, and who to call when you need help.",
-    url: "https://koreans-next-door.vercel.app/guide/health",
+    url: "https://koreansnextdoor.com/guide/health",
   },
+  alternates: { canonical: "https://koreansnextdoor.com/guide/health" },
 };
 
 export default function Page() {
@@ -22,10 +23,26 @@ export default function Page() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://koreans-next-door.vercel.app" },
-              { "@type": "ListItem", "position": 2, "name": "Seoul Guide", "item": "https://koreans-next-door.vercel.app/guide" },
-              { "@type": "ListItem", "position": 3, "name": "Find a Doctor", "item": "https://koreans-next-door.vercel.app/guide/health" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://koreansnextdoor.com" },
+              { "@type": "ListItem", "position": 2, "name": "Seoul Guide", "item": "https://koreansnextdoor.com/guide" },
+              { "@type": "ListItem", "position": 3, "name": "Find a Doctor", "item": "https://koreansnextdoor.com/guide/health" }
             ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Healthcare Guide for Foreigners in Korea (2026)",
+            "datePublished": "2026-01-01",
+            "dateModified": "2026-03-31",
+            "author": { "@type": "Organization", "name": "Koreans Next Door", "url": "https://koreansnextdoor.com" },
+            "publisher": { "@type": "Organization", "name": "Koreans Next Door", "logo": { "@type": "ImageObject", "url": "https://koreansnextdoor.com/logo.png" } },
+            "inLanguage": "en",
+            "about": { "@type": "Thing", "name": "Healthcare in South Korea" }
           })
         }}
       />

@@ -7,6 +7,8 @@ import ClinicTierExplainer from "@/components/guide/ClinicTierExplainer";
 import SpecialtyPicker from "@/components/guide/SpecialtyPicker";
 import EnglishClinicMap from "@/components/guide/EnglishClinicMap";
 import HealthHotlines from "@/components/guide/HealthHotlines";
+import GuideFAQ from "@/components/guide/GuideFAQ";
+import { GUIDE_FAQS } from "@/lib/faqData";
 
 function HealthContent() {
   const { locale } = useLocale();
@@ -28,12 +30,16 @@ function HealthContent() {
                 ? "한국의 의료 시스템, 영어 가능한 병원, 그리고 급할 때 연락할 곳."
                 : "Korea's clinic system, English-speaking hospitals, and who to call when you need help."}
             </p>
+            <p className="mt-4 text-xs text-zinc-400">
+              {isKo ? "마지막 업데이트: 2026년 3월" : "Last updated: March 2026"}
+            </p>
           </div>
         </section>
         <ClinicTierExplainer />
         <SpecialtyPicker />
         <EnglishClinicMap />
         <HealthHotlines />
+        <GuideFAQ faqs={GUIDE_FAQS["health"]} isKo={isKo} />
       </main>
       <SharedFooter />
     </>

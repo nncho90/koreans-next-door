@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Koreans Next Door — Seoul Expat Community",
     description: "Come as a guest, stay as a neighbor. A hospitality community for internationals in Seoul.",
-    url: "https://koreans-next-door.vercel.app",
+    url: "https://koreansnextdoor.com",
   },
 };
 

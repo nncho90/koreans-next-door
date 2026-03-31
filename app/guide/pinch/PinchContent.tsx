@@ -6,6 +6,8 @@ import SharedFooter from "@/components/SharedFooter";
 import CulturalTips from "@/components/guide/CulturalTips";
 import EmergencyCard from "@/components/guide/EmergencyCard";
 import AskNeighbor from "@/components/guide/AskNeighbor";
+import GuideFAQ from "@/components/guide/GuideFAQ";
+import { GUIDE_FAQS } from "@/lib/faqData";
 
 function PinchContent() {
   const { locale } = useLocale();
@@ -27,11 +29,15 @@ function PinchContent() {
                 ? "불문율, 비상 상황, 그리고 막막할 때 물어볼 수 있는 이웃."
                 : "Unwritten rules, emergency prep, and a real neighbor to ask when you're stuck."}
             </p>
+            <p className="mt-4 text-xs text-zinc-400">
+              {isKo ? "마지막 업데이트: 2026년 3월" : "Last updated: March 2026"}
+            </p>
           </div>
         </section>
         <CulturalTips />
         <EmergencyCard />
         <AskNeighbor />
+        <GuideFAQ faqs={GUIDE_FAQS["pinch"]} isKo={isKo} />
       </main>
       <SharedFooter />
     </>

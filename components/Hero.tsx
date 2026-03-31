@@ -74,6 +74,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
           className="flex flex-col items-center"
         >
+          <h1 className="sr-only">Koreans Next Door — Seoul Guide and Community for Foreigners Living in Korea</h1>
           <Image
             src="/logo.png"
             alt="Koreans Next Door"
