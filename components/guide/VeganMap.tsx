@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useLocale } from "@/lib/i18n";
 import { VEGAN_PLACES, veganListJsonLd, type VeganPlace } from "@/lib/veganData";
 import { jsonLd } from "@/lib/jsonLd";
@@ -16,6 +16,31 @@ export default function VeganMap() {
 
   const [activeCategory, setActiveCategory] = useState<string>(ALL);
   const [selected, setSelected] = useState<VeganPlace | null>(null);
+  const [photo, setPhoto] = useState<string | null>(null);
+  const [photoLoading, setPhotoLoading] = useState(false);
+  const photoCache = useRef<Record<string, string | null>>({});
+
+  useEffect(() => {
+    if (!selected) { setPhoto(null); return; }
+    const key = selected.id;
+    if (key in photoCache.current) {
+      setPhoto(photoCache.current[key]);
+      return;
+    }
+    setPhoto(null);
+    setPhotoLoading(true);
+    const params = new URLSearchParams({
+      name: selected.name,
+      nameEn: selected.nameEn,
+      lat: String(selected.lat),
+      lng: String(selected.lng),
+    });
+    fetch(`/api/place-photo?${params}`)
+      .then((r) => r.json())
+      .then((d) => { photoCache.current[key] = d.photo ?? null; setPhoto(d.photo ?? null); })
+      .catch(() => { photoCache.current[key] = null; })
+      .finally(() => setPhotoLoading(false));
+  }, [selected?.id]);
 
   const categories = useMemo(() => {
     const seen = new Set<string>();
@@ -104,7 +129,24 @@ export default function VeganMap() {
 
         {/* Selected detail card */}
         {selected ? (
-          <div className="mt-4 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5 sm:p-6">
+          <div className="mt-4 rounded-2xl border border-emerald-100 bg-emerald-50/50 overflow-hidden">
+            {/* Photo */}
+            {(photoLoading || photo) && (
+              <div className="relative h-48 w-full bg-zinc-100">
+                {photoLoading && !photo && (
+                  <div className="absolute inset-0 animate-pulse bg-zinc-200" />
+                )}
+                {photo && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={photo}
+                    alt={selected.nameEn}
+                    className="h-full w-full object-cover"
+                  />
+                )}
+              </div>
+            )}
+            <div className="p-5 sm:p-6">
             {/* Header row: emoji + name + price range */}
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-start gap-2 min-w-0">
@@ -164,6 +206,7 @@ export default function VeganMap() {
                 {isKo ? "네이버 지도에서 보기 →" : "Open in Naver Maps →"}
               </a>
             </div>
+            </div>{/* end inner padding div */}
           </div>
         ) : (
           <p className="mt-3 text-center text-xs text-zinc-400">
