@@ -1,79 +1,23 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { CaretDown, List, X } from "@phosphor-icons/react";
+import { List, X } from "@phosphor-icons/react";
 import { useLocale } from "@/lib/i18n";
-
-const guideGroups = [
-  {
-    en: "Settle in",
-    ko: "정착하기",
-    href: "/guide/settle",
-    items: [
-      { en: "First Week Checklist", ko: "첫째 주 체크리스트", href: "/guide/settle#first-week" },
-      { en: "Bureaucracy Guide", ko: "행정 처리 가이드", href: "/guide/settle#bureaucracy" },
-      { en: "Survival Kit", ko: "서울 생존 키트", href: "/guide/settle#survival-kit" },
-    ],
-  },
-  {
-    en: "Explore",
-    ko: "탐색하기",
-    href: "/guide/explore",
-    items: [
-      { en: "Food Decoder", ko: "한국 음식 가이드", href: "/guide/explore#food" },
-      { en: "Neighborhoods", ko: "동네 안내", href: "/guide/explore#neighborhoods" },
-      { en: "Seasonal Calendar", ko: "월별 생활 가이드", href: "/guide/explore#seasons" },
-    ],
-  },
-  {
-    en: "In a pinch",
-    ko: "급할 때",
-    href: "/guide/pinch",
-    items: [
-      { en: "Cultural Tips", ko: "한국 문화 팁", href: "/guide/pinch#culture" },
-      { en: "Emergency Card", ko: "긴급 잠금화면 카드", href: "/guide/pinch#emergency" },
-      { en: "Ask a Neighbor", ko: "이웃에게 물어보기", href: "/guide/pinch#ask" },
-    ],
-  },
-  {
-    en: "Find a Doctor",
-    ko: "의료 안내",
-    href: "/guide/health",
-    items: [
-      { en: "Clinic Type Guide", ko: "진료기관 종류 안내", href: "/guide/health#tiers" },
-      { en: "Specialty Finder", ko: "진료과 찾기", href: "/guide/health#specialties" },
-      { en: "English-Friendly Clinics", ko: "영어 가능 병원", href: "/guide/health#map" },
-    ],
-  },
-];
+import { guideGroups } from "@/lib/guideData";
 
 export default function SharedNavbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [expandedGroup, setExpandedGroup] = useState<number | null>(null);
   const { t, locale, setLocale } = useLocale();
   const pathname = usePathname();
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   const isGuide = pathname === "/guide" || pathname.startsWith("/guide/");
@@ -98,53 +42,37 @@ export default function SharedNavbar() {
           </Link>
 
           {/* Desktop right cluster */}
-          <div className="hidden md:flex items-center gap-3">
-            {/* Guide dropdown */}
-            <div ref={dropdownRef} className="relative">
-              <button
-                onClick={() => setDropdownOpen((v) => !v)}
-                onMouseEnter={() => setDropdownOpen(true)}
-                className={`flex items-center gap-1 text-sm font-medium transition-colors duration-300 ${guideTextClass}`}
+          <div className="hidden md:flex items-center gap-6">
+            {/* Flat nav links */}
+            {[
+              { label: locale === "ko" ? "우리 이야기" : "Our Story", href: "/#mission" },
+              { label: locale === "ko" ? "이벤트" : "Events", href: "/#events" },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`relative text-sm font-medium transition-colors duration-300 pb-0.5 ${
+                  dark ? "text-zinc-600 hover:text-zinc-900" : "text-white/70 hover:text-white"
+                }`}
               >
-                {locale === "ko" ? "가이드" : "Guide"}
-                <CaretDown
-                  size={13}
-                  weight="bold"
-                  className={`transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
-                />
-              </button>
+                {link.label}
+              </a>
+            ))}
 
-              <AnimatePresence>
-                {dropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 6 }}
-                    transition={{ duration: 0.15 }}
-                    onMouseLeave={() => setDropdownOpen(false)}
-                    className="absolute right-0 top-full mt-3 w-64 rounded-2xl border border-zinc-200/80 bg-white p-3 shadow-xl shadow-black/10"
-                  >
-                    {guideGroups.map((group, gi) => (
-                      <div key={gi} className={gi > 0 ? "mt-2 border-t border-zinc-100 pt-2" : ""}>
-                        <p className="mb-1 px-2 text-[10px] font-bold uppercase tracking-widest text-[#c9a800]">
-                          {locale === "ko" ? group.ko : group.en}
-                        </p>
-                        {group.items.map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            onClick={() => setDropdownOpen(false)}
-                            className="block rounded-xl px-2 py-1.5 text-sm text-zinc-600 transition-colors hover:bg-zinc-50 hover:text-zinc-900"
-                          >
-                            {locale === "ko" ? item.ko : item.en}
-                          </Link>
-                        ))}
-                      </div>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            {/* Guide link */}
+            <Link
+              href="/#guide"
+              className={`text-sm font-medium transition-colors duration-300 pb-0.5 ${
+                isGuide
+                  ? "text-[#c9a800] border-b-2 border-[#ffd966]"
+                  : dark ? "text-zinc-600 hover:text-zinc-900" : "text-white/70 hover:text-white"
+              }`}
+            >
+              {locale === "ko" ? "가이드" : "Guide"}
+            </Link>
+
+            {/* Divider */}
+            <div className={`h-4 w-px transition-colors duration-300 ${dark ? "bg-zinc-200" : "bg-white/20"}`} />
 
             {/* Language toggle */}
             <div className={`flex items-center rounded-full p-0.5 transition-all duration-300 ${dark ? "bg-zinc-100" : "bg-white/15"}`}>
@@ -178,7 +106,7 @@ export default function SharedNavbar() {
           {/* Mobile hamburger */}
           <button
             className="md:hidden p-2 -mr-1"
-            onClick={() => { setMenuOpen((v) => !v); setExpandedGroup(null); }}
+            onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
             {menuOpen
@@ -187,6 +115,30 @@ export default function SharedNavbar() {
             }
           </button>
         </div>
+
+        {/* Guide sub-nav — visible only on guide pages */}
+        {isGuide && (
+          <div className="mx-auto max-w-7xl px-6 md:px-10 pb-2 pt-0.5 flex items-center gap-1.5">
+            {guideGroups.map((g) => {
+              const active = pathname === g.href;
+              return (
+                <Link
+                  key={g.href}
+                  href={g.href}
+                  className={`rounded-full px-3.5 py-1 text-xs font-semibold transition-all duration-200 ${
+                    active
+                      ? "bg-[#ffd966] text-zinc-950"
+                      : dark
+                        ? "text-zinc-500 hover:text-zinc-800"
+                        : "text-white/60 hover:text-white"
+                  }`}
+                >
+                  {locale === "ko" ? g.labelKo : g.labelEn}
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </nav>
 
       {/* Mobile full-screen menu */}
@@ -200,47 +152,52 @@ export default function SharedNavbar() {
             className="fixed inset-0 top-[57px] z-40 bg-white overflow-y-auto md:hidden"
           >
             <div className="px-6 py-6 space-y-1">
-              {/* Guide sections accordion */}
-              {guideGroups.map((group, gi) => (
-                <div key={gi}>
-                  <button
-                    onClick={() => setExpandedGroup(expandedGroup === gi ? null : gi)}
-                    className="flex w-full items-center justify-between py-3 text-base font-semibold text-zinc-900"
-                  >
-                    <span>{locale === "ko" ? group.ko : group.en}</span>
-                    <CaretDown
-                      size={14}
-                      weight="bold"
-                      className={`text-zinc-400 transition-transform duration-200 ${expandedGroup === gi ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  <AnimatePresence>
-                    {expandedGroup === gi && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.15 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="pb-2 pl-2 space-y-0.5">
-                          {group.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={() => setMenuOpen(false)}
-                              className="block rounded-xl px-3 py-2 text-sm text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
-                            >
-                              {locale === "ko" ? item.ko : item.en}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                  <div className="border-b border-zinc-100" />
-                </div>
+              {/* Top-level links */}
+              {[
+                { label: locale === "ko" ? "우리 이야기" : "Our Story", href: "/#mission" },
+                { label: locale === "ko" ? "이벤트" : "Events", href: "/#events" },
+              ].map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-3 text-base font-semibold text-zinc-900 border-b border-zinc-100"
+                >
+                  {link.label}
+                </a>
               ))}
+
+              {/* Guide link */}
+              <Link
+                href="/#guide"
+                onClick={() => setMenuOpen(false)}
+                className="block py-3 text-base font-semibold text-zinc-900 border-b border-zinc-100"
+              >
+                {locale === "ko" ? "가이드" : "Guide"}
+              </Link>
+
+              {/* Guide sub-sections (shown on guide pages) */}
+              {isGuide && (
+                <div className="pl-4 space-y-0">
+                  {guideGroups.map((g) => {
+                    const active = pathname === g.href;
+                    return (
+                      <Link
+                        key={g.href}
+                        href={g.href}
+                        onClick={() => setMenuOpen(false)}
+                        className={`flex items-center gap-2 py-2.5 text-sm border-b border-zinc-100 transition-colors ${
+                          active ? "text-[#c9a800] font-semibold" : "text-zinc-500 font-medium"
+                        }`}
+                      >
+                        {active && <span className="h-1.5 w-1.5 rounded-full bg-[#ffd966] shrink-0" />}
+                        {!active && <span className="h-1.5 w-1.5 rounded-full bg-transparent shrink-0" />}
+                        {locale === "ko" ? g.labelKo : g.labelEn}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
 
               {/* Language toggle */}
               <div className="pt-5 flex items-center gap-2">

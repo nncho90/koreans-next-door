@@ -28,7 +28,7 @@ export default function ClinicTierExplainer() {
               key={tier.tier}
               className="flex flex-col rounded-2xl border border-zinc-200 bg-[#fafaf8] p-6"
             >
-              <div className={`mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full ${tier.color} text-sm font-bold text-white`}>
+              <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#ffd966] text-sm font-bold text-zinc-900">
                 {tier.tier}
               </div>
               <div className="mb-1 text-xl font-bold text-zinc-950">
@@ -45,7 +45,7 @@ export default function ClinicTierExplainer() {
                   <span className="font-semibold text-zinc-800">NHIS: </span>
                   {tier.nhis}
                 </div>
-                <div className={`rounded-lg px-3 py-2 text-xs font-medium ${tier.color} bg-opacity-10 text-zinc-800`}>
+                <div className="rounded-lg bg-zinc-800 px-3 py-2 text-xs font-medium text-white">
                   💡 {tier.tip}
                 </div>
               </div>

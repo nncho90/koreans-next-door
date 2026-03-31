@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Plus, Minus } from "@phosphor-icons/react";
 import { useLocale } from "@/lib/i18n";
 import { getJsxFaqAnswers } from "@/lib/i18n/rich";
+import { en } from "@/lib/i18n/en";
+import { jsonLd } from "@/lib/jsonLd";
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
@@ -11,7 +13,22 @@ export default function FAQ() {
   const jsxAnswers = getJsxFaqAnswers(locale);
 
   return (
-    <section id="faq" className="bg-[#fafaf8] px-6 py-10 md:px-10 md:py-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd({
+          "@type": "FAQPage",
+          "mainEntity": en.faq.items.filter((item) => item.a).map((item) => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": item.a,
+            },
+          })),
+        })}
+      />
+      <section id="faq" className="bg-[#fafaf8] px-6 py-10 md:px-10 md:py-16">
       <div className="mx-auto max-w-7xl">
 
         <div className="grid grid-cols-1 gap-16 md:grid-cols-[2fr_3fr]">
@@ -54,5 +71,6 @@ export default function FAQ() {
 
       </div>
     </section>
+    </>
   );
 }

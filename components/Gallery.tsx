@@ -9,13 +9,13 @@ import { useLocale } from "@/lib/i18n";
 const rotations = [-1.5, 2, -0.5, 1.8, -2, 1, -1.2];
 
 const photos = [
-  { src: "/photos/knd-02.jpeg", alt: "KND event" },
-  { src: "/photos/knd-03.jpeg", alt: "KND event" },
-  { src: "/photos/knd-04.jpeg", alt: "KND event" },
-  { src: "/photos/knd-05.jpeg", alt: "KND event" },
-  { src: "/photos/knd-06.jpeg", alt: "KND event" },
-  { src: "/photos/knd-07.jpeg", alt: "KND event" },
-  { src: "/photos/knd-08.jpeg", alt: "KND event" },
+  { src: "/photos/knd-02.jpeg", alt: "Community members making dumplings at KND Seollal tteokguk party" },
+  { src: "/photos/knd-03.jpeg", alt: "International community gathering at Koreans Next Door Seoul" },
+  { src: "/photos/knd-04.jpeg", alt: "KND members playing Yut Nori together at Seollal celebration" },
+  { src: "/photos/knd-05.jpeg", alt: "Language exchange event with Korean and international participants" },
+  { src: "/photos/knd-06.jpeg", alt: "KND neighbors enjoying food and conversation together in Seoul" },
+  { src: "/photos/knd-07.jpeg", alt: "Group photo of Koreans Next Door community members" },
+  { src: "/photos/knd-08.jpeg", alt: "KND members on a night hike up Gwanaksan mountain in Seoul" },
 ];
 
 export default function Gallery() {

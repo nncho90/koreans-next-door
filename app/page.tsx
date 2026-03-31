@@ -1,48 +1,17 @@
-"use client";
+import type { Metadata } from "next";
+import HomeContent from "./HomeContent";
 
-import { LocaleProvider, useLocale } from "@/lib/i18n";
-import SharedNavbar from "@/components/SharedNavbar";
-import SharedFooter from "@/components/SharedFooter";
-import Hero from "@/components/Hero";
-import MissionStory from "@/components/MissionStory";
-import Events from "@/components/Events";
-import ImpactCounter from "@/components/ImpactCounter";
-import UpcomingEvents from "@/components/UpcomingEvents";
-import Gallery from "@/components/Gallery";
-import Testimonials from "@/components/Testimonials";
-import Globe from "@/components/Globe";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import PhraseOfDay from "@/components/PhraseOfDay";
+export const metadata: Metadata = {
+  title: "Koreans Next Door — Seoul Expat Community",
+  description: "A community of locals walking alongside internationals in Seoul. Come as a guest, stay as a neighbor.",
+  keywords: ["Seoul expat community", "internationals in Seoul", "meet people Seoul", "Seoul English speakers", "Korea foreigner community"],
+  openGraph: {
+    title: "Koreans Next Door — Seoul Expat Community",
+    description: "Come as a guest, stay as a neighbor. A hospitality community for internationals in Seoul.",
+    url: "https://koreans-next-door.vercel.app",
+  },
+};
 
-function PageContent() {
-  const { t } = useLocale();
-
-  return (
-    <>
-      <SharedNavbar />
-      <main>
-        <Hero />
-        <MissionStory />
-        <Events />
-        <ImpactCounter />
-        <UpcomingEvents />
-        <Gallery />
-        <Testimonials />
-        <Globe />
-        <FAQ />
-        <Contact />
-      </main>
-      <PhraseOfDay />
-      <SharedFooter />
-    </>
-  );
-}
-
-export default function Home() {
-  return (
-    <LocaleProvider>
-      <PageContent />
-    </LocaleProvider>
-  );
+export default function Page() {
+  return <HomeContent />;
 }

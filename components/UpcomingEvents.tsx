@@ -19,7 +19,7 @@ export default function UpcomingEvents() {
 
         <div className="overflow-hidden rounded-2xl border border-zinc-200">
           <iframe
-            src="https://luma.com/embed/calendar/cal-J0zAgLYj8iOqzD1/events?compact=true&lt=light"
+            src="https://luma.com/embed/calendar/cal-J0zAgLYj8iOqzD1/events?compact=true&amp;lt=light"
             width="100%"
             height="450"
             style={{ border: "none" }}

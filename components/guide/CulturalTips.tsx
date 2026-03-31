@@ -127,11 +127,11 @@ export default function CulturalTips() {
             : "Unwritten rules that take expats years to figure out. Here's your shortcut."}
         </p>
 
-        <div className="columns-1 gap-4 sm:columns-2">
+        <div className="grid gap-4 sm:grid-cols-2">
           {tips.map((tip, i) => (
             <div
               key={i}
-              className={`mb-4 break-inside-avoid rounded-2xl p-6 ${i % 3 === 0 ? "bg-white border border-zinc-100 shadow-sm" : i % 3 === 1 ? "bg-zinc-50" : "bg-white border border-zinc-100"}`}
+              className="rounded-2xl border border-zinc-200/60 bg-white p-6 shadow-sm"
             >
               <p className="mb-1 text-xs font-bold uppercase tracking-widest text-[#c9a800]">{tip.concept}</p>
               <h3 className="mb-2 text-base font-bold text-zinc-900">{tip.title}</h3>

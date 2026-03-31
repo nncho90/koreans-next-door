@@ -1,0 +1,138 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import { useState, useMemo } from "react";
+import { useLocale } from "@/lib/i18n";
+import { VEGAN_PLACES, veganListJsonLd, type VeganPlace } from "@/lib/veganData";
+import { jsonLd } from "@/lib/jsonLd";
+
+const Map = dynamic(() => import("./VeganMapInner"), { ssr: false });
+
+const ALL = "ALL";
+
+export default function VeganMap() {
+  const { locale } = useLocale();
+  const isKo = locale === "ko";
+
+  const [activeCategory, setActiveCategory] = useState<string>(ALL);
+  const [selected, setSelected] = useState<VeganPlace | null>(null);
+
+  const categories = useMemo(() => {
+    const seen = new Set<string>();
+    return VEGAN_PLACES.filter((p) => {
+      if (seen.has(p.category)) return false;
+      seen.add(p.category);
+      return true;
+    }).map((p) => ({ ko: p.category, en: p.categoryEn }));
+  }, []);
+
+  const filtered = useMemo(
+    () =>
+      activeCategory === ALL
+        ? VEGAN_PLACES
+        : VEGAN_PLACES.filter((p) => p.category === activeCategory),
+    [activeCategory]
+  );
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd(veganListJsonLd())}
+      />
+      <section id="vegan" className="bg-white px-6 py-16 md:px-10">
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-emerald-500">
+          {isKo ? "비건 맛집" : "Vegan Guide"}
+        </p>
+        <h2 className="mb-2 text-3xl font-bold text-zinc-950 md:text-4xl">
+          {isKo ? "서울 비건 지도" : "Seoul vegan map"}
+        </h2>
+        <p className="mb-1 max-w-xl text-zinc-500">
+          {isKo
+            ? "서울 전역의 비건 레스토랑, 카페, 베이커리를 한눈에. 카테고리로 필터할 수 있어요."
+            : "Vegan restaurants, cafes, and bakeries across Seoul — all in one place. Filter by category below."}
+        </p>
+        {/* Amelie credit */}
+        <p className="mb-6 text-sm text-zinc-400">
+          {isKo ? "큐레이션: " : "Curated by "}
+          <a
+            href="https://www.instagram.com/amelierbln"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-zinc-500 hover:text-zinc-800 transition-colors"
+          >
+            @amelierbln
+          </a>
+        </p>
+
+        {/* Filter pills */}
+        <div className="mb-4 flex flex-wrap gap-2">
+          <button
+            onClick={() => { setActiveCategory(ALL); setSelected(null); }}
+            className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-all duration-150 ${
+              activeCategory === ALL
+                ? "bg-emerald-500 text-white"
+                : "bg-white text-zinc-600 border border-zinc-200 hover:border-zinc-300 hover:text-zinc-900"
+            }`}
+          >
+            {isKo ? `전체 (${VEGAN_PLACES.length})` : `All (${VEGAN_PLACES.length})`}
+          </button>
+          {categories.map((cat) => {
+            const count = VEGAN_PLACES.filter((p) => p.category === cat.ko).length;
+            return (
+              <button
+                key={cat.ko}
+                onClick={() => { setActiveCategory(cat.ko); setSelected(null); }}
+                className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-all duration-150 ${
+                  activeCategory === cat.ko
+                    ? "bg-emerald-500 text-white"
+                    : "bg-white text-zinc-600 border border-zinc-200 hover:border-zinc-300 hover:text-zinc-900"
+                }`}
+              >
+                {isKo ? cat.ko : cat.en} ({count})
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Map */}
+        <div className="overflow-hidden rounded-2xl border border-zinc-200 shadow-sm">
+          <Map places={filtered} onSelect={setSelected} />
+        </div>
+
+        {/* Selected detail card */}
+        {selected ? (
+          <div className="mt-4 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-6">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-bold text-zinc-950">{selected.name}</h3>
+                <p className="text-sm text-zinc-500">{selected.nameEn}</p>
+              </div>
+              <span className="shrink-0 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
+                {isKo ? selected.category : selected.categoryEn}
+              </span>
+            </div>
+            <p className="mt-3 text-sm text-zinc-600">📍 {selected.address}</p>
+            <div className="mt-4">
+              <a
+                href={selected.naverMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg bg-zinc-950 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+              >
+                {isKo ? "네이버 지도에서 보기 →" : "Open in Naver Maps →"}
+              </a>
+            </div>
+          </div>
+        ) : (
+          <p className="mt-3 text-center text-xs text-zinc-400">
+            {isKo ? "핀을 클릭하면 상세 정보를 볼 수 있어요" : "Click a pin to see details"}
+          </p>
+        )}
+      </div>
+    </section>
+    </>
+  );
+}

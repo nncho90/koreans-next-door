@@ -52,56 +52,95 @@ export default function EmergencyCard() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // iPhone aspect ratio: 390x844
     canvas.width = 390;
     canvas.height = 844;
 
-    // Background
-    ctx.fillStyle = "#111111";
+    // Rounded rect helper
+    const rr = (x: number, ry: number, w: number, h: number, r: number) => {
+      ctx.beginPath();
+      ctx.moveTo(x + r, ry);
+      ctx.lineTo(x + w - r, ry);
+      ctx.quadraticCurveTo(x + w, ry, x + w, ry + r);
+      ctx.lineTo(x + w, ry + h - r);
+      ctx.quadraticCurveTo(x + w, ry + h, x + w - r, ry + h);
+      ctx.lineTo(x + r, ry + h);
+      ctx.quadraticCurveTo(x, ry + h, x, ry + h - r);
+      ctx.lineTo(x, ry + r);
+      ctx.quadraticCurveTo(x, ry, x + r, ry);
+      ctx.closePath();
+    };
+
+    // ── Background gradient ──
+    const bg = ctx.createLinearGradient(0, 0, 0, 844);
+    bg.addColorStop(0, "#0c0c14");
+    bg.addColorStop(1, "#111118");
+    ctx.fillStyle = bg;
     ctx.fillRect(0, 0, 390, 844);
 
-    // Yellow accent bar at top
-    ctx.fillStyle = "#ffd966";
-    ctx.fillRect(0, 0, 390, 6);
+    // Warm radial glow in header area
+    const glow = ctx.createRadialGradient(195, 80, 0, 195, 80, 220);
+    glow.addColorStop(0, "rgba(255,217,102,0.06)");
+    glow.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, 390, 340);
 
-    let y = 60;
+    const PAD = 24;
+    const cardW = 342;
+    let y = 92;
 
-    // Title
-    ctx.font = "bold 24px -apple-system, Arial, sans-serif";
-    ctx.fillStyle = "#ffffff";
+    // ── HEADER ──
     ctx.textAlign = "center";
-    ctx.fillText("\uD83C\uDD98  Emergency / \uBE44\uC0C1", 195, y);
-    y += 50;
-
-    // Divider
-    ctx.fillStyle = "#333333";
-    ctx.fillRect(24, y, 342, 1);
-    y += 30;
-
-    // Emergency numbers
-    ctx.font = "bold 20px -apple-system, Arial, sans-serif";
+    ctx.font = "bold 50px -apple-system, Arial, sans-serif";
     ctx.fillStyle = "#ffd966";
+    ctx.fillText("SOS", 195, y);
+    y += 36;
+
+    ctx.font = "bold 12px -apple-system, Arial, sans-serif";
+    ctx.fillStyle = "#777777";
+    ctx.fillText("EMERGENCY  \u00B7  \uBE44\uC0C1", 195, y);
+    y += 28;
+
+    // Gold accent line
+    ctx.fillStyle = "rgba(255,217,102,0.5)";
+    ctx.fillRect(195 - 100, y, 200, 1.5);
+    y += 44;
+
+    // ── EMERGENCY NUMBER CARDS ──
+    const nums = [
+      { num: "112", label: "Police \u00B7 \uACBD\uCC30" },
+      { num: "119", label: "Fire & Ambulance" },
+      { num: "1330", label: "Helpline (English)" },
+    ];
+
+    const cH = 68;
+    for (const item of nums) {
+      rr(PAD, y, cardW, cH, 14);
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(255,255,255,0.09)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.font = "bold 30px -apple-system, Arial, sans-serif";
+      ctx.fillStyle = "#ffd966";
+      ctx.textAlign = "left";
+      ctx.fillText(item.num, PAD + 20, y + cH / 2 + 11);
+
+      ctx.font = "13px -apple-system, Arial, sans-serif";
+      ctx.fillStyle = "rgba(255,255,255,0.45)";
+      ctx.textAlign = "right";
+      ctx.fillText(item.label, PAD + cardW - 20, y + cH / 2 + 6);
+
+      y += cH + 10;
+    }
+    y += 16;
+
+    // ── PHRASES ──
+    ctx.font = "bold 10px -apple-system, Arial, sans-serif";
+    ctx.fillStyle = "#4a4a4a";
     ctx.textAlign = "left";
-    [
-      "112 \u2014 Police (\uACBD\uCC30)",
-      "119 \u2014 Fire & Ambulance",
-      "1330 \u2014 Tourism Helpline (EN)",
-    ].forEach((line) => {
-      ctx.fillText(line, 24, y);
-      y += 36;
-    });
-    y += 20;
-
-    // Divider
-    ctx.fillStyle = "#333333";
-    ctx.fillRect(24, y, 342, 1);
-    y += 30;
-
-    // Phrases
-    ctx.font = "bold 14px -apple-system, Arial, sans-serif";
-    ctx.fillStyle = "#aaaaaa";
-    ctx.fillText("Show this to someone nearby:", 24, y);
-    y += 30;
+    ctx.fillText("\uC774 \uD654\uBA74\uC744 \uBCF4\uC5EC\uC8FC\uC138\uC694  \u00B7  SHOW THIS SCREEN", PAD, y);
+    y += 28;
 
     const phrases = [
       { kr: "\uB3C4\uC640\uC8FC\uC138\uC694", en: "I need help" },
@@ -110,49 +149,75 @@ export default function EmergencyCard() {
       { kr: "\uACBD\uCC30\uC744 \uBD88\uB7EC\uC8FC\uC138\uC694", en: "Call the police" },
     ];
 
-    phrases.forEach((p) => {
-      ctx.font = "bold 22px -apple-system, Arial, sans-serif";
-      ctx.fillStyle = "#ffffff";
-      ctx.fillText(p.kr, 24, y);
-      ctx.font = "16px -apple-system, Arial, sans-serif";
-      ctx.fillStyle = "#888888";
-      ctx.fillText(p.en, 24, y + 22);
-      y += 60;
-    });
+    for (const p of phrases) {
+      // Gold left accent bar
+      rr(PAD, y - 16, 3, 42, 1.5);
+      ctx.fillStyle = "rgba(255,217,102,0.65)";
+      ctx.fill();
 
-    // Address section
-    if (address) {
-      y += 10;
-      ctx.fillStyle = "#333333";
-      ctx.fillRect(24, y, 342, 1);
-      y += 24;
-      ctx.font = "bold 13px -apple-system, Arial, sans-serif";
-      ctx.fillStyle = "#aaaaaa";
-      ctx.fillText("My address / \uB0B4 \uC8FC\uC18C:", 24, y);
-      y += 24;
-      ctx.font = "bold 17px -apple-system, Arial, sans-serif";
-      ctx.fillStyle = "#ffd966";
-      // Word wrap address
-      const words = address.split(" ");
-      let line = "";
-      for (const word of words) {
-        const test = line + word + " ";
-        if (ctx.measureText(test).width > 342 && line) {
-          ctx.fillText(line.trim(), 24, y);
-          line = word + " ";
-          y += 26;
-        } else {
-          line = test;
-        }
-      }
-      ctx.fillText(line.trim(), 24, y);
+      ctx.font = "bold 21px -apple-system, Arial, sans-serif";
+      ctx.fillStyle = "#ffffff";
+      ctx.textAlign = "left";
+      ctx.fillText(p.kr, PAD + 14, y);
+
+      ctx.font = "13px -apple-system, Arial, sans-serif";
+      ctx.fillStyle = "#5a5a5a";
+      ctx.fillText(p.en, PAD + 14, y + 21);
+
+      y += 54;
     }
 
-    // Bottom: KND credit
-    ctx.font = "12px -apple-system, Arial, sans-serif";
-    ctx.fillStyle = "#444444";
+    // ── ADDRESS (optional) ──
+    if (address) {
+      y += 10;
+
+      // Pre-measure lines for dynamic card height
+      ctx.font = "bold 16px -apple-system, Arial, sans-serif";
+      const maxW = cardW - 40;
+      const addrWords = address.split(" ");
+      const addrLines: string[] = [];
+      let cur = "";
+      for (const word of addrWords) {
+        const test = cur + word + " ";
+        if (ctx.measureText(test).width > maxW && cur) {
+          addrLines.push(cur.trim());
+          cur = word + " ";
+        } else {
+          cur = test;
+        }
+      }
+      addrLines.push(cur.trim());
+
+      const addrCardH = 20 + 12 + addrLines.length * 22 + 16;
+
+      rr(PAD, y, cardW, addrCardH, 14);
+      ctx.fillStyle = "rgba(255,255,255,0.05)";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(255,255,255,0.09)";
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.font = "bold 11px -apple-system, Arial, sans-serif";
+      ctx.fillStyle = "#555555";
+      ctx.textAlign = "left";
+      ctx.fillText("My address  \u00B7  \uB0B4 \uC8FC\uC18C", PAD + 16, y + 20);
+
+      ctx.font = "bold 16px -apple-system, Arial, sans-serif";
+      ctx.fillStyle = "#ffd966";
+      addrLines.forEach((l, i) => {
+        ctx.fillText(l, PAD + 16, y + 20 + 12 + 18 + i * 22);
+      });
+    }
+
+    // ── KND BRANDING ──
+    ctx.font = "bold 11px -apple-system, Arial, sans-serif";
+    ctx.fillStyle = "#484848";
     ctx.textAlign = "center";
-    ctx.fillText("koreans next door \u00B7 koreansnextdoor.com", 195, 820);
+    ctx.fillText("koreans next door", 195, 806);
+
+    ctx.font = "10px -apple-system, Arial, sans-serif";
+    ctx.fillStyle = "#383838";
+    ctx.fillText("koreansnextdoor.com", 195, 822);
   };
 
   useEffect(() => {
@@ -171,56 +236,53 @@ export default function EmergencyCard() {
   };
 
   return (
-    <section id="emergency" className="bg-white px-6 py-10 md:px-12 md:py-16">
-      <div className="mx-auto max-w-5xl">
+    <section id="emergency" className="bg-zinc-950 px-6 py-16 md:px-12 md:py-20">
+      <div className="mx-auto max-w-lg text-center">
         <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
-          {locale === "ko" ? "\uBE44\uC0C1\uC2DC" : "Emergency"}
+          {locale === "ko" ? "비상시" : "Emergency"}
         </p>
-        <h2 className="mb-2 text-4xl font-bold tracking-tight text-zinc-950 md:text-5xl">
-          {locale === "ko"
-            ? "\uBE44\uC0C1 \uC7A0\uAE08\uD654\uBA74 \uCE74\uB4DC"
-            : "Emergency lockscreen card"}
+        <h2 className="mb-3 text-4xl font-bold tracking-tight text-white md:text-5xl">
+          {locale === "ko" ? "비상 잠금화면 카드" : "Emergency lockscreen card"}
         </h2>
-        <p className="mb-10 max-w-xl text-lg leading-relaxed text-gray-500">
+        <p className="mb-10 text-lg leading-relaxed text-zinc-400">
           {c.description}
         </p>
 
-        <div className="flex flex-col items-start gap-8 md:flex-row">
-          {/* Card preview */}
-          <div className="shrink-0">
-            <canvas
-              ref={canvasRef}
-              className="rounded-[32px] shadow-2xl"
-              style={{ width: 195, height: 422 }}
-            />
-          </div>
+        {/* Card preview — centered hero */}
+        <div className="mb-8 flex justify-center">
+          <canvas
+            ref={canvasRef}
+            className="rounded-[32px]"
+            style={{
+              width: 195,
+              height: 422,
+              boxShadow: "0 0 0 1px rgba(255,255,255,0.06), 0 24px 60px rgba(0,0,0,0.6), 0 0 80px rgba(255,217,102,0.07)",
+            }}
+          />
+        </div>
 
-          {/* Controls */}
-          <div className="flex flex-col gap-6 pt-2">
-            <div>
-              <label className="mb-2 block text-sm font-semibold text-zinc-700">
-                {c.addressLabel}
-              </label>
-              <input
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                placeholder={c.addressPlaceholder}
-                className="w-full max-w-sm rounded-xl border border-zinc-200 px-4 py-3 text-sm outline-none transition-colors focus:border-[#ffd966]"
-              />
-              <p className="mt-1.5 text-xs text-zinc-400">
-                {locale === "ko"
-                  ? "\uC120\uD0DD \uC0AC\uD56D \u2014 \uC785\uB825\uD558\uBA74 \uCE74\uB4DC\uC5D0 \uD45C\uC2DC\uB3FC\uC694."
-                  : "Optional \u2014 appears on the card if filled."}
-              </p>
-            </div>
-            <button
-              onClick={download}
-              className="inline-flex items-center gap-2 rounded-full bg-zinc-950 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-zinc-700"
-            >
-              {c.downloadBtn}
-            </button>
+        {/* Controls */}
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-full">
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder={c.addressPlaceholder}
+              className="w-full rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm text-white placeholder:text-zinc-500 outline-none transition-colors focus:border-[#ffd966]"
+            />
+            <p className="mt-1.5 text-xs text-zinc-500">
+              {locale === "ko"
+                ? "선택 사항 — 입력하면 카드에 표시돼요."
+                : "Optional — your address appears on the card if filled."}
+            </p>
           </div>
+          <button
+            onClick={download}
+            className="w-full rounded-full bg-[#ffd966] px-6 py-3 text-sm font-bold text-zinc-950 transition-colors hover:bg-[#e6c34d]"
+          >
+            {c.downloadBtn}
+          </button>
         </div>
       </div>
     </section>

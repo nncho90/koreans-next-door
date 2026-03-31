@@ -1,47 +1,35 @@
-"use client";
+import type { Metadata } from "next";
+import PinchContent from "./PinchContent";
 
-import { LocaleProvider, useLocale } from "@/lib/i18n";
-import SharedNavbar from "@/components/SharedNavbar";
-import SharedFooter from "@/components/SharedFooter";
-import CulturalTips from "@/components/guide/CulturalTips";
-import EmergencyCard from "@/components/guide/EmergencyCard";
-import AskNeighbor from "@/components/guide/AskNeighbor";
+export const metadata: Metadata = {
+  title: "In a Pinch — Seoul Emergency Guide",
+  description: "Korean cultural tips, emergency numbers, and a quick guide for when things get confusing for internationals in Seoul.",
+  keywords: ["Korea cultural tips foreigners", "Seoul emergency numbers English", "unwritten rules Korea", "Korea etiquette guide", "foreigner Seoul help"],
+  openGraph: {
+    title: "Seoul Emergency Guide — Koreans Next Door",
+    description: "Unwritten rules, emergency prep, and a real neighbor to ask when you're stuck.",
+    url: "https://koreans-next-door.vercel.app/guide/pinch",
+  },
+};
 
-function PinchContent() {
-  const { locale } = useLocale();
-  const isKo = locale === "ko";
+export default function Page() {
   return (
     <>
-      <SharedNavbar />
-      <main>
-        <section className="bg-[#fafaf8] px-6 pt-32 pb-16 md:px-10">
-          <div className="mx-auto max-w-5xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
-              {isKo ? "급할 때" : "In a pinch"}
-            </p>
-            <h1 className="text-5xl font-bold tracking-tight text-zinc-950 md:text-7xl">
-              {isKo ? "막막할 때\n펼쳐보세요" : "For when things\nget confusing"}
-            </h1>
-            <p className="mt-4 max-w-xl text-lg text-zinc-500">
-              {isKo
-                ? "불문율, 비상 상황, 그리고 막막할 때 물어볼 수 있는 이웃."
-                : "Unwritten rules, emergency prep, and a real neighbor to ask when you're stuck."}
-            </p>
-          </div>
-        </section>
-        <CulturalTips />
-        <EmergencyCard />
-        <AskNeighbor />
-      </main>
-      <SharedFooter />
-    </>
-  );
-}
-
-export default function PinchPage() {
-  return (
-    <LocaleProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://koreans-next-door.vercel.app" },
+              { "@type": "ListItem", "position": 2, "name": "Seoul Guide", "item": "https://koreans-next-door.vercel.app/guide" },
+              { "@type": "ListItem", "position": 3, "name": "In a Pinch", "item": "https://koreans-next-door.vercel.app/guide/pinch" }
+            ]
+          })
+        }}
+      />
       <PinchContent />
-    </LocaleProvider>
+    </>
   );
 }

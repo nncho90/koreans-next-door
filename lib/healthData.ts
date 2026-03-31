@@ -43,7 +43,7 @@ export const CLINIC_TIERS = [
     examples: "Cold, skin issue, prescription refill, checkup",
     nhis: "70–80% covered",
     tip: "Always start here — cheapest and fastest.",
-    color: "bg-emerald-500",
+    color: "bg-zinc-800",
   },
   {
     tier: 2,
@@ -54,7 +54,7 @@ export const CLINIC_TIERS = [
     examples: "Endoscopy, minor surgery, fracture treatment",
     nhis: "60–70% covered",
     tip: "Go when your 의원 refers you.",
-    color: "bg-blue-500",
+    color: "bg-zinc-800",
   },
   {
     tier: 3,
@@ -65,7 +65,7 @@ export const CLINIC_TIERS = [
     examples: "Complex surgery, childbirth, cancer treatment",
     nhis: "40–60% covered (need referral)",
     tip: "Get a 진료의뢰서 (referral slip) first or you pay 100%.",
-    color: "bg-orange-500",
+    color: "bg-zinc-800",
   },
   {
     tier: 4,
@@ -76,7 +76,7 @@ export const CLINIC_TIERS = [
     examples: "Rare diseases, major organ surgery, specialized oncology",
     nhis: "40–60% covered (0% without referral)",
     tip: "Only go here when referred — or in a true emergency.",
-    color: "bg-red-500",
+    color: "bg-zinc-800",
   },
 ];
 
