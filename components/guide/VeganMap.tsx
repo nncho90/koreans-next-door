@@ -104,23 +104,62 @@ export default function VeganMap() {
 
         {/* Selected detail card */}
         {selected ? (
-          <div className="mt-4 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h3 className="text-lg font-bold text-zinc-950">{selected.name}</h3>
-                <p className="text-sm text-zinc-500">{selected.nameEn}</p>
+          <div className="mt-4 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-5 sm:p-6">
+            {/* Header row: emoji + name + price range */}
+            <div className="flex items-start justify-between gap-3">
+              <div className="flex items-start gap-2 min-w-0">
+                <span className="text-2xl leading-none mt-0.5 shrink-0">{selected.emoji}</span>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <h3 className="text-lg font-bold text-zinc-950 leading-tight">{selected.name}</h3>
+                    {selected.priceRange && (
+                      <span className="text-sm font-semibold text-emerald-600">{selected.priceRange}</span>
+                    )}
+                  </div>
+                  <p className="text-sm text-zinc-500 mt-0.5">{selected.nameEn}</p>
+                </div>
               </div>
               <span className="shrink-0 rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-700">
                 {isKo ? selected.category : selected.categoryEn}
               </span>
             </div>
-            <p className="mt-3 text-sm text-zinc-600">📍 {selected.address}</p>
-            <div className="mt-4">
+
+            {/* Description */}
+            {(isKo ? selected.descriptionKo : selected.description) && (
+              <p className="mt-3 text-sm text-zinc-600 leading-relaxed">
+                {isKo ? selected.descriptionKo : selected.description}
+              </p>
+            )}
+
+            {/* Must try */}
+            {(isKo ? selected.mustTryKo : selected.mustTry)?.length ? (
+              <div className="mt-3">
+                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">
+                  {isKo ? "🍴 추천 메뉴" : "🍴 Must try"}
+                </p>
+                <ul className="space-y-0.5">
+                  {(isKo ? selected.mustTryKo! : selected.mustTry!).map((item, i) => (
+                    <li key={i} className="text-sm text-zinc-700">• {item}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
+            {/* Tags */}
+            {(isKo ? selected.tagsKo : selected.tags)?.length ? (
+              <p className="mt-3 text-xs text-zinc-400">
+                🏷 {(isKo ? selected.tagsKo! : selected.tags!).join(" · ")}
+              </p>
+            ) : null}
+
+            {/* Address + CTA */}
+            <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-3">
+              <p className="text-sm text-zinc-500 flex-1">📍 {selected.address}</p>
               <a
                 href={selected.naverMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-zinc-950 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+                className="shrink-0 rounded-lg bg-zinc-950 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors text-center"
               >
                 {isKo ? "네이버 지도에서 보기 →" : "Open in Naver Maps →"}
               </a>

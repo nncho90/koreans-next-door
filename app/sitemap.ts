@@ -24,5 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Tools
     { url: `${base}/tools/phrasebook`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/forms`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // Standalone
+    { url: `${base}/vegan`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

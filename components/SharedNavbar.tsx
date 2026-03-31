@@ -13,11 +13,10 @@ const TOOLS = [
   { href: "/tools/forms", emoji: "📄", labelEn: "Form Decoder", labelKo: "서류 해석기" },
 ];
 
-// Column layout: col1 = getting-started + discover, col2 = living-here, col3 = wellbeing + tools
+// Column layout: col1 = getting-started + discover, col2 = living-here, col3 = wellbeing + tools (hardcoded below)
 const COL_CATEGORIES = [
   ["getting-started", "discover"],
   ["living-here"],
-  ["wellbeing"],
 ] as const;
 
 export default function SharedNavbar() {
