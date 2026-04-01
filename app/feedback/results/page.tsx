@@ -53,6 +53,17 @@ export default async function ResultsPage({ searchParams }: Props) {
     return { id: q.id, label: q.label, avg, count: vals.length };
   });
 
+  // Compute star distribution (count of each star value 1–5 per question)
+  const starDistributions: Record<string, number[]> = {};
+  starQuestions.forEach((q) => {
+    const counts = [0, 0, 0, 0, 0]; // index 0 = 1 star, index 4 = 5 stars
+    filtered.forEach((s) => {
+      const v = s.answers[q.id];
+      if (typeof v === "number" && v >= 1 && v <= 5) counts[v - 1]++;
+    });
+    starDistributions[q.id] = counts;
+  });
+
   // NPS calculation
   const npsVals = filtered
     .map((s) => s.answers["nps"])
@@ -63,6 +74,8 @@ export default async function ResultsPage({ searchParams }: Props) {
     npsVals.length > 0
       ? Math.round(((promoters - detractors) / npsVals.length) * 100)
       : null;
+  const passives = npsVals.filter((v) => v === 7 || v === 8).length;
+  const npsBreakdown = { promoters, passives, detractors };
 
   // Pace distribution
   const paceVals = filtered.map((s) => s.answers["pace"]).filter(Boolean);
@@ -81,8 +94,10 @@ export default async function ResultsPage({ searchParams }: Props) {
       allSubmissions={submissions}
       events={events}
       starAverages={starAverages}
+      starDistributions={starDistributions}
       npsScore={npsScore}
       npsCount={npsVals.length}
+      npsBreakdown={npsBreakdown}
       paceCount={paceCount}
       currentEvent={eventFilter || "all"}
       secretKey={params.key || ""}
