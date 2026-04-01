@@ -4,7 +4,7 @@ import { FEEDBACK_QUESTIONS } from "@/lib/feedbackQuestions";
 import ResultsClient from "./ResultsClient";
 
 interface Props {
-  searchParams: Promise<{ key?: string; event?: string }>;
+  searchParams: Promise<{ event?: string }>;
 }
 
 async function getSubmissions(): Promise<FeedbackSubmission[]> {
@@ -19,18 +19,6 @@ async function getSubmissions(): Promise<FeedbackSubmission[]> {
 
 export default async function ResultsPage({ searchParams }: Props) {
   const params = await searchParams;
-  const secret = process.env.FEEDBACK_SECRET?.trim();
-
-  if (secret && params.key !== secret) {
-    return (
-      <div className="min-h-screen bg-[#fafaf8] flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-4xl mb-4">🔒</div>
-          <p className="text-gray-500 text-sm">Access denied. Add ?key=SECRET to the URL.</p>
-        </div>
-      </div>
-    );
-  }
 
   const submissions = await getSubmissions();
 
@@ -100,7 +88,7 @@ export default async function ResultsPage({ searchParams }: Props) {
       npsBreakdown={npsBreakdown}
       paceCount={paceCount}
       currentEvent={eventFilter || "all"}
-      secretKey={params.key || ""}
+      secretKey=""
     />
   );
 }
