@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { CaretDown } from "@phosphor-icons/react";
 import { useLocale } from "@/lib/i18n";
+
+const EASE_OUT_EXPO = [0.23, 1, 0.32, 1] as [number, number, number, number];
 
 const slides = [
   { src: "/hero-1.jpeg", alt: "Language exchange event" },
@@ -22,6 +24,7 @@ const kenBurns = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
   const { t } = useLocale();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,9 +49,9 @@ export default function Hero() {
         >
           <motion.div
             className="absolute inset-0"
-            initial={kb.initial}
+            initial={shouldReduceMotion ? kb.animate : kb.initial}
             animate={kb.animate}
-            transition={{ duration: 6, ease: "linear" }}
+            transition={{ duration: 6, ease: EASE_OUT_EXPO  }}
           >
             <Image
               src={slides[current].src}
@@ -71,7 +74,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+          transition={{ duration: 0.8, ease: EASE_OUT_EXPO , delay: 0.15 }}
           className="flex flex-col items-center"
         >
           <h1 className="sr-only">Koreans Next Door — Seoul Guide and Community for Foreigners Living in Korea</h1>
@@ -85,21 +88,23 @@ export default function Hero() {
             className="mb-8 w-64 md:w-80"
           />
 
-          <p className="mb-9 max-w-md text-lg font-medium text-white/90 md:text-xl drop-shadow-sm">
+          <p className="mb-9 max-w-md text-xl font-medium text-white/90 md:text-2xl drop-shadow-sm">
             {t.hero.tagline}
           </p>
 
-          <a href="#mission" className="flex flex-col items-center gap-0.5 mt-2">
-            {[0, 1].map((i) => (
-              <motion.div
-                key={i}
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.18 }}
-              >
-                <CaretDown size={22} weight="bold" className="text-white/80" />
-              </motion.div>
-            ))}
-          </a>
+          {!shouldReduceMotion && (
+            <a href="#mission" className="flex flex-col items-center gap-0.5 mt-2" aria-label="Scroll to learn more">
+              {[0, 1].map((i) => (
+                <motion.div
+                  key={i}
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: i * 0.18 }}
+                >
+                  <CaretDown size={22} weight="bold" className="text-white/80" />
+                </motion.div>
+              ))}
+            </a>
+          )}
         </motion.div>
       </div>
 
@@ -109,9 +114,10 @@ export default function Hero() {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-1.5 rounded-full transition-all duration-400 ${
+            className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${
               i === current ? "w-7 bg-white" : "w-1.5 bg-white/40"
             }`}
+            style={{ transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)" }}
             aria-label={`Slide ${i + 1}`}
           />
         ))}
