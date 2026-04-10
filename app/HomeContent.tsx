@@ -9,12 +9,12 @@ import Events from "@/components/Events";
 import ImpactCounter from "@/components/ImpactCounter";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Gallery from "@/components/Gallery";
-import GuidePreview from "@/components/GuidePreview";
 import Testimonials from "@/components/Testimonials";
 import Globe from "@/components/Globe";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import PhraseOfDay from "@/components/PhraseOfDay";
+import SeoulSkyline from "@/components/SeoulSkyline/SeoulSkyline";
 
 function PageContent() {
   const { t } = useLocale();
@@ -27,9 +27,9 @@ function PageContent() {
         <MissionStory />
         <Events />
         <ImpactCounter />
+        <SeoulSkyline />
         <UpcomingEvents />
         <Gallery />
-        <GuidePreview />
         <Testimonials />
         <Globe />
         <FAQ />

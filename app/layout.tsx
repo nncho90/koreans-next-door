@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Noto_Sans_KR } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import SeasonalParticles from "@/components/SeasonalParticles";
 import "./globals.css";
 
 const geist = Geist({
@@ -122,6 +123,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <SeasonalParticles />
         <Analytics />
         <SpeedInsights />
       </body>

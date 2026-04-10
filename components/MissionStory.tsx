@@ -32,11 +32,14 @@ function WorryPhrase({
   text: string; top: string; left: string; size: string; maxOpacity: number;
   enterStart: number; scrollYProgress: MotionValue<number>;
 }) {
-  const opacity = useTransform(
-    scrollYProgress,
-    [enterStart, enterStart + 0.02, 0.48, 0.50],
-    [0, maxOpacity, maxOpacity, 0]
-  );
+  const enterEnd = enterStart + 0.02;
+  const opacity = useTransform(scrollYProgress, (p) => {
+    if (p < enterStart) return 0;
+    if (p < enterEnd) return maxOpacity * ((p - enterStart) / 0.02);
+    if (p < 0.48) return maxOpacity;
+    if (p < 0.50) return maxOpacity * (1 - (p - 0.48) / 0.02);
+    return 0;
+  });
   return (
     <motion.span
       className={`absolute font-medium italic text-white ${size}`}
@@ -64,18 +67,35 @@ export default function MissionStory() {
     offset: ["start start", "end end"],
   });
 
-  // Phase 1 (0-0.25): intro text
-  const phase1Opacity = useTransform(scrollYProgress, [0, 0.1, 0.2, 0.25], [0, 1, 1, 0]);
+  // Helper: linear interpolation between ranges
+  function lerp(p: number, inMin: number, inMax: number, outMin: number, outMax: number) {
+    if (p <= inMin) return outMin;
+    if (p >= inMax) return outMax;
+    return outMin + (outMax - outMin) * ((p - inMin) / (inMax - inMin));
+  }
 
-  // Phase 3 (0.5-0.75): knock knock
-  const yellowBgOpacity = useTransform(scrollYProgress, [0.5, 0.65], [0, 1]);
-  const phase3TextOpacity = useTransform(scrollYProgress, [0.5, 0.55, 0.7, 0.75], [0, 1, 1, 0]);
-
-  // Phase 4 (0.75-1.0): pillars
-  const phase4Opacity = useTransform(scrollYProgress, [0.75, 0.82], [0, 1]);
-  const pillarStagger1 = useTransform(scrollYProgress, [0.82, 0.88], [0, 1]);
-  const pillarStagger2 = useTransform(scrollYProgress, [0.86, 0.92], [0, 1]);
-  const pillarStagger3 = useTransform(scrollYProgress, [0.90, 0.96], [0, 1]);
+  // Use callback-based useTransform (different FM code path than range mapping)
+  const phase1Opacity = useTransform(scrollYProgress, (p) =>
+    p < 0.18 ? 1 : p < 0.25 ? lerp(p, 0.18, 0.25, 1, 0) : 0
+  );
+  const yellowBgOpacity = useTransform(scrollYProgress, (p) =>
+    lerp(p, 0.5, 0.65, 0, 1)
+  );
+  const phase3TextOpacity = useTransform(scrollYProgress, (p) =>
+    p < 0.5 ? 0 : p < 0.55 ? lerp(p, 0.5, 0.55, 0, 1) : p < 0.7 ? 1 : p < 0.75 ? lerp(p, 0.7, 0.75, 1, 0) : 0
+  );
+  const phase4Opacity = useTransform(scrollYProgress, (p) =>
+    lerp(p, 0.75, 0.80, 0, 1)
+  );
+  const pillarStagger1 = useTransform(scrollYProgress, (p) =>
+    lerp(p, 0.80, 0.84, 0, 1)
+  );
+  const pillarStagger2 = useTransform(scrollYProgress, (p) =>
+    lerp(p, 0.83, 0.87, 0, 1)
+  );
+  const pillarStagger3 = useTransform(scrollYProgress, (p) =>
+    lerp(p, 0.86, 0.90, 0, 1)
+  );
   const pillarOpacities = [pillarStagger1, pillarStagger2, pillarStagger3];
 
   // Mobile: simple static layout
@@ -109,7 +129,7 @@ export default function MissionStory() {
   }
 
   return (
-    <section id="mission" ref={containerRef} style={{ height: "400vh" }}>
+    <section id="mission" ref={containerRef} className="relative" style={{ height: "600vh" }}>
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         {/* Dark background */}
         <div className="absolute inset-0 bg-[#0a0a0a]" />

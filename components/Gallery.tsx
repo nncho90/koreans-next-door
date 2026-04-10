@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "@phosphor-icons/react";
 import { useLocale } from "@/lib/i18n";
 
-const rotations = [-1.5, 2, -0.5, 1.8, -2, 1, -1.2];
+const rotations = [-1.5, 2, -0.5, 1.8, -2, 1, -1.2, 2.1];
 
 const photos = [
   { src: "/photos/knd-02.jpeg", alt: "Community members making dumplings at KND Seollal tteokguk party" },
@@ -16,6 +16,7 @@ const photos = [
   { src: "/photos/knd-06.jpeg", alt: "KND neighbors enjoying food and conversation together in Seoul" },
   { src: "/photos/knd-07.jpeg", alt: "Group photo of Koreans Next Door community members" },
   { src: "/photos/knd-08.jpeg", alt: "KND members on a night hike up Gwanaksan mountain in Seoul" },
+  { src: "/photos/knd-09.jpeg", alt: "KND group photo outside 天下一麵 restaurant in Seoul" },
 ];
 
 export default function Gallery() {
