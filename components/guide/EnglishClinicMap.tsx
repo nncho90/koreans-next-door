@@ -4,27 +4,76 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
 import { ENGLISH_CLINICS, type ClinicPin } from "@/lib/healthData";
+import type { Locale } from "@/lib/i18n/types";
 
 const Map = dynamic(() => import("./EnglishClinicMapInner"), { ssr: false });
 
+const STRINGS: Record<Locale, {
+  eyebrow: string;
+  heading: string;
+  subtitle: string;
+  openInMaps: string;
+}> = {
+  en: {
+    eyebrow: "English-Friendly Clinics",
+    heading: "Clinics that speak your language",
+    subtitle: "A curated map of English-friendly clinics and hospitals across Seoul. Click a pin to see details.",
+    openInMaps: "Open in Maps →",
+  },
+  ko: {
+    eyebrow: "영어 가능 병원",
+    heading: "영어 가능한 병원 지도",
+    subtitle: "서울 전역의 영어 가능 병원을 모았어요. 핀을 클릭해 정보를 확인하세요.",
+    openInMaps: "지도에서 열기 →",
+  },
+  ja: {
+    eyebrow: "英語対応クリニック",
+    heading: "英語が通じるクリニック",
+    subtitle: "ソウル全域の英語対応クリニック・病院のマップです。ピンをクリックして詳細を確認してください。",
+    openInMaps: "マップで開く →",
+  },
+  "zh-CN": {
+    eyebrow: "英语友好诊所",
+    heading: "提供英语服务的诊所",
+    subtitle: "首尔各地英语友好诊所和医院的精选地图。点击标记查看详情。",
+    openInMaps: "在地图中打开 →",
+  },
+  "zh-TW": {
+    eyebrow: "英語友善診所",
+    heading: "提供英語服務的診所",
+    subtitle: "首爾各地英語友善診所和醫院的精選地圖。點擊標記查看詳情。",
+    openInMaps: "在地圖中打開 →",
+  },
+  pt: {
+    eyebrow: "Clínicas com Atendimento em Inglês",
+    heading: "Clínicas que falam sua língua",
+    subtitle: "Um mapa curado de clínicas e hospitais em Seul com atendimento em inglês. Clique em um pino para ver detalhes.",
+    openInMaps: "Abrir no Maps →",
+  },
+  es: {
+    eyebrow: "Clínicas con Atención en Inglés",
+    heading: "Clínicas que hablan tu idioma",
+    subtitle: "Un mapa seleccionado de clínicas y hospitales en Seúl con atención en inglés. Haz clic en un pin para ver detalles.",
+    openInMaps: "Abrir en Maps →",
+  },
+};
+
 export default function EnglishClinicMap() {
   const { locale } = useLocale();
-  const isKo = locale === "ko";
+  const s = STRINGS[locale] ?? STRINGS.en;
   const [selected, setSelected] = useState<ClinicPin | null>(null);
 
   return (
     <section id="map" className="bg-white px-6 py-16 md:px-10">
       <div className="mx-auto max-w-5xl">
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
-          {isKo ? "영어 가능 병원" : "English-Friendly Clinics"}
+          {s.eyebrow}
         </p>
         <h2 className="mb-3 text-3xl font-bold text-zinc-950 md:text-4xl">
-          {isKo ? "영어 가능한 병원 지도" : "Clinics that speak your language"}
+          {s.heading}
         </h2>
         <p className="mb-8 max-w-xl text-zinc-500">
-          {isKo
-            ? "서울 전역의 영어 가능 병원을 모았어요. 핀을 클릭해 정보를 확인하세요."
-            : "A curated map of English-friendly clinics and hospitals across Seoul. Click a pin to see details."}
+          {s.subtitle}
         </p>
 
         <div className="overflow-hidden rounded-2xl border border-zinc-200">
@@ -68,7 +117,7 @@ export default function EnglishClinicMap() {
                   rel="noopener noreferrer"
                   className="rounded-lg bg-zinc-950 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
                 >
-                  Open in Maps →
+                  {s.openInMaps}
                 </a>
               </div>
             </div>

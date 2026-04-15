@@ -71,7 +71,7 @@ export default function LanguagePicker({ dark }: Props) {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-[calc(100%+8px)] bg-white rounded-2xl shadow-xl border border-zinc-100/80 p-1.5 min-w-[180px] z-50">
+        <div className="absolute right-0 top-[calc(100%+8px)] bg-white rounded-2xl shadow-xl border border-zinc-100/80 p-1.5 min-w-[140px] z-50">
           {LANG_OPTIONS.map(({ locale: l, native, subtitle }) => (
             <button
               key={l}
@@ -79,7 +79,7 @@ export default function LanguagePicker({ dark }: Props) {
                 setLocale(l);
                 setOpen(false);
               }}
-              className={`w-full flex justify-between items-center px-3.5 py-2.5 rounded-xl transition-colors ${
+              className={`w-full flex items-center px-3.5 py-2.5 rounded-xl transition-colors ${
                 locale === l ? "bg-zinc-100" : "hover:bg-zinc-50"
               }`}
             >
@@ -88,7 +88,6 @@ export default function LanguagePicker({ dark }: Props) {
               >
                 {native}
               </span>
-              <span className="text-[10px] text-zinc-400">{subtitle}</span>
             </button>
           ))}
         </div>

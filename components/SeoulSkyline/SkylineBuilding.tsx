@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, MotionValue, useTransform } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
+import { guideGroups, getGuideLabel, getGuideDesc } from "@/lib/guideData";
 import { BuildingConfig, DIMS } from "./skylineData";
 import BuildingSVG from "./BuildingSVG";
 
@@ -24,8 +25,27 @@ export default function SkylineBuilding({
   entrance,
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
-  const { locale } = useLocale();
+  const { locale, t } = useLocale();
   const { w, h } = DIMS[building.shape];
+
+  // Resolve localized label + desc — prefer guideData helpers, fall back to building fields
+  const guideGroup = guideGroups.find((g) => g.href === building.href);
+  const toolLabels: Record<string, { label: string; desc: string }> = {
+    "/tools/phrasebook": {
+      label: t.guideSection.toolPhrasebookLabel,
+      desc: t.guideSection.toolPhrasebookDesc,
+    },
+    "/tools/forms": {
+      label: t.guideSection.toolFormDecoderLabel,
+      desc: t.guideSection.toolFormDecoderDesc,
+    },
+  };
+  const localizedLabel = guideGroup
+    ? getGuideLabel(guideGroup, locale)
+    : toolLabels[building.href]?.label ?? building.labelEn;
+  const localizedDesc = guideGroup
+    ? getGuideDesc(guideGroup, locale)
+    : toolLabels[building.href]?.desc ?? building.descEn;
 
   // Parallax: depth 0 → moves up to 24px; depth 1 → barely moves
   const parallaxX = useTransform(mouseX, (x) => x * (1 - building.depth) * 24);
@@ -141,16 +161,18 @@ export default function SkylineBuilding({
             <div className="bg-white rounded-2xl p-4 shadow-2xl">
               <span className="text-2xl block mb-1.5">{building.emoji}</span>
               <p className="font-bold text-[#1a1a1a] text-sm leading-tight">
-                {building.labelEn}
+                {localizedLabel}
               </p>
-              <p className="text-[10px] text-zinc-400 font-medium mt-0.5">
-                {building.labelKo}
-              </p>
+              {locale !== "ko" && (
+                <p className="text-[10px] text-zinc-400 font-medium mt-0.5">
+                  {building.labelKo}
+                </p>
+              )}
               <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">
-                {building.descEn}
+                {localizedDesc}
               </p>
               <p className="text-xs font-semibold text-[#c9a800] mt-2.5">
-                Explore →
+                {t.guideSection.open} →
               </p>
             </div>
             {/* Directional arrow */}
