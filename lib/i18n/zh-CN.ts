@@ -280,6 +280,12 @@ export const zhCN: Dictionary = {
     heading2: "但也可能很孤独。",
     body: "我们知道在异乡无法感受到家的感觉是什么滋味，那种格格不入的感觉。我们也没有忘记在异国他乡被人温暖接待是什么感觉。我们的使命很简单：陪在你身边，让每个人都能感受到家的温暖。",
   },
+  seoulSkyline: {
+    label: "你的街区",
+    heading1: "你需要的一切，",
+    heading2: "就在这片天际线里",
+    subheading: "首尔很大。点击任意建筑，找到你的指南。",
+  },
   guideSection: {
     label: "首尔指南",
     heading: "邻居手册",

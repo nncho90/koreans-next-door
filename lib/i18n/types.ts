@@ -127,6 +127,12 @@ export interface Dictionary {
     heading2: string;
     body: string;
   };
+  seoulSkyline: {
+    label: string;
+    heading1: string;
+    heading2: string;
+    subheading: string;
+  };
   guideSection: {
     label: string;
     heading: string;

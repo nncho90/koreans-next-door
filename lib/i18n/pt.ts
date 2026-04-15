@@ -294,6 +294,12 @@ export const pt: Dictionary = {
     heading2: "Mas também pode ser solitário.",
     body: "Sabemos o que é não se sentir em casa em uma terra estrangeira, sentir que não pertence. Também não esquecemos o que é ser bem-recebido. Nossa missão é simples: caminhar ao seu lado para que todos possamos nos sentir em casa.",
   },
+  seoulSkyline: {
+    label: "Seu Bairro",
+    heading1: "Tudo que você precisa,",
+    heading2: "a um skyline de distância",
+    subheading: "Seul é grande. Clique em qualquer prédio para encontrar seu guia.",
+  },
   guideSection: {
     label: "Guia de Seul",
     heading: "O Manual do Vizinho",

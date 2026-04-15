@@ -280,6 +280,12 @@ export const zhTW: Dictionary = {
     heading2: "但也可能很孤獨。",
     body: "我們知道在異鄉無法感受到家的感覺是什麼滋味，那種格格不入的感覺。我們也沒有忘記在異國他鄉被人溫暖接待是什麼感覺。我們的使命很簡單：陪在你身邊，讓每個人都能感受到家的溫暖。",
   },
+  seoulSkyline: {
+    label: "你的街區",
+    heading1: "你需要的一切，",
+    heading2: "就在這片天際線裡",
+    subheading: "首爾很大。點擊任意建築，找到你的指南。",
+  },
   guideSection: {
     label: "首爾指南",
     heading: "鄰居手冊",

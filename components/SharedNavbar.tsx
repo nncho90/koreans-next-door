@@ -249,9 +249,11 @@ export default function SharedNavbar() {
             </motion.a>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobile: globe + hamburger */}
+          <div className="md:hidden flex items-center gap-1">
+            <LanguagePicker dark={dark || menuOpen} />
           <button
-            className="md:hidden p-2 -mr-1"
+            className="p-2 -mr-1"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -265,6 +267,7 @@ export default function SharedNavbar() {
               />
             )}
           </button>
+          </div>
         </div>
 
         {/* Guide sub-nav — scrollable pills on guide/tool pages */}
@@ -391,11 +394,6 @@ export default function SharedNavbar() {
                     </Link>
                   ))}
                 </div>
-              </div>
-
-              {/* Language picker */}
-              <div className="pt-5">
-                <LanguagePicker dark={true} />
               </div>
 
               {/* Join us CTA */}

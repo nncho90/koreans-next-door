@@ -284,6 +284,12 @@ export const en: Dictionary = {
     heading2: "But it can also be lonely.",
     body: "We know what it\u2019s like to not feel at home in a foreign land, to feel like you don\u2019t quite belong. We also haven\u2019t forgotten how it feels to be welcomed. Our mission is simple: walk alongside you so we can all feel at home.",
   },
+  seoulSkyline: {
+    label: "Your Neighborhood",
+    heading1: "Everything you need,",
+    heading2: "one skyline away",
+    subheading: "Seoul is big. Click any building to find your guide.",
+  },
   guideSection: {
     label: "Seoul Guide",
     heading: "The Neighbor\u2019s\nHandbook",
