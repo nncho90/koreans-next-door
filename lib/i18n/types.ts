@@ -1,9 +1,13 @@
-export type Locale = "en" | "ko";
+export type Locale = "en" | "ko" | "ja" | "zh-CN" | "zh-TW" | "pt" | "es";
 
 export interface Dictionary {
   navbar: {
     joinUs: string;
     langToggle: string;
+    ourStory: string;
+    events: string;
+    guides: string;
+    tools: string;
   };
   hero: {
     tagline: string;

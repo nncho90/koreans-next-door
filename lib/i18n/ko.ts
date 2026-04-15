@@ -4,6 +4,10 @@ export const ko: Dictionary = {
   navbar: {
     joinUs: "함께하기",
     langToggle: "EN",
+    ourStory: "우리 이야기",
+    events: "이벤트",
+    guides: "가이드",
+    tools: "도구",
   },
   hero: {
     tagline: "낯선 땅에서도 집처럼 느낄 수 있도록, 곁에서 함께 걷겠습니다.",
