@@ -6,7 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { List, X, CaretDownIcon as CaretDown } from "@phosphor-icons/react";
 import { useLocale } from "@/lib/i18n";
-import { guideGroups, guideCategories } from "@/lib/guideData";
+import { guideGroups, guideCategories, getGuideLabel, getGuideCategoryLabel } from "@/lib/guideData";
+import LanguagePicker from "@/components/LanguagePicker";
 
 const TOOLS = [
   { href: "/tools/phrasebook", emoji: "💬", labelEn: "Phrasebook", labelKo: "상황별 한국어" },
@@ -23,7 +24,7 @@ export default function SharedNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
-  const { t, locale, setLocale } = useLocale();
+  const { t, locale } = useLocale();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -52,7 +53,10 @@ export default function SharedNavbar() {
     pathname === "/tools/forms";
 
   const dark = scrolled || lightHero;
-  const isKo = locale === "ko";
+
+  function getToolLabel(tool: typeof TOOLS[number]): string {
+    return locale === "ko" ? tool.labelKo : tool.labelEn;
+  }
 
   return (
     <>
@@ -77,8 +81,8 @@ export default function SharedNavbar() {
           {/* Desktop cluster */}
           <div className="hidden md:flex items-center gap-6">
             {[
-              { label: isKo ? "우리 이야기" : "Our Story", href: "/#mission" },
-              { label: isKo ? "이벤트" : "Events", href: "/#events" },
+              { label: t.navbar.ourStory, href: "/#mission" },
+              { label: t.navbar.events, href: "/#events" },
             ].map((link) => (
               <a
                 key={link.href}
@@ -106,7 +110,7 @@ export default function SharedNavbar() {
                     : "text-white/70 hover:text-white"
                 }`}
               >
-                {isKo ? "가이드" : "Guides"}
+                {t.navbar.guides}
                 <CaretDown
                   size={12}
                   weight="bold"
@@ -133,7 +137,7 @@ export default function SharedNavbar() {
                             return (
                               <div key={catId}>
                                 <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                                  {isKo ? cat.labelKo : cat.labelEn}
+                                  {getGuideCategoryLabel(cat, locale)}
                                 </p>
                                 <div className="space-y-0.5">
                                   {guides.map((g) => (
@@ -148,7 +152,7 @@ export default function SharedNavbar() {
                                       }`}
                                     >
                                       <span>{g.emoji}</span>
-                                      {isKo ? g.labelKo : g.labelEn}
+                                      {getGuideLabel(g, locale)}
                                     </Link>
                                   ))}
                                 </div>
@@ -166,7 +170,7 @@ export default function SharedNavbar() {
                           return (
                             <div>
                               <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                                {isKo ? cat.labelKo : cat.labelEn}
+                                {getGuideCategoryLabel(cat, locale)}
                               </p>
                               <div className="space-y-0.5">
                                 {guides.map((g) => (
@@ -181,7 +185,7 @@ export default function SharedNavbar() {
                                     }`}
                                   >
                                     <span>{g.emoji}</span>
-                                    {isKo ? g.labelKo : g.labelEn}
+                                    {getGuideLabel(g, locale)}
                                   </Link>
                                 ))}
                               </div>
@@ -192,7 +196,7 @@ export default function SharedNavbar() {
                         {/* Tools */}
                         <div>
                           <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                            {isKo ? "도구" : "Tools"}
+                            {t.navbar.tools}
                           </p>
                           <div className="space-y-0.5">
                             {TOOLS.map((tool) => (
@@ -207,7 +211,7 @@ export default function SharedNavbar() {
                                 }`}
                               >
                                 <span>{tool.emoji}</span>
-                                {isKo ? tool.labelKo : tool.labelEn}
+                                {getToolLabel(tool)}
                               </Link>
                             ))}
                           </div>
@@ -226,30 +230,8 @@ export default function SharedNavbar() {
               }`}
             />
 
-            {/* Language toggle */}
-            <div
-              className={`flex items-center rounded-full p-0.5 transition-all duration-300 ${
-                dark ? "bg-zinc-100" : "bg-white/15"
-              }`}
-            >
-              {(["ko", "en"] as const).map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLocale(l)}
-                  className={`rounded-full px-3 py-1 text-xs font-bold tracking-wide transition-all duration-200 ${
-                    locale === l
-                      ? dark
-                        ? "bg-zinc-950 text-white"
-                        : "bg-white text-zinc-950"
-                      : dark
-                      ? "text-zinc-400 hover:text-zinc-700"
-                      : "text-white/50 hover:text-white/80"
-                  }`}
-                >
-                  {l === "ko" ? "한" : "EN"}
-                </button>
-              ))}
-            </div>
+            {/* Language picker */}
+            <LanguagePicker dark={dark} />
 
             {/* Join us CTA */}
             <motion.a
@@ -306,7 +288,7 @@ export default function SharedNavbar() {
                         : "text-white/60 hover:text-white"
                     }`}
                   >
-                    {g.emoji} {isKo ? g.labelKo : g.labelEn}
+                    {g.emoji} {getGuideLabel(g, locale)}
                   </Link>
                 );
               })}
@@ -325,7 +307,7 @@ export default function SharedNavbar() {
                         : "text-white/60 hover:text-white"
                     }`}
                   >
-                    {tool.emoji} {isKo ? tool.labelKo : tool.labelEn}
+                    {tool.emoji} {getToolLabel(tool)}
                   </Link>
                 );
               })}
@@ -346,8 +328,8 @@ export default function SharedNavbar() {
           >
             <div className="px-6 py-6 space-y-1">
               {[
-                { label: isKo ? "우리 이야기" : "Our Story", href: "/#mission" },
-                { label: isKo ? "이벤트" : "Events", href: "/#events" },
+                { label: t.navbar.ourStory, href: "/#mission" },
+                { label: t.navbar.events, href: "/#events" },
               ].map((link) => (
                 <a
                   key={link.href}
@@ -365,7 +347,7 @@ export default function SharedNavbar() {
                 return (
                   <div key={cat.id} className="pt-4">
                     <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                      {isKo ? cat.labelKo : cat.labelEn}
+                      {getGuideCategoryLabel(cat, locale)}
                     </p>
                     <div className="space-y-0">
                       {catGuides.map((g) => {
@@ -382,7 +364,7 @@ export default function SharedNavbar() {
                             }`}
                           >
                             <span>{g.emoji}</span>
-                            {isKo ? g.labelKo : g.labelEn}
+                            {getGuideLabel(g, locale)}
                           </Link>
                         );
                       })}
@@ -394,7 +376,7 @@ export default function SharedNavbar() {
               {/* Tools */}
               <div className="pt-4">
                 <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-400">
-                  {isKo ? "도구" : "Tools"}
+                  {t.navbar.tools}
                 </p>
                 <div className="space-y-0">
                   {TOOLS.map((tool) => (
@@ -405,32 +387,15 @@ export default function SharedNavbar() {
                       className="flex items-center gap-2.5 py-2.5 text-sm border-b border-zinc-50 text-zinc-600 font-medium"
                     >
                       <span>{tool.emoji}</span>
-                      {isKo ? tool.labelKo : tool.labelEn}
+                      {getToolLabel(tool)}
                     </Link>
                   ))}
                 </div>
               </div>
 
-              {/* Language toggle */}
-              <div className="pt-5 flex items-center gap-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">
-                  Language
-                </span>
-                <div className="flex items-center rounded-full bg-zinc-100 p-0.5 ml-2">
-                  {(["ko", "en"] as const).map((l) => (
-                    <button
-                      key={l}
-                      onClick={() => setLocale(l)}
-                      className={`rounded-full px-3 py-1 text-xs font-bold tracking-wide transition-all duration-200 ${
-                        locale === l
-                          ? "bg-zinc-950 text-white"
-                          : "text-zinc-400 hover:text-zinc-700"
-                      }`}
-                    >
-                      {l === "ko" ? "한" : "EN"}
-                    </button>
-                  ))}
-                </div>
+              {/* Language picker */}
+              <div className="pt-5">
+                <LanguagePicker dark={true} />
               </div>
 
               {/* Join us CTA */}
