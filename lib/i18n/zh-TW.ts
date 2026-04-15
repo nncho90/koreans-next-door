@@ -262,7 +262,7 @@ export const zhTW: Dictionary = {
     copyright: "科里安斯鄰居 · 首爾，韓國",
   },
   worriesSection: {
-    label: "有沒有說到你的心坎？",
+    label: "有沒有戳到你？",
     heading: "在海外生活不容易。",
     subheading: "有這種感受的不只是你一個人。",
     bubbles: [

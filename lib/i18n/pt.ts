@@ -10,8 +10,7 @@ export const pt: Dictionary = {
     tools: "Ferramentas",
   },
   hero: {
-    tagline:
-      "Caminhando ao seu lado para que todos possamos nos sentir em casa em terra estrangeira.",
+    tagline: "Para que você se sinta em casa, mesmo morando longe. Estamos sempre do seu lado.",
     learnMore: "Saiba mais",
   },
   mission: {
@@ -277,7 +276,7 @@ export const pt: Dictionary = {
   },
   worriesSection: {
     label: "Parece familiar?",
-    heading: "Viver no exterior é difícil.",
+    heading: "Morar no exterior não é fácil.",
     subheading: "Você não é o único que se sente assim.",
     bubbles: [
       "Estou aqui há 3 meses e ainda não tenho amigos de verdade... 😔",

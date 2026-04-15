@@ -10,7 +10,7 @@ export const ja: Dictionary = {
     tools: "ツール",
   },
   hero: {
-    tagline: "異国の地でも、我が家のように感じられるように。あなたのそばで歩んでいきます。",
+    tagline: "慣れない土地でも、わが家のように感じてほしい。あなたのそばで歩んでいきます。",
     learnMore: "もっと見る",
   },
   mission: {
@@ -262,8 +262,8 @@ export const ja: Dictionary = {
     copyright: "コリアンズ・ネクスト・ドア · ソウル、韓国",
   },
   worriesSection: {
-    label: "心当たりありませんか？",
-    heading: "海外生活は大変です。",
+    label: "心当たりはありませんか？",
+    heading: "海外での暮らし、思った以上に大変なことも多いですよね。",
     subheading: "そう感じているのはあなただけじゃありません。",
     bubbles: [
       "3ヶ月経つのに、まだ本当の友達ができません... 😔",

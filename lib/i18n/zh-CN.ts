@@ -262,7 +262,7 @@ export const zhCN: Dictionary = {
     copyright: "科里安斯邻居 · 首尔，韩国",
   },
   worriesSection: {
-    label: "有没有说到你的心坎？",
+    label: "有没有戳到你？",
     heading: "在海外生活不容易。",
     subheading: "有这种感受的不只是你一个人。",
     bubbles: [

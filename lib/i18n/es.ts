@@ -10,8 +10,7 @@ export const es: Dictionary = {
     tools: "Herramientas",
   },
   hero: {
-    tagline:
-      "Caminando a tu lado para que todos podamos sentirnos en casa en tierra extraña.",
+    tagline: "Caminando a tu lado para que te sientas en casa, aunque estés lejos de ella.",
     learnMore: "Saber más",
   },
   mission: {
