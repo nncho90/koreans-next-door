@@ -275,4 +275,34 @@ export const es: Dictionary = {
   footer: {
     copyright: "Koreans Next Door · Seúl, Corea",
   },
+  worriesSection: {
+    label: "¿Te suena familiar?",
+    heading: "Vivir en el extranjero es difícil.",
+    subheading: "No eres el único que se siente así.",
+    bubbles: [
+      "Llevo 3 meses aquí y todavía no tengo amigos de verdad... 😔",
+      "Todos hablan coreano tan rápido, no puedo seguirles el ritmo 😰",
+      "Extraño mi hogar pero no quiero admitirlo 🥺",
+      "¿De verdad es tan difícil hacer amigos coreanos? 🤔",
+      "No sé adónde ir los fines de semana... me quedo en casa 😞",
+    ],
+    tags: ["Añoranza del hogar", "Barrera del idioma", "Hacer amigos", "Choque cultural", "Soledad", "Visa & trámites"],
+  },
+  missionAbout: {
+    whoWeAre: "Quiénes somos",
+    heading1: "Mudarse a un nuevo país es emocionante.",
+    heading2: "Pero también puede ser solitario.",
+    body: "Sabemos lo que es no sentirse en casa en tierra extraña, sentir que no encajas del todo. También recordamos cómo se siente ser bienvenido. Nuestra misión es simple: caminar a tu lado para que todos podamos sentirnos en casa.",
+  },
+  guideSection: {
+    label: "Guía de Seúl",
+    heading: "El Manual del Vecino",
+    desc: "Todo lo que desearías que alguien te hubiera contado cuando llegaste a Corea.",
+    descHub: "Todo lo que desearías que alguien te hubiera contado cuando llegaste a Corea. Elige un tema y explora.",
+    open: "Abrir",
+    toolPhrasebookLabel: "Guía de Frases",
+    toolPhrasebookDesc: "Scripts en coreano para situaciones reales — muestra la pantalla a cualquier hablante de coreano.",
+    toolFormDecoderLabel: "Decodificador de Formularios",
+    toolFormDecoderDesc: "Formularios burocráticos coreanos explicados campo a campo en lenguaje simple.",
+  },
 };

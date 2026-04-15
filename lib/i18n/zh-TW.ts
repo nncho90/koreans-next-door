@@ -261,4 +261,34 @@ export const zhTW: Dictionary = {
   footer: {
     copyright: "科里安斯鄰居 · 首爾，韓國",
   },
+  worriesSection: {
+    label: "有沒有說到你的心坎？",
+    heading: "在海外生活不容易。",
+    subheading: "有這種感受的不只是你一個人。",
+    bubbles: [
+      "來了3個月，還是沒有真正的朋友... 😔",
+      "韓語說得太快，完全跟不上 😰",
+      "想家，但不想承認 🥺",
+      "交韓國朋友真的這麼難嗎？ 🤔",
+      "不知道週末去哪裡，就只好待在家 😞",
+    ],
+    tags: ["思鄉", "語言障礙", "交朋友", "文化衝擊", "孤獨", "簽證 & 行政"],
+  },
+  missionAbout: {
+    whoWeAre: "我們是誰",
+    heading1: "搬到一個新國家令人興奮。",
+    heading2: "但也可能很孤獨。",
+    body: "我們知道在異鄉無法感受到家的感覺是什麼滋味，那種格格不入的感覺。我們也沒有忘記在異國他鄉被人溫暖接待是什麼感覺。我們的使命很簡單：陪在你身邊，讓每個人都能感受到家的溫暖。",
+  },
+  guideSection: {
+    label: "首爾指南",
+    heading: "鄰居手冊",
+    desc: "你希望剛到韓國時就有人告訴你的一切。",
+    descHub: "你希望剛到韓國時就有人告訴你的一切。選一個主題，深入了解。",
+    open: "開啟",
+    toolPhrasebookLabel: "實用韓語",
+    toolPhrasebookDesc: "真實場景韓語 — 把手機螢幕給任何韓國人看就行。",
+    toolFormDecoderLabel: "表格解碼器",
+    toolFormDecoderDesc: "韓國行政表格逐欄用簡明語言解釋。",
+  },
 };

@@ -44,9 +44,7 @@ export default function LanguagePicker({ dark }: Props) {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Select language"
-        className={`flex items-center justify-center w-[34px] h-[34px] rounded-[10px] transition-colors duration-300 ${
-          dark ? "bg-zinc-100 hover:bg-zinc-200" : "bg-white/15 hover:bg-white/25"
-        }`}
+        className="flex items-center justify-center w-[34px] h-[34px] transition-opacity duration-300 hover:opacity-70"
       >
         {isLoading ? (
           <span
@@ -54,7 +52,21 @@ export default function LanguagePicker({ dark }: Props) {
             style={{ borderTopColor: dark ? "#71717a" : "rgba(255,255,255,0.7)" }}
           />
         ) : (
-          <span className="text-base leading-none select-none">🌐</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={dark ? "#71717a" : "rgba(255,255,255,0.9)"}
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
         )}
       </button>
 

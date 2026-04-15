@@ -261,4 +261,34 @@ export const zhCN: Dictionary = {
   footer: {
     copyright: "科里安斯邻居 · 首尔，韩国",
   },
+  worriesSection: {
+    label: "有没有说到你的心坎？",
+    heading: "在海外生活不容易。",
+    subheading: "有这种感受的不只是你一个人。",
+    bubbles: [
+      "来了3个月，还是没有真正的朋友... 😔",
+      "韩语说得太快，完全跟不上 😰",
+      "想家，但不想承认 🥺",
+      "交韩国朋友真的这么难吗？ 🤔",
+      "不知道周末去哪里，就只好待在家 😞",
+    ],
+    tags: ["思乡", "语言障碍", "交朋友", "文化冲击", "孤独", "签证 & 行政"],
+  },
+  missionAbout: {
+    whoWeAre: "我们是谁",
+    heading1: "搬到一个新国家令人兴奋。",
+    heading2: "但也可能很孤独。",
+    body: "我们知道在异乡无法感受到家的感觉是什么滋味，那种格格不入的感觉。我们也没有忘记在异国他乡被人温暖接待是什么感觉。我们的使命很简单：陪在你身边，让每个人都能感受到家的温暖。",
+  },
+  guideSection: {
+    label: "首尔指南",
+    heading: "邻居手册",
+    desc: "你希望刚到韩国时就有人告诉你的一切。",
+    descHub: "你希望刚到韩国时就有人告诉你的一切。选一个主题，深入了解。",
+    open: "打开",
+    toolPhrasebookLabel: "实用韩语",
+    toolPhrasebookDesc: "真实场景韩语 — 把手机屏幕给任何韩国人看就行。",
+    toolFormDecoderLabel: "表格解码器",
+    toolFormDecoderDesc: "韩国行政表格逐栏用简明语言解释。",
+  },
 };

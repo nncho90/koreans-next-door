@@ -265,4 +265,34 @@ export const en: Dictionary = {
   footer: {
     copyright: "Koreans Next Door \u00b7 Seoul, Korea",
   },
+  worriesSection: {
+    label: "Sound familiar?",
+    heading: "Living abroad is hard.",
+    subheading: "You\u2019re not the only one who feels this way.",
+    bubbles: [
+      "I\u2019ve been here 3 months and still don\u2019t have real friends... \uD83D\uDE14",
+      "Everyone speaks Korean so fast, I can\u2019t keep up \uD83D\uDE30",
+      "I miss home but I don\u2019t want to admit it \uD83E\uDD7A",
+      "Is it really this hard to make Korean friends? \uD83E\uDD14",
+      "I don\u2019t know where to go on weekends\u2026 I just stay home \uD83D\uDE1E",
+    ],
+    tags: ["Homesickness", "Language barrier", "Making friends", "Culture shock", "Loneliness", "Visa & admin"],
+  },
+  missionAbout: {
+    whoWeAre: "Who we are",
+    heading1: "Moving to a new country is exciting.",
+    heading2: "But it can also be lonely.",
+    body: "We know what it\u2019s like to not feel at home in a foreign land, to feel like you don\u2019t quite belong. We also haven\u2019t forgotten how it feels to be welcomed. Our mission is simple: walk alongside you so we can all feel at home.",
+  },
+  guideSection: {
+    label: "Seoul Guide",
+    heading: "The Neighbor\u2019s\nHandbook",
+    desc: "Everything you wish someone had told you when you first arrived in Korea.",
+    descHub: "Everything you wish someone had told you when you first arrived in Korea. Pick a topic and dig in.",
+    open: "Open",
+    toolPhrasebookLabel: "Phrasebook",
+    toolPhrasebookDesc: "Korean scripts for real situations \u2014 show your phone to any Korean speaker.",
+    toolFormDecoderLabel: "Form Decoder",
+    toolFormDecoderDesc: "Korean bureaucratic forms decoded field by field in plain English.",
+  },
 };

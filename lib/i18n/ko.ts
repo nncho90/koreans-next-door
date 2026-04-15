@@ -262,4 +262,34 @@ export const ko: Dictionary = {
   footer: {
     copyright: "Koreans Next Door \u00b7 서울, 한국",
   },
+  worriesSection: {
+    label: "공감되나요?",
+    heading: "해외 생활, 쉽지 않아요.",
+    subheading: "이런 감정을 느끼는 건 당신만이 아니에요.",
+    bubbles: [
+      "3개월이 지났는데 아직도 진짜 친구가 없어요... 😔",
+      "한국 사람들이 너무 빨리 말해서 따라가기가 힘들어요 😰",
+      "집이 그립지만 인정하기 싫어요 🥺",
+      "한국 친구 사귀는 게 정말 이렇게 어려운 건가요? 🤔",
+      "주말에 어디 가야 할지 모르겠어서 그냥 집에만 있어요 😞",
+    ],
+    tags: ["향수병", "언어 장벽", "친구 사귀기", "문화 충격", "외로움", "비자 & 행정"],
+  },
+  missionAbout: {
+    whoWeAre: "우리에 대해",
+    heading1: "새로운 나라로의 이사는 설레는 일이에요.",
+    heading2: "하지만 외로울 수 있어요.",
+    body: "낯선 땅에서 집 같은 느낌이 들지 않을 때, 어딘가 어울리지 못한다는 느낌을 우리도 알아요. 외국에서 따뜻하게 맞이받았던 기분도 잊지 못해요. 우리의 미션은 간단해요: 모두가 집처럼 느낄 수 있도록 함께 걷는 것.",
+  },
+  guideSection: {
+    label: "서울 가이드",
+    heading: "이웃의 핸드북",
+    desc: "처음 한국에 왔을 때 누군가 알려줬으면 했던 것들.",
+    descHub: "처음 한국에 왔을 때 누군가 알려줬으면 했던 것들. 무엇이든 골라 시작해보세요.",
+    open: "바로 가기",
+    toolPhrasebookLabel: "상황별 한국어",
+    toolPhrasebookDesc: "상황별 한국어 — 화면을 보여주면 바로 해결.",
+    toolFormDecoderLabel: "서류 해석기",
+    toolFormDecoderDesc: "한국어 서류를 한 칸씩 영어로 설명해드려요.",
+  },
 };

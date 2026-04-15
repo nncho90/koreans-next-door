@@ -114,4 +114,28 @@ export interface Dictionary {
   footer: {
     copyright: string;
   };
+  worriesSection: {
+    label: string;
+    heading: string;
+    subheading: string;
+    bubbles: string[];
+    tags: string[];
+  };
+  missionAbout: {
+    whoWeAre: string;
+    heading1: string;
+    heading2: string;
+    body: string;
+  };
+  guideSection: {
+    label: string;
+    heading: string;
+    desc: string;
+    descHub: string;
+    open: string;
+    toolPhrasebookLabel: string;
+    toolPhrasebookDesc: string;
+    toolFormDecoderLabel: string;
+    toolFormDecoderDesc: string;
+  };
 }
