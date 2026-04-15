@@ -282,10 +282,10 @@ export const zhTW: Dictionary = {
   },
   seoulSkyline: {
     label: "你的街區",
-    heading1: "你需要的一切，",
-    heading2: "就在這片天際線裡",
-    subheading: "首爾很大。點擊任意建築，找到你的指南。",
-    browseAll: "瀏覽所有指南",
+    heading1: "首爾這麼大，",
+    heading2: "我們幫你搞定",
+    subheading: "點擊任意建築，找到你需要的那份指南。",
+    browseAll: "查看全部指南",
   },
   guideSection: {
     label: "首爾指南",

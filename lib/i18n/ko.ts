@@ -282,10 +282,10 @@ export const ko: Dictionary = {
     body: "낯선 땅에서 집 같은 느낌이 들지 않을 때, 어딘가 어울리지 못한다는 느낌을 우리도 알아요. 외국에서 따뜻하게 맞이받았던 기분도 잊지 못해요. 우리의 미션은 간단해요: 모두가 집처럼 느낄 수 있도록 함께 걷는 것.",
   },
   seoulSkyline: {
-    label: "당신의 동네",
-    heading1: "필요한 모든 것,",
-    heading2: "스카이라인 너머에",
-    subheading: "서울은 넓어요. 건물을 클릭해서 가이드를 찾아보세요.",
+    label: "우리 동네",
+    heading1: "서울에서 필요한 건",
+    heading2: "전부 알려드릴게요",
+    subheading: "건물을 클릭하면 딱 맞는 가이드를 찾을 수 있어요.",
     browseAll: "모든 가이드 보기",
   },
   guideSection: {

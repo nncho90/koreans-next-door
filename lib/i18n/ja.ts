@@ -282,9 +282,9 @@ export const ja: Dictionary = {
   },
   seoulSkyline: {
     label: "あなたの街",
-    heading1: "必要なものすべてが、",
-    heading2: "スカイラインの向こうに",
-    subheading: "ソウルは広い。建物をクリックしてガイドを見つけよう。",
+    heading1: "ソウルのことなら、",
+    heading2: "なんでも教えます",
+    subheading: "気になる建物をクリックして、あなたに合ったガイドを探してみましょう。",
     browseAll: "すべてのガイドを見る",
   },
   guideSection: {

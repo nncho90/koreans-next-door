@@ -294,10 +294,10 @@ export const pt: Dictionary = {
     body: "Sabemos o que é não se sentir em casa em uma terra estrangeira, sentir que não pertence. Também não esquecemos o que é ser bem-recebido. Nossa missão é simples: caminhar ao seu lado para que todos possamos nos sentir em casa.",
   },
   seoulSkyline: {
-    label: "Seu Bairro",
-    heading1: "Tudo que você precisa,",
-    heading2: "a um skyline de distância",
-    subheading: "Seul é grande. Clique em qualquer prédio para encontrar seu guia.",
+    label: "Seu bairro",
+    heading1: "Seul é grande.",
+    heading2: "A gente te guia.",
+    subheading: "Clique em qualquer prédio e encontre o guia certo pra você.",
     browseAll: "Ver todos os guias",
   },
   guideSection: {
