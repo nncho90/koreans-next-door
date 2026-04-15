@@ -10,7 +10,7 @@ export const pt: Dictionary = {
     tools: "Ferramentas",
   },
   hero: {
-    tagline: "Para que você se sinta em casa, mesmo morando longe. Estamos sempre do seu lado.",
+    tagline: "Pra você se sentir em casa, mesmo estando longe de casa. A gente tá sempre aqui.",
     learnMore: "Saiba mais",
   },
   mission: {
@@ -19,39 +19,39 @@ export const pt: Dictionary = {
     hiNeighbors: "Oi, somos seus vizinhos :)",
     worries: [
       "\"Pedi comida e não sabia o que havia chegado.\"",
-      "\"Não tive uma conversa de verdade há semanas.\"",
+      "\"Faz semanas que não tenho uma conversa de verdade.\"",
       "\"Todo mundo me olha fixo no metrô.\"",
-      "\"Meus colegas almoçam juntos e eu fico sozinho.\"",
+      "\"Meus colegas saem pra almoçar juntos e eu fico pra trás.\"",
       "\"Não consigo nem ler as placas.\"",
       "\"Liguei para minha mãe chorando ontem à noite.\"",
-      "\"Ninguém me avisou que seria tão solitário.\"",
+      "\"Ninguém me avisou que ia ser tão solitário assim.\"",
       "\"Não sei como fazer amigos coreanos.\"",
-      "\"Passo todos os fins de semana sozinho.\"",
+      "\"Todo fim de semana é a mesma coisa — eu sozinho.\"",
       "\"Me sinto invisível aqui.\"",
       "\"Me perdi e não conseguia pedir ajuda a ninguém.\"",
-      "\"Vai ser sempre assim?\"",
+      "\"Será que vai ser sempre assim?\"",
       "\"Jantar sozinho. De novo.\"",
       "\"Achei que ficaria mais fácil.\"",
-      "\"Tem dias que me pergunto por que vim.\"",
+      "\"Tem dias que eu me pergunto por que vim pra cá.\"",
       "\"O silêncio no apartamento é ensurdecedor.\"",
-      "\"Sinto falta de ter pessoas que me entendam.\"",
-      "\"Meu coreano ainda é terrível depois de um ano.\"",
+      "\"Tô com saudade de ter pessoas que me entendam de verdade.\"",
+      "\"Já faz um ano e meu coreano ainda é um lixo.\"",
     ],
     pillars: [
       {
         icon: "🏙️",
         title: "Só vizinhos",
-        body: "Não somos uma organização formal nem uma agência de turismo. Apenas um grupo de amigos que acredita que a hospitalidade transforma uma cidade estranha em um lar.",
+        body: "A gente não é uma organização formal nem agência de turismo. É só um grupo de amigos que acredita que hospitalidade transforma uma cidade estranha num lar.",
       },
       {
         icon: "🌍",
         title: "Aberto a todos",
-        body: "Não importa de onde você vem, o que você acredita ou há quanto tempo está aqui. Apareça e você já é um de nós.",
+        body: "Não importa de onde você vem, no que acredita ou há quanto tempo tá aqui. Aparece que você já é um de nós.",
       },
       {
         icon: "💛",
         title: "Sem agendas ocultas",
-        body: "Não esquecemos como é ser bem-recebido em um país estrangeiro. Queremos ser esses vizinhos para você.",
+        body: "A gente não esquece o que é ser bem recebido num país estranho. Queremos ser esses vizinhos pra você.",
       },
     ],
   },
@@ -59,7 +59,7 @@ export const pt: Dictionary = {
     label: "O que fazemos",
     heading: "Coisas que fizemos juntos",
     subheading:
-      "Ainda estamos descobrindo no caminho — e essa é a parte divertida. Um gostinho do que te espera.",
+      "A gente ainda tá descobrindo no caminho — e essa é a parte boa. Uma provinha do que vem por aí.",
     cards: [
       {
         emoji: "🥢",
@@ -75,7 +75,7 @@ export const pt: Dictionary = {
         title: "Trilha Noturna ao Gwanaksan",
         date: "Fevereiro 2026",
         description:
-          "Amarramos os tênis e subimos o 관악산 à noite — Seul brilhando lá embaixo e boa companhia por todos os lados.",
+          "A gente calçou os tênis e subiu o Gwanaksan de noite — Seul iluminada lá embaixo e boa companhia em todo lugar.",
       },
       {
         emoji: "🗣️",
@@ -83,7 +83,7 @@ export const pt: Dictionary = {
         title: "Noites de Intercâmbio de Idiomas",
         date: "Último sábado de cada mês",
         description:
-          "Praticando coreano e inglês com jogos em grupo, risadas e o ocasional erro de gramática embaraçoso. Todos são bem-vindos, sem necessidade de fluência.",
+          "Praticando coreano e inglês com jogos em grupo, muita risada e aquele erro de gramática constrangedor que todo mundo comete. Pode chegar sem saber nada — tá todo mundo aprendendo.",
       },
       {
         emoji: "☕",
@@ -91,7 +91,7 @@ export const pt: Dictionary = {
         title: "Café e Conversa",
         date: "Contínuo",
         description:
-          "Às vezes é só tomar um café, comer algo bom e ter conversas de verdade. Sem agenda — só pessoas se conhecendo.",
+          "Às vezes é só isso: tomar um café, comer uma coisa boa e ter papo de verdade. Sem roteiro — só gente se conhecendo.",
       },
     ],
   },
@@ -203,16 +203,16 @@ export const pt: Dictionary = {
       { q: "Esses eventos são religiosos?" },
       {
         q: "Preciso falar coreano para participar?",
-        a: "Não. Muitos de nós ainda estamos aprendendo também. Os eventos são bilíngues — inglês e coreano — e nossas noites de intercâmbio de idiomas são abertas a iniciantes completos. Também temos membros coreanos que falam espanhol, português, japonês e mandarim, então não hesite mesmo que inglês ou coreano não sejam o seu forte. Sem pressão alguma.",
+        a: "Não. Muita gente aqui ainda tá aprendendo também. Os eventos são bilíngues — inglês e coreano — e nossas noites de intercâmbio são abertas a quem tá começando do zero. A gente também tem membros coreanos que falam espanhol, português, japonês e mandarim — então não precisa ter vergonha mesmo que inglês ou coreano não sejam o seu forte. Sem pressão nenhuma.",
       },
       {
         q: "Há alguma taxa ou requisito de associação?",
-        a: "Não há taxa de associação — nunca. Nossos eventos regulares de intercâmbio de idiomas e alguns eventos especiais podem ter uma pequena taxa de participação (menos de ₩10.000), que vai inteiramente para lanches e materiais. Para jantares ou atividades, não há taxa extra — apenas traga o suficiente para cobrir sua própria refeição ou atividade.",
+        a: "Associação? Nunca vai existir isso aqui. Nossos eventos de intercâmbio e alguns eventos especiais podem ter uma taxa pequena (menos de ₩10.000), que vai tudo pra lanches e materiais. Pra jantares ou atividades, não tem taxa extra — só leva o suficiente pra cobrir o que você consumir.",
       },
       { q: "Como fico sabendo dos próximos eventos?" },
       {
         q: "Quem organiza o KND?",
-        a: "Um pequeno grupo de amigos da Sigwang Church. Alguns de nós já moraram no exterior. Alguns estudaram fora. Mas todos nós, de alguma forma, já sentimos o que é não se sentir em casa — e também fomos acolhidos. Queremos apenas ser os vizinhos que ajudam o desconhecido a parecer um pouco mais com um lar.",
+        a: "Um grupo pequeno de amigos da Sigwang Church. Alguns da gente já morou fora do país. Alguns estudaram lá fora. Mas todo mundo, de um jeito ou de outro, já sabe o que é não se sentir em casa — e também sabe o que é ser bem recebido. A gente só quer ser os vizinhos que tornam o desconhecido um pouquinho mais parecido com um lar.",
       },
       { q: "Posso trazer um amigo?", a: "Por favor. Quanto mais, melhor." },
     ],
@@ -220,7 +220,7 @@ export const pt: Dictionary = {
   contact: {
     heading: "Junte-se ao bairro",
     subheading:
-      "Venha como convidado, fique como vizinho. Siga-nos no Instagram ou entre no nosso grupo do KakaoTalk para ficar por dentro.",
+      "Vem como convidado, fica como vizinho. Segue a gente no Instagram ou entra no nosso grupo do KakaoTalk pra ficar por dentro de tudo.",
     instagram: "Instagram",
     kakao: "KakaoTalk Open Chat",
   },
@@ -276,22 +276,22 @@ export const pt: Dictionary = {
   },
   worriesSection: {
     label: "Parece familiar?",
-    heading: "Morar no exterior não é fácil.",
-    subheading: "Você não é o único que se sente assim.",
+    heading: "Morar fora não é fácil.",
+    subheading: "Você não tá sozinho nisso.",
     bubbles: [
-      "Estou aqui há 3 meses e ainda não tenho amigos de verdade... 😔",
-      "Todo mundo fala coreano tão rápido, não consigo acompanhar 😰",
-      "Sinto saudade de casa, mas não quero admitir 🥺",
-      "É realmente tão difícil fazer amigos coreanos? 🤔",
-      "Não sei para onde ir nos fins de semana... fico em casa mesmo 😞",
+      "Já faz 3 meses que tô aqui e ainda não tenho amigos de verdade... 😔",
+      "Todo mundo fala coreano tão rápido, eu não consigo acompanhar nada 😰",
+      "Tô com saudade de casa mas não quero admitir 🥺",
+      "É assim tão difícil fazer amigos coreanos? 🤔",
+      "Não sei pra onde ir no fim de semana... fico em casa mesmo 😞",
     ],
-    tags: ["Saudade de casa", "Barreira do idioma", "Fazer amigos", "Choque cultural", "Solidão", "Visto & burocracia"],
+    tags: ["Saudade de casa", "Barreira do idioma", "Fazer amizades", "Choque cultural", "Solidão", "Visto & burocracia"],
   },
   missionAbout: {
     whoWeAre: "Quem somos",
-    heading1: "Mudar para um novo país é empolgante.",
+    heading1: "Mudar pra um país novo é empolgante.",
     heading2: "Mas também pode ser solitário.",
-    body: "Sabemos o que é não se sentir em casa em uma terra estrangeira, sentir que não pertence. Também não esquecemos o que é ser bem-recebido. Nossa missão é simples: caminhar ao seu lado para que todos possamos nos sentir em casa.",
+    body: "A gente sabe o que é não se sentir em casa numa terra estranha, sentir que não pertence. E também não esquece o que é ser bem recebido. Nossa missão é simples: caminhar do seu lado pra que todo mundo possa se sentir em casa.",
   },
   seoulSkyline: {
     label: "Seu bairro",
@@ -303,12 +303,12 @@ export const pt: Dictionary = {
   guideSection: {
     label: "Guia de Seul",
     heading: "O Manual do Vizinho",
-    desc: "Tudo que você gostaria que alguém tivesse te contado quando chegou na Coreia.",
-    descHub: "Tudo que você gostaria que alguém tivesse te contado quando chegou na Coreia. Escolha um tema e explore.",
+    desc: "Tudo que você queria que alguém tivesse te falado quando chegou na Coreia.",
+    descHub: "Tudo que você queria que alguém tivesse te falado quando chegou na Coreia. Escolhe um tema e vai explorando.",
     open: "Abrir",
     toolPhrasebookLabel: "Guia de Frases",
-    toolPhrasebookDesc: "Scripts em coreano para situações reais — mostre a tela do seu celular para qualquer coreano.",
+    toolPhrasebookDesc: "Frases em coreano pra situações reais — é só mostrar a tela do celular pra qualquer coreano.",
     toolFormDecoderLabel: "Decodificador de Formulários",
-    toolFormDecoderDesc: "Formulários burocráticos coreanos explicados campo a campo em linguagem simples.",
+    toolFormDecoderDesc: "Formulários burocráticos coreanos explicados campo por campo, em linguagem simples.",
   },
 };

@@ -4,12 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useLocale } from "@/lib/i18n";
-import { guideGroups, guideCategories } from "@/lib/guideData";
-
-const TOOLS = [
-  { href: "/tools/phrasebook", labelEn: "Phrasebook", labelKo: "상황별 한국어" },
-  { href: "/tools/forms", labelEn: "Form Decoder", labelKo: "서류 해석기" },
-];
+import { guideGroups, guideCategories, getGuideLabel, getGuideCategoryLabel } from "@/lib/guideData";
 
 function FooterPhrase() {
   const ref = useRef<HTMLSpanElement>(null);
@@ -34,7 +29,11 @@ function FooterPhrase() {
 
 export default function SharedFooter() {
   const { t, locale } = useLocale();
-  const isKo = locale === "ko";
+
+  const tools = [
+    { href: "/tools/phrasebook", label: t.guideSection.toolPhrasebookLabel },
+    { href: "/tools/forms", label: t.guideSection.toolFormDecoderLabel },
+  ];
 
   return (
     <footer className="bg-zinc-950 px-6 py-12 md:py-14">
@@ -46,7 +45,7 @@ export default function SharedFooter() {
             return (
               <div key={cat.id}>
                 <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-white/30">
-                  {isKo ? cat.labelKo : cat.labelEn}
+                  {getGuideCategoryLabel(cat, locale)}
                 </p>
                 <ul className="space-y-2">
                   {catGuides.map((g) => (
@@ -55,7 +54,7 @@ export default function SharedFooter() {
                         href={g.href}
                         className="text-xs text-white/40 hover:text-white/70 transition-colors"
                       >
-                        {isKo ? g.labelKo : g.labelEn}
+                        {getGuideLabel(g, locale)}
                       </Link>
                     </li>
                   ))}
@@ -68,15 +67,15 @@ export default function SharedFooter() {
         {/* Tools row */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-x-6 gap-y-2">
           <p className="text-[10px] font-bold uppercase tracking-widest text-white/30 self-center mr-2">
-            {isKo ? "도구" : "Tools"}
+            {t.navbar.tools}
           </p>
-          {TOOLS.map((tool) => (
+          {tools.map((tool) => (
             <Link
               key={tool.href}
               href={tool.href}
               className="text-xs text-white/40 hover:text-white/70 transition-colors"
             >
-              {isKo ? tool.labelKo : tool.labelEn}
+              {tool.label}
             </Link>
           ))}
         </div>
