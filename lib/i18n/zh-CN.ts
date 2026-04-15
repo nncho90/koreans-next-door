@@ -285,6 +285,7 @@ export const zhCN: Dictionary = {
     heading1: "你需要的一切，",
     heading2: "就在这片天际线里",
     subheading: "首尔很大。点击任意建筑，找到你的指南。",
+    browseAll: "浏览所有指南",
   },
   guideSection: {
     label: "首尔指南",

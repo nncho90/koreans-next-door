@@ -90,7 +90,7 @@ export default function SeoulSkyline() {
           href="/guide"
           className="inline-flex items-center gap-2 bg-[#ffd966] hover:bg-[#f5c842] active:bg-[#e8b800] text-[#1a1a1a] font-semibold rounded-full px-7 py-3 text-sm transition-colors"
         >
-          Browse all guides
+          {ss.browseAll}
         </Link>
       </div>
     </section>

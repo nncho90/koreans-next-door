@@ -285,6 +285,7 @@ export const ja: Dictionary = {
     heading1: "必要なものすべてが、",
     heading2: "スカイラインの向こうに",
     subheading: "ソウルは広い。建物をクリックしてガイドを見つけよう。",
+    browseAll: "すべてのガイドを見る",
   },
   guideSection: {
     label: "ソウルガイド",

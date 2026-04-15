@@ -132,6 +132,7 @@ export interface Dictionary {
     heading1: string;
     heading2: string;
     subheading: string;
+    browseAll: string;
   };
   guideSection: {
     label: string;

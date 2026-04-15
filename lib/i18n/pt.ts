@@ -299,6 +299,7 @@ export const pt: Dictionary = {
     heading1: "Tudo que você precisa,",
     heading2: "a um skyline de distância",
     subheading: "Seul é grande. Clique em qualquer prédio para encontrar seu guia.",
+    browseAll: "Ver todos os guias",
   },
   guideSection: {
     label: "Guia de Seul",

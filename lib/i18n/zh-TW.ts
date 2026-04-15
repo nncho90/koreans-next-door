@@ -285,6 +285,7 @@ export const zhTW: Dictionary = {
     heading1: "你需要的一切，",
     heading2: "就在這片天際線裡",
     subheading: "首爾很大。點擊任意建築，找到你的指南。",
+    browseAll: "瀏覽所有指南",
   },
   guideSection: {
     label: "首爾指南",

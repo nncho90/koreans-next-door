@@ -289,6 +289,7 @@ export const en: Dictionary = {
     heading1: "Everything you need,",
     heading2: "one skyline away",
     subheading: "Seoul is big. Click any building to find your guide.",
+    browseAll: "Browse all guides",
   },
   guideSection: {
     label: "Seoul Guide",

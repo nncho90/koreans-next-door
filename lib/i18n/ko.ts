@@ -286,6 +286,7 @@ export const ko: Dictionary = {
     heading1: "필요한 모든 것,",
     heading2: "스카이라인 너머에",
     subheading: "서울은 넓어요. 건물을 클릭해서 가이드를 찾아보세요.",
+    browseAll: "모든 가이드 보기",
   },
   guideSection: {
     label: "서울 가이드",
