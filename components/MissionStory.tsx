@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion, MotionValue } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 
 const NEIGHBORS_BG = "/hero-2.jpeg";
@@ -53,10 +53,16 @@ function WorryPhrase({
   );
 }
 
+// Slow Ken Burns-style zoom on the neighbors photo — animates 1.05 → 1.10 and back
+const ZOOM_INITIAL = 1.05;
+const ZOOM_ANIMATE = 1.10;
+const ZOOM_TRANSITION = { duration: 14, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" } as const;
+
 export default function MissionStory() {
   const { t } = useLocale();
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -151,14 +157,21 @@ export default function MissionStory() {
         {/* Yellow reveal — neighbors photo bleeds through yellow tint */}
         <div className="relative px-6 py-16">
           <div className="absolute inset-0">
-            <Image
-              src={NEIGHBORS_BG}
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover"
-              aria-hidden="true"
-            />
+            <motion.div
+              className="absolute inset-0"
+              initial={{ scale: reduceMotion ? ZOOM_ANIMATE : ZOOM_INITIAL }}
+              animate={{ scale: ZOOM_ANIMATE }}
+              transition={reduceMotion ? { duration: 0 } : ZOOM_TRANSITION}
+            >
+              <Image
+                src={NEIGHBORS_BG}
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover"
+                aria-hidden="true"
+              />
+            </motion.div>
             <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.85)" }} />
           </div>
           <div className="relative mx-auto max-w-md">
@@ -191,14 +204,21 @@ export default function MissionStory() {
           className="absolute inset-0"
           style={{ opacity: yellowBgOpacity }}
         >
-          <Image
-            src={NEIGHBORS_BG}
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-            aria-hidden="true"
-          />
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: reduceMotion ? ZOOM_ANIMATE : ZOOM_INITIAL }}
+            animate={{ scale: ZOOM_ANIMATE }}
+            transition={reduceMotion ? { duration: 0 } : ZOOM_TRANSITION}
+          >
+            <Image
+              src={NEIGHBORS_BG}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              aria-hidden="true"
+            />
+          </motion.div>
           <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.85)" }} />
         </motion.div>
 
