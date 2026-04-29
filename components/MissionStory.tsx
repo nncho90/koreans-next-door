@@ -1,8 +1,11 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
+
+const NEIGHBORS_BG = "/hero-2.jpeg";
 
 // Positional layout data for worry phrases (positions don't change with locale)
 const worryLayout = [
@@ -145,9 +148,20 @@ export default function MissionStory() {
             </p>
           </div>
         </div>
-        {/* Yellow reveal */}
-        <div className="bg-[#ffd966] px-6 py-16">
-          <div className="mx-auto max-w-md">
+        {/* Yellow reveal — neighbors photo bleeds through yellow tint */}
+        <div className="relative px-6 py-16">
+          <div className="absolute inset-0">
+            <Image
+              src={NEIGHBORS_BG}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.85)" }} />
+          </div>
+          <div className="relative mx-auto max-w-md">
             <h2 className="mb-10 text-center text-3xl font-bold leading-tight text-[#1a1a1a]">
               {t.mission.hiNeighbors}
             </h2>
@@ -172,11 +186,21 @@ export default function MissionStory() {
         {/* Dark background */}
         <div className="absolute inset-0 bg-[#0a0a0a]" />
 
-        {/* Yellow background overlay */}
+        {/* Neighbors photo + yellow tint — fades in for the reveal */}
         <motion.div
-          className="absolute inset-0 bg-[#ffd966]"
+          className="absolute inset-0"
           style={{ opacity: yellowBgOpacity }}
-        />
+        >
+          <Image
+            src={NEIGHBORS_BG}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.85)" }} />
+        </motion.div>
 
         {/* Phase 1 */}
         <motion.div
