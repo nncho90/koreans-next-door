@@ -105,8 +105,10 @@ export const ko: Dictionary = {
   },
   upcoming: {
     label: "다음은",
-    heading: "예정된 이벤트",
+    heading: "이벤트",
     subheading: "누구나 참여할 수 있어요. 그냥 오세요.",
+    tabUpcoming: "예정",
+    tabPast: "지난 이벤트",
   },
   gallery: {
     label: "함께한 순간들",

@@ -98,22 +98,60 @@ export default function MissionStory() {
   );
   const pillarOpacities = [pillarStagger1, pillarStagger2, pillarStagger3];
 
-  // Mobile: simple static layout
+  // Mobile: keeps the desktop arc (dark → worries → knock knock → yellow reveal)
+  // without the heavy scroll-pin. Worries get visual weight via varied size,
+  // opacity, alignment and slight rotation so the section reads as overwhelming
+  // rather than a flat list.
   if (isMobile) {
+    const mobileWorries = t.mission.worries.slice(0, 12);
+    const worryStyle = [
+      { size: "text-base", opacity: 0.45, align: "self-start",  ml: "ml-1",  rotate: "-1deg"   },
+      { size: "text-xl",   opacity: 0.75, align: "self-end",    ml: "mr-2",  rotate: "1.5deg"  },
+      { size: "text-base", opacity: 0.5,  align: "self-start",  ml: "ml-6",  rotate: "-0.4deg" },
+      { size: "text-2xl",  opacity: 0.85, align: "self-center", ml: "",      rotate: "0deg"    },
+      { size: "text-base", opacity: 0.5,  align: "self-end",    ml: "mr-3",  rotate: "1deg"    },
+      { size: "text-lg",   opacity: 0.6,  align: "self-start",  ml: "ml-2",  rotate: "-1.2deg" },
+      { size: "text-xl",   opacity: 0.7,  align: "self-center", ml: "",      rotate: "0.8deg"  },
+      { size: "text-base", opacity: 0.45, align: "self-start",  ml: "ml-4",  rotate: "-0.7deg" },
+      { size: "text-base", opacity: 0.55, align: "self-end",    ml: "mr-5",  rotate: "1.3deg"  },
+      { size: "text-2xl",  opacity: 0.8,  align: "self-center", ml: "",      rotate: "-0.5deg" },
+      { size: "text-base", opacity: 0.5,  align: "self-start",  ml: "ml-3",  rotate: "0.7deg"  },
+      { size: "text-lg",   opacity: 0.65, align: "self-end",    ml: "mr-2",  rotate: "-1deg"   },
+    ];
     return (
-      <section id="mission" className="bg-[#0a0a0a] px-6 py-16">
-        <div className="mx-auto max-w-md">
-          <p className="mb-2 text-lg text-white/50">{t.mission.phase1}</p>
-          <div className="mb-8 flex flex-col gap-2">
-            {t.mission.worries.slice(0, 8).map((w, i) => (
-              <p key={i} className="text-sm italic text-white/50">{w}</p>
-            ))}
+      <section id="mission">
+        {/* Dark phase: opening + overwhelming worries + knock knock */}
+        <div className="bg-[#0a0a0a] px-6 pt-20 pb-16">
+          <div className="mx-auto max-w-md">
+            <h2 className="mb-12 text-3xl font-bold leading-tight text-white">
+              {t.mission.phase1}
+            </h2>
+            <div className="mb-16 flex flex-col gap-3">
+              {mobileWorries.map((w, i) => {
+                const s = worryStyle[i % worryStyle.length];
+                return (
+                  <p
+                    key={i}
+                    className={`${s.size} ${s.align} ${s.ml} max-w-[88%] font-medium italic text-white`}
+                    style={{ opacity: s.opacity, transform: `rotate(${s.rotate})` }}
+                  >
+                    {w}
+                  </p>
+                );
+              })}
+            </div>
+            <p className="text-center text-2xl font-bold tracking-wider text-white/60">
+              {t.mission.knockKnock}
+            </p>
           </div>
-          <div className="rounded-2xl bg-[#ffd966] p-8 text-center">
-            <h2 className="mb-8 text-3xl font-bold text-[#1a1a1a]">
+        </div>
+        {/* Yellow reveal */}
+        <div className="bg-[#ffd966] px-6 py-16">
+          <div className="mx-auto max-w-md">
+            <h2 className="mb-10 text-center text-3xl font-bold leading-tight text-[#1a1a1a]">
               {t.mission.hiNeighbors}
             </h2>
-            <div className="flex flex-col gap-8 text-left">
+            <div className="flex flex-col gap-8">
               {t.mission.pillars.map((p) => (
                 <div key={p.title} className="flex flex-col gap-2">
                   <span className="text-3xl">{p.icon}</span>

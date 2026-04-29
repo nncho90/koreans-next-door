@@ -104,8 +104,10 @@ export const zhCN: Dictionary = {
   },
   upcoming: {
     label: "接下来",
-    heading: "即将举行的活动",
+    heading: "活动",
     subheading: "所有活动免费开放，欢迎所有人。随时来。",
+    tabUpcoming: "即将举行",
+    tabPast: "过往活动",
   },
   gallery: {
     label: "共同的瞬间",

@@ -105,8 +105,10 @@ export const en: Dictionary = {
   },
   upcoming: {
     label: "What\u2019s next",
-    heading: "Upcoming events",
+    heading: "Events",
     subheading: "All events are free and open to everyone. Just show up.",
+    tabUpcoming: "Upcoming",
+    tabPast: "Past",
   },
   gallery: {
     label: "Moments together",

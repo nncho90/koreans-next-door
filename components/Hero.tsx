@@ -9,13 +9,15 @@ import { useLocale } from "@/lib/i18n";
 const EASE_OUT_EXPO = [0.23, 1, 0.32, 1] as [number, number, number, number];
 
 const slides = [
-  { src: "/hero-1.jpeg", alt: "Language exchange event" },
-  { src: "/hero-bg.jpeg", alt: "Community gathering" },
-  { src: "/hero-2.jpeg", alt: "Community celebration" },
+  { src: "/hero-3.jpeg", alt: "KND community group photo", objectPosition: "center 55%" },
+  { src: "/hero-1.jpeg", alt: "Language exchange event", objectPosition: "center" },
+  { src: "/hero-bg.jpeg", alt: "Community gathering", objectPosition: "center" },
+  { src: "/hero-2.jpeg", alt: "Community celebration", objectPosition: "center" },
 ];
 
 // Each slide gets a different Ken Burns direction for variety
 const kenBurns = [
+  { initial: { scale: 1.15, x: "0%", y: "0%" }, animate: { scale: 1.06, x: "-1%", y: "1%" } },
   { initial: { scale: 1.08, x: "-2%", y: "-2%" }, animate: { scale: 1.16, x: "2%", y: "1%" } },
   { initial: { scale: 1.12, x: "2%", y: "1%" }, animate: { scale: 1.04, x: "-1%", y: "-1%" } },
   { initial: { scale: 1.05, x: "0%", y: "2%" }, animate: { scale: 1.12, x: "1%", y: "-2%" } },
@@ -58,7 +60,8 @@ export default function Hero() {
               alt={slides[current].alt}
               fill
               priority={current === 0}
-              className="object-cover object-center"
+              className="object-cover"
+              style={{ objectPosition: slides[current].objectPosition }}
             />
           </motion.div>
         </motion.div>

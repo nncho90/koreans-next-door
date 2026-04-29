@@ -45,6 +45,8 @@ export interface Dictionary {
     label: string;
     heading: string;
     subheading: string;
+    tabUpcoming: string;
+    tabPast: string;
   };
   gallery: {
     label: string;

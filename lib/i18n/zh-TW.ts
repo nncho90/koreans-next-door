@@ -104,8 +104,10 @@ export const zhTW: Dictionary = {
   },
   upcoming: {
     label: "接下來",
-    heading: "即將舉行的活動",
+    heading: "活動",
     subheading: "所有活動免費開放，歡迎所有人。隨時來。",
+    tabUpcoming: "即將舉行",
+    tabPast: "過往活動",
   },
   gallery: {
     label: "共同的瞬間",

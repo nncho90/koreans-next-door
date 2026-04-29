@@ -104,8 +104,10 @@ export const ja: Dictionary = {
   },
   upcoming: {
     label: "次は",
-    heading: "予定のイベント",
+    heading: "イベント",
     subheading: "誰でも参加できます。気軽にどうぞ。",
+    tabUpcoming: "予定",
+    tabPast: "過去のイベント",
   },
   gallery: {
     label: "一緒の瞬間",
