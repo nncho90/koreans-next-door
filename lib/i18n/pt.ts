@@ -314,5 +314,7 @@ export const pt: Dictionary = {
     toolFormDecoderDesc: "Formulários burocráticos coreanos explicados campo por campo, em linguagem simples.",
     toolAddressLabel: "Conversor de Endereço",
     toolAddressDesc: "Transforme um endereço coreano em formato postal em inglês.",
+    toolsHubLabel: "Todas as Ferramentas",
+    toolsHubDesc: "Veja as ferramentas úteis para a vida na Coreia em um só lugar.",
   },
 };

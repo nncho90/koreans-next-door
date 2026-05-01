@@ -31,6 +31,7 @@ export default function SharedFooter() {
   const { t, locale } = useLocale();
 
   const tools = [
+    { href: "/tools", label: t.guideSection.toolsHubLabel },
     { href: "/tools/address", label: t.guideSection.toolAddressLabel },
     { href: "/tools/phrasebook", label: t.guideSection.toolPhrasebookLabel },
     { href: "/tools/forms", label: t.guideSection.toolFormDecoderLabel },

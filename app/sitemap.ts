@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Discover
     { url: `${base}/guide/explore`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     // Tools
+    { url: `${base}/tools`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/tools/phrasebook`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/address`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/forms`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },

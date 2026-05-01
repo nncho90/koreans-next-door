@@ -301,5 +301,7 @@ export const zhCN: Dictionary = {
     toolFormDecoderDesc: "韩国行政表格，逐栏用大白话解释。",
     toolAddressLabel: "英文地址转换器",
     toolAddressDesc: "把韩国道路名地址转换成英文邮寄格式。",
+    toolsHubLabel: "全部工具",
+    toolsHubDesc: "把韩国生活常用工具集中放在一起。",
   },
 };

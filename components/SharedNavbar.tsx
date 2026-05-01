@@ -10,6 +10,7 @@ import { guideGroups, guideCategories, getGuideLabel, getGuideCategoryLabel } fr
 import LanguagePicker from "@/components/LanguagePicker";
 
 const TOOLS = [
+  { href: "/tools", emoji: "🛠️", labelEn: "All Tools", labelKo: "모든 도구" },
   { href: "/tools/address", emoji: "🏠", labelEn: "Address Converter", labelKo: "영문 주소 변환기" },
   { href: "/tools/phrasebook", emoji: "💬", labelEn: "Phrasebook", labelKo: "상황별 한국어" },
   { href: "/tools/forms", emoji: "📄", labelEn: "Form Decoder", labelKo: "서류 해석기" },
@@ -50,6 +51,7 @@ export default function SharedNavbar() {
     pathname === "/guide/daily" ||
     pathname === "/guide/work" ||
     pathname === "/guide/mental-health" ||
+    pathname === "/tools" ||
     pathname === "/tools/address" ||
     pathname === "/tools/phrasebook" ||
     pathname === "/tools/forms";

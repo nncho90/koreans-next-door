@@ -302,5 +302,7 @@ export const ko: Dictionary = {
     toolFormDecoderDesc: "한국어 서류를 한 칸씩 영어로 설명해드려요.",
     toolAddressLabel: "영문 주소 변환기",
     toolAddressDesc: "한국 도로명주소를 영문 우편 형식으로 바꿔보세요.",
+    toolsHubLabel: "모든 도구",
+    toolsHubDesc: "한국 생활에 필요한 도구들을 한곳에서 볼 수 있어요.",
   },
 };

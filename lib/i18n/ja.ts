@@ -301,5 +301,7 @@ export const ja: Dictionary = {
     toolFormDecoderDesc: "韓国語の書類を一項目ずつわかりやすく説明します。",
     toolAddressLabel: "英語住所変換",
     toolAddressDesc: "韓国の道路名住所を英語の郵送形式に変換します。",
+    toolsHubLabel: "すべてのツール",
+    toolsHubDesc: "韓国生活に役立つツールをまとめて見られます。",
   },
 };

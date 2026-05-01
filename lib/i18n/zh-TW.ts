@@ -301,5 +301,7 @@ export const zhTW: Dictionary = {
     toolFormDecoderDesc: "韓國行政表格逐欄用簡明語言解釋。",
     toolAddressLabel: "英文地址轉換器",
     toolAddressDesc: "把韓國道路名地址轉成英文郵寄格式。",
+    toolsHubLabel: "全部工具",
+    toolsHubDesc: "把韓國生活常用工具集中放在一起。",
   },
 };

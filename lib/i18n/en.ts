@@ -305,5 +305,7 @@ export const en: Dictionary = {
     toolFormDecoderDesc: "Korean bureaucratic forms decoded field by field in plain English.",
     toolAddressLabel: "Address Converter",
     toolAddressDesc: "Turn a Korean road-name address into English mailing format.",
+    toolsHubLabel: "All Tools",
+    toolsHubDesc: "Browse the full set of utility pages for daily life in Korea.",
   },
 };
