@@ -255,31 +255,27 @@ const SAMPLE_ENGLISH_ADDRESS =
   "56, Dongnimmun-ro, Seodaemun-gu, Seoul, Republic of Korea, 03745";
 
 const COLORS = {
-  postal: "text-emerald-700",
-  city: "text-sky-700",
-  district: "text-violet-700",
-  road: "text-amber-800",
-  number: "text-rose-700",
+  label: "bg-orange-50 text-zinc-950",
+  city: "text-red-500",
+  district: "text-orange-400",
+  road: "text-amber-400",
+  number: "text-green-600",
+  floor: "text-blue-500",
+  building: "text-fuchsia-600",
+  postal: "text-zinc-950",
   country: "text-zinc-700",
 };
 
 function Part({
   children,
   color,
-  label,
 }: {
   children: ReactNode;
   color: keyof typeof COLORS;
-  label: string;
 }) {
   return (
-    <span
-      className={`inline-flex items-baseline text-base font-semibold md:text-lg ${COLORS[color]}`}
-    >
-      <span>{children}</span>
-      <span className="ml-1 text-[10px] font-medium uppercase tracking-wide opacity-65">
-        {label}
-      </span>
+    <span className={`font-medium ${COLORS[color]}`}>
+      {children}
     </span>
   );
 }
@@ -364,79 +360,7 @@ export default function KoreanAddressGuide() {
         </h2>
         <p className="mb-10 max-w-2xl text-zinc-500">{s.sub}</p>
 
-        <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-          <motion.article
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="rounded-2xl border border-zinc-200 bg-[#fafaf8] p-5 md:p-6"
-          >
-            <div className="mb-5 flex flex-col gap-2 border-b border-zinc-200 pb-5">
-              <h3 className="text-lg font-bold text-zinc-950">{s.tipTitle}</h3>
-              <p className="text-sm leading-6 text-zinc-500">{s.tipBody}</p>
-            </div>
-
-            <div className="space-y-5">
-              <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-400">
-                  {s.koreanLabel} · {s.orderKo}
-                </p>
-                <p className="rounded-xl bg-white p-4 leading-8 text-zinc-400">
-                  <Part color="city" label={s.city}>
-                    서울시
-                  </Part>
-                  ,{" "}
-                  <Part color="district" label={s.district}>
-                    서대문구
-                  </Part>
-                  ,{" "}
-                  <Part color="road" label={s.road}>
-                    독립문로
-                  </Part>{" "}
-                  <Part color="number" label={s.number}>
-                    56
-                  </Part>
-                  ,{" "}
-                  <Part color="postal" label={s.postal}>
-                    (우)03745
-                  </Part>
-                </p>
-              </div>
-
-              <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-400">
-                  {s.englishLabel} · {s.orderEn}
-                </p>
-                <p className="rounded-xl bg-white p-4 leading-8 text-zinc-400">
-                  <Part color="number" label={s.number}>
-                    56
-                  </Part>
-                  ,{" "}
-                  <Part color="road" label={s.road}>
-                    Dongnimmun-ro
-                  </Part>
-                  ,{" "}
-                  <Part color="district" label={s.district}>
-                    Seodaemun-gu
-                  </Part>
-                  ,{" "}
-                  <Part color="city" label={s.city}>
-                    Seoul
-                  </Part>
-                  ,{" "}
-                  <Part color="country" label={s.country}>
-                    Republic of Korea
-                  </Part>
-                  ,{" "}
-                  <Part color="postal" label={s.postal}>
-                    03745
-                  </Part>
-                </p>
-              </div>
-            </div>
-          </motion.article>
-
+        <div className="flex flex-col gap-6">
           <motion.article
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -535,6 +459,80 @@ export default function KoreanAddressGuide() {
             </div>
 
             <p className="mt-4 text-xs leading-5 text-zinc-400">{s.source}</p>
+          </motion.article>
+
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="rounded-2xl border border-zinc-200 bg-[#fafaf8] p-5 md:p-6"
+          >
+            <div className="mb-5 flex flex-col gap-2 border-b border-zinc-200 pb-5">
+              <h3 className="text-lg font-bold text-zinc-950">{s.tipTitle}</h3>
+              <p className="text-sm leading-6 text-zinc-500">{s.tipBody}</p>
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                  {s.koreanLabel} · {s.orderKo}
+                </p>
+                <p className="overflow-x-auto whitespace-nowrap rounded-xl bg-white p-4 text-2xl leading-10 text-zinc-950">
+                  <Part color="label">도로명주소</Part>{" "}
+                  <Part color="city">
+                    서울특별시
+                  </Part>
+                  ,{" "}
+                  <Part color="district">
+                    서대문구
+                  </Part>
+                  ,{" "}
+                  <Part color="road">
+                    독립문로
+                  </Part>{" "}
+                  <Part color="number">
+                    56
+                  </Part>
+                  ,{" "}
+                  <Part color="postal">
+                    (우)03745
+                  </Part>
+                </p>
+              </div>
+
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                  {s.englishLabel} · {s.orderEn}
+                </p>
+                <p className="overflow-x-auto whitespace-nowrap rounded-xl bg-white p-4 text-2xl leading-10 text-zinc-950">
+                  <Part color="label">Road-name address</Part>{" "}
+                  <Part color="number">
+                    56
+                  </Part>
+                  ,{" "}
+                  <Part color="road">
+                    Dongnimmun-ro
+                  </Part>
+                  ,{" "}
+                  <Part color="district">
+                    Seodaemun-gu
+                  </Part>
+                  ,{" "}
+                  <Part color="city">
+                    Seoul
+                  </Part>
+                  ,{" "}
+                  <Part color="country">
+                    Republic of Korea
+                  </Part>
+                  ,{" "}
+                  <Part color="postal">
+                    03745
+                  </Part>
+                </p>
+              </div>
+            </div>
           </motion.article>
         </div>
       </div>
