@@ -22,8 +22,8 @@ export default function MovingChecklist() {
 
   // Load from localStorage on mount
   useEffect(() => {
-    setMounted(true);
-    if (typeof window !== "undefined") {
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
@@ -33,7 +33,8 @@ export default function MovingChecklist() {
       } catch {
         // ignore parse errors
       }
-    }
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   function toggleStep(step: number) {

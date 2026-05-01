@@ -21,26 +21,48 @@ export default function VeganMap() {
   const photoCache = useRef<Record<string, string | null>>({});
 
   useEffect(() => {
-    if (!selected) { setPhoto(null); return; }
-    const key = selected.id;
-    if (key in photoCache.current) {
-      setPhoto(photoCache.current[key]);
-      return;
-    }
-    setPhoto(null);
-    setPhotoLoading(true);
-    const params = new URLSearchParams({
-      name: selected.name,
-      nameEn: selected.nameEn,
-      lat: String(selected.lat),
-      lng: String(selected.lng),
+    let cancelled = false;
+    const frame = requestAnimationFrame(() => {
+      if (!selected) {
+        setPhoto(null);
+        setPhotoLoading(false);
+        return;
+      }
+
+      const key = selected.id;
+      if (key in photoCache.current) {
+        setPhoto(photoCache.current[key]);
+        setPhotoLoading(false);
+        return;
+      }
+
+      setPhoto(null);
+      setPhotoLoading(true);
+      const params = new URLSearchParams({
+        name: selected.name,
+        nameEn: selected.nameEn,
+        lat: String(selected.lat),
+        lng: String(selected.lng),
+      });
+      fetch(`/api/place-photo?${params}`)
+        .then((r) => r.json())
+        .then((d) => {
+          if (cancelled) return;
+          photoCache.current[key] = d.photo ?? null;
+          setPhoto(d.photo ?? null);
+        })
+        .catch(() => {
+          photoCache.current[key] = null;
+        })
+        .finally(() => {
+          if (!cancelled) setPhotoLoading(false);
+        });
     });
-    fetch(`/api/place-photo?${params}`)
-      .then((r) => r.json())
-      .then((d) => { photoCache.current[key] = d.photo ?? null; setPhoto(d.photo ?? null); })
-      .catch(() => { photoCache.current[key] = null; })
-      .finally(() => setPhotoLoading(false));
-  }, [selected?.id]);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+    };
+  }, [selected]);
 
   const categories = useMemo(() => {
     const seen = new Set<string>();

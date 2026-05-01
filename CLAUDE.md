@@ -43,3 +43,8 @@ Internationals living in or visiting Korea — expats, students, travelers — w
 
 ## Guidelines
 > "Be loving and use common sense."
+
+---
+
+## 💬 Message Formatting Rule
+NEVER use italics in messages I write for Nelson (Slack, email, KakaoTalk, iMessage, internal comms, any drafts he'll send). No `_text_` and no `*text*` (single asterisks render as italic in his Slack client, and email clients render markdown emphasis unpredictably). If emphasis is needed: UPPERCASE, put the phrase on its own line, or rely on plain prose. When in doubt, plain text only. Full rules: `~/.claude/CLAUDE.md`.

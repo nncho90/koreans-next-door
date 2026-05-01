@@ -114,7 +114,7 @@ export default function RedFlagsChecklist() {
             ) : (
               <>
                 <span className="font-semibold text-white">
-                  If you think you've been scammed:{" "}
+                  If you think you&apos;ve been scammed:{" "}
                 </span>
                 Contact the Seoul Global Center (02-2075-4180) or report to
                 police (112). Never pay a deposit in cash — always use a

@@ -1,6 +1,6 @@
 "use client";
 
-import { LocaleProvider, useLocale } from "@/lib/i18n";
+import { LocaleProvider } from "@/lib/i18n";
 import SharedNavbar from "@/components/SharedNavbar";
 import SharedFooter from "@/components/SharedFooter";
 import Hero from "@/components/Hero";
@@ -17,8 +17,6 @@ import PhraseOfDay from "@/components/PhraseOfDay";
 import SeoulSkyline from "@/components/SeoulSkyline/SeoulSkyline";
 
 function PageContent() {
-  const { t } = useLocale();
-
   return (
     <>
       <SharedNavbar />

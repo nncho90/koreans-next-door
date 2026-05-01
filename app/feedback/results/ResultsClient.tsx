@@ -250,7 +250,6 @@ export default function ResultsClient({
   npsBreakdown,
   paceCount,
   currentEvent,
-  secretKey,
 }: Props) {
   const [expanded, setExpanded] = useState<string | null>(null);
 

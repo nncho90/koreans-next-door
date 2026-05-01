@@ -398,13 +398,13 @@ export default function SharedNavbar() {
 
               {/* Join us CTA */}
               <div className="pt-4">
-                <a
+                <Link
                   href="/#contact"
                   onClick={() => setMenuOpen(false)}
                   className="block w-full rounded-full bg-zinc-950 py-3 text-center text-sm font-semibold text-white"
                 >
                   {t.navbar.joinUs}
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

@@ -4,11 +4,6 @@ import Link from "next/link";
 import { useLocale } from "@/lib/i18n";
 import { guideGroups, guideCategories, getGuideLabel, getGuideDesc, getGuideCategoryLabel } from "@/lib/guideData";
 
-const TOOLS = [
-  { href: "/tools/phrasebook", emoji: "💬", key: "phrasebook" as const },
-  { href: "/tools/forms", emoji: "📄", key: "formDecoder" as const },
-];
-
 export default function GuidePreview() {
   const { locale, t } = useLocale();
   const gs = t.guideSection;

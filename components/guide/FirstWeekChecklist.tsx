@@ -384,8 +384,11 @@ export default function FirstWeekChecklist() {
 
   // Load from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem("knd-checklist");
-    if (saved) setChecked(JSON.parse(saved));
+    const frame = requestAnimationFrame(() => {
+      const saved = localStorage.getItem("knd-checklist");
+      if (saved) setChecked(JSON.parse(saved));
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const toggle = (i: number) => {

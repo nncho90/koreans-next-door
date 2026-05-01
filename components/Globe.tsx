@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, InstagramLogo, MapPin, CaretUpDown, CaretLeft, CaretRight } from "@phosphor-icons/react";
@@ -284,11 +284,16 @@ export default function Globe() {
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    setMounted(true);
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+      checkMobile();
+    });
     window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   useEffect(() => {
@@ -298,14 +303,13 @@ export default function Globe() {
       .catch(() => {});
   }, []);
 
-  const allMembers = [...members, ...dynamicPins];
+  const allMembers = useMemo(() => [...members, ...dynamicPins], [dynamicPins]);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setActiveIndex(i => (i + 1) % allMembers.length);
     }, 3000);
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [allMembers.length]);
 
   const navigate = useCallback((dir: 1 | -1) => {

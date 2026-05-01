@@ -24,11 +24,10 @@ export default function UpcomingEvents() {
   const { t, locale } = useLocale();
   const [tab, setTab] = useState<"upcoming" | "past">("past");
   const [past, setPast] = useState<PastEvent[] | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (past !== null) return;
-    setLoading(true);
     fetch("/api/luma/past")
       .then((r) => r.json())
       .then((d) => setPast(Array.isArray(d?.events) ? d.events : []))

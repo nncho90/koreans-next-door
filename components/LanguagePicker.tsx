@@ -72,7 +72,7 @@ export default function LanguagePicker({ dark }: Props) {
 
       {open && (
         <div className="absolute right-0 top-[calc(100%+8px)] bg-white rounded-2xl shadow-xl border border-zinc-100/80 p-1.5 min-w-[140px] z-50">
-          {LANG_OPTIONS.map(({ locale: l, native, subtitle }) => (
+          {LANG_OPTIONS.map(({ locale: l, native }) => (
             <button
               key={l}
               onClick={() => {

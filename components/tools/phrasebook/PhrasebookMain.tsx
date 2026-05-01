@@ -317,15 +317,17 @@ export default function PhrasebookMain() {
 
   // Load favorites from localStorage
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const stored = localStorage.getItem("knd-favorites");
-      if (stored) {
-        setFavorites(new Set(JSON.parse(stored) as string[]));
+    const frame = requestAnimationFrame(() => {
+      try {
+        const stored = localStorage.getItem("knd-favorites");
+        if (stored) {
+          setFavorites(new Set(JSON.parse(stored) as string[]));
+        }
+      } catch {
+        // ignore parse errors
       }
-    } catch {
-      // ignore parse errors
-    }
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   // Persist favorites
