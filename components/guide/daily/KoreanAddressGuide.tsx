@@ -50,7 +50,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     heading: "That little (우) means postal code",
     sub: "Korean addresses start big and get smaller. English addresses usually flip the order.",
     tipTitle: "Use this pattern when forms ask for an English address",
-    tipBody: "Keep the postal code, move the building number before the road name, then add district, city, and country.",
+    tipBody: "Move the building number before the road name, then add district, city, country, and postal code.",
     orderKo: "Korean order",
     orderEn: "English order",
     koreanLabel: "Sigwang Church example",
@@ -68,7 +68,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     search: "Search",
     searching: "Searching",
     sample: "Try the sample address",
-    setup: "Live lookup needs JUSO_CONFM_KEY on the server. The color-coded example still shows the format.",
+    setup: "Live lookup needs JUSO_CONFM_KEY on the server. The example still shows the format.",
     noResults: "No matching address found. Try a road-name address with city or district.",
     source: "Source: Korea Road Name Address English API",
     copy: "Copy",
@@ -79,7 +79,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     heading: "주소 앞의 (우)는 우편번호 표시예요",
     sub: "한국 주소는 큰 지역에서 작은 정보로 내려갑니다. 영어 주소는 보통 순서가 반대로 바뀌어요.",
     tipTitle: "영문 주소 입력란에는 이렇게 바꾸면 됩니다",
-    tipBody: "우편번호는 그대로 두고, 건물번호를 도로명 앞으로 옮긴 뒤 구, 시, 국가 순서로 적으세요.",
+    tipBody: "건물번호를 도로명 앞으로 옮긴 뒤 구, 시, 국가, 우편번호 순서로 적으세요.",
     orderKo: "한국어 순서",
     orderEn: "영어 순서",
     koreanLabel: "시광교회 예시",
@@ -97,7 +97,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     search: "검색",
     searching: "검색 중",
     sample: "예시 주소 넣기",
-    setup: "실시간 조회에는 서버의 JUSO_CONFM_KEY가 필요합니다. 색상 예시는 그대로 참고할 수 있어요.",
+    setup: "실시간 조회에는 서버의 JUSO_CONFM_KEY가 필요합니다. 예시는 그대로 참고할 수 있어요.",
     noResults: "일치하는 주소가 없어요. 시/구를 포함한 도로명주소로 다시 검색해 보세요.",
     source: "출처: 도로명주소 영문 API",
     copy: "복사",
@@ -108,7 +108,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     heading: "住所の前の（우）は郵便番号の印",
     sub: "韓国語の住所は大きい地域から小さい情報へ進みます。英語住所は多くの場合、順番を逆にします。",
     tipTitle: "英語住所フォームではこの形にします",
-    tipBody: "郵便番号は残し、建物番号を道路名の前へ移動して、区、市、国を続けます。",
+    tipBody: "建物番号を道路名の前へ移動して、区、市、国、郵便番号を続けます。",
     orderKo: "韓国語の順番",
     orderEn: "英語の順番",
     koreanLabel: "シグァン教会の例",
@@ -126,7 +126,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     search: "検索",
     searching: "検索中",
     sample: "例の住所を使う",
-    setup: "ライブ検索にはサーバーのJUSO_CONFM_KEYが必要です。色分け例はそのまま参考にできます。",
+    setup: "ライブ検索にはサーバーのJUSO_CONFM_KEYが必要です。例はそのまま参考にできます。",
     noResults: "一致する住所がありません。市区を含む道路名住所で試してください。",
     source: "出典: 韓国道路名住所英語API",
     copy: "コピー",
@@ -137,7 +137,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     heading: "地址前的（우）表示邮政编码",
     sub: "韩文地址从大区域写到小细节。英文地址通常会把顺序反过来。",
     tipTitle: "填写英文地址表单时可以这样转换",
-    tipBody: "保留邮编，把建筑号码放到道路名之前，然后写区、市、国家。",
+    tipBody: "把建筑号码放到道路名之前，然后写区、市、国家、邮编。",
     orderKo: "韩文顺序",
     orderEn: "英文顺序",
     koreanLabel: "Sigwang Church 示例",
@@ -155,7 +155,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     search: "搜索",
     searching: "搜索中",
     sample: "使用示例地址",
-    setup: "实时查询需要服务器上的 JUSO_CONFM_KEY。上方彩色示例仍可用于理解格式。",
+    setup: "实时查询需要服务器上的 JUSO_CONFM_KEY。上方示例仍可用于理解格式。",
     noResults: "没有找到匹配地址。请尝试包含市或区的道路名地址。",
     source: "来源：韩国道路名地址英文 API",
     copy: "复制",
@@ -166,7 +166,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     heading: "地址前的（우）表示郵遞區號",
     sub: "韓文地址從大區域寫到小細節。英文地址通常會把順序反過來。",
     tipTitle: "填英文地址表單時可以這樣轉換",
-    tipBody: "保留郵遞區號，把建物號碼放到道路名前面，接著寫區、市、國家。",
+    tipBody: "把建物號碼放到道路名前面，接著寫區、市、國家、郵遞區號。",
     orderKo: "韓文順序",
     orderEn: "英文順序",
     koreanLabel: "Sigwang Church 範例",
@@ -184,7 +184,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     search: "搜尋",
     searching: "搜尋中",
     sample: "使用範例地址",
-    setup: "即時查詢需要伺服器上的 JUSO_CONFM_KEY。上方色彩範例仍可用來理解格式。",
+    setup: "即時查詢需要伺服器上的 JUSO_CONFM_KEY。上方範例仍可用來理解格式。",
     noResults: "找不到符合的地址。請嘗試包含市或區的道路名地址。",
     source: "來源：韓國道路名地址英文 API",
     copy: "複製",
@@ -195,7 +195,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     heading: "O pequeno (우) indica o código postal",
     sub: "Endereços coreanos começam pela área maior e ficam mais específicos. Em inglês, a ordem geralmente muda.",
     tipTitle: "Use este padrão em formulários que pedem endereço em inglês",
-    tipBody: "Mantenha o código postal, coloque o número do prédio antes da rua e depois adicione distrito, cidade e país.",
+    tipBody: "Coloque o número do prédio antes da rua e depois adicione distrito, cidade, país e código postal.",
     orderKo: "Ordem em coreano",
     orderEn: "Ordem em inglês",
     koreanLabel: "Exemplo da Sigwang Church",
@@ -213,7 +213,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     search: "Buscar",
     searching: "Buscando",
     sample: "Usar endereço de exemplo",
-    setup: "A busca ao vivo precisa de JUSO_CONFM_KEY no servidor. O exemplo colorido ainda mostra o formato.",
+    setup: "A busca ao vivo precisa de JUSO_CONFM_KEY no servidor. O exemplo ainda mostra o formato.",
     noResults: "Nenhum endereço encontrado. Tente um endereço de rua com cidade ou distrito.",
     source: "Fonte: API coreana de endereço em inglês",
     copy: "Copiar",
@@ -224,7 +224,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     heading: "El pequeño (우) indica el código postal",
     sub: "Las direcciones coreanas van de lo más grande a lo más específico. En inglés, normalmente se invierte el orden.",
     tipTitle: "Usa este patrón cuando un formulario pida la dirección en inglés",
-    tipBody: "Conserva el código postal, mueve el número del edificio antes del nombre de la calle y luego agrega distrito, ciudad y país.",
+    tipBody: "Mueve el número del edificio antes del nombre de la calle y luego agrega distrito, ciudad, país y código postal.",
     orderKo: "Orden en coreano",
     orderEn: "Orden en inglés",
     koreanLabel: "Ejemplo de Sigwang Church",
@@ -242,7 +242,7 @@ const STRINGS: Record<Locale, AddressStrings> = {
     search: "Buscar",
     searching: "Buscando",
     sample: "Usar dirección de ejemplo",
-    setup: "La búsqueda en vivo necesita JUSO_CONFM_KEY en el servidor. El ejemplo con colores sigue mostrando el formato.",
+    setup: "La búsqueda en vivo necesita JUSO_CONFM_KEY en el servidor. El ejemplo sigue mostrando el formato.",
     noResults: "No se encontró una dirección. Prueba con una dirección vial que incluya ciudad o distrito.",
     source: "Fuente: API coreana de direcciones en inglés",
     copy: "Copiar",
@@ -252,18 +252,18 @@ const STRINGS: Record<Locale, AddressStrings> = {
 
 const SAMPLE_KOREAN_ADDRESS = "서울시 서대문구 독립문로 56";
 const SAMPLE_ENGLISH_ADDRESS =
-  "56, Dongnimmun-ro, Seodaemun-gu, Seoul 03745, Republic of Korea";
+  "56, Dongnimmun-ro, Seodaemun-gu, Seoul, Republic of Korea, 03745";
 
 const COLORS = {
-  postal: "bg-emerald-100 text-emerald-800 ring-emerald-200",
-  city: "bg-sky-100 text-sky-800 ring-sky-200",
-  district: "bg-violet-100 text-violet-800 ring-violet-200",
-  road: "bg-amber-100 text-amber-900 ring-amber-200",
-  number: "bg-rose-100 text-rose-800 ring-rose-200",
-  country: "bg-zinc-200 text-zinc-800 ring-zinc-300",
+  postal: "text-emerald-700",
+  city: "text-sky-700",
+  district: "text-violet-700",
+  road: "text-amber-800",
+  number: "text-rose-700",
+  country: "text-zinc-700",
 };
 
-function Chip({
+function Part({
   children,
   color,
   label,
@@ -274,14 +274,39 @@ function Chip({
 }) {
   return (
     <span
-      className={`inline-flex items-baseline rounded-md px-2 py-1 text-sm font-semibold ring-1 ${COLORS[color]}`}
+      className={`inline-flex items-baseline text-base font-semibold md:text-lg ${COLORS[color]}`}
     >
       <span>{children}</span>
-      <span className="ml-1 text-[10px] font-medium uppercase opacity-70">
+      <span className="ml-1 text-[10px] font-medium uppercase tracking-wide opacity-65">
         {label}
       </span>
     </span>
   );
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function formatEnglishAddress(result: AddressResult) {
+  const postalCode = result.postalCode.trim();
+  const postalPattern = postalCode
+    ? new RegExp(`\\b${escapeRegExp(postalCode)}\\b`, "g")
+    : null;
+  const parts = result.englishAddress
+    .split(",")
+    .map((part) => (postalPattern ? part.replace(postalPattern, "") : part))
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  const hasCountry = parts.some((part) => /korea/i.test(part));
+  const fullParts = hasCountry ? parts : [...parts, "Republic of Korea"];
+
+  if (postalCode) {
+    fullParts.push(postalCode);
+  }
+
+  return fullParts.join(", ");
 }
 
 export default function KoreanAddressGuide() {
@@ -357,49 +382,57 @@ export default function KoreanAddressGuide() {
                 <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-400">
                   {s.koreanLabel} · {s.orderKo}
                 </p>
-                <div className="flex flex-wrap gap-2 rounded-xl bg-white p-4 text-zinc-950">
-                  <Chip color="postal" label={s.postal}>
-                    (우)03745
-                  </Chip>
-                  <Chip color="city" label={s.city}>
+                <p className="rounded-xl bg-white p-4 leading-8 text-zinc-400">
+                  <Part color="city" label={s.city}>
                     서울시
-                  </Chip>
-                  <Chip color="district" label={s.district}>
+                  </Part>
+                  ,{" "}
+                  <Part color="district" label={s.district}>
                     서대문구
-                  </Chip>
-                  <Chip color="road" label={s.road}>
+                  </Part>
+                  ,{" "}
+                  <Part color="road" label={s.road}>
                     독립문로
-                  </Chip>
-                  <Chip color="number" label={s.number}>
+                  </Part>{" "}
+                  <Part color="number" label={s.number}>
                     56
-                  </Chip>
-                </div>
+                  </Part>
+                  ,{" "}
+                  <Part color="postal" label={s.postal}>
+                    (우)03745
+                  </Part>
+                </p>
               </div>
 
               <div>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-zinc-400">
                   {s.englishLabel} · {s.orderEn}
                 </p>
-                <div className="flex flex-wrap gap-2 rounded-xl bg-white p-4 text-zinc-950">
-                  <Chip color="number" label={s.number}>
+                <p className="rounded-xl bg-white p-4 leading-8 text-zinc-400">
+                  <Part color="number" label={s.number}>
                     56
-                  </Chip>
-                  <Chip color="road" label={s.road}>
+                  </Part>
+                  ,{" "}
+                  <Part color="road" label={s.road}>
                     Dongnimmun-ro
-                  </Chip>
-                  <Chip color="district" label={s.district}>
+                  </Part>
+                  ,{" "}
+                  <Part color="district" label={s.district}>
                     Seodaemun-gu
-                  </Chip>
-                  <Chip color="city" label={s.city}>
+                  </Part>
+                  ,{" "}
+                  <Part color="city" label={s.city}>
                     Seoul
-                  </Chip>
-                  <Chip color="postal" label={s.postal}>
-                    03745
-                  </Chip>
-                  <Chip color="country" label={s.country}>
+                  </Part>
+                  ,{" "}
+                  <Part color="country" label={s.country}>
                     Republic of Korea
-                  </Chip>
-                </div>
+                  </Part>
+                  ,{" "}
+                  <Part color="postal" label={s.postal}>
+                    03745
+                  </Part>
+                </p>
               </div>
             </div>
           </motion.article>
@@ -475,36 +508,30 @@ export default function KoreanAddressGuide() {
                 </div>
               )}
 
-              {results.map((result) => (
-                <div
-                  key={`${result.englishAddress}-${result.postalCode}`}
-                  className="rounded-xl border border-zinc-200 bg-zinc-50 p-4"
-                >
-                  <p className="text-sm font-bold leading-6 text-zinc-950">
-                    {result.englishAddress}
-                    {result.postalCode ? ` ${result.postalCode}` : ""}
-                  </p>
-                  <p className="mt-1 text-xs leading-5 text-zinc-500">
-                    {result.koreanAddress || result.lotAddress}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      copyAddress(
-                        `${result.englishAddress}${
-                          result.postalCode ? ` ${result.postalCode}` : ""
-                        }`
-                      )
-                    }
-                    className="mt-3 inline-flex items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-950"
+              {results.map((result) => {
+                const formattedAddress = formatEnglishAddress(result);
+                return (
+                  <div
+                    key={`${result.englishAddress}-${result.postalCode}`}
+                    className="rounded-xl border border-zinc-200 bg-zinc-50 p-4"
                   >
-                    <Copy size={14} weight="bold" aria-hidden />
-                    {copied.startsWith(result.englishAddress)
-                      ? s.copied
-                      : s.copy}
-                  </button>
-                </div>
-              ))}
+                    <p className="text-sm font-bold leading-6 text-zinc-950">
+                      {formattedAddress}
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-zinc-500">
+                      {result.koreanAddress || result.lotAddress}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => copyAddress(formattedAddress)}
+                      className="mt-3 inline-flex items-center gap-1.5 rounded-md border border-zinc-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-zinc-600 transition-colors hover:border-zinc-300 hover:text-zinc-950"
+                    >
+                      <Copy size={14} weight="bold" aria-hidden />
+                      {copied === formattedAddress ? s.copied : s.copy}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
 
             <p className="mt-4 text-xs leading-5 text-zinc-400">{s.source}</p>

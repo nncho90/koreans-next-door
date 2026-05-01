@@ -312,5 +312,7 @@ export const pt: Dictionary = {
     toolPhrasebookDesc: "Frases em coreano pra situações reais — é só mostrar a tela do celular pra qualquer coreano.",
     toolFormDecoderLabel: "Decodificador de Formulários",
     toolFormDecoderDesc: "Formulários burocráticos coreanos explicados campo por campo, em linguagem simples.",
+    toolAddressLabel: "Conversor de Endereço",
+    toolAddressDesc: "Transforme um endereço coreano em formato postal em inglês.",
   },
 };

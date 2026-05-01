@@ -67,8 +67,9 @@ function GuideHubInner() {
               <p className="mb-4 text-[11px] font-bold uppercase tracking-widest text-zinc-400">
                 {t.navbar.tools}
               </p>
-              <div className="grid gap-px bg-zinc-200 sm:grid-cols-2 rounded-2xl overflow-hidden">
+              <div className="grid gap-px bg-zinc-200 sm:grid-cols-3 rounded-2xl overflow-hidden">
                 {[
+                  { href: "/tools/address", emoji: "🏠", label: gs.toolAddressLabel, desc: gs.toolAddressDesc },
                   { href: "/tools/phrasebook", emoji: "💬", label: gs.toolPhrasebookLabel, desc: gs.toolPhrasebookDesc },
                   { href: "/tools/forms", emoji: "📄", label: gs.toolFormDecoderLabel, desc: gs.toolFormDecoderDesc },
                 ].map((tool) => (

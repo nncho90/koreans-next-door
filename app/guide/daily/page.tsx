@@ -71,11 +71,11 @@ export default function Page() {
             "@context": "https://schema.org",
             "@type": "HowTo",
             "name": "How to write a Korean road-name address in English",
-            "description": "Use the postal code, move the building number before the road name, then add district, city, and country.",
+            "description": "Move the building number before the road name, then add district, city, country, and postal code.",
             "step": [
               { "@type": "HowToStep", "name": "Find the postal code", "text": "In Korean addresses, (우) marks the postal code." },
               { "@type": "HowToStep", "name": "Move the building number", "text": "For English format, put the building number before the road name." },
-              { "@type": "HowToStep", "name": "Finish from small to large", "text": "Write road name, district, city, postal code, and Republic of Korea." }
+              { "@type": "HowToStep", "name": "Finish from small to large", "text": "Write road name, district, city, Republic of Korea, and postal code." }
             ],
             "tool": { "@type": "HowToTool", "name": "Korea Road Name Address English API" }
           })

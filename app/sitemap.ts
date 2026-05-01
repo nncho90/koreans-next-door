@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/guide/explore`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     // Tools
     { url: `${base}/tools/phrasebook`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tools/address`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/forms`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     // Standalone
     { url: `${base}/vegan`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },

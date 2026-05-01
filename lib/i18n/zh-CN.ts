@@ -299,5 +299,7 @@ export const zhCN: Dictionary = {
     toolPhrasebookDesc: "真实场景韩语——手机屏幕直接给韩国人看就行。",
     toolFormDecoderLabel: "表格解码器",
     toolFormDecoderDesc: "韩国行政表格，逐栏用大白话解释。",
+    toolAddressLabel: "英文地址转换器",
+    toolAddressDesc: "把韩国道路名地址转换成英文邮寄格式。",
   },
 };

@@ -299,5 +299,7 @@ export const zhTW: Dictionary = {
     toolPhrasebookDesc: "真實場景韓語 — 把手機螢幕給任何韓國人看就行。",
     toolFormDecoderLabel: "表格解碼器",
     toolFormDecoderDesc: "韓國行政表格逐欄用簡明語言解釋。",
+    toolAddressLabel: "英文地址轉換器",
+    toolAddressDesc: "把韓國道路名地址轉成英文郵寄格式。",
   },
 };

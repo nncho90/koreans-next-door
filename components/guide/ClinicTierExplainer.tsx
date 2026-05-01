@@ -63,6 +63,10 @@ const STRINGS: Record<Locale, {
   },
 };
 
+function tierText(tier: Record<string, unknown>, field: string, locale: Locale) {
+  return loc(tier, field, locale) || String(tier[field] ?? "");
+}
+
 export default function ClinicTierExplainer() {
   const { locale } = useLocale();
   const s = STRINGS[locale] ?? STRINGS.en;
@@ -91,20 +95,24 @@ export default function ClinicTierExplainer() {
               </div>
               <div className="mb-1 text-xl font-bold text-zinc-950">
                 {tier.ko}
-                <span className="ml-2 text-sm font-normal text-zinc-400">({loc(tier as Record<string, unknown>, "en", locale)})</span>
+                <span className="ml-2 text-sm font-normal text-zinc-400">
+                  ({tierText(tier as Record<string, unknown>, "en", locale)})
+                </span>
               </div>
-              <p className="mb-3 text-sm text-zinc-500">{loc(tier as Record<string, unknown>, "description", locale)}</p>
+              <p className="mb-3 text-sm text-zinc-500">
+                {tierText(tier as Record<string, unknown>, "description", locale)}
+              </p>
               <div className="mt-auto space-y-2 text-xs">
                 <div className="rounded-lg bg-white px-3 py-2 text-zinc-600 border border-zinc-100">
                   <span className="font-semibold text-zinc-800">{s.egLabel}</span>
-                  {loc(tier as Record<string, unknown>, "examples", locale)}
+                  {tierText(tier as Record<string, unknown>, "examples", locale)}
                 </div>
                 <div className="rounded-lg bg-white px-3 py-2 text-zinc-600 border border-zinc-100">
                   <span className="font-semibold text-zinc-800">NHIS: </span>
-                  {loc(tier as Record<string, unknown>, "nhis", locale)}
+                  {tierText(tier as Record<string, unknown>, "nhis", locale)}
                 </div>
                 <div className="rounded-lg bg-zinc-800 px-3 py-2 text-xs font-medium text-white">
-                  💡 {loc(tier as Record<string, unknown>, "tip", locale)}
+                  💡 {tierText(tier as Record<string, unknown>, "tip", locale)}
                 </div>
               </div>
             </div>

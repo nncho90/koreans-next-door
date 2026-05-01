@@ -146,5 +146,7 @@ export interface Dictionary {
     toolPhrasebookDesc: string;
     toolFormDecoderLabel: string;
     toolFormDecoderDesc: string;
+    toolAddressLabel: string;
+    toolAddressDesc: string;
   };
 }

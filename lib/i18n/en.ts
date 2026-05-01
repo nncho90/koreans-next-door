@@ -303,5 +303,7 @@ export const en: Dictionary = {
     toolPhrasebookDesc: "Korean scripts for real situations \u2014 show your phone to any Korean speaker.",
     toolFormDecoderLabel: "Form Decoder",
     toolFormDecoderDesc: "Korean bureaucratic forms decoded field by field in plain English.",
+    toolAddressLabel: "Address Converter",
+    toolAddressDesc: "Turn a Korean road-name address into English mailing format.",
   },
 };

@@ -299,5 +299,7 @@ export const ja: Dictionary = {
     toolPhrasebookDesc: "リアルな場面で使える韓国語 — 画面を見せるだけでOK。",
     toolFormDecoderLabel: "書類デコーダー",
     toolFormDecoderDesc: "韓国語の書類を一項目ずつわかりやすく説明します。",
+    toolAddressLabel: "英語住所変換",
+    toolAddressDesc: "韓国の道路名住所を英語の郵送形式に変換します。",
   },
 };
