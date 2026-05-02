@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LocaleProvider, useLocale } from "@/lib/i18n";
 import SharedNavbar from "@/components/SharedNavbar";
 import SharedFooter from "@/components/SharedFooter";
+import ToolFaqSection, { type ToolFaqItem } from "@/components/tools/ToolFaqSection";
 
 const TOOLS = [
   {
@@ -32,9 +33,32 @@ const TOOLS = [
   },
 ];
 
+const FAQS: Record<string, ToolFaqItem[]> = {
+  en: [
+    {
+      q: "Why does each tool get its own page?",
+      a: "Each page targets a different search need and gives people one clear action instead of hiding the tool inside a bigger guide.",
+    },
+    {
+      q: "Which tool should I use first?",
+      a: "Use the address converter for forms, the phrasebook for speaking, and the form decoder when Korean paperwork gets confusing.",
+    },
+    {
+      q: "Are these tools free?",
+      a: "Yes. They are free to use on the site.",
+    },
+  ],
+  ko: [
+    { q: "왜 도구를 따로 페이지로 나눴나요?", a: "도구마다 검색 의도가 다르기 때문에, 각각 따로 두면 사람들이 바로 찾고 바로 쓸 수 있습니다." },
+    { q: "어떤 도구부터 쓰면 되나요?", a: "서류는 주소 변환기, 말할 때는 회화 도구, 한국어 서류가 헷갈릴 때는 서류 해석기를 쓰면 됩니다." },
+    { q: "무료인가요?", a: "네. 사이트에서 무료로 사용할 수 있습니다." },
+  ],
+};
+
 function ToolsInner() {
   const { locale } = useLocale();
   const isKo = locale === "ko";
+  const faqItems = isKo ? FAQS.ko : FAQS.en;
 
   return (
     <>
@@ -108,6 +132,17 @@ function ToolsInner() {
             </div>
           </div>
         </section>
+
+        <ToolFaqSection
+          eyebrow={isKo ? "질문" : "FAQ"}
+          heading={isKo ? "도구 페이지에 대해 자주 묻는 것" : "Questions about the tool pages"}
+          intro={
+            isKo
+              ? "각 도구가 따로 있는 이유와 어디서부터 보면 좋은지 정리했습니다."
+              : "A short answer to why these tools are split out and how to use them."
+          }
+          items={faqItems}
+        />
       </main>
       <SharedFooter />
     </>

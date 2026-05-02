@@ -53,6 +53,41 @@ export default function Page() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Why does each tool get its own page?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Each page targets a different search need and gives people one clear action instead of hiding the tool inside a bigger guide.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Which tool should I use first?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Use the address converter for forms, the phrasebook for speaking, and the form decoder when Korean paperwork gets confusing.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Are these tools free?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. They are free to use on the site.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
             "@type": "ItemList",
             name: "Koreans Next Door tools",
             itemListElement: [

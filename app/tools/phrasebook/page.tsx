@@ -58,6 +58,41 @@ export default function Page() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Can I hand this to a Korean speaker?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. The phrasebook is made for showing your phone to a Korean speaker in the moment.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Does it work offline?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "The phrases themselves do. Some extra features may need a connection, but the main phrasebook is usable without one.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Why make it a separate page?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "It has its own search intent and works better when people can find it directly instead of digging through a bigger guide.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <PhrasebookContent />
     </>
   );

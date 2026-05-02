@@ -73,6 +73,41 @@ export default function Page() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Is this the official English address format?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. The page follows the Road Name Address English API output and shows the usual mailing order clearly.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Will this cost money?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "The page is free. The live lookup only depends on the Juso approval key being configured on the server.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Why is the postal code at the end?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "For English mailing format, the postal code is typically written at the end, after the country.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <AddressContent />
     </>
   );

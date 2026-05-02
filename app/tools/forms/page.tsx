@@ -56,6 +56,41 @@ export default function Page() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "What kinds of forms does this cover?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "It focuses on the Korean bureaucracy people actually run into: hospitals, banks, ARC-related forms, address changes, and phone plans.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is this a translation service?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "No. It explains the fields in plain English so you can fill the form yourself with more confidence.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Why have its own page?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Form help is a separate search need and works best when people can land directly on it.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       <FormsContent />
     </>
   );
