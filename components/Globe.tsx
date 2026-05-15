@@ -448,7 +448,7 @@ export default function Globe() {
                       <div className="mb-1 flex items-center gap-2">
                         <span className="inline-block h-2 w-2 rounded-full bg-[#ffd966]" />
                         <span className="text-xs uppercase tracking-widest text-zinc-400">
-                          {activeMember.city}, {activeMember.country}
+                          {activeMember.city ?? ""}{activeMember.city && activeMember.country ? ", " : ""}{activeMember.country ?? ""}
                         </span>
                       </div>
                       <p className="text-2xl font-bold text-zinc-950">{activeMember.name}</p>

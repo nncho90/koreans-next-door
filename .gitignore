@@ -43,3 +43,8 @@ next-env.d.ts
 .worktrees/
 .superpowers/
 .omc/
+
+# stray drag-drops at repo root (KakaoTalk photos contain GPS EXIF)
+/KakaoTalk_Photo_*.jpeg
+/KakaoTalk_Photo_*.jpg
+/KakaoTalk_Photo_*.png

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,10 +22,48 @@ const COL_CATEGORIES = [
   ["living-here"],
 ] as const;
 
+const SCRAMBLE_CHARS = "abcdefghijklmnopqrstuvwxyz";
+const SITE_TITLE = "koreans next door";
+
+function useScramble() {
+  const [display, setDisplay] = useState(SITE_TITLE);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const scramble = () => {
+    let iteration = 0;
+    const totalSteps = SITE_TITLE.length * 3;
+
+    const step = () => {
+      setDisplay(
+        SITE_TITLE.split("").map((char, i) => {
+          if (char === " ") return " ";
+          if (i < Math.floor(iteration / 3)) return SITE_TITLE[i];
+          return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+        }).join("")
+      );
+      iteration++;
+      if (iteration <= totalSteps) {
+        timerRef.current = setTimeout(step, 30);
+      }
+    };
+
+    if (timerRef.current) clearTimeout(timerRef.current);
+    step();
+  };
+
+  const reset = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    setDisplay(SITE_TITLE);
+  };
+
+  return { display, scramble, reset };
+}
+
 export default function SharedNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
+  const { display, scramble, reset } = useScramble();
   const { t, locale } = useLocale();
   const pathname = usePathname();
 
@@ -75,11 +113,13 @@ export default function SharedNavbar() {
           {/* Logo */}
           <Link
             href="/"
-            className={`text-sm font-bold tracking-tight lowercase transition-colors duration-300 ${
+            className={`text-sm font-bold tracking-tight lowercase transition-colors duration-300 font-mono ${
               dark || menuOpen ? "text-zinc-900" : "text-white"
             }`}
+            onMouseEnter={scramble}
+            onMouseLeave={reset}
           >
-            koreans next door
+            {display}
           </Link>
 
           {/* Desktop cluster */}
