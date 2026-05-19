@@ -29,7 +29,7 @@ const STRINGS: Record<
     h1: "Your money\nin Korea",
     subheading:
       "Bank accounts, international transfers, cost of living, taxes, and pension — everything financial you need as a foreigner in Korea.",
-    lastUpdated: "Last updated: March 2026",
+    lastUpdated: "Last updated: May 2026",
     navBanks: "🏦 Bank Accounts",
     navTransfers: "💸 Transfers",
     navCost: "📊 Cost Calculator",
@@ -40,7 +40,7 @@ const STRINGS: Record<
     h1: "돈 관리,\n어렵지 않아요",
     subheading:
       "은행 계좌 개설부터 해외 송금, 생활비 계산, 세금과 연금까지 — 외국인을 위한 금융 완전 가이드.",
-    lastUpdated: "마지막 업데이트: 2026년 3월",
+    lastUpdated: "마지막 업데이트: 2026년 5월",
     navBanks: "🏦 은행 계좌",
     navTransfers: "💸 해외 송금",
     navCost: "📊 생활비 계산기",
@@ -51,7 +51,7 @@ const STRINGS: Record<
     h1: "韓国での\nお金の管理",
     subheading:
       "銀行口座の開設、海外送金、生活費、税金と年金まで — 韓国在住外国人のための金融完全ガイド。",
-    lastUpdated: "最終更新: 2026年3月",
+    lastUpdated: "最終更新: 2026年5月",
     navBanks: "🏦 銀行口座",
     navTransfers: "💸 海外送金",
     navCost: "📊 生活費計算",
@@ -62,7 +62,7 @@ const STRINGS: Record<
     h1: "在韩国\n管理财务",
     subheading:
       "从开设银行账户、国际汇款、生活费计算，到税务和年金 — 外国人在韩国的全面金融指南。",
-    lastUpdated: "最后更新：2026年3月",
+    lastUpdated: "最后更新：2026年5月",
     navBanks: "🏦 银行账户",
     navTransfers: "💸 国际汇款",
     navCost: "📊 生活费计算",
@@ -73,7 +73,7 @@ const STRINGS: Record<
     h1: "在韓國\n管理財務",
     subheading:
       "從開設銀行帳戶、國際匯款、生活費計算，到稅務和年金 — 外國人在韓國的全面金融指南。",
-    lastUpdated: "最後更新：2026年3月",
+    lastUpdated: "最後更新：2026年5月",
     navBanks: "🏦 銀行帳戶",
     navTransfers: "💸 國際匯款",
     navCost: "📊 生活費計算",
@@ -84,7 +84,7 @@ const STRINGS: Record<
     h1: "Seu dinheiro\nna Coreia",
     subheading:
       "Contas bancárias, transferências internacionais, custo de vida, impostos e previdência — tudo que você precisa saber sobre finanças como estrangeiro na Coreia.",
-    lastUpdated: "Última atualização: março de 2026",
+    lastUpdated: "Última atualização: maio de 2026",
     navBanks: "🏦 Contas Bancárias",
     navTransfers: "💸 Transferências",
     navCost: "📊 Calculadora de Custo",
@@ -95,7 +95,7 @@ const STRINGS: Record<
     h1: "Tu dinero\nen Corea",
     subheading:
       "Cuentas bancarias, transferencias internacionales, costo de vida, impuestos y pensión — todo lo financiero que necesitas como extranjero en Corea.",
-    lastUpdated: "Última actualización: marzo de 2026",
+    lastUpdated: "Última actualización: mayo de 2026",
     navBanks: "🏦 Cuentas Bancarias",
     navTransfers: "💸 Transferencias",
     navCost: "📊 Calculadora de Costo",

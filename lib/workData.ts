@@ -54,8 +54,8 @@ export const LABOR_RIGHTS = [
     rightEn: "Minimum Wage",
     rightKo: "최저임금",
     emoji: "💵",
-    descEn: "As of 2024, Korea's minimum wage is ₩9,860/hour (₩2,060,740/month for full-time). This applies to ALL workers in Korea regardless of visa status or nationality.",
-    descKo: "2024년 기준 최저임금 시간당 9,860원 (풀타임 월 2,060,740원). 비자 종류나 국적 무관 모든 근로자에게 적용.",
+    descEn: "As of 2026, Korea's minimum wage is ₩10,320/hour (approx. ₩2,156,880/month for full-time). This applies to ALL workers in Korea regardless of visa status or nationality.",
+    descKo: "2026년 기준 최저임금 시간당 10,320원 (풀타임 월 약 2,156,880원). 비자 종류나 국적 무관 모든 근로자에게 적용.",
   },
   {
     rightEn: "Right to Refuse Illegal Orders",
@@ -151,7 +151,7 @@ export const JOB_RESOURCES = [
     categoryKo: "프리랜서/원격",
     emoji: "💻",
     resources: [
-      { name: "Working remotely for a foreign company", descEn: "If you work remotely for a non-Korean company on a non-work visa, this is a legal gray area. Many people do it; few get caught. But technically, you should have a work visa or be on a tourist visa re-entering Korea frequently.", descKo: "비취업 비자로 외국 회사 원격 근무는 법적 회색지대. 많이 하지만 공식적으로는 취업 비자 또는 관광 비자 재입국 방식이 더 명확." },
+      { name: "Working remotely for a foreign company", descEn: "If you plan to stay in Korea long-term while working remotely for a non-Korean company, the F-1-D Workation (Digital Nomad) visa is the legal route. Requires approx. ₩88M+ annual income (2x Korea GNI, verified each year). Stays under 90 days in the visa-free window are a gray area many use; anything longer without F-1-D is technically unauthorized.", descKo: "한국에서 외국 회사 원격 근무로 장기 체류 시 F-1-D 워케이션 비자가 합법적 방법입니다. 연 소득 약 8,800만 원 이상 (한국 GNI 2배, 매년 갱신) 필요. 90일 이내 무비자 체류는 회색지대지만, 그 이상은 F-1-D 없이는 기술적으로 불법." },
       { name: "Starting a business as a foreigner", descEn: "You need a D-9 (corporate investment) or F-class visa to legally run a business. Minimum investment requirements apply. Consult a Korean 세무사 (tax accountant) before proceeding.", descKo: "외국인 사업 운영은 D-9(기업투자) 또는 F계열 비자 필요. 최소 투자 금액 요건 있음. 진행 전 한국 세무사 상담 권장." },
     ],
   },

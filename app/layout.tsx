@@ -67,6 +67,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://koreansnextdoor.com",
   },
+  verification: {
+    google: "pbbY6hEU_Fa1oS75bHQHc31veLFATBTPk9eccrVy8Tk",
+  },
   other: {
     "geo.region": "KR-11",
     "geo.placename": "Seoul, South Korea",

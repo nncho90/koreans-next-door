@@ -22,7 +22,7 @@ const STRINGS: Record<Locale, {
     eyebrow: "Work",
     h1: "Working in\nKorea",
     subtitle: "Read your contract. Know your rights. Understand the culture. Find the job.",
-    updated: "Last updated: March 2026",
+    updated: "Last updated: May 2026",
     links: [
       { href: "#contract", label: "Employment Contract" },
       { href: "#rights",   label: "Labor Rights" },
@@ -34,7 +34,7 @@ const STRINGS: Record<Locale, {
     eyebrow: "취업 & 근무",
     h1: "한국에서\n일하기",
     subtitle: "근로계약서 읽는 법, 당신의 권리, 직장 문화, 그리고 취업 정보.",
-    updated: "마지막 업데이트: 2026년 3월",
+    updated: "마지막 업데이트: 2026년 5월",
     links: [
       { href: "#contract", label: "근로계약서" },
       { href: "#rights",   label: "근로자 권리" },
@@ -46,7 +46,7 @@ const STRINGS: Record<Locale, {
     eyebrow: "就労・仕事",
     h1: "韓国で\n働く",
     subtitle: "契約書を読み、権利を知り、文化を理解し、仕事を見つける。",
-    updated: "最終更新: 2026年3月",
+    updated: "最終更新: 2026年5月",
     links: [
       { href: "#contract", label: "雇用契約書" },
       { href: "#rights",   label: "労働者の権利" },
@@ -58,7 +58,7 @@ const STRINGS: Record<Locale, {
     eyebrow: "就业与工作",
     h1: "在韩国\n工作",
     subtitle: "读懂合同、了解权利、理解文化、找到工作。",
-    updated: "最后更新: 2026年3月",
+    updated: "最后更新: 2026年5月",
     links: [
       { href: "#contract", label: "劳动合同" },
       { href: "#rights",   label: "劳动权利" },
@@ -70,7 +70,7 @@ const STRINGS: Record<Locale, {
     eyebrow: "就業與工作",
     h1: "在韓國\n工作",
     subtitle: "讀懂合約、了解權利、理解文化、找到工作。",
-    updated: "最後更新: 2026年3月",
+    updated: "最後更新: 2026年5月",
     links: [
       { href: "#contract", label: "勞動契約" },
       { href: "#rights",   label: "勞工權利" },
@@ -82,7 +82,7 @@ const STRINGS: Record<Locale, {
     eyebrow: "Trabalho",
     h1: "Trabalhando\nna Coreia",
     subtitle: "Entenda seu contrato, conheça seus direitos, compreenda a cultura e encontre emprego.",
-    updated: "Última atualização: Março de 2026",
+    updated: "Última atualização: maio de 2026",
     links: [
       { href: "#contract", label: "Contrato de Trabalho" },
       { href: "#rights",   label: "Direitos Trabalhistas" },
@@ -94,7 +94,7 @@ const STRINGS: Record<Locale, {
     eyebrow: "Trabajo",
     h1: "Trabajando\nen Corea",
     subtitle: "Lee tu contrato, conoce tus derechos, entiende la cultura y encuentra empleo.",
-    updated: "Última actualización: Marzo de 2026",
+    updated: "Última actualización: mayo de 2026",
     links: [
       { href: "#contract", label: "Contrato Laboral" },
       { href: "#rights",   label: "Derechos Laborales" },
