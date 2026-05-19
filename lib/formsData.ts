@@ -231,7 +231,7 @@ export const FORMS: KoreanForm[] = [
         whatToWriteEn:
           "The date you entered Korea on your current visa. Check your passport entry stamp.",
         whatToWriteKo: "현재 비자로 입국한 날짜. 여권 입국 도장 확인.",
-        exampleValue: "2024-03-01",
+        exampleValue: "2026-03-01",
         required: true,
       },
       {
@@ -478,7 +478,7 @@ export const FORMS: KoreanForm[] = [
         fieldType: "date",
         whatToWriteEn: "The date you actually moved in (YYYY-MM-DD)",
         whatToWriteKo: "실제 이사 날짜 (YYYY-MM-DD)",
-        exampleValue: "2024-04-01",
+        exampleValue: "2026-04-01",
         required: true,
       },
       {

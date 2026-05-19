@@ -37,37 +37,37 @@ export const HOUSING_TYPES = [
     proEs: ["Sin pagos mensuales de alquiler", "Depósito devuelto íntegramente", "Popular en contratos de 1-2 años"],
     conEn: [
       "Requires large upfront capital",
-      "Risk if landlord can't return deposit",
+      "Deposit return risk — apply for HUG insurance within 1 month of move-in",
       "Less common recently as rates rise",
     ],
     conKo: [
       "큰 초기 자금 필요",
-      "집주인 부채 시 반환 위험",
+      "보증금 미반환 위험 — 입주 1개월 내 HUG 전세보증 가입 권장",
       "금리 상승으로 감소 추세",
     ],
     conJa: [
       "多額の初期資金が必要",
-      "家主が返還できないリスクあり",
+      "保証金返還リスクあり — 入居後1か月以内にHUG保証に加入を",
       "金利上昇で最近は減少傾向",
     ],
     conZhCN: [
       "需要大量启动资金",
-      "房东无法退还时有风险",
+      "押金返还风险 — 入住1个月内申请HUG保证保险",
       "利率上升后逐渐减少",
     ],
     conZhTW: [
       "需要大量啟動資金",
-      "房東無法退還時有風險",
+      "押金返還風險 — 入住1個月內申請HUG保證保險",
       "利率上升後逐漸減少",
     ],
     conPt: [
       "Requer grande capital inicial",
-      "Risco se o proprietário não conseguir devolver o depósito",
+      "Risco de devolução do depósito — solicite o seguro HUG no prazo de 1 mês após a mudança",
       "Menos comum recentemente com a subida das taxas",
     ],
     conEs: [
       "Requiere un gran capital inicial",
-      "Riesgo si el propietario no puede devolver el depósito",
+      "Riesgo de devolución del depósito — solicita el seguro HUG en el plazo de 1 mes tras la mudanza",
       "Menos común últimamente con la subida de tipos",
     ],
     depositRange: "KRW 100M–500M+",
@@ -997,6 +997,44 @@ export const RED_FLAGS = [
     whatToDoEs:
       "Usa un agente inmobiliario con licencia (공인중개사) que está legalmente obligado a proporcionar un contrato escrito y explicar los términos.",
   },
+  {
+    icon: "🛡️",
+    title: "No HUG deposit insurance on a jeonse contract",
+    titleKo: "전세 계약에 보증보험 미가입",
+    titleJa: "チョンセ契約にHUG保証保険未加入",
+    titleZhCN: "全税合同未购买HUG保证保险",
+    titleZhTW: "全稅合約未購買HUG保證保險",
+    titlePt: "Sem seguro HUG em contrato jeonse",
+    titleEs: "Sin seguro HUG en contrato jeonse",
+    description:
+      "The 2022-2023 jeonse fraud crisis left thousands of tenants unable to recover deposits. Landlords who owned dozens of overlapping jeonse contracts went bankrupt, and tenants had no recourse. HUG (주택도시보증공사) deposit return guarantee insurance now exists precisely for this — but you have to apply for it yourself.",
+    descriptionKo:
+      "2022-2023년 전세사기로 수천 명의 세입자가 보증금을 돌려받지 못했습니다. 수십 채의 전세 계약을 겹쳐서 맺은 집주인들이 파산하면서 세입자들은 법적 구제를 받지 못했습니다. 이를 막기 위해 주택도시보증공사(HUG)의 전세보증금반환보증이 있지만, 본인이 직접 가입해야 합니다.",
+    descriptionJa:
+      "2022〜2023年のチョンセ詐欺事件では、数千人の入居者が保証金を取り戻せなくなりました。複数のチョンセ契約を重ねて結んでいた家主が次々と破産し、入居者には法的手段がありませんでした。HUG（주택도시보증공사）の保証金返還保証はまさにこのために存在しますが、自分で申請する必要があります。",
+    descriptionZhCN:
+      "2022-2023年的全税诈骗危机导致数千名租客无法追回押金。拥有数十套重叠全税合同的房东相继破产，租客束手无策。HUG（주택도시보증공사）的押金返还保证保险正是为此而设，但需要您自行申请。",
+    descriptionZhTW:
+      "2022-2023年的全稅詐騙危機導致數千名租客無法追回押金。擁有數十套重疊全稅合約的房東相繼破產，租客束手無策。HUG（주택도시보증공사）的押金返還保證保險正是為此而設，但需要您自行申請。",
+    descriptionPt:
+      "A crise de fraude jeonse de 2022-2023 deixou milhares de inquilinos sem conseguir recuperar os depósitos. Proprietários com dezenas de contratos jeonse sobrepostos faliram e os inquilinos ficaram sem recursos. O seguro de retorno de depósito HUG (주택도시보증공사) existe precisamente para isso, mas você tem de solicitá-lo.",
+    descriptionEs:
+      "La crisis de fraude jeonse de 2022-2023 dejó a miles de inquilinos incapaces de recuperar sus depósitos. Los propietarios con decenas de contratos jeonse superpuestos quebraron y los inquilinos no tuvieron recursos. El seguro de devolución de depósito HUG (주택도시보증공사) existe precisamente para esto, pero tienes que solicitarlo tú mismo.",
+    whatToDo:
+      "Apply for HUG 전세보증금반환보증 within 1 month of move-in at any major bank (KB, Shinhan, Woori, Hana) or at hug.or.kr. Requirements: 전입신고 complete, 확정일자 stamped on your contract, and total property debt below 60-70% of property value. Annual cost: approx. 0.128-0.154% of your deposit. For a KRW 200M deposit, that is roughly KRW 260K-310K per year.",
+    whatToDoKo:
+      "입주 후 1개월 이내 KB국민·신한·우리·하나은행 또는 hug.or.kr에서 HUG 전세보증금반환보증 가입. 조건: 전입신고 완료, 임대차계약서에 확정일자 날인, 주택 총 담보가 주택가격의 60-70% 이하. 연 보증료 약 0.128-0.154%. 보증금 2억 기준 연 약 26만~31만원.",
+    whatToDoJa:
+      "入居後1か月以内に、KB国民・新韓・우리・ハナ銀行またはhug.or.krでHUG전세보증금반환보증に加入してください。条件：전입신고（住所登録）完了、契約書に확정일자（確定日付）取得済み、物件の総担保が物件価値の60〜70%以下であること。年間保証料は保証金の約0.128〜0.154%。保証金2億ウォンの場合、年間約26万〜31万ウォン。",
+    whatToDoZhCN:
+      "入住后1个月内，在KB国民、新韩、友利、韩亚银行或hug.or.kr申请HUG전세보증금반환보증。条件：已完成전입신고（住址登记）、合同已盖확정일자（确定日期章）、房产总负债低于房产价值60-70%。年保证费约为押金的0.128-0.154%。押金2亿韩元时，每年约26万-31万韩元。",
+    whatToDoZhTW:
+      "入住後1個月內，在KB國民、新韓、友利、韓亞銀行或hug.or.kr申請HUG전세보증금반환보증。條件：已完成전입신고（住址登記）、合約已蓋확정일자（確定日期章）、房產總負債低於房產價值60-70%。年保證費約為押金的0.128-0.154%。押金2億韓元時，每年約26萬-31萬韓元。",
+    whatToDoPt:
+      "Solicite o HUG 전세보증금반환보증 no prazo de 1 mês após a mudança em qualquer banco principal (KB, Shinhan, Woori, Hana) ou em hug.or.kr. Requisitos: 전입신고 concluído, 확정일자 carimbado no contrato, dívida total do imóvel abaixo de 60-70% do valor. Custo anual: aprox. 0.128-0.154% do depósito. Para um depósito de 200M KRW, cerca de 260K-310K KRW por ano.",
+    whatToDoEs:
+      "Solicita el HUG 전세보증금반환보증 en el plazo de 1 mes tras la mudanza en cualquier banco principal (KB, Shinhan, Woori, Hana) o en hug.or.kr. Requisitos: 전입신고 hecho, 확정일자 sellado en el contrato, deuda total del inmueble por debajo del 60-70% de su valor. Coste anual: aprox. el 0.128-0.154% del depósito. Para un depósito de 200M KRW, unos 260K-310K KRW al año.",
+  },
 ];
 
 export const MOVING_CHECKLIST = [
@@ -1150,6 +1188,25 @@ export const MOVING_CHECKLIST = [
     taskEs: "Verificar todos los electrodomésticos e instalaciones",
     detail:
       "Test water heater, air conditioner, washing machine, oven. Report issues within the first week.",
+  },
+  {
+    step: 9,
+    category: "After moving in",
+    categoryKo: "입주 후",
+    categoryJa: "入居後",
+    categoryZhCN: "入住后",
+    categoryZhTW: "入住後",
+    categoryPt: "Após a mudança",
+    categoryEs: "Después de mudarse",
+    task: "Apply for HUG jeonse deposit return insurance (전세 only)",
+    taskKo: "HUG 전세보증금반환보증 가입 (전세 계약자만)",
+    taskJa: "HUG保証金返還保証に加入する（チョンセ契約者のみ）",
+    taskZhCN: "申请HUG全税押金返还保证险（仅限全税合同）",
+    taskZhTW: "申請HUG全稅押金返還保證險（僅限全稅合約）",
+    taskPt: "Solicitar seguro de devolução de depósito HUG (somente jeonse)",
+    taskEs: "Solicitar seguro de devolución de depósito HUG (solo jeonse)",
+    detail:
+      "Apply within 1 month at any major bank or hug.or.kr. Needs your 전입신고 and 확정일자 done first. Costs approx. 0.128-0.154% of deposit per year. This is the most important protection against jeonse fraud — the 2022-2023 crisis showed tenants have no recourse without it.",
   },
 ];
 

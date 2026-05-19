@@ -19,12 +19,12 @@ export default function RedFlagsChecklist() {
         <h2 className="mb-3 text-3xl font-bold text-white md:text-4xl">
           {isKo
             ? "이런 상황이면 조심하세요"
-            : "5 warning signs to never ignore"}
+            : "6 warning signs to never ignore"}
         </h2>
         <p className="mb-10 max-w-xl text-zinc-400">
           {isKo
-            ? "매년 수백 명의 외국인이 부동산 사기를 당합니다. 이 다섯 가지를 반드시 기억하세요."
-            : "Hundreds of foreigners fall victim to rental scams in Korea every year. Know these five warning signs."}
+            ? "매년 수백 명의 외국인이 부동산 사기를 당합니다. 이 여섯 가지를 반드시 기억하세요."
+            : "Hundreds of foreigners fall victim to rental scams in Korea every year. Know these six warning signs."}
         </p>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

@@ -11,6 +11,7 @@ const PHASES = [
   { id: "Before signing", idKo: "계약 전" },
   { id: "Signing day", idKo: "계약 당일" },
   { id: "Move-in day", idKo: "이사 당일" },
+  { id: "After moving in", idKo: "입주 후" },
 ];
 
 export default function MovingChecklist() {
@@ -87,8 +88,8 @@ export default function MovingChecklist() {
         </h2>
         <p className="mb-6 max-w-xl text-zinc-500">
           {isKo
-            ? "계약 전부터 이사 당일까지. 체크하면 저장됩니다."
-            : "From before you sign to the day you move in. Your progress is saved automatically."}
+            ? "계약 전부터 입주 후 보험 가입까지. 체크하면 저장됩니다."
+            : "From before you sign to after you move in. Your progress is saved automatically."}
         </p>
 
         {/* Progress Bar */}
