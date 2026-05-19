@@ -14,41 +14,49 @@ const STRINGS: Record<Locale, {
   label: string;
   h1: string;
   sub: string;
+  updated: string;
 }> = {
   en: {
     label: "Explore",
     h1: "Actually enjoy\nbeing here",
     sub: "Food, neighborhoods, seasons. The things that make life here genuinely fun.",
+    updated: "Last updated: May 2026",
   },
   ko: {
     label: "탐색하기",
     h1: "서울을\n제대로 즐기기",
     sub: "음식, 동네, 계절. 서울 생활이 즐거워지는 것들.",
+    updated: "마지막 업데이트: 2026년 5월",
   },
   ja: {
     label: "探索する",
     h1: "ソウルを\n本当に楽しもう",
     sub: "食べ物、街、季節。ここでの生活を本当に楽しくするもの。",
+    updated: "最終更新: 2026年5月",
   },
   "zh-CN": {
     label: "探索首尔",
     h1: "真正享受\n在这里的生活",
     sub: "美食、社区、季节。让在首尔的生活真正精彩的事物。",
+    updated: "最后更新: 2026年5月",
   },
   "zh-TW": {
     label: "探索首爾",
     h1: "真正享受\n在這裡的生活",
     sub: "美食、社區、季節。讓在首爾的生活真正精彩的事物。",
+    updated: "最後更新: 2026年5月",
   },
   pt: {
     label: "Explorar",
     h1: "Aproveite de\nverdade estar aqui",
     sub: "Comida, bairros, estações. As coisas que tornam a vida aqui genuinamente divertida.",
+    updated: "Última atualização: maio de 2026",
   },
   es: {
     label: "Explorar",
     h1: "Disfruta de\nverdad estar aquí",
     sub: "Comida, barrios, estaciones. Las cosas que hacen que la vida aquí sea genuinamente divertida.",
+    updated: "Última actualización: mayo de 2026",
   },
 };
 
@@ -69,6 +77,9 @@ function ExploreContent() {
             </h1>
             <p className="mt-4 max-w-xl text-lg text-zinc-500">
               {s.sub}
+            </p>
+            <p className="mt-4 text-xs text-zinc-400">
+              {s.updated}
             </p>
           </div>
         </section>
