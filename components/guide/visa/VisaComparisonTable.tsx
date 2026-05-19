@@ -30,9 +30,12 @@ export default function VisaComparisonTable() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
-            {isKo ? "비자 유형" : "Visa Types"}
-          </p>
+          <div className="mb-2 flex items-center justify-between">
+            <p className="text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+              {isKo ? "비자 유형" : "Visa Types"}
+            </p>
+            <span className="text-xs text-zinc-400">{isKo ? "2026년 5월 검증" : "Verified May 2026"}</span>
+          </div>
           <h2 className="mb-3 text-3xl font-bold text-zinc-950 md:text-4xl">
             {isKo ? "주요 비자 비교" : "Compare visa types"}
           </h2>

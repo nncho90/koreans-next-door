@@ -7,6 +7,8 @@ import VisaWizard from "@/components/guide/visa/VisaWizard";
 import VisaComparisonTable from "@/components/guide/visa/VisaComparisonTable";
 import ARCGuide from "@/components/guide/visa/ARCGuide";
 import CommonPitfalls from "@/components/guide/visa/CommonPitfalls";
+import RecentVisaChanges from "@/components/guide/visa/RecentVisaChanges";
+import ModelingCallout from "@/components/guide/visa/ModelingCallout";
 import GuideFAQ from "@/components/guide/GuideFAQ";
 import { GUIDE_FAQS } from "@/lib/faqData";
 import type { Locale } from "@/lib/i18n/types";
@@ -40,13 +42,13 @@ const STRINGS: Record<string, Record<Locale, string>> = {
     es: "Tipos de visa coreana, cómo obtener tu tarjeta ARC y los errores más comunes entre los recién llegados.",
   },
   lastUpdated: {
-    en: "Last updated: March 2026",
-    ko: "마지막 업데이트: 2026년 3월",
-    ja: "最終更新：2026年3月",
-    "zh-CN": "最后更新：2026年3月",
-    "zh-TW": "最後更新：2026年3月",
-    pt: "Última atualização: março de 2026",
-    es: "Última actualización: marzo 2026",
+    en: "Last updated: May 2026",
+    ko: "마지막 업데이트: 2026년 5월",
+    ja: "最終更新：2026年5月",
+    "zh-CN": "最后更新：2026年5月",
+    "zh-TW": "最後更新：2026年5月",
+    pt: "Última atualização: maio de 2026",
+    es: "Última actualización: mayo 2026",
   },
 };
 
@@ -79,6 +81,8 @@ function VisaContent() {
         <VisaComparisonTable />
         <ARCGuide />
         <CommonPitfalls />
+        <RecentVisaChanges />
+        <ModelingCallout />
         <GuideFAQ faqs={GUIDE_FAQS["visa"]} locale={locale} />
       </main>
       <SharedFooter />
