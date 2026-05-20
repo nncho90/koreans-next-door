@@ -79,15 +79,22 @@ export default function Hero() {
           className="flex flex-col items-center"
         >
           <h1 className="sr-only">Koreans Next Door — Seoul Guide and Community for Foreigners Living in Korea</h1>
-          <Image
-            src="/logo.png"
-            alt="Koreans Next Door"
-            width={320}
-            height={160}
-            priority
-            style={{ height: "auto" }}
-            className="mb-8 w-64 md:w-80"
-          />
+          <motion.div
+            className="mb-8"
+            initial={{ filter: "blur(20px)", scale: 1.06 }}
+            animate={{ filter: "blur(0px)", scale: 1 }}
+            transition={{ duration: 1.2, ease: EASE_OUT_EXPO, delay: 0.15 }}
+          >
+            <Image
+              src="/logo.png"
+              alt="Koreans Next Door"
+              width={320}
+              height={160}
+              priority
+              style={{ height: "auto" }}
+              className="w-64 md:w-80"
+            />
+          </motion.div>
 
           <p className="mb-9 max-w-md text-xl font-medium text-white/90 md:text-2xl drop-shadow-sm">
             {t.hero.tagline}
