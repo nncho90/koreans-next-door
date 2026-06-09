@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 const CALENDAR_API_ID = "cal-J0zAgLYj8iOqzD1";
-const LUMA_URL = `https://api.lu.ma/calendar/get-items?calendar_api_id=${CALENDAR_API_ID}&period=past&pagination_limit=20`;
+const LUMA_URL = `https://api.lu.ma/calendar/get-items?calendar_api_id=${CALENDAR_API_ID}&period=past&pagination_limit=10`;
 
 type LumaEntry = {
   event: {

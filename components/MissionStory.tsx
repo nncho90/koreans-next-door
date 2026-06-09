@@ -156,7 +156,7 @@ export default function MissionStory() {
         </div>
         {/* Yellow reveal — neighbors photo bleeds through yellow tint */}
         <div className="relative px-6 py-16">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 overflow-hidden">
             <motion.div
               className="absolute inset-0"
               initial={{ scale: reduceMotion ? ZOOM_ANIMATE : ZOOM_INITIAL }}
