@@ -33,7 +33,7 @@ interface WinProps {
   litAtNight?: boolean;
 }
 
-function Wins({ cols, rows, sx, sy, dx, dy, ww, wh, fill, rx = 1, litAtNight = true }: WinProps) {
+function Wins({ cols, rows, sx, sy, dx, dy, ww, wh, fill, rx = 1.4, litAtNight = true }: WinProps) {
   const isDim = fill === WIN_DIM;
   return (
     <>
@@ -77,6 +77,8 @@ export default function BuildingSVG({
       style={{ display: "block" }}
     >
       {renderShape(shape, win, isHovered)}
+      {/* Ground-contact shadow: grounds the silhouette instead of letting it float on the baseline */}
+      <ellipse cx={w / 2} cy={h} rx={w * 0.46} ry={3} fill="rgba(0,0,0,0.35)" />
     </svg>
   );
 }
@@ -114,29 +116,39 @@ function renderShape(shape: BuildingShape, win: string, isHovered: boolean) {
 function Namsan({ win }: { win: string }) {
   return (
     <>
-      {/* Mountain base */}
-      <polygon points="0,178 45,72 90,178 90,200 0,200" fill={C.bodyDark} />
-      {/* Mountain lit face */}
-      <polygon points="22,178 45,105 68,178" fill={C.body} opacity={0.5} />
-      {/* Tower shaft */}
-      <rect x={38} y={34} width={9} height={68} fill={C.bodySide} />
-      <rect x={38} y={34} width={14} height={68} fill={C.body} />
-      <rect x={46} y={34} width={6} height={68} fill={C.bodySide} />
-      {/* Observation deck */}
-      <rect x={27} y={44} width={36} height={16} fill={C.bodyDark} />
-      <rect x={27} y={44} width={24} height={16} fill={C.body} />
+      {/* Mountain: smooth rounded peak instead of a hard triangle */}
+      <path
+        d="M0,200 L0,183 Q17,124 44,71 Q46,67 48,71 Q75,124 90,183 L90,200 Z"
+        fill={C.bodyDark}
+      />
+      {/* Moonlit slope: soft tonal shift on the right face, not a hard-edged triangle */}
+      <path
+        d="M46,78 Q66,122 81,183 L54,183 Q49,128 46,78 Z"
+        fill={C.body}
+        opacity={0.4}
+      />
+      {/* Treeline texture along the base */}
+      {[
+        [6, 189, 9], [16, 193, 7], [27, 190, 8], [63, 191, 8], [74, 194, 7], [84, 190, 8],
+      ].map(([x, y, s]) => (
+        <polygon key={`tree-${x}`} points={`${x},${y} ${x + s / 2},${y - s} ${x + s},${y}`} fill={C.shadow} opacity={0.5} />
+      ))}
+      {/* Tower shaft: gentle taper up to the observation deck */}
+      <path d="M39,102 L37,34 L52,34 L50,102 Z" fill={C.body} />
+      <path d="M46,102 L45,34 L52,34 L50,102 Z" fill={C.bodySide} />
+      {/* Observation deck: rounded saucer */}
+      <rect x={27} y={44} width={36} height={16} rx={7} fill={C.bodyDark} />
+      <rect x={27} y={44} width={25} height={16} rx={7} fill={C.body} />
       {/* Upper shaft */}
-      <rect x={40} y={20} width={10} height={26} fill={C.bodyDark} />
-      <rect x={40} y={20} width={7} height={26} fill={C.body} />
+      <path d="M41,46 L40,20 L50,20 L49,46 Z" fill={C.bodyDark} />
+      <path d="M46,46 L45.5,20 L50,20 L49,46 Z" fill={C.body} />
       {/* Spire */}
-      <polygon points="43,8 47,8 48,20 42,20" fill={C.bodyDark} />
-      <polygon points="43,8 45,1 47,8 48,20 42,20" fill={C.body} />
+      <polygon points="43.5,8 46.5,8 48,20 42,20" fill={C.bodyDark} />
+      <polygon points="44,1 45.3,8 47,8 48,20 42,20 43,8" fill={C.body} />
       {/* Obs deck windows */}
       <Wins cols={3} rows={1} sx={31} sy={48} dx={8} dy={0} ww={5} wh={8} fill={win} />
       {/* Tower window */}
       <rect x={41} y={57} width={7} height={6} rx={1} fill={win} />
-      {/* Mountain windows */}
-      <Wins cols={3} rows={2} sx={22} sy={130} dx={18} dy={18} ww={10} wh={11} fill={win} />
     </>
   );
 }
@@ -208,8 +220,8 @@ function Government({ win }: { win: string }) {
         <rect key={cx} x={cx} y={38} width={3} height={42} fill={C.shadow} opacity={0.7} />
       ))}
       {/* Flagpole */}
-      <rect x={55} y={4} width={2} height={20} fill={C.bodySide} />
-      <rect x={57} y={5} width={14} height={9} fill={C.red} opacity={0.75} />
+      <rect x={55} y={4} width={2.5} height={22} rx={1} fill={C.bodySide} />
+      <path d="M57.5,6 L69,9 L57.5,13 Z" fill={C.red} opacity={0.8} />
       {/* Main body windows 4×2 */}
       <Wins cols={4} rows={2} sx={10} sy={62} dx={17} dy={22} ww={10} wh={14} fill={win} />
       {/* Portico windows */}
@@ -359,10 +371,10 @@ function Subway({ win, isHovered }: { win: string; isHovered: boolean }) {
       <rect x={70} y={44} width={8} height={72} fill={C.body} />
 
       {/* Canopy */}
-      <rect x={0} y={30} width={92} height={16} fill={C.bodyDark} />
-      <rect x={0} y={30} width={58} height={16} fill={C.body} />
+      <rect x={0} y={30} width={92} height={16} rx={2} fill={C.bodyDark} />
+      <rect x={0} y={30} width={58} height={16} rx={2} fill={C.body} />
       {/* Canopy top bevel */}
-      <polygon points="0,30 92,30 86,24 6,24" fill={C.bodySide} />
+      <path d="M2,30 Q46,20 90,30 L86,24 Q46,16 6,24 Z" fill={C.bodySide} />
 
       {/* Sign board on canopy */}
       <rect x={14} y={33} width={64} height={9} fill={C.shadow} rx={1} />
