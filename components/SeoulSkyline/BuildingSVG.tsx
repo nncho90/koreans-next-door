@@ -2,11 +2,11 @@
 import { BuildingShape, DIMS } from "./skylineData";
 
 const C = {
-  body: "#1e3050",
-  bodyDark: "#111e38",
-  bodySide: "#162844",
+  body: "#2b436e",
+  bodyDark: "#182948",
+  bodySide: "#1e3252",
   shadow: "#070d1a",
-  roof: "#0f1c2e",
+  roof: "#14233c",
   accent: "#ffd966",
   white: "rgba(255,255,255,0.45)",
   red: "#6a1212",
@@ -15,7 +15,7 @@ const C = {
   greenDark: "#122818",
 };
 
-const WIN_DIM = "rgba(255,200,80,0.07)";
+const WIN_DIM = "rgba(255,200,80,0.30)";
 const WIN_LIT = "rgba(255,200,80,0.90)";
 
 interface WinProps {
@@ -29,23 +29,30 @@ interface WinProps {
   wh: number;
   fill: string;
   rx?: number;
+  /** when true, a deterministic subset of windows stay lit even at idle */
+  litAtNight?: boolean;
 }
 
-function Wins({ cols, rows, sx, sy, dx, dy, ww, wh, fill, rx = 1 }: WinProps) {
+function Wins({ cols, rows, sx, sy, dx, dy, ww, wh, fill, rx = 1, litAtNight = true }: WinProps) {
+  const isDim = fill === WIN_DIM;
   return (
     <>
       {Array.from({ length: rows }, (_, r) =>
-        Array.from({ length: cols }, (_, c) => (
-          <rect
-            key={`${r}-${c}`}
-            x={sx + c * dx}
-            y={sy + r * dy}
-            width={ww}
-            height={wh}
-            rx={rx}
-            fill={fill}
-          />
-        ))
+        Array.from({ length: cols }, (_, c) => {
+          const lit = isDim && litAtNight && (r * 7 + c * 13 + rows) % 3 === 0;
+          return (
+            <rect
+              key={`${r}-${c}`}
+              x={sx + c * dx}
+              y={sy + r * dy}
+              width={ww}
+              height={wh}
+              rx={rx}
+              fill={lit ? "rgba(255,214,102,0.75)" : fill}
+              style={{ transition: "fill 0.35s ease" }}
+            />
+          );
+        })
       )}
     </>
   );
@@ -338,7 +345,7 @@ function Pagoda({ win }: { win: string }) {
 
 // ── Seoul 지하철 subway entrance (92×118) ────────────────────────────────
 function Subway({ win, isHovered }: { win: string; isHovered: boolean }) {
-  const metroGreen = isHovered ? "#1a7a40" : "#145c30";
+  const metroGreen = "#00A84D";
   return (
     <>
       {/* Underground opening */}
@@ -359,21 +366,16 @@ function Subway({ win, isHovered }: { win: string; isHovered: boolean }) {
 
       {/* Sign board on canopy */}
       <rect x={14} y={33} width={64} height={9} fill={C.shadow} rx={1} />
-      <text
-        x={46}
-        y={40}
-        fontSize={5.5}
-        textAnchor="middle"
-        fill={`rgba(255,255,255,${isHovered ? 0.85 : 0.5})`}
-        fontFamily="sans-serif"
-        letterSpacing={0.5}
-        style={{ transition: "fill 0.4s" }}
-      >
-        지하철
-      </text>
 
       {/* Metro circle logo */}
-      <circle cx={46} cy={16} r={10} fill={metroGreen} style={{ transition: "fill 0.4s" }} />
+      <circle
+        cx={46}
+        cy={16}
+        r={10}
+        fill={metroGreen}
+        opacity={isHovered ? 1 : 0.85}
+        style={{ transition: "opacity 0.4s" }}
+      />
       <text
         x={46}
         y={20}
@@ -472,10 +474,10 @@ function Convenience({ win }: { win: string }) {
       {/* Body */}
       <rect x={3} y={20} width={70} height={62} fill={C.body} />
       <rect x={60} y={20} width={13} height={62} fill={C.bodySide} />
-      {/* Sign board */}
-      <rect x={0} y={10} width={76} height={12} fill="#1a3568" />
+      {/* Sign board: glowing storefront sign, consistent with the yellow accent system */}
+      <rect x={0} y={10} width={76} height={12} fill="rgba(255,214,102,0.20)" />
       {/* Sign highlight */}
-      <rect x={8} y={13} width={20} height={6} rx={1} fill="rgba(255,200,80,0.25)" />
+      <rect x={8} y={13} width={20} height={6} rx={1} fill="rgba(255,214,102,0.45)" />
       {/* Glass storefront */}
       <rect x={8} y={36} width={55} height={42} fill={C.shadow} rx={1} />
       {/* Shelf lines */}

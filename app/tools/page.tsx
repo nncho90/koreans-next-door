@@ -57,18 +57,18 @@ export default function Page() {
             mainEntity: [
               {
                 "@type": "Question",
-                name: "Why does each tool get its own page?",
+                name: "Which tool should I use first?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Each page targets a different search need and gives people one clear action instead of hiding the tool inside a bigger guide.",
+                  text: "Use the address converter when you fill in an address, the phrasebook when you need to say something out loud, and the form decoder when a Korean document leaves you stuck.",
                 },
               },
               {
                 "@type": "Question",
-                name: "Which tool should I use first?",
+                name: "Do I need to read Korean to use these?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Use the address converter for forms, the phrasebook for speaking, and the form decoder when Korean paperwork gets confusing.",
+                  text: "No. Everything is explained in English, and the phrasebook shows the Korean text you can hand over on your phone.",
                 },
               },
               {

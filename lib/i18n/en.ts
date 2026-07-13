@@ -65,7 +65,7 @@ export const en: Dictionary = {
         emoji: "\uD83E\uDD62",
         type: "Cultural Exchange",
         title: "Seollal 떡국 Party",
-        date: "January 2026",
+        date: "Seollal 2026",
         description:
           "We made dumplings together, shared a bowl of tteokguk, and played Yut Nori \u2014 celebrating Korean New Year with new friends.",
       },
@@ -73,7 +73,7 @@ export const en: Dictionary = {
         emoji: "\u26F0\uFE0F",
         type: "Nature & Adventure",
         title: "Night Hike to Gwanaksan",
-        date: "February 2026",
+        date: "Winter 2026",
         description:
           "We laced up our shoes and headed up \uad00\uc545\uc0b0 after dark \u2014 Seoul sparkling below us and good company all around.",
       },
@@ -86,12 +86,12 @@ export const en: Dictionary = {
           "Practicing Korean and English over group games, laughs, and the occasional awkward grammar mistake. Everyone\u2019s welcome, no fluency required.",
       },
       {
-        emoji: "\u2615",
+        emoji: "\ud83c\udf7d\ufe0f",
         type: "Casual Hangouts",
-        title: "Coffee & Conversation",
-        date: "Ongoing",
+        title: "Monday Night Dinners",
+        date: "Every other Monday",
         description:
-          "Sometimes it\u2019s just grabbing coffee, good food, and having real conversations. No agenda \u2014 just people getting to know each other.",
+          "After work we grab a table somewhere in the city, order too much food, and share a real meal together. It\u2019s run 12+ times now, and there\u2019s always room for one more.",
       },
     ],
   },
@@ -106,14 +106,24 @@ export const en: Dictionary = {
   upcoming: {
     label: "What\u2019s next",
     heading: "Events",
-    subheading: "All events are free and open to everyone. Just show up.",
+    subheading: "Most events are free, none are for profit, and everyone is welcome. Just show up.",
     tabUpcoming: "Upcoming",
     tabPast: "Past",
+    emptyHeading: "Nothing on the calendar yet",
+    emptyBody: "New events usually drop in our KakaoTalk chat first. Say hi there or follow us on Luma, and you’ll be the first to know.",
+    emptyKakao: "Join the KakaoTalk chat",
+    emptyLuma: "Follow on Luma",
   },
   gallery: {
     label: "Moments together",
     heading: "A glimpse into our neighborhood",
     subheading: "Real people, real moments, real connections.",
+  },
+  videoWall: {
+    label: "On camera",
+    heading: "See us in motion",
+    subheading: "Little clips from real nights out, hikes, and dinners around the neighborhood.",
+    follow: "Follow @koreansnextdoor",
   },
   testimonials: {
     label: "From our neighbors",
@@ -185,7 +195,7 @@ export const en: Dictionary = {
         items: [
           { note: "Find the nearest pharmacy" },
           { note: "English-speaking doctor search" },
-          { note: "Register within 6 months of arrival" },
+          { note: "Automatic enrollment after 6 months of stay" },
         ],
       },
       {
@@ -217,6 +227,14 @@ export const en: Dictionary = {
         a: "A small group of friends from Sigwang Church. Some of us have lived abroad. Some of us have studied abroad. But all of us have, in one way or another, experienced what it feels like to not feel at home \u2014 and to be welcomed. We just want to be the neighbors who help make the unfamiliar feel a little more like home.",
       },
       { q: "Can I bring a friend?", a: "Please do. The more the merrier." },
+      {
+        q: "When and where do events happen?",
+        a: "Mostly around Seoul. Language exchanges are the last Saturday of every month, and Monday Night Dinners run every other week. The exact spots get posted on our Luma page and in the KakaoTalk chat a few days before.",
+      },
+      {
+        q: "Can I come alone?",
+        a: "Most people come alone their first time. Someone will come say hi within five minutes, that\u2019s kind of our whole thing.",
+      },
     ],
   },
   contact: {
@@ -225,6 +243,11 @@ export const en: Dictionary = {
       "Come as a guest, stay as a neighbor.\u00a0 Follow us on Instagram or join our KakaoTalk group to find out what\u2019s up.",
     instagram: "Instagram",
     kakao: "KakaoTalk Open Chat",
+    stepsHeading: "What happens when you join",
+    step1: "Say hi in the chat.",
+    step2: "Get invited to the next event.",
+    step3: "Show up, we save you a seat.",
+    qrCaption: "Scan to join on your phone",
   },
   phraseOfDay: {
     label: "Daily Korean",
@@ -292,6 +315,7 @@ export const en: Dictionary = {
     heading2: "one skyline away",
     subheading: "Seoul is big. Click any building to find your guide.",
     browseAll: "Browse all guides",
+    swipeHint: "Swipe to explore the city",
   },
   guideSection: {
     label: "Seoul Guide",

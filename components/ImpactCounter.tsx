@@ -7,7 +7,7 @@ import { useLocale } from "@/lib/i18n";
 const metricDefs = [
   { target: 47 },
   { target: 200, suffix: "+" },
-  { target: 12 },
+  { target: 30, suffix: "+" },
   { target: 1 },
 ];
 

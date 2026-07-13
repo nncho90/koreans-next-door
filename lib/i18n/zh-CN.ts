@@ -64,7 +64,7 @@ export const zhCN: Dictionary = {
         emoji: "🥢",
         type: "文化交流",
         title: "春节年糕汤派对",
-        date: "2026年1月",
+        date: "春节 2026",
         description:
           "我们一起包饺子、分享年糕汤，玩了尤茨游戏，和新朋友们庆祝韩国新年。",
       },
@@ -72,7 +72,7 @@ export const zhCN: Dictionary = {
         emoji: "⛰️",
         type: "自然与冒险",
         title: "冠岳山夜间徒步",
-        date: "2026年2月",
+        date: "2026年冬",
         description:
           "穿上运动鞋，夜爬冠岳山——首尔的灯光在脚下闪烁，身边都是新朋友。",
       },
@@ -85,12 +85,12 @@ export const zhCN: Dictionary = {
           "在游戏和笑声中练韩语和英语，偶尔闹出一些尴尬的语法笑话。不管什么水平都欢迎，不用会流利。",
       },
       {
-        emoji: "☕",
+        emoji: "🍽️",
         type: "休闲聚会",
-        title: "咖啡与闲聊",
-        date: "不定期",
+        title: "周一晚餐",
+        date: "每两周一次",
         description:
-          "有时候就是喝喝咖啡、吃点好吃的、好好聊聊天。没有什么特别目的。",
+          "下班后我们在城里找家店坐下，点上一堆菜，一起好好吃顿饭聊聊天。到现在已经办过12次以上，永远给你留个位子。",
       },
     ],
   },
@@ -105,14 +105,24 @@ export const zhCN: Dictionary = {
   upcoming: {
     label: "接下来",
     heading: "活动",
-    subheading: "所有活动免费开放，欢迎所有人。随时来。",
+    subheading: "大部分活动免费，没有一个是为了盈利，欢迎所有人。随时来。",
     tabUpcoming: "即将举行",
     tabPast: "过往活动",
+    emptyHeading: "日历上还没有活动",
+    emptyBody: "新活动通常会最先在我们的 KakaoTalk 群聊里发布。来群里打个招呼，或者在 Luma 上关注我们，就能第一时间收到消息。",
+    emptyKakao: "加入 KakaoTalk 群聊",
+    emptyLuma: "在 Luma 上关注",
   },
   gallery: {
     label: "共同的瞬间",
     heading: "我们街区的一角",
     subheading: "真实的人，真实的瞬间，真实的联结。",
+  },
+  videoWall: {
+    label: "镜头之下",
+    heading: "看看动起来的我们",
+    subheading: "街区里真实的夜晚、徒步和聚餐的小片段。",
+    follow: "关注 @koreansnextdoor",
   },
   testimonials: {
     label: "邻居的声音",
@@ -184,7 +194,7 @@ export const zhCN: Dictionary = {
         items: [
           { note: "查找最近的药店" },
           { note: "搜索会英语的医生" },
-          { note: "入境后6个月内需完成登记" },
+          { note: "居住满6个月后自动参保" },
         ],
       },
       {
@@ -216,6 +226,14 @@ export const zhCN: Dictionary = {
         a: "시광교회的一小群朋友。有人在海外生活过，有人留学过。但大家都有过在异乡感到格格不入的时候，也都被人好好接待过。我们只是想成为那种能让陌生地方变成家的邻居。",
       },
       { q: "可以带朋友来吗？", a: "当然可以。人越多越好。" },
+      {
+        q: "活动什么时候、在哪里举行？",
+        a: "基本都在首尔。语言交换在每月最后一个周六，周一晚餐每两周一次。具体地点会提前几天发布在我们的 Luma 页面和 KakaoTalk 群聊里。",
+      },
+      {
+        q: "可以一个人来吗？",
+        a: "大多数人第一次都是一个人来的。五分钟内就会有人过来跟你打招呼，这算是我们的拿手好戏。",
+      },
     ],
   },
   contact: {
@@ -224,6 +242,11 @@ export const zhCN: Dictionary = {
       "以客人的身份来，以邻居的身份留下。关注我们的Instagram，或者加入KakaoTalk群聊，第一时间获取最新消息。",
     instagram: "Instagram",
     kakao: "KakaoTalk群聊",
+    stepsHeading: "加入之后会怎样",
+    step1: "在群里打个招呼。",
+    step2: "收到下次活动的邀请。",
+    step3: "来就行，我们给你留位子。",
+    qrCaption: "扫码用手机加入",
   },
   phraseOfDay: {
     label: "每日韩语",
@@ -288,6 +311,7 @@ export const zhCN: Dictionary = {
     heading2: "我们帮你摸清楚",
     subheading: "点击任意一栋建筑，找到你需要的指南。",
     browseAll: "查看全部指南",
+    swipeHint: "滑动探索这座城市",
   },
   guideSection: {
     label: "首尔指南",

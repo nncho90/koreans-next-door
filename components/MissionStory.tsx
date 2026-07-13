@@ -172,7 +172,7 @@ export default function MissionStory() {
                 aria-hidden="true"
               />
             </motion.div>
-            <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.85)" }} />
+            <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.55)" }} />
           </div>
           <div className="relative mx-auto max-w-md">
             <h2 className="mb-10 text-center text-3xl font-bold leading-tight text-[#1a1a1a]">
@@ -219,7 +219,7 @@ export default function MissionStory() {
               aria-hidden="true"
             />
           </motion.div>
-          <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.85)" }} />
+          <div className="absolute inset-0" style={{ backgroundColor: "rgba(255, 217, 102, 0.55)" }} />
         </motion.div>
 
         {/* Phase 1 */}

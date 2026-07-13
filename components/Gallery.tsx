@@ -6,9 +6,13 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, X } from "@phosphor-icons/react";
 import { useLocale } from "@/lib/i18n";
 
-const rotations = [-1.5, 2, -0.5, 1.8, -2, 1, -1.2, 2.1];
+const rotations = [-1.5, 2, -0.5, 1.8, -2, 1, -1.2, 2.1, -1.7, 1.4, -2.2, 0.9];
 
 const photos = [
+  { src: "/photos/knd-12.jpeg", alt: "KND neighbors striking the apple-cheeks pose at a yellow and blue balloon party in Seoul" },
+  { src: "/photos/knd-10.jpeg", alt: "Huge KND language exchange group of around sixty neighbors waving together" },
+  { src: "/photos/knd-13.jpeg", alt: "KND neighbors laughing together at a balloon party in Seoul" },
+  { src: "/photos/knd-11.jpeg", alt: "KND neighbors sharing a Korean BBQ dinner and flashing peace signs around the table" },
   { src: "/photos/knd-02.jpeg", alt: "Community members making dumplings at KND Seollal tteokguk party" },
   { src: "/photos/knd-03.jpeg", alt: "International community gathering at Koreans Next Door Seoul" },
   { src: "/photos/knd-04.jpeg", alt: "KND members playing Yut Nori together at Seollal celebration" },

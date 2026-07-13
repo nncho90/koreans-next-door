@@ -80,7 +80,7 @@ export default function SkylineBuilding({
       }}
       animate={{
         y: entrance.visible ? 0 : 52,
-        opacity: !entrance.visible ? 0 : isDimmed ? 0.3 : 1,
+        opacity: !entrance.visible ? 0 : isDimmed ? 0.55 : 1,
       }}
       initial={{ y: 52, opacity: 0 }}
       transition={{
@@ -90,7 +90,11 @@ export default function SkylineBuilding({
           stiffness: 170,
           damping: 22,
         },
-        opacity: { duration: 0.28, ease: "easeOut" },
+        opacity: {
+          delay: entrance.visible ? entrance.delay : 0,
+          duration: 0.28,
+          ease: "easeOut",
+        },
       }}
     >
       <Link
@@ -126,6 +130,11 @@ export default function SkylineBuilding({
         >
           <BuildingSVG shape={building.shape} isHovered={isHovered} />
         </motion.div>
+
+        {/* Always-visible label for touch devices, where hover never fires */}
+        <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-white/85 backdrop-blur-sm [@media(hover:hover)]:hidden">
+          {building.emoji} {localizedLabel}
+        </span>
       </Link>
 
       {/* Tooltip card */}

@@ -279,7 +279,7 @@ export function getTestimonialQuotes(locale: Locale): TestimonialQuote[] {
             <strong className="text-zinc-950">KND 덕분에 서울 정착이 훨씬 쉬워졌고</strong>, 재미있는
             활동이랑 맛있는 음식을 통해 친구들도 많이 생겼어요! 모두 진심으로 따뜻하고
             말 붙이기가 편했어요.{" "}
-            <strong className="text-zinc-950">어느새 낯선 도시가 집처럼 느껴지는</strong> 공간이에요.
+            <strong className="text-zinc-950">어느새 낯선 도시가 집처럼 느껴지는</strong>{" "}공간이에요.
           </>
         ),
         name: "Amy Izzati",
@@ -310,7 +310,7 @@ export function getTestimonialQuotes(locale: Locale): TestimonialQuote[] {
         <>
           When I first came to Korea I really struggled to speak the language because I was worried
           about making mistakes.{" "}
-          <strong className="text-zinc-950">KND gave me the space to try</strong> and I&apos;ve
+          <strong className="text-zinc-950">KND gave me the space to try</strong>{" "}and I&apos;ve
           become{" "}
           <strong className="text-zinc-950">bolder and more confident in my speaking</strong>, even
           if I do still make mistakes. I am thankful for this community of people.
@@ -447,7 +447,7 @@ export function getJsxFaqAnswers(locale: Locale): Record<number, ReactNode> {
           <a href="https://lu.ma/koreansnextdoor" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">página no Luma</a>{" "}
           pra ver os próximos eventos, ou entra no nosso{" "}
           <a href="https://open.kakao.com/o/gWb1KOci" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">grupo do KakaoTalk</a>
-          — a gente geralmente posta as novidades lá primeiro.
+          {" "}(a gente geralmente posta as novidades lá primeiro).
         </>
       ),
     };
@@ -470,7 +470,7 @@ export function getJsxFaqAnswers(locale: Locale): Record<number, ReactNode> {
           <a href="https://lu.ma/koreansnextdoor" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">página en Luma</a>{" "}
           para ver lo que se viene, o únete a nuestro{" "}
           <a href="https://open.kakao.com/o/gWb1KOci" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">grupo de KakaoTalk</a>
-          — donde solemos publicar las novedades primero.
+          {" "}(donde solemos publicar las novedades primero).
         </>
       ),
     };

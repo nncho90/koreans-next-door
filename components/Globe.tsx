@@ -18,7 +18,33 @@ interface MemberPin {
   instagram?: string;
 }
 
-const members: MemberPin[] = [];
+const members: MemberPin[] = [
+  {
+    lat: 37.5665,
+    lng: 126.978,
+    name: "KND Crew",
+    city: "Seoul",
+    country: "South Korea",
+    note: "Home base! Come say hi at our next event.",
+    instagram: "koreansnextdoor",
+  },
+  {
+    lat: 43.6532,
+    lng: -79.3832,
+    name: "Sammi",
+    city: "Toronto",
+    country: "Canada",
+    note: "Met great people through KND while living in Seoul.",
+  },
+  {
+    lat: -41.2866,
+    lng: 174.7756,
+    name: "Amy",
+    city: "Wellington",
+    country: "New Zealand",
+    note: "KND quietly made a new city feel like home.",
+  },
+];
 
 interface NominatimResult {
   lat: string;
@@ -306,6 +332,7 @@ export default function Globe() {
   const allMembers = useMemo(() => [...members, ...dynamicPins], [dynamicPins]);
 
   useEffect(() => {
+    if (allMembers.length === 0) return;
     intervalRef.current = setInterval(() => {
       setActiveIndex(i => (i + 1) % allMembers.length);
     }, 3000);
@@ -313,6 +340,7 @@ export default function Globe() {
   }, [allMembers.length]);
 
   const navigate = useCallback((dir: 1 | -1) => {
+    if (allMembers.length === 0) return;
     setActiveIndex(i => (i + dir + allMembers.length) % allMembers.length);
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(
@@ -337,19 +365,20 @@ export default function Globe() {
       controls.enableZoom = false;
     }
     const m = members[0];
+    if (!m) return;
     globeRef.current.pointOfView({ lat: m.lat, lng: m.lng, altitude: 2.2 }, 0);
   }, []);
 
-  const activeMember = allMembers[activeIndex] ?? members[0];
+  const activeMember: MemberPin | undefined = allMembers[activeIndex] ?? allMembers[0];
 
   const getPointRadius = useCallback((point: object) => {
     const { name } = point as MemberPin;
-    return name === activeMember.name ? 0.5 : 0.3;
+    return name === activeMember?.name ? 0.5 : 0.3;
   }, [activeMember]);
 
   const getPointColor = useCallback((point: object) => {
     const { name } = point as MemberPin;
-    return name === activeMember.name ? "#ffd966" : "rgba(255,217,102,0.4)";
+    return name === activeMember?.name ? "#ffd966" : "rgba(255,217,102,0.4)";
   }, [activeMember]);
 
   if (!mounted) return null;
@@ -358,7 +387,7 @@ export default function Globe() {
     <section id="globe" className="overflow-hidden bg-[#fafaf8] py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-10">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-[#c9a800]">
             {t.globe.label}
           </p>
           <h2 className="text-4xl font-bold text-zinc-950 md:text-5xl">
@@ -431,7 +460,7 @@ export default function Globe() {
                   <CaretLeft size={14} />
                 </button>
               <div className="relative min-h-[180px] flex-1">
-                {allMembers.length === 0 ? (
+                {!activeMember ? (
                   <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-6 text-center">
                     <p className="text-sm text-zinc-400">{t.globe.beFirst}</p>
                   </div>

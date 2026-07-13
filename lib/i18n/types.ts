@@ -47,11 +47,21 @@ export interface Dictionary {
     subheading: string;
     tabUpcoming: string;
     tabPast: string;
+    emptyHeading: string;
+    emptyBody: string;
+    emptyKakao: string;
+    emptyLuma: string;
   };
   gallery: {
     label: string;
     heading: string;
     subheading: string;
+  };
+  videoWall: {
+    label: string;
+    heading: string;
+    subheading: string;
+    follow: string;
   };
   testimonials: {
     label: string;
@@ -105,6 +115,11 @@ export interface Dictionary {
     subheading: string;
     instagram: string;
     kakao: string;
+    stepsHeading: string;
+    step1: string;
+    step2: string;
+    step3: string;
+    qrCaption: string;
   };
   phraseOfDay: {
     label: string;
@@ -135,6 +150,7 @@ export interface Dictionary {
     heading2: string;
     subheading: string;
     browseAll: string;
+    swipeHint: string;
   };
   guideSection: {
     label: string;

@@ -65,7 +65,7 @@ export const es: Dictionary = {
         emoji: "🥢",
         type: "Intercambio Cultural",
         title: "Fiesta de Tteokguk en Seollal",
-        date: "Enero 2026",
+        date: "Seollal 2026",
         description:
           "Hicimos dumplings juntos, compartimos un bowl de tteokguk y jugamos Yut Nori — celebrando el Año Nuevo coreano con nuevos amigos.",
       },
@@ -73,7 +73,7 @@ export const es: Dictionary = {
         emoji: "⛰️",
         type: "Naturaleza y Aventura",
         title: "Caminata Nocturna al Gwanaksan",
-        date: "Febrero 2026",
+        date: "Invierno 2026",
         description:
           "Nos pusimos los zapatos y subimos el Gwanaksan de noche — Seúl brillando abajo y buena compañía en cada paso.",
       },
@@ -86,12 +86,12 @@ export const es: Dictionary = {
           "Practicamos coreano e inglés con juegos en grupo, muchas risas y más de un error gramatical. No necesitas ser fluido — todos estamos aprendiendo.",
       },
       {
-        emoji: "☕",
+        emoji: "🍽️",
         type: "Encuentros Casuales",
-        title: "Café y Conversación",
-        date: "Continuamente",
+        title: "Cenas de los Lunes",
+        date: "Cada dos lunes",
         description:
-          "A veces es solo tomar un café, comer algo rico y hablar de verdad. Sin agenda, sin pretextos — solo personas conociéndose.",
+          "Después del trabajo agarramos una mesa en algún lugar de la ciudad, pedimos demasiada comida y compartimos una cena de verdad. Ya van más de 12 veces, y siempre hay lugar para uno más.",
       },
     ],
   },
@@ -106,14 +106,24 @@ export const es: Dictionary = {
   upcoming: {
     label: "Lo que viene",
     heading: "Eventos",
-    subheading: "Todos los eventos son gratuitos y abiertos a todos. Solo aparece.",
+    subheading: "La mayoría de los eventos son gratis, ninguno es con fines de lucro, y todos son bienvenidos. Solo aparece.",
     tabUpcoming: "Próximos",
     tabPast: "Pasados",
+    emptyHeading: "Todavía no hay nada en el calendario",
+    emptyBody: "Los nuevos eventos suelen aparecer primero en nuestro chat de KakaoTalk. Saluda por ahí o síguenos en Luma, y serás el primero en enterarte.",
+    emptyKakao: "Únete al chat de KakaoTalk",
+    emptyLuma: "Síguenos en Luma",
   },
   gallery: {
     label: "Momentos juntos",
     heading: "Una mirada a nuestro barrio",
     subheading: "Personas reales, momentos reales, conexiones reales.",
+  },
+  videoWall: {
+    label: "En cámara",
+    heading: "Míranos en acción",
+    subheading: "Pequeños clips de noches reales, caminatas y cenas por el barrio.",
+    follow: "Sigue a @koreansnextdoor",
   },
   testimonials: {
     label: "De nuestros vecinos",
@@ -185,7 +195,7 @@ export const es: Dictionary = {
         items: [
           { note: "Encuentra la farmacia más cercana" },
           { note: "Búsqueda de médicos que hablan inglés" },
-          { note: "Regístrate dentro de los 6 meses de llegada" },
+          { note: "Inscripción automática tras 6 meses de estadía" },
         ],
       },
       {
@@ -217,6 +227,14 @@ export const es: Dictionary = {
         a: "Un grupo pequeño de amigos de Sigwang Church. Algunos vivimos en el extranjero. Otros estudiamos fuera. Pero todos, de una u otra forma, sabemos lo que es no encajar — y también lo que es que alguien te reciba. Solo queremos ser esos vecinos.",
       },
       { q: "¿Puedo traer a un amigo?", a: "Por favor. Cuantos más, mejor." },
+      {
+        q: "¿Cuándo y dónde son los eventos?",
+        a: "Casi siempre por Seúl. Los intercambios de idiomas son el último sábado de cada mes, y las Cenas de los Lunes cada dos semanas. Los lugares exactos se publican en nuestra página de Luma y en el chat de KakaoTalk unos días antes.",
+      },
+      {
+        q: "¿Puedo ir solo?",
+        a: "La mayoría va sola su primera vez. Alguien se va a acercar a saludarte en menos de cinco minutos, es un poco lo nuestro.",
+      },
     ],
   },
   contact: {
@@ -225,6 +243,11 @@ export const es: Dictionary = {
       "Ven como invitado, quédate como vecino. Síguenos en Instagram o únete a nuestro grupo de KakaoTalk para no perderte nada.",
     instagram: "Instagram",
     kakao: "KakaoTalk Open Chat",
+    stepsHeading: "Qué pasa cuando te unes",
+    step1: "Saluda en el chat.",
+    step2: "Recibe la invitación al próximo evento.",
+    step3: "Aparece, te guardamos un lugar.",
+    qrCaption: "Escanea para unirte desde tu teléfono",
   },
   phraseOfDay: {
     label: "Coreano del día",
@@ -301,6 +324,7 @@ export const es: Dictionary = {
     heading2: "Pero no estás solo.",
     subheading: "Toca cualquier edificio y encuentra lo que necesitas.",
     browseAll: "Ver todas las guías",
+    swipeHint: "Desliza para explorar la ciudad",
   },
   guideSection: {
     label: "Guía de Seúl",

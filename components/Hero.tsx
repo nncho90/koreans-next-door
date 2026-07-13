@@ -66,9 +66,17 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Yellow overlay */}
-      <div className="absolute inset-0 bg-[#ffd966]/70" />
+      <div className="absolute inset-0 bg-[#ffd966]/40" />
       {/* Bottom vignette */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
+      {/* Scrim behind the text block so the logo and tagline stay readable over brighter parts of the photo */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(60% 55% at 50% 45%, rgba(0,0,0,0.35), transparent 70%)",
+        }}
+      />
 
       {/* Centered content */}
       <div className="relative z-10 mx-auto w-full max-w-3xl px-6 text-center">
@@ -78,7 +86,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: EASE_OUT_EXPO , delay: 0.15 }}
           className="flex flex-col items-center"
         >
-          <h1 className="sr-only">Koreans Next Door — Seoul Guide and Community for Foreigners Living in Korea</h1>
+          <h1 className="sr-only">Koreans Next Door: Seoul Guide and Community for Foreigners Living in Korea</h1>
           <motion.div
             className="mb-8"
             initial={{ filter: "blur(20px)", scale: 1.06 }}

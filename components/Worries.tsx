@@ -19,7 +19,7 @@ export default function Worries() {
   return (
     <section className="relative bg-white px-6 py-10 md:py-16 overflow-hidden">
       <div className="mx-auto max-w-5xl">
-        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+        <p className="mb-4 text-center text-sm font-semibold uppercase tracking-widest text-[#c9a800]">
           {label}
         </p>
         <h2 className="mb-4 text-center text-4xl font-bold tracking-tight text-[#1a1a1a] md:text-5xl">

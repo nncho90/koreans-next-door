@@ -61,7 +61,7 @@ export default function Page() {
             "@type": "Article",
             "headline": "Housing Guide for Foreigners in Seoul (2026)",
             "datePublished": "2026-01-01",
-            "dateModified": "2026-03-31",
+            "dateModified": "2026-07-13",
             "author": { "@type": "Organization", "name": "Koreans Next Door", "url": "https://koreansnextdoor.com" },
             "publisher": { "@type": "Organization", "name": "Koreans Next Door", "logo": { "@type": "ImageObject", "url": "https://koreansnextdoor.com/logo.png" } },
             "inLanguage": "en",

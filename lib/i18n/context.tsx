@@ -7,6 +7,7 @@ import { en } from "./en";
 import { ko } from "./ko";
 import { updateMetadata } from "./metadata";
 
+// locale list used for validation and lazy loading
 const ALL_LOCALES: Locale[] = ["en", "ko", "ja", "zh-CN", "zh-TW", "pt", "es"];
 
 const loaders: Record<Locale, () => Promise<Dictionary>> = {

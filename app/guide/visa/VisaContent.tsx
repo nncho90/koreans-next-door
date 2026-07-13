@@ -42,13 +42,13 @@ const STRINGS: Record<string, Record<Locale, string>> = {
     es: "Tipos de visa coreana, cómo obtener tu tarjeta ARC y los errores más comunes entre los recién llegados.",
   },
   lastUpdated: {
-    en: "Last updated: May 2026",
-    ko: "마지막 업데이트: 2026년 5월",
-    ja: "最終更新：2026年5月",
-    "zh-CN": "最后更新：2026年5月",
-    "zh-TW": "最後更新：2026年5月",
-    pt: "Última atualização: maio de 2026",
-    es: "Última actualización: mayo 2026",
+    en: "Last updated: July 2026",
+    ko: "마지막 업데이트: 2026년 7월",
+    ja: "最終更新：2026年7月",
+    "zh-CN": "最后更新：2026年7月",
+    "zh-TW": "最後更新：2026年7月",
+    pt: "Última atualização: julho de 2026",
+    es: "Última actualización: julio 2026",
   },
 };
 

@@ -12,7 +12,7 @@ export default function Testimonials() {
     <section className="bg-white px-6 py-10 md:px-10 md:py-16">
       <div className="mx-auto max-w-5xl">
 
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#c9a800]">
           {t.testimonials.label}
         </p>
         <h2 className="mb-10 text-4xl font-bold leading-none tracking-tighter text-zinc-950 md:text-5xl">

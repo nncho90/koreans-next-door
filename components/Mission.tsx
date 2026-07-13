@@ -9,7 +9,7 @@ export default function Mission() {
   return (
     <section id="mission" className="bg-white px-6 py-10 md:px-12 md:py-16">
       <div className="mx-auto max-w-5xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#c9a800]">
           {whoWeAre}
         </p>
         <h2 className="mb-6 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-[#1a1a1a] md:text-5xl">

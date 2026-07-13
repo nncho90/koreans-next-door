@@ -5,6 +5,7 @@ import {
   useMotionValue,
   useReducedMotion,
   useInView,
+  useScroll,
 } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { BUILDINGS } from "./skylineData";
@@ -13,7 +14,6 @@ import SkylineBuilding from "./SkylineBuilding";
 
 // Minimum scene width ensures all 12 buildings have enough horizontal space
 const SCENE_MIN_W = 980;
-const SCENE_H = 480;
 
 export default function SeoulSkyline() {
   const { t } = useLocale();
@@ -23,6 +23,10 @@ export default function SeoulSkyline() {
 
   const sceneRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sceneRef, { once: true, margin: "-80px" });
+  const { scrollYProgress } = useScroll({
+    target: sceneRef,
+    offset: ["start end", "end start"],
+  });
 
   const mouseX = useMotionValue(0);
 
@@ -42,9 +46,23 @@ export default function SeoulSkyline() {
   }, [mouseX]);
 
   return (
-    <section className="relative overflow-hidden bg-[#04090f] py-16 md:py-20">
+    <section className="relative overflow-hidden bg-[#04090f] py-12 md:py-16">
+      {/* Dusk band: bridges the hard cut from the yellow section above */}
+      <div
+        className="absolute top-0 inset-x-0 h-24 md:h-32 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(255,217,102,0.10), rgba(255,180,80,0.04) 45%, transparent)",
+        }}
+      />
+      {/* Pre-light band: bridges the hard cut into the off-white section below */}
+      <div
+        className="absolute bottom-0 inset-x-0 h-10 pointer-events-none"
+        style={{ background: "linear-gradient(to bottom, transparent, rgba(250,250,248,0.06))" }}
+      />
+
       {/* ── Section header ─────────────────────────────────────────── */}
-      <div className="text-center mb-10 md:mb-14 relative z-10 px-6">
+      <div className="text-center mb-2 md:mb-4 relative z-10 px-6">
         <p className="text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
           {ss.label}
         </p>
@@ -58,34 +76,53 @@ export default function SeoulSkyline() {
       </div>
 
       {/* ── Skyline scene — horizontally scrollable on mobile ─────── */}
-      <div className="overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-        <div
-          ref={sceneRef}
-          className="relative"
-          style={{ height: SCENE_H, minWidth: SCENE_MIN_W }}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* Background: sky, mountains, Han River */}
-          <SkylineBackground />
-
-          {/* Interactive buildings */}
-          {BUILDINGS.map((building, i) => (
-            <SkylineBuilding
-              key={building.id}
-              building={building}
-              isDimmed={hoveredId !== null && hoveredId !== building.id}
-              onHoverStart={() => setHoveredId(building.id)}
-              onHoverEnd={() => setHoveredId(null)}
+      <div className="relative">
+        <div className="overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div
+            ref={sceneRef}
+            className="relative h-[360px] md:h-[400px]"
+            style={{ minWidth: SCENE_MIN_W }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Background: sky, mountains, Han River */}
+            <SkylineBackground
               mouseX={mouseX}
-              entrance={{ visible: isInView, delay: i * 0.055 }}
+              scrollYProgress={scrollYProgress}
+              prefersReduced={!!prefersReduced}
             />
-          ))}
+
+            {/* Interactive buildings */}
+            {BUILDINGS.map((building, i) => (
+              <SkylineBuilding
+                key={building.id}
+                building={building}
+                isDimmed={hoveredId !== null && hoveredId !== building.id}
+                onHoverStart={() => setHoveredId(building.id)}
+                onHoverEnd={() => setHoveredId(null)}
+                mouseX={mouseX}
+                entrance={{ visible: isInView, delay: i * 0.055 }}
+              />
+            ))}
+          </div>
         </div>
+
+        {/* Mobile scroll affordance: edge fades hinting more buildings off-screen */}
+        <div
+          className="md:hidden absolute left-0 top-0 bottom-0 w-8 pointer-events-none"
+          style={{ background: "linear-gradient(to right, #04090f, transparent)" }}
+        />
+        <div
+          className="md:hidden absolute right-0 top-0 bottom-0 w-12 pointer-events-none"
+          style={{ background: "linear-gradient(to left, #04090f, transparent)" }}
+        />
       </div>
+      <p className="md:hidden text-center text-xs text-zinc-500 mt-3 relative z-10">
+        {ss.swipeHint}
+      </p>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <div className="text-center mt-10 relative z-10">
+      <div className="text-center mt-8 relative z-10">
         <Link
           href="/guide"
           className="inline-flex items-center gap-2 bg-[#ffd966] hover:bg-[#f5c842] active:bg-[#e8b800] text-[#1a1a1a] font-semibold rounded-full px-7 py-3 text-sm transition-colors"

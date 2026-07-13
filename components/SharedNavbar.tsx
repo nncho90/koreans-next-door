@@ -76,7 +76,9 @@ export default function SharedNavbar() {
   const isGuide =
     pathname === "/guide" ||
     pathname.startsWith("/guide/") ||
-    pathname.startsWith("/tools/");
+    pathname === "/tools" ||
+    pathname.startsWith("/tools/") ||
+    pathname === "/vegan";
 
   const lightHero =
     pathname === "/guide" ||
@@ -92,7 +94,8 @@ export default function SharedNavbar() {
     pathname === "/tools" ||
     pathname === "/tools/address" ||
     pathname === "/tools/phrasebook" ||
-    pathname === "/tools/forms";
+    pathname === "/tools/forms" ||
+    pathname === "/vegan";
 
   const dark = scrolled || lightHero;
 
@@ -318,7 +321,11 @@ export default function SharedNavbar() {
         {isGuide && (
           <div
             className="mx-auto max-w-7xl px-6 md:px-10 pb-2 pt-0.5 overflow-x-auto"
-            style={{ scrollbarWidth: "none" }}
+            style={{
+              scrollbarWidth: "none",
+              maskImage: "linear-gradient(to right, black calc(100% - 48px), transparent)",
+              WebkitMaskImage: "linear-gradient(to right, black calc(100% - 48px), transparent)",
+            }}
           >
             <div className="flex items-center gap-1.5 min-w-max">
               {guideGroups.map((g) => {

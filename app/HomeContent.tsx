@@ -9,6 +9,7 @@ import Events from "@/components/Events";
 import ImpactCounter from "@/components/ImpactCounter";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Gallery from "@/components/Gallery";
+import VideoWall from "@/components/VideoWall";
 import Testimonials from "@/components/Testimonials";
 import Globe from "@/components/Globe";
 import FAQ from "@/components/FAQ";
@@ -17,6 +18,7 @@ import PhraseOfDay from "@/components/PhraseOfDay";
 import SeoulSkyline from "@/components/SeoulSkyline/SeoulSkyline";
 
 function PageContent() {
+  // Home page section order: photo/video-forward layout
   return (
     <>
       <SharedNavbar />
@@ -28,6 +30,7 @@ function PageContent() {
         <SeoulSkyline />
         <UpcomingEvents />
         <Gallery />
+        <VideoWall />
         <Testimonials />
         <Globe />
         <FAQ />

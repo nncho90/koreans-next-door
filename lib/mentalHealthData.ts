@@ -159,9 +159,9 @@ export const CRISIS_RESOURCES = [
     emoji: "💚",
     name: "Korea Suicide Prevention Hotline",
     nameKo: "자살 예방 상담 전화",
-    number: "1393",
-    descEn: "Free, 24/7 mental health crisis line. English interpretation available. Call if you are in crisis or concerned about someone.",
-    descKo: "무료 24시간 정신 건강 위기상담 전화. 영어 통역 가능. 위기 상황이거나 주변이 걱정될 때 전화하세요.",
+    number: "109",
+    descEn: "Free, 24/7 mental health crisis line. 109 is Korea's unified national number since January 2024. English interpretation available. Call if you are in crisis or concerned about someone.",
+    descKo: "무료 24시간 정신 건강 위기상담 전화. 109는 2024년 1월부터 통합된 전국 대표번호예요. 영어 통역 가능. 위기 상황이거나 주변이 걱정될 때 전화하세요.",
     available: "24/7",
   },
   {

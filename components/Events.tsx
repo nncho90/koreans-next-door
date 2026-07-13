@@ -7,7 +7,7 @@ export default function Events() {
   return (
     <section id="events" className="bg-[#fafaf8] px-6 py-10 md:px-12 md:py-16">
       <div className="mx-auto max-w-5xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#c9a800]">
           {t.events.label}
         </p>
         <h2 className="mb-4 text-4xl font-bold tracking-tight text-[#1a1a1a] md:text-5xl">
@@ -25,7 +25,7 @@ export default function Events() {
             >
               <span className="mb-4 block text-4xl">{e.emoji}</span>
               <div className="mb-1 flex items-center gap-2">
-                <p className="text-xs font-semibold uppercase tracking-widest text-[#ffd966]">
+                <p className="text-xs font-semibold uppercase tracking-widest text-[#c9a800]">
                   {e.type}
                 </p>
                 {e.date && (

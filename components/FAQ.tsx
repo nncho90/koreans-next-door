@@ -34,7 +34,7 @@ export default function FAQ() {
         <div className="grid grid-cols-1 gap-16 md:grid-cols-[2fr_3fr]">
           {/* Left: label + heading */}
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#c9a800]">
               {t.faq.label}
             </p>
             <h2 className="text-4xl font-bold leading-none tracking-tighter text-zinc-950 md:text-5xl">

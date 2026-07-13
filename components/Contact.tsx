@@ -26,6 +26,26 @@ export default function Contact() {
           {t.contact.subheading}
         </p>
 
+        {/* What happens when you join */}
+        <div className="mb-10">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-[#1a1a1a]/60">
+            {t.contact.stepsHeading}
+          </p>
+          <div className="grid gap-4 text-left sm:grid-cols-3">
+            {[t.contact.step1, t.contact.step2, t.contact.step3].map((step, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 rounded-2xl bg-[#1a1a1a]/5 px-4 py-4"
+              >
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#1a1a1a] text-sm font-bold text-[#ffd966]">
+                  {i + 1}
+                </span>
+                <p className="text-sm leading-snug text-[#1a1a1a]/80">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="https://www.instagram.com/koreansnextdoor/"
@@ -52,6 +72,23 @@ export default function Contact() {
             </svg>
             {t.contact.kakao}
           </a>
+        </div>
+
+        {/* KakaoTalk QR */}
+        <div className="mt-8 flex justify-center">
+          <div className="flex flex-col items-center gap-3 rounded-2xl bg-white px-6 py-5 shadow-sm">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/kakao-qr.svg"
+              alt="QR code to join the Koreans Next Door KakaoTalk open chat"
+              width={128}
+              height={128}
+              className="h-32 w-32"
+            />
+            <p className="max-w-[9rem] text-center text-sm leading-snug text-[#1a1a1a]/70">
+              {t.contact.qrCaption}
+            </p>
+          </div>
         </div>
       </div>
     </section>

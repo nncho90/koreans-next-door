@@ -14,7 +14,7 @@ export default function GuidePreview() {
         {/* Header */}
         <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#c9a800]">
               {gs.label}
             </p>
             <h2 className="text-4xl font-bold tracking-tight text-white md:text-5xl whitespace-pre-line">

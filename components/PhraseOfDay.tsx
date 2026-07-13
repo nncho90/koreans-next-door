@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CaretUp, Translate } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
@@ -41,6 +41,7 @@ const phrases = [
 
 export default function PhraseOfDay() {
   const [expanded, setExpanded] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const { t } = useLocale();
 
   const dateStr = new Date().toDateString();
@@ -49,8 +50,23 @@ export default function PhraseOfDay() {
   const phrase = phrases[idx];
   const translated = t.phraseOfDay.phrases[idx];
 
+  // Never cover the contact CTA: hide the FAB while #contact is in the viewport
+  useEffect(() => {
+    const contact = document.getElementById("contact");
+    if (!contact) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHidden(entry.isIntersecting),
+      { rootMargin: "0px 0px -10% 0px" }
+    );
+    observer.observe(contact);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div
+      className="fixed bottom-6 right-6 z-50 transition-opacity duration-300"
+      style={{ opacity: hidden ? 0 : 1, pointerEvents: hidden ? "none" : "auto" }}
+    >
       <AnimatePresence mode="wait">
         {expanded ? (
           <motion.div
@@ -81,10 +97,12 @@ export default function PhraseOfDay() {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.2 }}
             onClick={() => setExpanded(true)}
-            className="cursor-pointer flex items-center gap-2 rounded-full bg-[#ffd966] px-4 py-2 shadow-md hover:shadow-lg transition-shadow"
+            aria-label={t.phraseOfDay.label}
+            className="cursor-pointer flex items-center justify-center gap-2 rounded-full bg-[#ffd966] shadow-md hover:shadow-lg transition-shadow h-14 w-14 md:h-auto md:w-auto md:px-4 md:py-2"
           >
-            <span className="text-sm font-semibold text-zinc-800">{t.phraseOfDay.label}</span>
-            <CaretUp size={14} weight="bold" className="text-zinc-600" />
+            <span className="hidden md:inline text-sm font-semibold text-zinc-800">{t.phraseOfDay.label}</span>
+            <span className="md:hidden text-lg font-bold text-zinc-800">한</span>
+            <CaretUp size={14} weight="bold" className="hidden md:inline text-zinc-600" />
           </motion.button>
         )}
       </AnimatePresence>
