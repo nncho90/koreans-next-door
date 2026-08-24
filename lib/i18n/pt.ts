@@ -41,17 +41,17 @@ export const pt: Dictionary = {
       {
         icon: "🏙️",
         title: "Só vizinhos",
-        body: "A gente não é uma organização formal nem agência de turismo. É só um grupo de amigos que acredita que hospitalidade transforma uma cidade estranha num lar.",
+        body: "A gente não é uma organização formal nem agência de turismo. É um grupo de amigos da Sigwang Church que acredita que hospitalidade transforma uma cidade estranha num lar.",
       },
       {
         icon: "🌍",
         title: "Aberto a todos",
-        body: "Não importa de onde você vem, no que acredita ou há quanto tempo tá aqui. Aparece que você já é um de nós.",
+        body: "Nosso núcleo é da igreja, mas nossos encontros não são religiosos. Gente de qualquer fé, origem ou jeito de viver é bem-vinda aqui.",
       },
       {
         icon: "💛",
         title: "Sem agendas ocultas",
-        body: "A gente não esquece o que é ser bem recebido num país estranho. Queremos ser esses vizinhos pra você.",
+        body: "A gente já morou longe de casa também, então sabe o quanto um vizinho acolhedor faz diferença. Só queremos ser esses vizinhos pra você.",
       },
     ],
   },
@@ -60,6 +60,7 @@ export const pt: Dictionary = {
     heading: "Coisas que fizemos juntos",
     subheading:
       "A gente ainda tá descobrindo no caminho — e essa é a parte boa. Uma provinha do que vem por aí.",
+    partnerLabel: "Em parceria com",
     cards: [
       {
         emoji: "🥢",
@@ -92,6 +93,14 @@ export const pt: Dictionary = {
         date: "A cada duas segundas",
         description:
           "Depois do trabalho a gente pega uma mesa em algum canto da cidade, pede comida demais e divide um jantar de verdade. Já rolou mais de 12 vezes, e sempre tem lugar pra mais um.",
+      },
+      {
+        emoji: "📖",
+        type: "Sessão de Estudos",
+        title: "Estudos de Quarta no Weave Suites",
+        date: "Quartas à tarde",
+        description:
+          "Traga seu notebook, sua lição ou aquele livro de coreano que você vive adiando. Estudamos lado a lado num lounge do Weave Suites e terminamos com lanches e boa conversa.",
       },
     ],
   },

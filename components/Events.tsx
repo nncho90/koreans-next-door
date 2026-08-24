@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "@/lib/i18n";
 
 export default function Events() {
@@ -42,6 +43,26 @@ export default function Events() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 flex items-center justify-center gap-4 border-t border-zinc-200 pt-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">
+            {t.events.partnerLabel}
+          </p>
+          <a
+            href="https://www.weave-living.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="opacity-60 transition-opacity hover:opacity-100"
+          >
+            <Image
+              src="/weave-logo.svg"
+              alt="Weave Living"
+              width={44}
+              height={50}
+              className="h-12 w-auto"
+            />
+          </a>
         </div>
       </div>
     </section>

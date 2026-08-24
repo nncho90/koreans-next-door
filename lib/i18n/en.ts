@@ -41,17 +41,17 @@ export const en: Dictionary = {
       {
         icon: "\u{1F3D8}\uFE0F",
         title: "Just neighbors",
-        body: "Not a formal organization or a tour agency. Just a group of friends who believe hospitality turns an unfamiliar city into a familiar home.",
+        body: "Not a formal organization or a tour agency. Just a group of friends from Sigwang Church who believe hospitality turns an unfamiliar city into a familiar home.",
       },
       {
         icon: "\u{1F30D}",
         title: "Open to everyone",
-        body: "Doesn\u2019t matter where you\u2019re from, what you believe, or how long you\u2019ve been here. Show up, and you\u2019re one of us.",
+        body: "Our core members are from church, but our events aren\u2019t religious. People of every faith, background, and walk of life are warmly welcomed here.",
       },
       {
         icon: "\u{1F49B}",
         title: "No hidden agendas",
-        body: "We haven\u2019t forgotten how it feels to be welcomed in a foreign country. We just want to be those neighbors to you.",
+        body: "We\u2019ve lived far from home ourselves, so we haven\u2019t forgotten how much a hospitable neighbor means. We just want to be those neighbors to you.",
       },
     ],
   },
@@ -60,6 +60,7 @@ export const en: Dictionary = {
     heading: "Things we\u2019ve done together",
     subheading:
       "We\u2019re still figuring it out as we go \u2014 and that\u2019s part of the fun. Here\u2019s a taste of what you can expect.",
+    partnerLabel: "In partnership with",
     cards: [
       {
         emoji: "\uD83E\uDD62",
@@ -92,6 +93,14 @@ export const en: Dictionary = {
         date: "Every other Monday",
         description:
           "After work we grab a table somewhere in the city, order too much food, and share a real meal together. It\u2019s run 12+ times now, and there\u2019s always room for one more.",
+      },
+      {
+        emoji: "\uD83D\uDCD6",
+        type: "Study Session",
+        title: "Wednesday Study Sessions at Weave Suites",
+        date: "Wednesday afternoons",
+        description:
+          "Bring your laptop, your homework, or that Korean textbook you keep meaning to open. We take over a lounge at Weave Suites, study side by side, and wind down with snacks and conversation.",
       },
     ],
   },

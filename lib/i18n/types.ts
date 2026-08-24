@@ -28,6 +28,7 @@ export interface Dictionary {
     label: string;
     heading: string;
     subheading: string;
+    partnerLabel: string;
     cards: {
       emoji: string;
       type: string;

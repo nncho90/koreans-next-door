@@ -41,17 +41,17 @@ export const es: Dictionary = {
       {
         icon: "🏙️",
         title: "Solo vecinos",
-        body: "No somos una organización formal ni una agencia de turismo. Solo un grupo de amigos que cree que la hospitalidad puede convertir una ciudad extraña en algo que se siente como casa.",
+        body: "No somos una organización formal ni una agencia de turismo. Somos un grupo de amigos de Sigwang Church que cree que la hospitalidad puede convertir una ciudad extraña en un hogar.",
       },
       {
         icon: "🌍",
         title: "Abierto a todos",
-        body: "No importa de dónde vengas, qué creas o cuánto tiempo llevas aquí. Aparece y ya eres uno de nosotros.",
+        body: "Nuestro núcleo es de la iglesia, pero nuestros encuentros no son religiosos. Gente de cualquier fe, origen o forma de vida es bienvenida aquí.",
       },
       {
         icon: "💛",
         title: "Sin agendas ocultas",
-        body: "Sabemos lo que es que alguien te abra la puerta en un país extraño. Solo queremos ser esos vecinos para ti.",
+        body: "Nosotros también hemos vivido lejos de casa, así que sabemos cuánto importa un vecino hospitalario. Solo queremos ser esos vecinos para ti.",
       },
     ],
   },
@@ -60,6 +60,7 @@ export const es: Dictionary = {
     heading: "Cosas que hemos hecho juntos",
     subheading:
       "Todavía lo vamos descubriendo sobre la marcha — y eso es lo mejor. Aquí un adelanto de lo que te espera.",
+    partnerLabel: "En colaboración con",
     cards: [
       {
         emoji: "🥢",
@@ -92,6 +93,14 @@ export const es: Dictionary = {
         date: "Cada dos lunes",
         description:
           "Después del trabajo agarramos una mesa en algún lugar de la ciudad, pedimos demasiada comida y compartimos una cena de verdad. Ya van más de 12 veces, y siempre hay lugar para uno más.",
+      },
+      {
+        emoji: "📖",
+        type: "Sesión de Estudio",
+        title: "Sesiones de Estudio en Weave Suites",
+        date: "Miércoles por la tarde",
+        description:
+          "Trae tu portátil, tus deberes o ese libro de coreano que nunca abres. Estudiamos juntos en un lounge de Weave Suites y terminamos con snacks y buena conversación.",
       },
     ],
   },
