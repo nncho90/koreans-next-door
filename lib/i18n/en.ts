@@ -90,7 +90,7 @@ export const en: Dictionary = {
         emoji: "\ud83c\udf7d\ufe0f",
         type: "Casual Hangouts",
         title: "Monday Night Dinners",
-        date: "Every other Monday",
+        date: "Every Monday",
         description:
           "After work we grab a table somewhere in the city, order too much food, and share a real meal together. It\u2019s run 12+ times now, and there\u2019s always room for one more.",
       },
@@ -105,10 +105,10 @@ export const en: Dictionary = {
       {
         emoji: "\uD83D\uDE8C",
         type: "Field Trips",
-        title: "Suwon & Museum Day Trips",
+        title: "Museum & Day Trips",
         date: "A few times a year",
         description:
-          "We hop on a train together for day trips beyond the city, from Suwon\u2019s fortress walls to Seoul\u2019s best museums, mixing history, culture, and good company.",
+          "We hop on a train together for day trips beyond the city, exploring museums and new places, mixing history, culture, and good company.",
       },
     ],
   },
@@ -246,7 +246,7 @@ export const en: Dictionary = {
       { q: "Can I bring a friend?", a: "Please do. The more the merrier." },
       {
         q: "When and where do events happen?",
-        a: "Mostly around Seoul. Language exchanges are the last Saturday of every month, and Monday Night Dinners run every other week. The exact spots get posted on our Luma page and in the KakaoTalk chat a few days before.",
+        a: "Mostly around Seoul. Language exchanges are the last Saturday of every month, and Monday Night Dinners run every week. The exact spots get posted on our Luma page and in the KakaoTalk chat a few days before.",
       },
       {
         q: "Can I come alone?",

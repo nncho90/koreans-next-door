@@ -90,7 +90,7 @@ export const es: Dictionary = {
         emoji: "🍽️",
         type: "Encuentros Casuales",
         title: "Cenas de los Lunes",
-        date: "Cada dos lunes",
+        date: "Todos los lunes",
         description:
           "Después del trabajo agarramos una mesa en algún lugar de la ciudad, pedimos demasiada comida y compartimos una cena de verdad. Ya van más de 12 veces, y siempre hay lugar para uno más.",
       },
@@ -105,10 +105,10 @@ export const es: Dictionary = {
       {
         emoji: "🚌",
         type: "Excursiones",
-        title: "Paseos a Suwon y Museos",
+        title: "Paseos y Museos",
         date: "Algunas veces al año",
         description:
-          "Tomamos el tren juntos para paseos fuera de la ciudad, desde las murallas de Suwon hasta los museos de Seúl, mezclando historia, cultura y buena compañía.",
+          "Tomamos el tren juntos para paseos fuera de la ciudad, visitando museos y lugares nuevos, mezclando historia, cultura y buena compañía.",
       },
     ],
   },
@@ -246,7 +246,7 @@ export const es: Dictionary = {
       { q: "¿Puedo traer a un amigo?", a: "Por favor. Cuantos más, mejor." },
       {
         q: "¿Cuándo y dónde son los eventos?",
-        a: "Casi siempre por Seúl. Los intercambios de idiomas son el último sábado de cada mes, y las Cenas de los Lunes cada dos semanas. Los lugares exactos se publican en nuestra página de Luma y en el chat de KakaoTalk unos días antes.",
+        a: "Casi siempre por Seúl. Los intercambios de idiomas son el último sábado de cada mes, y las Cenas de los Lunes son cada semana. Los lugares exactos se publican en nuestra página de Luma y en el chat de KakaoTalk unos días antes.",
       },
       {
         q: "¿Puedo ir solo?",

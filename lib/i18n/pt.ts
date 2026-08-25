@@ -90,7 +90,7 @@ export const pt: Dictionary = {
         emoji: "🍽️",
         type: "Encontros Casuais",
         title: "Jantares de Segunda",
-        date: "A cada duas segundas",
+        date: "Toda segunda",
         description:
           "Depois do trabalho a gente pega uma mesa em algum canto da cidade, pede comida demais e divide um jantar de verdade. Já rolou mais de 12 vezes, e sempre tem lugar pra mais um.",
       },
@@ -105,10 +105,10 @@ export const pt: Dictionary = {
       {
         emoji: "🚌",
         type: "Excursões",
-        title: "Passeios a Suwon e Museus",
+        title: "Passeios e Museus",
         date: "Algumas vezes por ano",
         description:
-          "A gente pega o trem junto pra passeios fora da cidade, das muralhas de Suwon aos museus de Seul, misturando história, cultura e boa companhia.",
+          "A gente pega o trem junto pra passeios fora da cidade, visitando museus e lugares novos, misturando história, cultura e boa companhia.",
       },
     ],
   },
@@ -246,7 +246,7 @@ export const pt: Dictionary = {
       { q: "Posso trazer um amigo?", a: "Por favor. Quanto mais, melhor." },
       {
         q: "Quando e onde acontecem os eventos?",
-        a: "Quase sempre por Seul. Os intercâmbios de idiomas são no último sábado de cada mês, e os Jantares de Segunda a cada duas semanas. Os lugares exatos saem na nossa página do Luma e no chat do KakaoTalk uns dias antes.",
+        a: "Quase sempre por Seul. Os intercâmbios de idiomas são no último sábado de cada mês, e os Jantares de Segunda toda semana. Os lugares exatos saem na nossa página do Luma e no chat do KakaoTalk uns dias antes.",
       },
       {
         q: "Posso ir sozinho?",
