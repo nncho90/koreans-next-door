@@ -97,10 +97,18 @@ export const pt: Dictionary = {
       {
         emoji: "📖",
         type: "Sessão de Estudos",
-        title: "Estudos de Quarta no Weave Suites",
+        title: "Estudos de Quarta",
         date: "Quartas à tarde",
         description:
-          "Traga seu notebook, sua lição ou aquele livro de coreano que você vive adiando. Estudamos lado a lado num lounge do Weave Suites e terminamos com lanches e boa conversa.",
+          "Traga seu notebook, sua lição ou aquele livro de coreano que você vive adiando. A gente se encontra em cafés pela cidade, estuda lado a lado e termina com lanches e boa conversa.",
+      },
+      {
+        emoji: "🚌",
+        type: "Excursões",
+        title: "Passeios a Suwon e Museus",
+        date: "Algumas vezes por ano",
+        description:
+          "A gente pega o trem junto pra passeios fora da cidade, das muralhas de Suwon aos museus de Seul, misturando história, cultura e boa companhia.",
       },
     ],
   },

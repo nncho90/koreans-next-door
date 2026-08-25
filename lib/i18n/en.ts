@@ -97,10 +97,18 @@ export const en: Dictionary = {
       {
         emoji: "\uD83D\uDCD6",
         type: "Study Session",
-        title: "Wednesday Study Sessions at Weave Suites",
+        title: "Wednesday Study Sessions",
         date: "Wednesday afternoons",
         description:
-          "Bring your laptop, your homework, or that Korean textbook you keep meaning to open. We take over a lounge at Weave Suites, study side by side, and wind down with snacks and conversation.",
+          "Bring your laptop, your homework, or that Korean textbook you keep meaning to open. We meet at cafes around the city, study side by side, and wind down with snacks and conversation.",
+      },
+      {
+        emoji: "\uD83D\uDE8C",
+        type: "Field Trips",
+        title: "Suwon & Museum Day Trips",
+        date: "A few times a year",
+        description:
+          "We hop on a train together for day trips beyond the city, from Suwon\u2019s fortress walls to Seoul\u2019s best museums, mixing history, culture, and good company.",
       },
     ],
   },
