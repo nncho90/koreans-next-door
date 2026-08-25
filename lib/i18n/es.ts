@@ -105,10 +105,10 @@ export const es: Dictionary = {
       {
         emoji: "🚌",
         type: "Excursiones",
-        title: "Paseos y Museos",
+        title: "Paseos de un Día",
         date: "Algunas veces al año",
         description:
-          "Tomamos el tren juntos para paseos fuera de la ciudad, visitando museos y lugares nuevos, mezclando historia, cultura y buena compañía.",
+          "Tomamos el tren juntos para paseos fuera de la ciudad, como las murallas de Suwon o un museo en Seúl, mezclando historia, cultura y buena compañía.",
       },
     ],
   },

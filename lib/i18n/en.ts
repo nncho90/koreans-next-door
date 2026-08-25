@@ -105,10 +105,10 @@ export const en: Dictionary = {
       {
         emoji: "\uD83D\uDE8C",
         type: "Field Trips",
-        title: "Museum & Day Trips",
+        title: "Day Trips",
         date: "A few times a year",
         description:
-          "We hop on a train together for day trips beyond the city, exploring museums and new places, mixing history, culture, and good company.",
+          "We hop on a train together for day trips beyond the city, like Suwon\u2019s fortress walls or a museum in Seoul, mixing history, culture, and good company.",
       },
     ],
   },
