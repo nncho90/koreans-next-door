@@ -46,7 +46,7 @@ export const en: Dictionary = {
       {
         icon: "\u{1F30D}",
         title: "Open to everyone",
-        body: "Our core members are from church, but our events aren\u2019t religious. People of every faith, background, and walk of life are warmly welcomed here.",
+        body: "Our core members are from church, and if that sounds religious to you, fair enough. Either way, people of every faith, background, and walk of life are warmly welcomed here.",
       },
       {
         icon: "\u{1F49B}",
@@ -59,7 +59,7 @@ export const en: Dictionary = {
     label: "What we do",
     heading: "Things we\u2019ve done together",
     subheading:
-      "We\u2019re still figuring it out as we go \u2014 and that\u2019s part of the fun. Here\u2019s a taste of what you can expect.",
+      "We\u2019re still figuring it out as we go, and that\u2019s part of the fun. Here\u2019s a taste of what you can expect.",
     partnerLabel: "In partnership with",
     cards: [
       {
@@ -68,7 +68,7 @@ export const en: Dictionary = {
         title: "Seollal 떡국 Party",
         date: "Seollal 2026",
         description:
-          "We made dumplings together, shared a bowl of tteokguk, and played Yut Nori \u2014 celebrating Korean New Year with new friends.",
+          "We made dumplings together, shared a bowl of tteokguk, and played Yut Nori, celebrating Korean New Year with new friends.",
       },
       {
         emoji: "\u26F0\uFE0F",
@@ -76,12 +76,12 @@ export const en: Dictionary = {
         title: "Night Hike to Gwanaksan",
         date: "Winter 2026",
         description:
-          "We laced up our shoes and headed up \uad00\uc545\uc0b0 after dark \u2014 Seoul sparkling below us and good company all around.",
+          "We laced up our shoes and headed up \uad00\uc545\uc0b0 after dark, Seoul sparkling below us and good company all around.",
       },
       {
         emoji: "\uD83D\uDDE3\uFE0F",
         type: "Language Exchange",
-        title: "Language Exchange Nights",
+        title: "Saturday Game Night",
         date: "Last Saturday of every month",
         description:
           "Practicing Korean and English over group games, laughs, and the occasional awkward grammar mistake. Everyone\u2019s welcome, no fluency required.",
@@ -97,7 +97,7 @@ export const en: Dictionary = {
       {
         emoji: "\uD83D\uDCD6",
         type: "Study Session",
-        title: "Wednesday Study Sessions",
+        title: "Bring Your Laptop",
         date: "Wednesday afternoons",
         description:
           "Bring your laptop, your homework, or that Korean textbook you keep meaning to open. We meet at cafes around the city, study side by side, and wind down with snacks and conversation.",
@@ -105,7 +105,7 @@ export const en: Dictionary = {
       {
         emoji: "\uD83D\uDE8C",
         type: "Field Trips",
-        title: "Day Trips",
+        title: "Beyond Seoul",
         date: "A few times a year",
         description:
           "We hop on a train together for day trips beyond the city, like Suwon\u2019s fortress walls or a museum in Seoul, mixing history, culture, and good company.",
@@ -167,7 +167,7 @@ export const en: Dictionary = {
     formError: "Something went wrong. Try again!",
     successTitle: "You\u2019re on the map!",
     successSubtitle: "You\u2019re on the globe. Welcome, neighbor.",
-    noCitiesFound: "No cities found \u2014 try another name",
+    noCitiesFound: "No cities found. Try another name",
     neighborCount: "{count} neighbors from all over the world",
   },
   survivalKit: {
@@ -179,7 +179,7 @@ export const en: Dictionary = {
         title: "Getting around",
         items: [
           { note: "Subway routes and real-time arrivals" },
-          { note: "Navigation \u2014 better than Google Maps here" },
+          { note: "Navigation (better than Google Maps here)" },
           { note: "Tap-and-go transit card, buy at any convenience store" },
         ],
       },
@@ -232,16 +232,16 @@ export const en: Dictionary = {
       { q: "Are these events religious?" },
       {
         q: "Do I need to speak Korean to join?",
-        a: "Nope. A lot of us are still learning too. Events are bilingual \u2014 English and Korean \u2014 and our language exchange nights are open to total beginners. We also have Korean members who speak Spanish, Portuguese, Japanese, and Mandarin, so don\u2019t hesitate even if English or Korean isn\u2019t your thing. No pressure at all.",
+        a: "Nope. A lot of us are still learning too. Events are bilingual (English and Korean), and our language exchange nights are open to total beginners. We also have Korean members who speak Spanish, Portuguese, Japanese, and Mandarin, so don\u2019t hesitate even if English or Korean isn\u2019t your thing. No pressure at all.",
       },
       {
         q: "Are there any fees or membership requirements?",
-        a: "There are no membership fees \u2014 ever. Our regular language exchange events and some special events may have a small participation fee (under \u20a910,000) which goes entirely to snacks and supplies. For dinner meetups or activities, there\u2019s no extra fee \u2014 just bring enough to cover your own meal or activity. Just show up and see if you vibe with it.",
+        a: "There are no membership fees, ever. Our regular language exchange events and some special events may have a small participation fee (under \u20a910,000) which goes entirely to snacks and supplies. For dinner meetups or activities, there\u2019s no extra fee, just bring enough to cover your own meal or activity. Just show up and see if you vibe with it.",
       },
       { q: "How do I find out about upcoming events?" },
       {
         q: "Who organizes KND?",
-        a: "A small group of friends from Sigwang Church. Some of us have lived abroad. Some of us have studied abroad. But all of us have, in one way or another, experienced what it feels like to not feel at home \u2014 and to be welcomed. We just want to be the neighbors who help make the unfamiliar feel a little more like home.",
+        a: "A small group of friends from Sigwang Church. Some of us have lived abroad. Some of us have studied abroad. But all of us have, in one way or another, experienced what it feels like to not feel at home, and to be welcomed. We just want to be the neighbors who help make the unfamiliar feel a little more like home.",
       },
       { q: "Can I bring a friend?", a: "Please do. The more the merrier." },
       {
@@ -272,17 +272,17 @@ export const en: Dictionary = {
       { english: "Thank you", context: "The most useful word in Korea" },
       { english: "This one please", context: "Point at menu and say this" },
       { english: "How much is it?", context: "Essential for markets and street food" },
-      { english: "Where\u2019s the bathroom?", context: "You will need this \u2014 trust us" },
+      { english: "Where\u2019s the bathroom?", context: "You will need this, trust us" },
       { english: "It\u2019s okay", context: "Also means \u2018Are you okay?\u2019" },
       { english: "Hello", context: "Use this greeting everywhere you go" },
       { english: "I\u2019m sorry", context: "Polite apology for any situation" },
       { english: "I\u2019d like to order", context: "Say this to get the server\u2019s attention" },
-      { english: "It\u2019s delicious!", context: "Compliment the chef \u2014 they\u2019ll love it" },
+      { english: "It\u2019s delicious!", context: "Compliment the chef, they\u2019ll love it" },
       { english: "Check please", context: "Wave and say this when you\u2019re done eating" },
-      { english: "Yes", context: "Also pronounced \u2018de\u2019 \u2014 both are fine" },
+      { english: "Yes", context: "Also pronounced \u2018de\u2019; both are fine" },
       { english: "No", context: "Polite way to decline" },
       { english: "Just a moment", context: "Buys you time in any situation" },
-      { english: "Excuse me! (Over here!)", context: "Call staff at restaurants \u2014 totally normal" },
+      { english: "Excuse me! (Over here!)", context: "Call staff at restaurants, totally normal" },
       { english: "Water please", context: "Water is usually free at restaurants" },
       { english: "One more please", context: "Works for refills, extra sides, anything" },
       { english: "Can I pay by card?", context: "Almost everywhere accepts cards in Korea" },
@@ -296,35 +296,16 @@ export const en: Dictionary = {
       { english: "I can\u2019t speak Korean", context: "Ironically, saying this in Korean impresses people" },
       {
         english: "Is there a convenience store nearby?",
-        context: "There\u2019s one every 50 meters \u2014 but just in case",
+        context: "There\u2019s one every 50 meters, but just in case",
       },
       { english: "Where do I board?", context: "For buses, subways, and trains" },
       { english: "One bottle of soju please", context: "Unlock the full Korean dining experience" },
-      { english: "Really?", context: "React like a local \u2014 works in any convo" },
+      { english: "Really?", context: "React like a local, works in any convo" },
       { english: "It\u2019s fun / interesting", context: "Great reaction to anything entertaining" },
     ],
   },
   footer: {
     copyright: "Koreans Next Door \u00b7 Seoul, Korea",
-  },
-  worriesSection: {
-    label: "Sound familiar?",
-    heading: "Living abroad is hard.",
-    subheading: "You\u2019re not the only one who feels this way.",
-    bubbles: [
-      "I\u2019ve been here 3 months and still don\u2019t have real friends... \uD83D\uDE14",
-      "Everyone speaks Korean so fast, I can\u2019t keep up \uD83D\uDE30",
-      "I miss home but I don\u2019t want to admit it \uD83E\uDD7A",
-      "Is it really this hard to make Korean friends? \uD83E\uDD14",
-      "I don\u2019t know where to go on weekends\u2026 I just stay home \uD83D\uDE1E",
-    ],
-    tags: ["Homesickness", "Language barrier", "Making friends", "Culture shock", "Loneliness", "Visa & admin"],
-  },
-  missionAbout: {
-    whoWeAre: "Who we are",
-    heading1: "Moving to a new country is exciting.",
-    heading2: "But it can also be lonely.",
-    body: "We know what it\u2019s like to not feel at home in a foreign land, to feel like you don\u2019t quite belong. We also haven\u2019t forgotten how it feels to be welcomed. Our mission is simple: walk alongside you so we can all feel at home.",
   },
   seoulSkyline: {
     label: "Your Neighborhood",
@@ -341,7 +322,7 @@ export const en: Dictionary = {
     descHub: "Everything you wish someone had told you when you first arrived in Korea. Pick a topic and dig in.",
     open: "Open",
     toolPhrasebookLabel: "Phrasebook",
-    toolPhrasebookDesc: "Korean scripts for real situations \u2014 show your phone to any Korean speaker.",
+    toolPhrasebookDesc: "Korean scripts for real situations. Show your phone to any Korean speaker.",
     toolFormDecoderLabel: "Form Decoder",
     toolFormDecoderDesc: "Korean bureaucratic forms decoded field by field in plain English.",
     toolAddressLabel: "Address Converter",

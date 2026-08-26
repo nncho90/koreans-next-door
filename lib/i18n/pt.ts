@@ -46,7 +46,7 @@ export const pt: Dictionary = {
       {
         icon: "🌍",
         title: "Aberto a todos",
-        body: "Nosso núcleo é da igreja, mas nossos encontros não são religiosos. Gente de qualquer fé, origem ou jeito de viver é bem-vinda aqui.",
+        body: "Nosso núcleo é da igreja. Se você acha isso religioso, tudo bem. De qualquer forma, gente de qualquer fé, origem ou jeito de viver é bem-vinda aqui.",
       },
       {
         icon: "💛",
@@ -81,7 +81,7 @@ export const pt: Dictionary = {
       {
         emoji: "🗣️",
         type: "Intercâmbio de Idiomas",
-        title: "Noites de Intercâmbio de Idiomas",
+        title: "Noite de Jogos de Sábado",
         date: "Último sábado de cada mês",
         description:
           "Praticando coreano e inglês com jogos em grupo, muita risada e aquele erro de gramática constrangedor que todo mundo comete. Pode chegar sem saber nada — tá todo mundo aprendendo.",
@@ -97,7 +97,7 @@ export const pt: Dictionary = {
       {
         emoji: "📖",
         type: "Sessão de Estudos",
-        title: "Estudos de Quarta",
+        title: "Traga Seu Notebook",
         date: "Quartas à tarde",
         description:
           "Traga seu notebook, sua lição ou aquele livro de coreano que você vive adiando. A gente se encontra em cafés pela cidade, estuda lado a lado e termina com lanches e boa conversa.",
@@ -315,25 +315,6 @@ export const pt: Dictionary = {
   },
   footer: {
     copyright: "Koreans Next Door · Seul, Coreia",
-  },
-  worriesSection: {
-    label: "Parece familiar?",
-    heading: "Morar fora não é fácil.",
-    subheading: "Você não tá sozinho nisso.",
-    bubbles: [
-      "Já faz 3 meses que tô aqui e ainda não tenho amigos de verdade... 😔",
-      "Todo mundo fala coreano tão rápido, eu não consigo acompanhar nada 😰",
-      "Tô com saudade de casa mas não quero admitir 🥺",
-      "É assim tão difícil fazer amigos coreanos? 🤔",
-      "Não sei pra onde ir no fim de semana... fico em casa mesmo 😞",
-    ],
-    tags: ["Saudade de casa", "Barreira do idioma", "Fazer amizades", "Choque cultural", "Solidão", "Visto & burocracia"],
-  },
-  missionAbout: {
-    whoWeAre: "Quem somos",
-    heading1: "Mudar pra um país novo é empolgante.",
-    heading2: "Mas também pode ser solitário.",
-    body: "A gente sabe o que é não se sentir em casa numa terra estranha, sentir que não pertence. E também não esquece o que é ser bem recebido. Nossa missão é simples: caminhar do seu lado pra que todo mundo possa se sentir em casa.",
   },
   seoulSkyline: {
     label: "Seu bairro",

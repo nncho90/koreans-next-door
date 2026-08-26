@@ -198,7 +198,7 @@ export function getTestimonialQuotes(locale: Locale): TestimonialQuote[] {
             Já fazia 6 meses que eu tinha me mudado do Canadá pra Seul, e eu tava com saudade de ter uma comunidade.
             Vi vários outros eventos, mas eram todos pagos ou pareciam inacessíveis.{" "}
             <strong className="text-zinc-950">Resolvi arriscar no KND e, mesmo não sendo cristã, me senti super bem-vinda</strong>{" "}
-            — adoro a diversidade dos encontros! Todo mundo é muito gente boa e{" "}
+            , adoro a diversidade dos encontros! Todo mundo é muito gente boa e{" "}
             <strong className="text-zinc-950">eu conheci pessoas incríveis pelo KND</strong>.
           </>
         ),
@@ -214,7 +214,7 @@ export function getTestimonialQuotes(locale: Locale): TestimonialQuote[] {
       {
         quote: (
           <>
-            Cuando llegué a Corea, el miedo a cometer errores me paralizaba — casi no podía hablar.{" "}
+            Cuando llegué a Corea, el miedo a cometer errores me paralizaba, casi no podía hablar.{" "}
             <strong className="text-zinc-950">KND me dio el espacio para intentarlo</strong>, y hoy{" "}
             <strong className="text-zinc-950">hablo con mucha más valentía y confianza</strong>, aunque sigo equivocándome.
             Estoy muy agradecida por esta comunidad.
@@ -230,7 +230,7 @@ export function getTestimonialQuotes(locale: Locale): TestimonialQuote[] {
             No esperaba encontrar una comunidad así, pero{" "}
             <strong className="text-zinc-950">KND hizo que adaptarme a Seúl fuera mucho más fácil</strong>{" "}
             y conocí un montón de amigos nuevos entre actividades divertidas y comidas deliciosas.
-            Todos eran increíblemente amables y fáciles de tratar —{" "}
+            Todos eran increíblemente amables y fáciles de tratar,{" "}
             <strong className="text-zinc-950">las conexiones se dieron solas</strong>.
             Es de esos lugares que, sin que te des cuenta,{" "}
             <strong className="text-zinc-950">hacen que una ciudad nueva se sienta como casa</strong>.
@@ -246,7 +246,7 @@ export function getTestimonialQuotes(locale: Locale): TestimonialQuote[] {
             Llevaba 6 meses viviendo en Seúl y me hacía mucha falta una comunidad.
             Vi otros eventos, pero todos eran de pago o se sentían lejanos.{" "}
             <strong className="text-zinc-950">Me animé a ir a KND y, aunque no soy cristiana, me recibieron con los brazos abiertos</strong>{" "}
-            — me encanta lo diverso que es. Todos son muy amables y{" "}
+            , me encanta lo diverso que es. Todos son muy amables y{" "}
             <strong className="text-zinc-950">conocí gente increíble</strong>.
           </>
         ),
@@ -359,7 +359,7 @@ export function getTestimonialQuotes(locale: Locale): TestimonialQuote[] {
 }
 
 // ---------------------------------------------------------------------------
-// FAQ JSX answers (contain <a> links) — keyed by FAQ item index
+// FAQ JSX answers (contain <a> links), keyed by FAQ item index
 // ---------------------------------------------------------------------------
 
 export function getJsxFaqAnswers(locale: Locale): Record<number, ReactNode> {
@@ -401,7 +401,7 @@ export function getJsxFaqAnswers(locale: Locale): Record<number, ReactNode> {
           <a href="https://lu.ma/koreansnextdoor" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">Luma页面</a>
           查看即将举行的活动，或者加入我们的{" "}
           <a href="https://open.kakao.com/o/gWb1KOci" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">KakaoTalk群聊</a>
-          ——我们通常在那里最先发布消息。
+          ，我们通常在那里最先发布消息。
         </>
       ),
     };
@@ -424,7 +424,7 @@ export function getJsxFaqAnswers(locale: Locale): Record<number, ReactNode> {
           <a href="https://lu.ma/koreansnextdoor" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">Luma頁面</a>
           查看即將舉行的活動，或者加入我們的{" "}
           <a href="https://open.kakao.com/o/gWb1KOci" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-zinc-800">KakaoTalk群聊</a>
-          ——我們通常會在那裡最先發布消息。
+          ，我們通常會在那裡最先發布消息。
         </>
       ),
     };

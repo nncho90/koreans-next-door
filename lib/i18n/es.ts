@@ -46,7 +46,7 @@ export const es: Dictionary = {
       {
         icon: "🌍",
         title: "Abierto a todos",
-        body: "Nuestro núcleo es de la iglesia, pero nuestros encuentros no son religiosos. Gente de cualquier fe, origen o forma de vida es bienvenida aquí.",
+        body: "Nuestro núcleo es de la iglesia. Si consideras eso religioso, está bien. De todas formas, gente de cualquier fe, origen o forma de vida es bienvenida aquí.",
       },
       {
         icon: "💛",
@@ -81,7 +81,7 @@ export const es: Dictionary = {
       {
         emoji: "🗣️",
         type: "Intercambio de Idiomas",
-        title: "Noches de Intercambio de Idiomas",
+        title: "Noche de Juegos del Sábado",
         date: "Último sábado de cada mes",
         description:
           "Practicamos coreano e inglés con juegos en grupo, muchas risas y más de un error gramatical. No necesitas ser fluido — todos estamos aprendiendo.",
@@ -97,7 +97,7 @@ export const es: Dictionary = {
       {
         emoji: "📖",
         type: "Sesión de Estudio",
-        title: "Sesiones de Estudio de los Miércoles",
+        title: "Trae tu Portátil",
         date: "Miércoles por la tarde",
         description:
           "Trae tu portátil, tus deberes o ese libro de coreano que nunca abres. Nos encontramos en cafés por la ciudad, estudiamos juntos y terminamos con snacks y buena conversación.",
@@ -315,25 +315,6 @@ export const es: Dictionary = {
   },
   footer: {
     copyright: "Koreans Next Door · Seúl, Corea",
-  },
-  worriesSection: {
-    label: "¿Te suena familiar?",
-    heading: "Vivir lejos de casa no es fácil.",
-    subheading: "No eres el único que se siente así. Aquí estamos.",
-    bubbles: [
-      "Llevo 3 meses aquí y sigo sin tener amigos de verdad... 😔",
-      "Todos hablan coreano tan rápido que no entiendo nada 😰",
-      "Extraño mi hogar pero no quiero admitirlo 🥺",
-      "¿Por qué es tan difícil hacer amigos coreanos? 🤔",
-      "No sé adónde ir los fines de semana... me quedo en casa 😞",
-    ],
-    tags: ["Morriña", "Barrera del idioma", "Hacer amigos", "Choque cultural", "Soledad", "Visa y trámites"],
-  },
-  missionAbout: {
-    whoWeAre: "Quiénes somos",
-    heading1: "Mudarse a un nuevo país es emocionante.",
-    heading2: "Pero también puede ser solitario.",
-    body: "Sabemos lo que es sentirse perdido en tierra extraña, que nadie te entienda del todo. Y también sabemos lo que es que alguien te reciba con los brazos abiertos. Por eso hacemos esto: para que tú también lo sientas.",
   },
   seoulSkyline: {
     label: "Tu barrio",

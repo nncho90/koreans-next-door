@@ -132,19 +132,6 @@ export interface Dictionary {
   footer: {
     copyright: string;
   };
-  worriesSection: {
-    label: string;
-    heading: string;
-    subheading: string;
-    bubbles: string[];
-    tags: string[];
-  };
-  missionAbout: {
-    whoWeAre: string;
-    heading1: string;
-    heading2: string;
-    body: string;
-  };
   seoulSkyline: {
     label: string;
     heading1: string;
