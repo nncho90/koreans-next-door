@@ -66,7 +66,7 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Yellow overlay */}
-      <div className="absolute inset-0 bg-[#ffd966]/40" />
+      <div className="absolute inset-0 bg-[#ffd966]/65" />
       {/* Bottom vignette */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent" />
       {/* Scrim behind the text block so the logo and tagline stay readable over brighter parts of the photo */}
