@@ -46,7 +46,7 @@ export const pt: Dictionary = {
       {
         icon: "🌍",
         title: "Aberto a todos",
-        body: "Nosso núcleo é da igreja. Se você acha isso religioso, tudo bem. De qualquer forma, gente de qualquer fé, origem ou jeito de viver é bem-vinda aqui.",
+        body: "Nosso núcleo é da igreja, mas nossos encontros não são religiosos. Gente de qualquer fé, origem ou jeito de viver é bem-vinda aqui.",
       },
       {
         icon: "💛",

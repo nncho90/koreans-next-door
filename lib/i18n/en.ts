@@ -46,7 +46,7 @@ export const en: Dictionary = {
       {
         icon: "\u{1F30D}",
         title: "Open to everyone",
-        body: "Our core members are from church, and if that sounds religious to you, fair enough. Either way, people of every faith, background, and walk of life are warmly welcomed here.",
+        body: "Our core members are from church, but our events aren\u2019t religious. People of every faith, background, and walk of life are warmly welcomed here.",
       },
       {
         icon: "\u{1F49B}",
