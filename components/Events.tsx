@@ -56,11 +56,11 @@ export default function Events() {
             className="opacity-60 transition-opacity hover:opacity-100"
           >
             <Image
-              src="/weave-logo.svg"
-              alt="Weave Living"
-              width={44}
-              height={50}
-              className="h-12 w-auto"
+              src="/weave-suites-logo.png"
+              alt="Weave Suites Sunyu Parkside"
+              width={900}
+              height={1028}
+              className="h-24 w-auto"
             />
           </a>
         </div>
