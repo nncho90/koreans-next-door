@@ -110,6 +110,22 @@ export const pt: Dictionary = {
         description:
           "A gente pega o trem junto pra passeios fora da cidade, tipo as muralhas de Suwon ou um museu em Seul, misturando história, cultura e boa companhia.",
       },
+      {
+        emoji: "\uD83C\uDFD3",
+        type: "Esporte e jogos",
+        title: "Sessões de pickleball",
+        date: "A cada poucas semanas",
+        description:
+          "Alugamos uma quadra coberta, distribuímos raquetes e jogamos duplas até todo mundo perder pelo menos uma vez. Não precisa de experiência. Metade de nós aprendeu as regras na hora.",
+      },
+      {
+        emoji: "\uD83C\uDFB2",
+        type: "Jogos de tabuleiro",
+        title: "Noites no café de jogos",
+        date: "A cada poucas semanas",
+        description:
+          "Tomamos uma mesa num café de jogos de tabuleiro, pedimos bebidas e vamos passando pela prateleira: Uno, Halli Galli, Drawing Book, o que alguém pegar primeiro. Fácil de entrar mesmo chegando tarde.",
+      },
     ],
   },
   impact: {

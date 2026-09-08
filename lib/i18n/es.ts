@@ -110,6 +110,22 @@ export const es: Dictionary = {
         description:
           "Tomamos el tren juntos para paseos fuera de la ciudad, como las murallas de Suwon o un museo en Seúl, mezclando historia, cultura y buena compañía.",
       },
+      {
+        emoji: "\uD83C\uDFD3",
+        type: "Deporte y juego",
+        title: "Sesiones de pickleball",
+        date: "Cada pocas semanas",
+        description:
+          "Alquilamos una pista cubierta, repartimos palas y jugamos dobles hasta que todos hayan perdido al menos una vez. No hace falta experiencia. La mitad aprendimos las reglas allí mismo.",
+      },
+      {
+        emoji: "\uD83C\uDFB2",
+        type: "Juegos de mesa",
+        title: "Noches de café de juegos de mesa",
+        date: "Cada pocas semanas",
+        description:
+          "Ocupamos una mesa en un café de juegos de mesa, pedimos algo de beber y vamos vaciando la estantería: Uno, Halli Galli, Drawing Book, lo que alguien agarre primero. Fácil de unirse aunque llegues tarde.",
+      },
     ],
   },
   impact: {

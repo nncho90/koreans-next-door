@@ -109,6 +109,22 @@ export const zhCN: Dictionary = {
         description:
           "我们坐火车一起去城外郊游，比如水原华城或首尔的博物馆，一起感受历史与文化。",
       },
+      {
+        emoji: "\uD83C\uDFD3",
+        type: "运动与游戏",
+        title: "匹克球活动",
+        date: "每隔几周",
+        description:
+          "我们租下室内球场，分发球拍，打双打直到每个人都至少输过一次。不需要经验，一半人是在现场学会规则的。",
+      },
+      {
+        emoji: "\uD83C\uDFB2",
+        type: "桌游",
+        title: "桌游咖啡馆之夜",
+        date: "每隔几周",
+        description:
+          "我们占下桌游咖啡馆的一张桌子，点上饮料，把架子上的游戏挨个玩一遍：UNO、德国心脏病、Drawing Book，谁先拿到哪个就玩哪个。晚到也能随时加入。",
+      },
     ],
   },
   impact: {

@@ -110,6 +110,22 @@ export const en: Dictionary = {
         description:
           "We hop on a train together for day trips beyond the city, like Suwon\u2019s fortress walls or a museum in Seoul, mixing history, culture, and good company.",
       },
+      {
+        emoji: "\uD83C\uDFD3",
+        type: "Sports & Play",
+        title: "Pickleball Sessions",
+        date: "Every few weeks",
+        description:
+          "We rent an indoor court, hand out paddles, and play doubles until everyone has lost at least once. No experience needed. Half of us learned the rules on the spot.",
+      },
+      {
+        emoji: "\uD83C\uDFB2",
+        type: "Board Games",
+        title: "Board Game Cafe Nights",
+        date: "Every few weeks",
+        description:
+          "We take over a table at a board game cafe, order drinks, and work through the shelf: Uno, Halli Galli, Drawing Book, whatever someone grabs first. Easy to join even if you show up late.",
+      },
     ],
   },
   impact: {

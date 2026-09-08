@@ -109,6 +109,22 @@ export const zhTW: Dictionary = {
         description:
           "我們搭火車一起到城外郊遊，比如水原華城或首爾的博物館，一起感受歷史與文化。",
       },
+      {
+        emoji: "\uD83C\uDFD3",
+        type: "運動與遊戲",
+        title: "匹克球活動",
+        date: "每隔幾週",
+        description:
+          "我們租下室內球場，發下球拍，打雙打直到每個人都至少輸過一次。不需要經驗，一半的人是在現場學會規則的。",
+      },
+      {
+        emoji: "\uD83C\uDFB2",
+        type: "桌遊",
+        title: "桌遊咖啡廳之夜",
+        date: "每隔幾週",
+        description:
+          "我們佔下桌遊咖啡廳的一張桌子，點好飲料，把架上的遊戲挨個玩一遍：UNO、德國心臟病、Drawing Book，誰先拿到哪個就玩哪個。晚到也能隨時加入。",
+      },
     ],
   },
   impact: {
