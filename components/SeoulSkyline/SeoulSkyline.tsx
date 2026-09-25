@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import { useLocale } from "@/lib/i18n";
 import { BUILDINGS } from "./skylineData";
-import SkylineBackground from "./SkylineBackground";
+import SkylineShaderBackground from "./SkylineShaderBackground";
 import SkylineBuilding from "./SkylineBuilding";
 
 // Minimum scene width ensures all 12 buildings have enough horizontal space
@@ -85,8 +85,9 @@ export default function SeoulSkyline() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            {/* Background: sky, mountains, Han River */}
-            <SkylineBackground
+            {/* Background: sky, mountains, Han River — animated on the GPU,
+                with the SVG version underneath as the fallback */}
+            <SkylineShaderBackground
               mouseX={mouseX}
               scrollYProgress={scrollYProgress}
               prefersReduced={!!prefersReduced}
