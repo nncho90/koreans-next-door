@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Noto_Sans_KR } from "next/font/google";
+import { Geist, Noto_Sans_KR, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import SeasonalParticles from "@/components/SeasonalParticles";
@@ -14,6 +14,14 @@ const notoSansKR = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
   subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
+  display: "swap",
+});
+
+// Handwriting for the pinboard captions only, scoped to its own variable.
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["500", "700"],
   display: "swap",
 });
 
@@ -85,7 +93,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${notoSansKR.variable} h-full`}>
+    <html lang="en" className={`${geist.variable} ${notoSansKR.variable} ${caveat.variable} h-full`}>
       <body className="min-h-full flex flex-col">
         {/* Organization schema */}
         <script
