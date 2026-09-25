@@ -45,7 +45,10 @@ export async function GET() {
         e.event.geo_address_info?.full_address,
     }));
     return NextResponse.json({ events });
-  } catch {
-    return NextResponse.json({ events: [] });
+  } catch (err) {
+    // An outage must not look like "no events": say so, so the hero can fall
+    // back to the weekly rhythm rather than claiming nothing is scheduled.
+    console.error("[luma/upcoming] fetch failed", err);
+    return NextResponse.json({ events: [], error: "luma_unavailable" }, { status: 502 });
   }
 }

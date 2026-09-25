@@ -31,7 +31,10 @@ export default function UpcomingEvents() {
     Promise.all([
       fetch("/api/luma/upcoming")
         .then((r) => r.json())
-        .then((d) => (Array.isArray(d?.events) ? (d.events as PastEvent[]) : []))
+        .then((d) => {
+          if (d?.error) console.error("[upcoming] Luma unavailable:", d.error);
+          return Array.isArray(d?.events) ? (d.events as PastEvent[]) : [];
+        })
         .catch(() => [] as PastEvent[]),
       fetch("/api/luma/past")
         .then((r) => r.json())

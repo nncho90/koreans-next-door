@@ -146,6 +146,13 @@ export const zhTW: Dictionary = {
     emptyKakao: "加入 KakaoTalk 群聊",
     emptyLuma: "在 Luma 上追蹤",
   },
+  proof: {
+    label: "現場是這樣",
+    heading: "我們平常就是這個樣子",
+    subheading: "最近幾個月的照片和影片。沒有人在擺拍。",
+    follow: "追蹤 @koreansnextdoor",
+    watchOnInstagram: "在 Instagram 上看",
+  },
   gallery: {
     label: "共同的瞬間",
     heading: "我們街區的一角",

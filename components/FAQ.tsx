@@ -7,6 +7,13 @@ import { getJsxFaqAnswers } from "@/lib/i18n/rich";
 import { en } from "@/lib/i18n/en";
 import { jsonLd } from "@/lib/jsonLd";
 
+// Plain-text versions of the two English answers that are rendered as JSX
+// (they carry links), so search engines see the whole FAQ.
+const JSX_ANSWERS_PLAIN: Record<number, string> = {
+  0: "No. But our core members are from Sigwang Church, and we believe everything we do is driven by an overflow of this undeserved love we received from Jesus which leads us to love our neighbors as ourselves. So if you count that as religious, then yes! Either way, our events are open to everyone, regardless of faith, background, or where you're from. Just people who've been loved, trying to pass it on.",
+  3: "Check our Luma page at lu.ma/koreansnextdoor for what's coming up, or join our KakaoTalk open chat where we usually post things first.",
+};
+
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
   const { t, locale } = useLocale();
@@ -18,12 +25,15 @@ export default function FAQ() {
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLd({
           "@type": "FAQPage",
-          "mainEntity": en.faq.items.filter((item) => item.a).map((item) => ({
+          // Items whose answer is JSX (rendered from rich.tsx) have no `a`
+          // string, so their plain-text answer is supplied here to keep them
+          // in the FAQPage structured data.
+          "mainEntity": en.faq.items.map((item, i) => ({
             "@type": "Question",
             "name": item.q,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": item.a,
+              "text": item.a ?? JSX_ANSWERS_PLAIN[i] ?? "",
             },
           })),
         })}

@@ -146,6 +146,13 @@ export const ja: Dictionary = {
     emptyKakao: "KakaoTalkチャットに参加する",
     emptyLuma: "Lumaでフォローする",
   },
+  proof: {
+    label: "雰囲気",
+    heading: "ふだんはこんな感じです",
+    subheading: "ここ数か月の写真と動画です。誰もポーズをとっていません。",
+    follow: "@koreansnextdoor をフォロー",
+    watchOnInstagram: "Instagramで見る",
+  },
   gallery: {
     label: "一緒の瞬間",
     heading: "私たちの街角",

@@ -8,8 +8,7 @@ import MissionStory from "@/components/MissionStory";
 import Events from "@/components/Events";
 import ImpactCounter from "@/components/ImpactCounter";
 import UpcomingEvents from "@/components/UpcomingEvents";
-import Gallery from "@/components/Gallery";
-import VideoWall from "@/components/VideoWall";
+import ProofBand from "@/components/home/ProofBand";
 import Testimonials from "@/components/Testimonials";
 import Globe from "@/components/Globe";
 import FAQ from "@/components/FAQ";
@@ -29,8 +28,7 @@ function PageContent() {
         <ImpactCounter />
         <SeoulSkyline />
         <UpcomingEvents />
-        <Gallery />
-        <VideoWall />
+        <ProofBand />
         <Testimonials />
         <Globe />
         <FAQ />

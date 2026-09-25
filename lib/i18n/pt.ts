@@ -147,6 +147,13 @@ export const pt: Dictionary = {
     emptyKakao: "Entre no chat do KakaoTalk",
     emptyLuma: "Siga no Luma",
   },
+  proof: {
+    label: "Como é na prática",
+    heading: "Isso aqui é a gente, quase toda semana",
+    subheading: "Fotos e vídeos dos últimos meses. Ninguém posando.",
+    follow: "Seguir @koreansnextdoor",
+    watchOnInstagram: "Ver no Instagram",
+  },
   gallery: {
     label: "Momentos juntos",
     heading: "Um vislumbre do nosso bairro",

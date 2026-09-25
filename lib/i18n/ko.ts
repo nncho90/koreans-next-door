@@ -147,6 +147,13 @@ export const ko: Dictionary = {
     emptyKakao: "카카오톡 오픈채팅 참여하기",
     emptyLuma: "루마에서 팔로우하기",
   },
+  proof: {
+    label: "분위기",
+    heading: "보통 이런 모습이에요",
+    subheading: "최근 몇 달 사진이랑 영상이에요. 연출은 없어요.",
+    follow: "@koreansnextdoor 팔로우하기",
+    watchOnInstagram: "인스타그램에서 보기",
+  },
   gallery: {
     label: "함께한 순간들",
     heading: "우리 동네 한 켠",

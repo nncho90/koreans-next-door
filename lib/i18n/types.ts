@@ -53,6 +53,13 @@ export interface Dictionary {
     emptyKakao: string;
     emptyLuma: string;
   };
+  proof: {
+    label: string;
+    heading: string;
+    subheading: string;
+    follow: string;
+    watchOnInstagram: string;
+  };
   gallery: {
     label: string;
     heading: string;
