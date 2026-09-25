@@ -16,13 +16,10 @@ import { proofMedia, photosOnly } from "./proofMedia";
  * tilt here would throw a hydration error on every load.
  */
 
-type Treatment = "polaroid" | "ripped" | "plain";
+type Treatment = "polaroid" | "taped";
 
-const TREATMENTS: Treatment[] = ["polaroid", "ripped", "plain", "ripped", "polaroid", "ripped"];
+const TREATMENTS: Treatment[] = ["polaroid", "taped", "polaroid", "taped", "taped"];
 const TILTS = [-4.5, 2.5, -1.5, 3.5, -2.5, 1.5, -3.5, 4.5, -0.8, 2.8, -5, 1.2];
-const PIN_COLORS = ["#d94f45", "#e8b53f", "#4f8fd9", "#5aa86b", "#e07a3f", "#8e6bd0"];
-/** Pin sits left, centre or right of the top edge. */
-const PIN_X = ["18%", "50%", "78%", "34%", "62%"];
 
 function tiltOf(i: number) {
   return TILTS[i % TILTS.length];
@@ -32,56 +29,32 @@ function treatmentOf(i: number): Treatment {
   return TREATMENTS[i % TREATMENTS.length];
 }
 
-/**
- * Ripped-from-a-magazine outlines. Every edge is irregular, so the tile reads
- * as a page torn out by hand rather than a cropped rectangle.
- */
-const RIPPED_CLIPS = [
-  "polygon(1% 3%, 8% 0.5%, 17% 2.5%, 27% 0%, 38% 2%, 49% 0.5%, 61% 2.5%, 72% 0%, 83% 2%, 94% 0.5%, 99% 3%, 97.5% 12%, 100% 23%, 98% 35%, 99.5% 47%, 97% 58%, 99% 70%, 97.5% 82%, 99% 92%, 95% 97%, 86% 99.5%, 75% 97%, 64% 99.5%, 53% 97.5%, 42% 100%, 31% 97%, 20% 99.5%, 10% 97%, 2% 99%, 0.5% 88%, 2.5% 76%, 0% 64%, 2% 52%, 0.5% 40%, 3% 28%, 0.5% 16%)",
-  "polygon(2% 1%, 12% 3%, 23% 0.5%, 34% 2.5%, 45% 0%, 57% 2%, 68% 0.5%, 79% 3%, 90% 1%, 98% 4%, 100% 15%, 97.5% 27%, 99.5% 38%, 97% 50%, 99% 62%, 97.5% 73%, 100% 85%, 98% 96%, 89% 99%, 78% 97%, 67% 99.5%, 56% 97%, 44% 99.5%, 33% 97.5%, 22% 100%, 11% 97.5%, 3% 99%, 0.5% 87%, 2.5% 75%, 0% 63%, 2% 51%, 0.5% 39%, 2.5% 27%, 0% 14%)",
-  "polygon(3% 2%, 14% 0%, 25% 3%, 36% 0.5%, 47% 2.5%, 59% 0%, 70% 2.5%, 81% 0.5%, 92% 2.5%, 99% 5%, 97% 16%, 99.5% 28%, 97.5% 40%, 100% 52%, 98% 64%, 99.5% 76%, 97% 87%, 98.5% 97%, 88% 99%, 77% 96.5%, 66% 99%, 55% 97%, 43% 99.5%, 32% 96.5%, 21% 99%, 10% 96.5%, 1.5% 98%, 0% 86%, 2% 74%, 0.5% 62%, 3% 50%, 0% 38%, 2% 26%, 0.5% 13%)",
-];
-
+/** Cork003 from ambientCG, CC0, a seamless 700px tile. */
 const corkStyle: React.CSSProperties = {
-  backgroundColor: "#b8824a",
-  // cork.svg is a 400px tile of granules and blotches; the gradients on top of
-  // it are the light falling across the board.
+  backgroundColor: "#c08b52",
   backgroundImage: [
-    "radial-gradient(ellipse 70% 45% at 50% -5%, rgba(255,235,200,0.30), transparent 70%)",
-    "radial-gradient(ellipse 60% 50% at 85% 110%, rgba(60,32,10,0.28), transparent 70%)",
-    "url(/cork.svg)",
+    "radial-gradient(ellipse 80% 55% at 50% -10%, rgba(255,240,215,0.28), transparent 70%)",
+    "radial-gradient(ellipse 70% 60% at 90% 115%, rgba(60,32,10,0.30), transparent 70%)",
+    "url(/cork-texture.jpg)",
   ].join(","),
-  backgroundSize: "auto, auto, 400px 400px",
+  backgroundSize: "auto, auto, 460px 460px",
   backgroundRepeat: "no-repeat, no-repeat, repeat",
 };
 
-/**
- * A push pin, seen from slightly above: coloured head with a highlight, a
- * metal collar, and a shadow thrown down onto the photo.
- */
-function Pin({ color, left }: { color: string; left: string }) {
+function Tape({ corner }: { corner: "tl" | "br" }) {
+  const pos =
+    corner === "tl" ? "-left-4 -top-2 -rotate-[38deg]" : "-bottom-2 -right-4 -rotate-[38deg]";
   return (
     <span
       aria-hidden="true"
-      className="absolute top-[-11px] z-30 h-[22px] w-[22px] -translate-x-1/2"
-      style={{ left }}
-    >
-      <span
-        className="absolute inset-0 rounded-full"
-        style={{
-          background: `radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95) 0 8%, rgba(255,255,255,0.45) 18%, ${color} 46%, ${color} 62%, rgba(0,0,0,0.55) 100%)`,
-          boxShadow:
-            "0 4px 7px rgba(50,25,8,0.5), 0 1px 0 rgba(255,255,255,0.35) inset, 0 -2px 4px rgba(0,0,0,0.3) inset",
-        }}
-      />
-      <span
-        className="absolute left-1/2 top-[13px] h-[7px] w-[7px] -translate-x-1/2 rounded-[2px]"
-        style={{
-          background: "linear-gradient(180deg, #e8e8ea, #9a9aa0)",
-          boxShadow: "0 2px 3px rgba(50,25,8,0.45)",
-        }}
-      />
-    </span>
+      className={`absolute z-20 h-6 w-16 bg-[rgba(255,247,214,0.72)] shadow-[0_1px_2px_rgba(60,30,10,0.25)] ${pos}`}
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(90deg, rgba(255,255,255,0.35) 0 3px, transparent 3px 7px)",
+        maskImage:
+          "linear-gradient(90deg, transparent 0, #000 4px, #000 calc(100% - 4px), transparent 100%)",
+      }}
+    />
   );
 }
 
@@ -114,23 +87,29 @@ export default function ProofBand() {
   }, [lightbox, prev, next]);
 
   return (
-    // overflow-hidden keeps tape that hangs off a tile from widening the page
-    <section
-      id="proof"
-      className="relative overflow-hidden px-4 py-12 md:px-10 md:py-16"
-      style={corkStyle}
-    >
-      {/* board edges */}
+    // The board is an object sitting on the page, not a full-bleed band: the
+    // off-white wall shows around it, and a wooden frame holds the cork.
+    <section id="proof" className="bg-[#fafaf8] px-4 py-14 md:px-10 md:py-20">
       <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
+        className="relative mx-auto max-w-6xl overflow-hidden rounded-[14px] p-4 shadow-[0_18px_40px_rgba(40,20,5,0.28)] md:p-8"
         style={{
-          boxShadow:
-            "inset 0 0 0 10px rgba(120,74,34,0.55), inset 0 0 40px rgba(70,38,12,0.45), inset 0 8px 24px rgba(0,0,0,0.20)",
+          border: "14px solid #8a5a2e",
+          borderImage:
+            "linear-gradient(145deg, #a87243 0%, #7d4f27 35%, #9a6737 65%, #6d4320 100%) 1",
+          ...corkStyle,
         }}
-      />
+      >
+        {/* the cork sits slightly recessed inside the frame */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            boxShadow:
+              "inset 0 0 26px rgba(70,38,12,0.40), inset 0 6px 16px rgba(0,0,0,0.22)",
+          }}
+        />
 
-      <div className="relative mx-auto max-w-6xl">
+        <div className="relative">
         <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#ffd966]">
           {t.proof.label}
         </p>
@@ -150,29 +129,19 @@ export default function ProofBand() {
             const photoIndex =
               item.kind === "photo" ? photosOnly.findIndex((p) => p.src === item.src) : -1;
 
-            // The paper under the photo. Ripped tiles get an irregular outline,
-            // so their clip lives here and the pin stays outside it.
-            const paperClass =
-              treatment === "polaroid"
-                ? "bg-[#fdfbf5] p-2 pb-9"
-                : treatment === "ripped"
-                  ? "bg-[#fdfbf5] p-[7px]"
-                  : "";
-            const paperStyle: React.CSSProperties =
-              treatment === "ripped"
-                ? { clipPath: RIPPED_CLIPS[i % RIPPED_CLIPS.length] }
-                : {};
+            const paperClass = treatment === "polaroid" ? "bg-[#fdfbf5] p-2 pb-9" : "";
 
             const inner = (
               <>
-                <Pin
-                  color={PIN_COLORS[i % PIN_COLORS.length]}
-                  left={PIN_X[i % PIN_X.length]}
-                />
+                {treatment === "taped" && (
+                  <>
+                    <Tape corner="tl" />
+                    <Tape corner="br" />
+                  </>
+                )}
 
                 <div
                   className={`relative w-full drop-shadow-[0_7px_10px_rgba(45,22,6,0.45)] ${paperClass}`}
-                  style={paperStyle}
                 >
                   <div
                     className={`relative ${item.kind === "reel" ? "aspect-[9/16]" : "aspect-square"} w-full overflow-hidden bg-zinc-200`}
@@ -253,6 +222,7 @@ export default function ProofBand() {
             <InstagramLogo size={18} weight="bold" />
             {t.proof.follow}
           </a>
+          </div>
         </div>
       </div>
 
