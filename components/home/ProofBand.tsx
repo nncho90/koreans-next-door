@@ -3,9 +3,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, X, Play, InstagramLogo } from "@phosphor-icons/react";
+import { ArrowLeft, ArrowRight, X, Play, InstagramLogo, PushPin } from "@phosphor-icons/react";
 import { useLocale } from "@/lib/i18n";
+import type { PublicReview } from "@/lib/reviews";
 import { proofMedia, photosOnly } from "./proofMedia";
+import ReviewNote from "./ReviewNote";
+import AddReviewModal from "./AddReviewModal";
 
 /**
  * The photos and reels as a cork pinboard: masonry columns, nothing uniform,
@@ -58,10 +61,47 @@ function Tape({ corner }: { corner: "tl" | "br" }) {
   );
 }
 
+/** Media tiles plus submitted reviews, mixed so the board is not two blocks. */
+type BoardItem =
+  | { kind: "media"; index: number }
+  | { kind: "review"; review: PublicReview }
+  | { kind: "cta" };
+
+function buildBoard(reviews: PublicReview[]): BoardItem[] {
+  const items: BoardItem[] = [];
+  // A review after every third photo keeps words and pictures interleaved.
+  let r = 0;
+  for (let i = 0; i < proofMedia.length; i++) {
+    items.push({ kind: "media", index: i });
+    if (i % 3 === 2 && r < reviews.length) {
+      items.push({ kind: "review", review: reviews[r++] });
+    }
+  }
+  while (r < reviews.length) items.push({ kind: "review", review: reviews[r++] });
+  // The invitation sits early enough to be seen without scrolling the whole board.
+  items.splice(Math.min(6, items.length), 0, { kind: "cta" });
+  return items;
+}
+
 export default function ProofBand() {
   const { t } = useLocale();
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const [reviews, setReviews] = useState<PublicReview[]>([]);
+  const [modalOpen, setModalOpen] = useState(false);
   const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        if (active && Array.isArray(data?.reviews)) setReviews(data.reviews);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const prev = useCallback(() => {
     setLightbox((i) => (i === null ? null : (i - 1 + photosOnly.length) % photosOnly.length));
@@ -121,7 +161,52 @@ export default function ProofBand() {
         </p>
 
         <div className="mt-10 columns-2 gap-4 md:columns-3 md:gap-6 lg:columns-4">
-          {proofMedia.map((item, i) => {
+          {buildBoard(reviews).map((slot, slotIndex) => {
+            if (slot.kind === "cta") {
+              return (
+                <motion.button
+                  key="cta"
+                  type="button"
+                  onClick={() => setModalOpen(true)}
+                  className="group relative mb-5 block w-full break-inside-avoid md:mb-7"
+                  style={{ transform: "rotate(-2deg)" }}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45 }}
+                  whileHover={reduceMotion ? undefined : { rotate: 0, scale: 1.03, zIndex: 30 }}
+                >
+                  <div className="flex aspect-square w-full flex-col items-center justify-center gap-3 border-[3px] border-dashed border-[#fdfbf5]/70 bg-black/10 px-4 text-center drop-shadow-[0_7px_10px_rgba(45,22,6,0.4)]">
+                    <PushPin size={28} weight="fill" className="text-[#ffd966]" />
+                    <span className="text-base font-semibold text-[#fffaf0]">
+                      {t.reviews.pinYours}
+                    </span>
+                  </div>
+                </motion.button>
+              );
+            }
+
+            if (slot.kind === "review") {
+              const tilt = tiltOf(slotIndex);
+              return (
+                <motion.div
+                  key={`review-${slot.review.id}`}
+                  className="relative mb-5 block w-full break-inside-avoid md:mb-7"
+                  style={{ transform: `rotate(${tilt}deg)` }}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.45 }}
+                  whileHover={reduceMotion ? undefined : { rotate: 0, scale: 1.03, zIndex: 30 }}
+                >
+                  <Tape corner="tl" />
+                  <ReviewNote review={slot.review} />
+                </motion.div>
+              );
+            }
+
+            const i = slot.index;
+            const item = proofMedia[i];
             const treatment = treatmentOf(i);
             const tilt = tiltOf(i);
             const key = item.kind === "reel" ? item.shortcode : item.src;
@@ -225,6 +310,15 @@ export default function ProofBand() {
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {modalOpen && (
+          <AddReviewModal
+            onClose={() => setModalOpen(false)}
+            onPublished={(review) => setReviews((list) => [review, ...list])}
+          />
+        )}
+      </AnimatePresence>
 
       <AnimatePresence>
         {lightbox !== null && (

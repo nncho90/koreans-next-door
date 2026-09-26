@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "images.lumacdn.com" },
       { protocol: "https", hostname: "cdn.lu.ma" },
       { protocol: "https", hostname: "images.unsplash.com" },
+      // photos uploaded with a review
+      { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
     ],
   },
   async headers() {

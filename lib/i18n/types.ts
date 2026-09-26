@@ -60,6 +60,36 @@ export interface Dictionary {
     follow: string;
     watchOnInstagram: string;
   };
+  reviews: {
+    pinYours: string;
+    title: string;
+    subtitle: string;
+    fieldName: string;
+    fieldCity: string;
+    fieldCityPlaceholder: string;
+    fieldHandle: string;
+    fieldHandlePlaceholder: string;
+    fieldText: string;
+    fieldPhoto: string;
+    photoConsent: string;
+    submit: string;
+    sending: string;
+    close: string;
+    screeningNote: string;
+    successTitle: string;
+    successBody: string;
+    pendingTitle: string;
+    pendingBody: string;
+    errLinks: string;
+    errShort: string;
+    errLong: string;
+    errDuplicate: string;
+    errTooSoon: string;
+    errDailyCap: string;
+    errPhotoLarge: string;
+    errPhotoType: string;
+    errGeneric: string;
+  };
   gallery: {
     label: string;
     heading: string;
