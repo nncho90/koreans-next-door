@@ -20,10 +20,12 @@ Internationals living in or visiting Korea — expats, students, travelers — w
 ## Events (so far)
 | Type | Event |
 |------|-------|
-| 🥢 Cultural Exchange | Seollal 떡국 party — made dumplings together, played Yut Nori |
-| ⛰️ Nature & Adventure | Night hike to 관악산 (Gwanaksan) |
-| 🗣️ Language Exchange | Multiple events with group games (Jan 28 & Jan 31, 2026) |
-| ☕ Casual Hangouts | Coffee, food, good conversations |
+| 🥢 Cultural Exchange | Seollal 떡국 party (dumplings, Yut Nori); Chuseok songpyeon party, Sep 26 2026, co-hosted with Weave Suites Sunyu Parkside, ~60 people |
+| ⛰️ Nature & Adventure | Night hike to 관악산 (Gwanaksan); day trips (Suwon fortress, museums) |
+| 🗣️ Language Exchange | Saturday Game Night, last Saturday of the month; Wednesday afternoon study sessions |
+| ☕ Casual Hangouts | Monday night dinners (12+), pickleball, board game cafe nights |
+
+Website "Things we've done" section shows these as 3 category cards (holidays & culture, language & study, hangouts & play), copy in `lib/i18n/*.ts`.
 
 ## Assets & Files
 - **Logo files:** `~/Desktop/Business/KND/logo.png`, `logo yellow.png`, `logo.psd`

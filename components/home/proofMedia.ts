@@ -11,7 +11,9 @@ export type ProofItem =
   | { kind: "reel"; shortcode: string; caption: string; date: string };
 
 export const proofMedia: ProofItem[] = [
+  { kind: "photo", src: "/photos/knd-21.jpeg", alt: "Around sixty KND neighbors and Weave Suites residents making finger hearts after the Chuseok songpyeon party, September 2026" },
   { kind: "reel", shortcode: "DdRcq7SToQX", caption: "If you were looking for a reason to come", date: "Sep 2026" },
+  { kind: "photo", src: "/photos/knd-20.jpeg", alt: "Neighbors in gloves shaping green, white and yellow songpyeon dough at the KND Chuseok party" },
   { kind: "photo", src: "/photos/knd-10.jpeg", alt: "Huge KND language exchange group of around sixty neighbors waving together" },
   { kind: "reel", shortcode: "Dc0QLoTzg3u", caption: "Study session, dinner, then the Han River", date: "Sep 2026" },
   { kind: "photo", src: "/photos/knd-13.jpeg", alt: "KND neighbors laughing together at a balloon party in Seoul" },

@@ -59,72 +59,32 @@ export const es: Dictionary = {
     label: "Lo que hacemos",
     heading: "Cosas que hemos hecho juntos",
     subheading:
-      "Todavía lo vamos descubriendo sobre la marcha — y eso es lo mejor. Aquí un adelanto de lo que te espera.",
+      "Todavía lo vamos descubriendo sobre la marcha. Y eso es lo mejor. Aquí un adelanto de lo que te espera.",
     partnerLabel: "En colaboración con",
     cards: [
       {
         emoji: "🥢",
-        type: "Intercambio Cultural",
-        title: "Fiesta de Tteokguk en Seollal",
-        date: "Seollal 2026",
+        type: "Fiestas y cultura coreana",
+        title: "Las fiestas, juntos",
         description:
-          "Hicimos dumplings juntos, compartimos un bowl de tteokguk y jugamos Yut Nori — celebrando el Año Nuevo coreano con nuevos amigos.",
-      },
-      {
-        emoji: "⛰️",
-        type: "Naturaleza y Aventura",
-        title: "Caminata Nocturna al Gwanaksan",
-        date: "Invierno 2026",
-        description:
-          "Nos pusimos los zapatos y subimos el Gwanaksan de noche — Seúl brillando abajo y buena compañía en cada paso.",
+          "Seollal en febrero con tteokguk, dumplings y Yut Nori. Chuseok en septiembre con sesenta de nosotros haciendo songpyeon en Weave Suites. Entre medio, excursiones de un día a lugares como la fortaleza de Suwon.",
+        highlights: ["Fiesta de tteokguk en Seollal", "Fiesta de songpyeon en Chuseok con Weave Suites", "Excursiones fuera de Seúl"],
       },
       {
         emoji: "🗣️",
-        type: "Intercambio de Idiomas",
-        title: "Noche de Juegos del Sábado",
-        date: "Último sábado de cada mes",
+        type: "Idiomas y estudio",
+        title: "Practicar sin presión",
         description:
-          "Practicamos coreano e inglés con juegos en grupo, muchas risas y más de un error gramatical. No necesitas ser fluido — todos estamos aprendiendo.",
+          "Noche de juegos el último sábado de cada mes, donde practicamos coreano e inglés entre juegos en grupo y algún error de gramática. Los miércoles por la tarde llevamos portátiles y libros a una cafetería y estudiamos lado a lado.",
+        highlights: ["Noche de juegos del sábado", "Sesiones de estudio los miércoles"],
       },
       {
         emoji: "🍽️",
-        type: "Encuentros Casuales",
-        title: "Cenas de los Lunes",
-        date: "Todos los lunes",
+        type: "Planes y juegos",
+        title: "Lo de todos los días",
         description:
-          "Después del trabajo agarramos una mesa en algún lugar de la ciudad, pedimos demasiada comida y compartimos una cena de verdad. Ya van más de 12 veces, y siempre hay lugar para uno más.",
-      },
-      {
-        emoji: "📖",
-        type: "Sesión de Estudio",
-        title: "Trae tu Portátil",
-        date: "Miércoles por la tarde",
-        description:
-          "Trae tu portátil, tus deberes o ese libro de coreano que nunca abres. Nos encontramos en cafés por la ciudad, estudiamos juntos y terminamos con snacks y buena conversación.",
-      },
-      {
-        emoji: "🚌",
-        type: "Excursiones",
-        title: "Paseos de un Día",
-        date: "Algunas veces al año",
-        description:
-          "Tomamos el tren juntos para paseos fuera de la ciudad, como las murallas de Suwon o un museo en Seúl, mezclando historia, cultura y buena compañía.",
-      },
-      {
-        emoji: "\uD83C\uDFD3",
-        type: "Deporte y juego",
-        title: "Sesiones de pickleball",
-        date: "Cada pocas semanas",
-        description:
-          "Alquilamos una pista cubierta, repartimos palas y jugamos dobles hasta que todos hayan perdido al menos una vez. No hace falta experiencia. La mitad aprendimos las reglas allí mismo.",
-      },
-      {
-        emoji: "\uD83C\uDFB2",
-        type: "Juegos de mesa",
-        title: "Noches de café de juegos de mesa",
-        date: "Cada pocas semanas",
-        description:
-          "Ocupamos una mesa en un café de juegos de mesa, pedimos algo de beber y vamos vaciando la estantería: Uno, Halli Galli, Drawing Book, lo que alguien agarre primero. Fácil de unirse aunque llegues tarde.",
+          "Cenas de lunes en algún lugar de la ciudad, pickleball en una cancha cubierta alquilada, noches en un café de juegos de mesa y una caminata nocturna al Gwanaksan con Seúl iluminado abajo. Fácil unirse aunque llegues tarde.",
+        highlights: ["Cenas de los lunes", "Pickleball", "Noches de juegos de mesa", "Caminata nocturna al Gwanaksan"],
       },
     ],
   },

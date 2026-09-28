@@ -34,7 +34,7 @@ export interface Dictionary {
       type: string;
       title: string;
       description: string;
-      date?: string;
+      highlights: string[];
     }[];
   };
   impact: {

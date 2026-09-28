@@ -59,72 +59,32 @@ export const pt: Dictionary = {
     label: "O que fazemos",
     heading: "Coisas que fizemos juntos",
     subheading:
-      "A gente ainda tá descobrindo no caminho — e essa é a parte boa. Uma provinha do que vem por aí.",
+      "A gente ainda tá descobrindo no caminho. E essa é a parte boa. Uma provinha do que vem por aí.",
     partnerLabel: "Em parceria com",
     cards: [
       {
         emoji: "🥢",
-        type: "Troca Cultural",
-        title: "Festa de Tteokguk do Seollal",
-        date: "Seollal 2026",
+        type: "Feriados e cultura coreana",
+        title: "Feriados, juntos",
         description:
-          "Fizemos bolinhos juntos, compartilhamos uma tigela de tteokguk e jogamos Yut Nori — celebrando o Ano Novo coreano com novos amigos.",
-      },
-      {
-        emoji: "⛰️",
-        type: "Natureza e Aventura",
-        title: "Trilha Noturna ao Gwanaksan",
-        date: "Inverno 2026",
-        description:
-          "A gente calçou os tênis e subiu o Gwanaksan de noite — Seul iluminada lá embaixo e boa companhia em todo lugar.",
+          "Seollal em fevereiro com tteokguk, dumplings e Yut Nori. Chuseok em setembro com sessenta de nós fazendo songpyeon no Weave Suites. No meio, passeios de um dia a lugares como a fortaleza de Suwon.",
+        highlights: ["Festa de tteokguk no Seollal", "Festa de songpyeon no Chuseok com o Weave Suites", "Passeios fora de Seul"],
       },
       {
         emoji: "🗣️",
-        type: "Intercâmbio de Idiomas",
-        title: "Noite de Jogos de Sábado",
-        date: "Último sábado de cada mês",
+        type: "Idiomas e estudo",
+        title: "Praticar sem pressão",
         description:
-          "Praticando coreano e inglês com jogos em grupo, muita risada e aquele erro de gramática constrangedor que todo mundo comete. Pode chegar sem saber nada — tá todo mundo aprendendo.",
+          "Noite de jogos no último sábado do mês, onde praticamos coreano e inglês entre jogos em grupo e algum erro de gramática. Nas tardes de quarta levamos notebooks e livros a um café e estudamos lado a lado.",
+        highlights: ["Noite de jogos de sábado", "Sessões de estudo às quartas"],
       },
       {
         emoji: "🍽️",
-        type: "Encontros Casuais",
-        title: "Jantares de Segunda",
-        date: "Toda segunda",
+        type: "Encontros e brincadeiras",
+        title: "O dia a dia",
         description:
-          "Depois do trabalho a gente pega uma mesa em algum canto da cidade, pede comida demais e divide um jantar de verdade. Já rolou mais de 12 vezes, e sempre tem lugar pra mais um.",
-      },
-      {
-        emoji: "📖",
-        type: "Sessão de Estudos",
-        title: "Traga Seu Notebook",
-        date: "Quartas à tarde",
-        description:
-          "Traga seu notebook, sua lição ou aquele livro de coreano que você vive adiando. A gente se encontra em cafés pela cidade, estuda lado a lado e termina com lanches e boa conversa.",
-      },
-      {
-        emoji: "🚌",
-        type: "Excursões",
-        title: "Passeios de Um Dia",
-        date: "Algumas vezes por ano",
-        description:
-          "A gente pega o trem junto pra passeios fora da cidade, tipo as muralhas de Suwon ou um museu em Seul, misturando história, cultura e boa companhia.",
-      },
-      {
-        emoji: "\uD83C\uDFD3",
-        type: "Esporte e jogos",
-        title: "Sessões de pickleball",
-        date: "A cada poucas semanas",
-        description:
-          "Alugamos uma quadra coberta, distribuímos raquetes e jogamos duplas até todo mundo perder pelo menos uma vez. Não precisa de experiência. Metade de nós aprendeu as regras na hora.",
-      },
-      {
-        emoji: "\uD83C\uDFB2",
-        type: "Jogos de tabuleiro",
-        title: "Noites no café de jogos",
-        date: "A cada poucas semanas",
-        description:
-          "Tomamos uma mesa num café de jogos de tabuleiro, pedimos bebidas e vamos passando pela prateleira: Uno, Halli Galli, Drawing Book, o que alguém pegar primeiro. Fácil de entrar mesmo chegando tarde.",
+          "Jantares de segunda em algum canto da cidade, pickleball numa quadra coberta alugada, noites em café de jogos de tabuleiro e uma trilha noturna no Gwanaksan com Seul iluminada lá embaixo. Fácil de entrar mesmo chegando tarde.",
+        highlights: ["Jantares de segunda", "Pickleball", "Noites de jogos de tabuleiro", "Trilha noturna no Gwanaksan"],
       },
     ],
   },

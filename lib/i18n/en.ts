@@ -57,74 +57,34 @@ export const en: Dictionary = {
   },
   events: {
     label: "What we do",
-    heading: "Things we\u2019ve done together",
+    heading: "Things we’ve done together",
     subheading:
-      "We\u2019re still figuring it out as we go, and that\u2019s part of the fun. Here\u2019s a taste of what you can expect.",
+      "We’re still figuring it out as we go, and that’s part of the fun. Here’s a taste of what you can expect.",
     partnerLabel: "In partnership with",
     cards: [
       {
-        emoji: "\uD83E\uDD62",
-        type: "Cultural Exchange",
-        title: "Seollal 떡국 Party",
-        date: "Seollal 2026",
+        emoji: "🥢",
+        type: "Korean holidays & culture",
+        title: "Holidays, together",
         description:
-          "We made dumplings together, shared a bowl of tteokguk, and played Yut Nori, celebrating Korean New Year with new friends.",
+          "Seollal in February with tteokguk, dumplings and Yut Nori. Chuseok in September with sixty of us shaping songpyeon at Weave Suites. In between, day trips to places like Suwon’s fortress walls.",
+        highlights: ["Seollal 떡국 party", "Chuseok songpyeon party with Weave Suites", "Day trips beyond Seoul"],
       },
       {
-        emoji: "\u26F0\uFE0F",
-        type: "Nature & Adventure",
-        title: "Night Hike to Gwanaksan",
-        date: "Winter 2026",
+        emoji: "🗣️",
+        type: "Language & study",
+        title: "Practice without the pressure",
         description:
-          "We laced up our shoes and headed up \uad00\uc545\uc0b0 after dark, Seoul sparkling below us and good company all around.",
+          "Saturday Game Night on the last Saturday of the month, where Korean and English get practiced over group games and the occasional grammar mistake. On Wednesday afternoons we bring laptops and textbooks to a cafe and study side by side.",
+        highlights: ["Saturday Game Night", "Wednesday study sessions"],
       },
       {
-        emoji: "\uD83D\uDDE3\uFE0F",
-        type: "Language Exchange",
-        title: "Saturday Game Night",
-        date: "Last Saturday of every month",
+        emoji: "🍽️",
+        type: "Hangouts & play",
+        title: "The everyday stuff",
         description:
-          "Practicing Korean and English over group games, laughs, and the occasional awkward grammar mistake. Everyone\u2019s welcome, no fluency required.",
-      },
-      {
-        emoji: "\ud83c\udf7d\ufe0f",
-        type: "Casual Hangouts",
-        title: "Monday Night Dinners",
-        date: "Every Monday",
-        description:
-          "After work we grab a table somewhere in the city, order too much food, and share a real meal together. It\u2019s run 12+ times now, and there\u2019s always room for one more.",
-      },
-      {
-        emoji: "\uD83D\uDCD6",
-        type: "Study Session",
-        title: "Bring Your Laptop",
-        date: "Wednesday afternoons",
-        description:
-          "Bring your laptop, your homework, or that Korean textbook you keep meaning to open. We meet at cafes around the city, study side by side, and wind down with snacks and conversation.",
-      },
-      {
-        emoji: "\uD83D\uDE8C",
-        type: "Field Trips",
-        title: "Beyond Seoul",
-        date: "A few times a year",
-        description:
-          "We hop on a train together for day trips beyond the city, like Suwon\u2019s fortress walls or a museum in Seoul, mixing history, culture, and good company.",
-      },
-      {
-        emoji: "\uD83C\uDFD3",
-        type: "Sports & Play",
-        title: "Pickleball Sessions",
-        date: "Every few weeks",
-        description:
-          "We rent an indoor court, hand out paddles, and play doubles until everyone has lost at least once. No experience needed. Half of us learned the rules on the spot.",
-      },
-      {
-        emoji: "\uD83C\uDFB2",
-        type: "Board Games",
-        title: "Board Game Cafe Nights",
-        date: "Every few weeks",
-        description:
-          "We take over a table at a board game cafe, order drinks, and work through the shelf: Uno, Halli Galli, Drawing Book, whatever someone grabs first. Easy to join even if you show up late.",
+          "Monday night dinners somewhere in the city, pickleball on a rented indoor court, board game cafe nights, and one night hike up Gwanaksan with Seoul lit up below. Easy to join even if you show up late.",
+        highlights: ["Monday Night Dinners", "Pickleball", "Board game cafe nights", "Night hike to Gwanaksan"],
       },
     ],
   },
