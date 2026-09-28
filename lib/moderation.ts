@@ -2,8 +2,12 @@
  * Automatic screening for submitted reviews.
  *
  * One call to Claude Haiku with the text and, when there is one, the photo.
- * It fails closed: any error, timeout or missing API key returns allow=false,
- * which leaves the review waiting for a human instead of publishing it blind.
+ * Any error or timeout fails closed (allow=false), which leaves the review
+ * waiting for a human instead of publishing it blind.
+ *
+ * With no ANTHROPIC_API_KEY set, screening is skipped and the review publishes
+ * straight away (decided Sep 28, 2026, to launch the board before moderation
+ * is wired up). Add the key in Vercel to turn screening back on.
  */
 
 const MODEL = "claude-haiku-4-5-20251001";
@@ -51,7 +55,7 @@ export async function screenReview(input: {
 }): Promise<ScreeningResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return { allow: false, reasons: ["screening_unavailable"], model: "none" };
+    return { allow: true, reasons: ["screening_skipped"], model: "none" };
   }
 
   const content: ContentBlock[] = [];
