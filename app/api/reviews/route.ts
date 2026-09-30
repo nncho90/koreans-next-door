@@ -46,10 +46,8 @@ function bad(error: string, status = 400) {
 
 export async function GET() {
   const reviews = await readPublishedReviews();
-  return NextResponse.json(
-    { reviews },
-    { headers: { "cache-control": "public, s-maxage=60, stale-while-revalidate=300" } }
-  );
+  // No CDN cache: someone who just pinned a review reloads and expects to see it.
+  return NextResponse.json({ reviews }, { headers: { "cache-control": "no-store" } });
 }
 
 export async function POST(req: Request) {

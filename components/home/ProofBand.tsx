@@ -88,11 +88,12 @@ export default function ProofBand() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [reviews, setReviews] = useState<PublicReview[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [justPinned, setJustPinned] = useState<string | null>(null);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     let active = true;
-    fetch("/api/reviews")
+    fetch("/api/reviews", { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         if (active && Array.isArray(data?.reviews)) setReviews(data.reviews);
@@ -191,6 +192,7 @@ export default function ProofBand() {
               return (
                 <motion.div
                   key={`review-${slot.review.id}`}
+                  id={`review-${slot.review.id}`}
                   className="relative mb-5 block w-full break-inside-avoid md:mb-7"
                   style={{ transform: `rotate(${tilt}deg)` }}
                   initial={{ opacity: 0, y: 18 }}
@@ -314,8 +316,20 @@ export default function ProofBand() {
       <AnimatePresence>
         {modalOpen && (
           <AddReviewModal
-            onClose={() => setModalOpen(false)}
-            onPublished={(review) => setReviews((list) => [review, ...list])}
+            onClose={() => {
+              setModalOpen(false);
+              // Take them straight to the note they just pinned.
+              if (justPinned) {
+                document
+                  .getElementById(`review-${justPinned}`)
+                  ?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+                setJustPinned(null);
+              }
+            }}
+            onPublished={(review) => {
+              setReviews((list) => [review, ...list.filter((r) => r.id !== review.id)]);
+              setJustPinned(review.id);
+            }}
           />
         )}
       </AnimatePresence>
